@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bone: #ede8df;
-  --color-paper: #f7f4ee;
-  --color-ink: #161a1e;
-  --color-muted: #4e4942;
-  --color-brass: #6e4e2c;
-  --color-steel: #24303a;
-  --color-line: #d4cec3;
+  --color-bone: #f4efe6;
+  --color-paper: #faf6f0;
+  --color-ink: #1b2a41;
+  --color-muted: #5a6a7a;
+  --color-brass: #1e4d7b;
+  --color-steel: #0f2744;
+  --color-line: #e0d8c8;
   --font-sans: "Barlow", "Avenir Next", "Segoe UI", sans-serif;
   --font-serif: "Newsreader", "Iowan Old Style", Georgia, serif;
   --text-mast: 4.25rem;
