@@ -53,19 +53,27 @@ function CompetenciesPage() {
             <ul className="glass-card border-0 lg:sticky lg:top-24 overflow-hidden">
               {competencies.map((item) => {
                 const on = item.id === active.id;
+                const count = ((evidenceItems as any)[item.id] || []).length;
                 return (
                   <li key={item.id} className="border-b border-white/20 last:border-b-0">
                     <Link
                       to="/competencies"
                       search={{ id: item.id }}
                       className={
-                        "flex min-h-12 items-center gap-4 py-3 pr-2 transition-all duration-300 " +
+                        "flex min-h-12 items-center justify-between gap-3 py-3 pr-3 transition-all duration-300 " +
                         (on ? "border-l-2 border-brass bg-white/35 pl-3" : "pl-3.5 text-muted hover:bg-white/25 hover:text-ink")
                       }
                       aria-current={on ? "true" : undefined}
                     >
-                      <span className="font-serif text-brass">{item.index}</span>
-                      <span className="text-sm font-medium">{item.title}</span>
+                      <span className="flex items-center gap-3">
+                        <span className="font-serif text-brass">{item.index}</span>
+                        <span className="text-sm font-medium">{item.title}</span>
+                      </span>
+                      {count > 0 && (
+                        <span className="text-xs font-semibold tracking-wide text-brass">
+                          {count}
+                        </span>
+                      )}
                     </Link>
                   </li>
                 );
