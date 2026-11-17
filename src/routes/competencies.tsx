@@ -27,7 +27,7 @@ function CompetenciesPage() {
       const timer = setTimeout(() => {
         setDisplayId(id);
         setTransitioning(false);
-      }, 600);
+      }, 550);
       return () => clearTimeout(timer);
     }
   }, [id, displayId]);
@@ -39,11 +39,11 @@ function CompetenciesPage() {
     <SiteFrame>
       <div className="mx-auto max-w-6xl px-5 py-14 md:px-8 md:py-20">
         <Kicker index="02">Competencies</Kicker>
-        <h1 className="mt-4 max-w-3xl font-serif text-5xl leading-none md:text-6xl">
+        <h1 className="mt-4 max-w-3xl font-serif text-5xl leading-none md:text-6xl fade-in">
           Nine domains. Foundation year.
         </h1>
         <p className="mt-6 max-w-2xl text-base leading-7 text-muted">
-          Aligned with the Gulf Medical University and EmiratesMEDs framework. Each domain has dedicated evidence and reflections.
+          Aligned with the Gulf Medical University and EmiratesMEDs framework. Each domain holds its own evidence and reflections.
         </p>
 
         <div className="mt-12 grid gap-8 lg:grid-cols-12">
@@ -57,8 +57,8 @@ function CompetenciesPage() {
                       to="/competencies"
                       search={{ id: item.id }}
                       className={
-                        "flex min-h-12 items-center gap-4 py-3 pr-2 transition-colors " +
-                        (on ? "border-l-2 border-brass bg-white/30 pl-3" : "pl-3.5 text-muted hover:bg-white/20 hover:text-ink")
+                        "flex min-h-12 items-center gap-4 py-3 pr-2 transition-all duration-300 " +
+                        (on ? "border-l-2 border-brass bg-white/35 pl-3" : "pl-3.5 text-muted hover:bg-white/25 hover:text-ink")
                       }
                       aria-current={on ? "true" : undefined}
                     >
@@ -71,16 +71,16 @@ function CompetenciesPage() {
             </ul>
           </nav>
 
-          <article className="relative lg:col-span-8 lg:pl-10 min-h-[500px]">
+          <article className="relative lg:col-span-8 lg:pl-10 min-h-[520px]">
             {transitioning && (
-              <div className="absolute inset-0 z-10 flex items-center justify-center glass rounded-2xl">
+              <div className="absolute inset-0 z-10 flex items-center justify-center glass rounded-2xl fade-in">
                 <div className="text-center">
                   <div className="mx-auto size-8 animate-spin rounded-full border-2 border-brass border-t-transparent" />
                   <p className="mt-3 text-sm font-medium text-brass">Loading competency…</p>
                 </div>
               </div>
             )}
-            <div className={"glass-card p-8 " + (transitioning ? "opacity-40 transition-opacity" : "opacity-100 transition-opacity duration-300")}>
+            <div className={"glass-card p-8 transition-all duration-300 " + (transitioning ? "opacity-30 scale-[0.98]" : "opacity-100 scale-100 slide-up")}>
               <p className="text-xs font-semibold tracking-widest text-brass uppercase">
                 {displayActive.index} · Foundation
               </p>
@@ -98,7 +98,7 @@ function CompetenciesPage() {
                   <h3 className="text-xs font-semibold tracking-widest uppercase">Evidence cards</h3>
                   <div className="mt-4 grid gap-4 sm:grid-cols-2">
                     {evidences.map((ev: any, i: number) => (
-                      <div key={i} className="glass overflow-hidden rounded-xl">
+                      <div key={i} className="glass overflow-hidden rounded-xl transition-transform duration-300 hover:scale-[1.02]">
                         {ev.image ? (
                           <img src={ev.image} alt={ev.title} className="h-40 w-full object-cover" />
                         ) : (
