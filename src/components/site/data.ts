@@ -207,14 +207,49 @@ export function answerJournal(raw: string): string {
 
 export const evidenceItems = {
   "medical-expert": [
-    { title: "Teaching laboratory sessions", description: "Practical skills development in the skills lab, applying biomedical principles hands-on.", image: "/lab-photo.jpg", type: "photo" },
-    { title: "Mid-semester achievement certificate", description: "Recognition for performance in foundational medical sciences and physiology.", image: "/midsem-certificate.jpg", type: "certificate" },
+    { 
+      title: "Teaching laboratory sessions", 
+      description: "Practical skills development in the skills lab, applying biomedical principles hands-on.", 
+      details: "Hands-on laboratory work applying foundational biomedical science. Sessions covered core techniques in anatomy and physiology labs, building the practical foundation required before clinical application.",
+      image: "/lab-photo.jpg", 
+      type: "photo",
+      date: "Year I"
+    },
+    { 
+      title: "Mid-semester achievement certificate", 
+      description: "Recognition for performance in foundational medical sciences and physiology.", 
+      details: "Certificate of Achievement awarded for strong performance in the mid-semester examination covering foundational medical physiology. Issued by faculty at Gulf Medical University.",
+      image: "/midsem-certificate.jpg", 
+      type: "certificate",
+      date: "October 2026"
+    },
   ],
   "social-accountability": [
-    { title: "MOHAP Hayat Program certificate", description: "Appreciation for contribution to the Hayat Program community health initiative (30 September 2026).", image: "/hayat-certificate.jpg", type: "certificate" },
-    { title: "World Diabetes Day certificate", description: "Participation in community awareness activities for World Diabetes Day.", image: "/diabetes-certificate.jpg", type: "certificate" },
+    { 
+      title: "MOHAP Hayat Program certificate", 
+      description: "Appreciation for contribution to the Hayat Program community health initiative.", 
+      details: "Certificate of Appreciation from the Ministry of Health and Prevention – Ajman for outstanding contribution to the success of the Hayat Program held on 30 September 2026. Recognizes community health engagement and service.",
+      image: "/hayat-certificate.jpg", 
+      type: "certificate",
+      date: "30 September 2026"
+    },
+    { 
+      title: "World Diabetes Day certificate", 
+      description: "Participation in community awareness activities for World Diabetes Day.", 
+      details: "Certificate of Participation awarded by Gulf Medical University for involvement in World Diabetes Day community awareness activities. Demonstrates engagement with public health education and outreach.",
+      image: "/diabetes-certificate.jpg", 
+      type: "certificate",
+      date: "World Diabetes Day 2026"
+    },
   ],
   "lifelong-learner": [
-    { title: "Gut-Brain Axis attendance certificate", description: "Attendance at the Gut-Brain Axis: Healthy Nutrition for Your Well-being session (5 November 2026).", image: "/gutbrain-certificate.jpg", type: "certificate" },
+    { 
+      title: "Gut-Brain Axis attendance certificate", 
+      description: "Attendance at the Gut-Brain Axis: Healthy Nutrition for Your Well-being session.", 
+      details: "Certificate of Attendance for the session “Gut-Brain Axis: Healthy Nutrition for Your Well-being” conducted on Thursday, 5 November 2026 at Gulf Medical University College of Medicine. Reflects ongoing professional development beyond core coursework.",
+      image: "/gutbrain-certificate.jpg", 
+      type: "certificate",
+      date: "5 November 2026"
+    },
   ],
 };
