@@ -16,7 +16,7 @@ function AboutPage() {
         <Kicker index="01">The record</Kicker>
         <div className="mt-8 grid items-end gap-10 lg:grid-cols-12">
           <h1 className="font-serif text-5xl leading-none md:text-7xl lg:col-span-8">
-            The coat is a uniform. The record is the work.
+            About me
           </h1>
           <div className="lg:col-span-4">
             <Monogram />
@@ -33,27 +33,13 @@ function AboutPage() {
         <div className="mt-14 grid gap-12 border-t border-line pt-12 lg:grid-cols-12">
           <div className="space-y-5 text-base leading-7 text-muted lg:col-span-7">
             <p className="font-serif text-2xl leading-9 text-ink">
-              I am in the first year of the GMD program at Gulf Medical University, Ajman —
-              Doctor of Medicine training, entered 2026.
+              I am a first-year Doctor of Medicine (MD) student at Gulf Medical University, beginning my journey in the field of medicine with a strong interest in understanding the complexities of human health and disease.
             </p>
             <p>
-              The year is foundational science, early clinical skills, and the habits of a
-              person who can be left in a teaching hospital without becoming a problem.
-              Specialty talk can wait. Anatomy cannot.
+              As I embark on my medical education, I aim to develop a strong foundation in medical sciences while continuously strengthening my critical thinking, communication and problem-solving skills. I believe that becoming a competent healthcare professional requires not only academic knowledge but also empathy, integrity, adaptability and a commitment to lifelong learning.
             </p>
             <p>
-              Clinical education at GMU runs through the Thumbay Academic Health System.
-              I treat that as a place to learn the map — how a ward, a lab, and a clinic
-              hand work to each other — not as a list of departments to claim.
-            </p>
-            <p>
-              I have not published, and I will not decorate this page with observerships
-              that are not mine to tell. If a line appears later, it will have a date and
-              a name that can be checked.
-            </p>
-            <p>
-              The standard I am writing toward is short. Be precise. Be useful to a team.
-              Do not claim a competency you have not practiced.
+              I look forward to gaining new perspectives through academic learning, collaborative experiences and clinical exposure. My goal is to progressively develop the knowledge, practical skills and professional values necessary to contribute meaningfully to patient care and the healthcare community.
             </p>
           </div>
           <aside className="lg:col-span-5">
