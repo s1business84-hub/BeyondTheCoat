@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bone: #f7f3eb;
-  --color-paper: #fdfaf6;
-  --color-ink: #1a2744;
-  --color-muted: #5c6b7a;
-  --color-brass: #2a5a8a;
-  --color-steel: #0e2340;
-  --color-line: #e5ddd0;
+  --color-bone: #f5f7fa;
+  --color-paper: #ffffff;
+  --color-ink: #0f2744;
+  --color-muted: #5a6a7a;
+  --color-brass: #1e4d7b;
+  --color-steel: #0a1f3d;
+  --color-line: #e2e8f0;
   --font-sans: "Barlow", "Avenir Next", "Segoe UI", sans-serif;
   --font-serif: "Newsreader", "Iowan Old Style", Georgia, serif;
   --text-mast: 4.25rem;
@@ -21,7 +21,7 @@
     scroll-behavior: smooth;
   }
   body {
-    background: linear-gradient(160deg, #f7f3eb 0%, #efe8dc 50%, #e8e0d2 100%);
+    background: linear-gradient(160deg, #f8fafc 0%, #f1f5f9 50%, #e8eef4 100%);
     color: var(--color-ink);
     font-family: var(--font-sans);
     line-height: 1.55;
@@ -37,31 +37,31 @@
   }
   ::selection {
     background: var(--color-brass);
-    color: var(--color-paper);
+    color: white;
   }
 }
 
 @layer utilities {
   .glass {
-    background: rgba(253, 250, 246, 0.62);
-    backdrop-filter: blur(18px) saturate(170%);
-    -webkit-backdrop-filter: blur(18px) saturate(170%);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    box-shadow: 0 10px 40px rgba(26, 39, 68, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 10px 40px rgba(15, 39, 68, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.8);
   }
   .glass-card {
-    background: rgba(253, 250, 246, 0.5);
-    backdrop-filter: blur(14px) saturate(150%);
-    -webkit-backdrop-filter: blur(14px) saturate(150%);
-    border: 1px solid rgba(229, 221, 208, 0.55);
-    box-shadow: 0 6px 28px rgba(26, 39, 68, 0.05);
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    box-shadow: 0 6px 28px rgba(15, 39, 68, 0.05);
     border-radius: 14px;
   }
   .glass-nav {
-    background: rgba(247, 243, 235, 0.72);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border-bottom: 1px solid rgba(229, 221, 208, 0.45);
+    background: rgba(248, 250, 252, 0.8);
+    backdrop-filter: blur(20px) saturate(170%);
+    -webkit-backdrop-filter: blur(20px) saturate(170%);
+    border-bottom: 1px solid rgba(226, 232, 240, 0.6);
   }
   .fade-in {
     animation: fadeIn 0.5s ease-out forwards;
