@@ -9,7 +9,7 @@ function Home() {
     <SiteFrame>
       <section className="border-b border-line">
         <div className="mx-auto grid max-w-6xl gap-12 px-5 py-14 md:px-8 md:py-20 lg:grid-cols-12 lg:items-end">
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-7 fade-in">
             <p className="text-xs font-semibold tracking-widest text-muted uppercase">
               Vol. I · Year I · Ajman
             </p>
@@ -18,30 +18,29 @@ function Home() {
               <span className="block italic text-steel">Devnani</span>
             </h1>
             <p className="mt-8 max-w-xl font-serif text-xl leading-8 text-ink md:text-2xl">
-              First-year GMD student at Gulf Medical University. A working record of the
-              training — direct, dated, and unfinished on purpose.
+              First-year GMD at Gulf Medical University. A living record of the training — precise, dated, and open to change.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 to="/about"
-                className="inline-flex h-12 items-center bg-ink px-5 text-xs font-semibold tracking-widest text-bone uppercase"
+                className="inline-flex h-12 items-center bg-ink px-5 text-xs font-semibold tracking-widest text-bone uppercase transition-transform hover:scale-[1.02]"
               >
                 Read the record
               </Link>
               <Link
                 to="/competencies"
                 search={{ id: "medical-expert" }}
-                className="inline-flex h-12 items-center border border-ink px-5 text-xs font-semibold tracking-widest uppercase"
+                className="inline-flex h-12 items-center border border-ink px-5 text-xs font-semibold tracking-widest uppercase transition-colors hover:bg-ink hover:text-bone"
               >
                 Nine competencies
               </Link>
             </div>
           </div>
-          <aside className="border border-line bg-paper p-6 lg:col-span-5">
+          <aside className="glass-card p-6 lg:col-span-5 slide-up">
             <p className="text-xs font-semibold tracking-widest text-muted uppercase">
               In this number
             </p>
-            <ol className="mt-4 divide-y divide-line">
+            <ol className="mt-4 divide-y divide-white/20">
               <li>
                 <Link to="/about" className="flex items-baseline gap-4 py-4">
                   <span className="font-serif text-lg text-brass">01</span>
@@ -160,7 +159,7 @@ function Home() {
                 <Link
                   to="/competencies"
                   search={{ id: item.id }}
-                  className="grid grid-cols-12 items-baseline gap-3 py-4 hover:bg-bone md:py-5"
+                  className="grid grid-cols-12 items-baseline gap-3 py-4 hover:bg-bone md:py-5 transition-colors"
                 >
                   <span className="col-span-2 font-serif text-lg text-brass md:col-span-1">
                     {item.index}
@@ -245,7 +244,7 @@ function Home() {
               faculty, a collaboration that respects that this record is just beginning.
             </p>
           </div>
-          <div className="border border-line bg-paper p-8">
+          <div className="glass-card p-8">
             <Monogram />
             <h3 className="mt-6 font-serif text-3xl">Rahul Devnani</h3>
             <p className="mt-2 text-sm leading-6 text-muted">
