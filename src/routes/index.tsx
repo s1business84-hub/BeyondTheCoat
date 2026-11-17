@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Kicker, Monogram, SiteFrame } from "@/components/site/chrome";
-import { competencies, ledger, purposes, standing } from "@/components/site/data";
+import { competencies, ledger, purposes, standing, evidenceItems } from "@/components/site/data";
 
 export const Route = createFileRoute("/")({ component: Home });
 
@@ -154,24 +154,30 @@ function Home() {
             </Link>
           </div>
           <ol className="mt-10 border-t border-line">
-            {competencies.map((item) => (
-              <li key={item.id} className="border-b border-line">
-                <Link
-                  to="/competencies"
-                  search={{ id: item.id }}
-                  className="grid grid-cols-12 items-baseline gap-3 py-4 hover:bg-bone md:py-5 transition-colors"
-                >
-                  <span className="col-span-2 font-serif text-lg text-brass md:col-span-1">
-                    {item.index}
-                  </span>
-                  <span className="col-span-10 text-base font-medium md:col-span-4">{item.title}</span>
-                  <span className="col-span-9 text-sm text-muted md:col-span-5">{item.plain}</span>
-                  <span className="col-span-3 text-right text-xs tracking-widest text-muted uppercase md:col-span-2">
-                    Foundation
-                  </span>
-                </Link>
-              </li>
-            ))}
+            {competencies.map((item) => {
+              const count = ((evidenceItems as any)[item.id] || []).length;
+              return (
+                <li key={item.id} className="border-b border-line">
+                  <Link
+                    to="/competencies"
+                    search={{ id: item.id }}
+                    className="grid grid-cols-12 items-baseline gap-3 py-4 hover:bg-bone md:py-5 transition-colors"
+                  >
+                    <span className="col-span-2 font-serif text-lg text-brass md:col-span-1">
+                      {item.index}
+                    </span>
+                    <span className="col-span-7 text-base font-medium md:col-span-3">{item.title}</span>
+                    <span className="col-span-3 text-right text-xs font-semibold tracking-wide text-brass md:col-span-1">
+                      {count > 0 ? `${count} ${count === 1 ? "ENTRY" : "ENTRIES"}` : "—"}
+                    </span>
+                    <span className="col-span-9 text-sm text-muted md:col-span-5">{item.plain}</span>
+                    <span className="col-span-3 text-right text-xs tracking-widest text-muted uppercase md:col-span-2">
+                      Foundation
+                    </span>
+                  </Link>
+                </li>
+              );
+            })}
           </ol>
         </div>
       </section>
