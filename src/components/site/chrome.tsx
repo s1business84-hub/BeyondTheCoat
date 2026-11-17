@@ -42,7 +42,7 @@ function Nav() {
   }, [pathname]);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-bone/95 backdrop-blur-sm">
+    <header className="sticky top-0 z-40 glass-nav">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5 md:px-8">
         <Link to="/" className="leading-none">
           <span className="block text-xs font-semibold tracking-widest text-ink uppercase">
@@ -188,9 +188,9 @@ function JournalDesk() {
         <section
           role="dialog"
           aria-labelledby={titleId}
-          className="flex w-[min(100vw-2rem,22rem)] flex-col border border-line bg-paper shadow-none"
+          className="flex w-[min(100vw-2rem,22rem)] flex-col glass rounded-2xl shadow-none"
         >
-          <header className="flex items-center justify-between border-b border-line px-4 py-3">
+          <header className="flex items-center justify-between border-b border-white/20 px-4 py-3">
             <div>
               <p id={titleId} className="text-sm font-semibold tracking-wide">
                 Journal desk
@@ -222,12 +222,12 @@ function JournalDesk() {
               </p>
             ))}
           </div>
-          <div className="flex flex-wrap gap-2 border-t border-line px-4 py-3">
+          <div className="flex flex-wrap gap-2 border-t border-white/20 px-4 py-3">
             {suggestions.map((item) => (
               <button
                 key={item}
                 type="button"
-                className="border border-line px-3 py-2 text-xs tracking-wide text-muted hover:text-ink"
+                className="border border-white/30 px-3 py-2 text-xs tracking-wide text-muted hover:text-ink"
                 onClick={() => ask(item)}
               >
                 {item}
@@ -235,7 +235,7 @@ function JournalDesk() {
             ))}
           </div>
           <form
-            className="flex border-t border-line"
+            className="flex border-t border-white/20"
             onSubmit={(event) => {
               event.preventDefault();
               ask(draft);
@@ -250,7 +250,7 @@ function JournalDesk() {
               onChange={(event) => setDraft(event.target.value)}
               maxLength={200}
               placeholder="Ask the journal"
-              className="min-w-0 flex-1 bg-paper px-4 py-3 text-sm outline-none"
+              className="min-w-0 flex-1 bg-transparent px-4 py-3 text-sm outline-none"
             />
             <button type="submit" className="px-4 text-xs font-semibold tracking-widest uppercase">
               Send
