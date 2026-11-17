@@ -48,17 +48,17 @@ function CompetenciesPage() {
 
         <div className="mt-12 grid gap-8 lg:grid-cols-12">
           <nav className="lg:col-span-4" aria-label="Competency index">
-            <ul className="border-t border-line lg:sticky lg:top-24">
+            <ul className="glass-card border-0 lg:sticky lg:top-24 overflow-hidden">
               {competencies.map((item) => {
                 const on = item.id === active.id;
                 return (
-                  <li key={item.id} className="border-b border-line">
+                  <li key={item.id} className="border-b border-white/20 last:border-b-0">
                     <Link
                       to="/competencies"
                       search={{ id: item.id }}
                       className={
-                        "flex min-h-12 items-center gap-4 py-3 pr-2 " +
-                        (on ? "border-l-2 border-brass pl-3 bg-paper" : "pl-3.5 text-muted hover:text-ink")
+                        "flex min-h-12 items-center gap-4 py-3 pr-2 transition-colors " +
+                        (on ? "border-l-2 border-brass bg-white/30 pl-3" : "pl-3.5 text-muted hover:bg-white/20 hover:text-ink")
                       }
                       aria-current={on ? "true" : undefined}
                     >
@@ -71,16 +71,16 @@ function CompetenciesPage() {
             </ul>
           </nav>
 
-          <article className="relative lg:col-span-8 lg:border-l lg:border-line lg:pl-10 min-h-[500px]">
+          <article className="relative lg:col-span-8 lg:pl-10 min-h-[500px]">
             {transitioning && (
-              <div className="absolute inset-0 z-10 flex items-center justify-center bg-bone/90 backdrop-blur-sm">
+              <div className="absolute inset-0 z-10 flex items-center justify-center glass rounded-2xl">
                 <div className="text-center">
                   <div className="mx-auto size-8 animate-spin rounded-full border-2 border-brass border-t-transparent" />
                   <p className="mt-3 text-sm font-medium text-brass">Loading competency…</p>
                 </div>
               </div>
             )}
-            <div className={transitioning ? "opacity-40 transition-opacity" : "opacity-100 transition-opacity duration-300"}>
+            <div className={"glass-card p-8 " + (transitioning ? "opacity-40 transition-opacity" : "opacity-100 transition-opacity duration-300")}>
               <p className="text-xs font-semibold tracking-widest text-brass uppercase">
                 {displayActive.index} · Foundation
               </p>
@@ -98,7 +98,7 @@ function CompetenciesPage() {
                   <h3 className="text-xs font-semibold tracking-widest uppercase">Evidence cards</h3>
                   <div className="mt-4 grid gap-4 sm:grid-cols-2">
                     {evidences.map((ev: any, i: number) => (
-                      <div key={i} className="overflow-hidden border border-line bg-paper">
+                      <div key={i} className="glass overflow-hidden rounded-xl">
                         {ev.image ? (
                           <img src={ev.image} alt={ev.title} className="h-40 w-full object-cover" />
                         ) : (
