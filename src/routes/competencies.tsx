@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Kicker, SiteFrame } from "@/components/site/chrome";
-import { competencies, gibbs } from "@/components/site/data";
+import { competencies, gibbs, evidenceItems } from "@/components/site/data";
+import { useEffect, useState } from "react";
 
 type Search = { id: string };
 
@@ -17,6 +18,22 @@ export const Route = createFileRoute("/competencies")({
 function CompetenciesPage() {
   const { id } = Route.useSearch();
   const active = competencies.find((item) => item.id === id) ?? competencies[0];
+  const [transitioning, setTransitioning] = useState(false);
+  const [displayId, setDisplayId] = useState(id);
+
+  useEffect(() => {
+    if (id !== displayId) {
+      setTransitioning(true);
+      const timer = setTimeout(() => {
+        setDisplayId(id);
+        setTransitioning(false);
+      }, 600);
+      return () => clearTimeout(timer);
+    }
+  }, [id, displayId]);
+
+  const displayActive = competencies.find((item) => item.id === displayId) ?? competencies[0];
+  const evidences = (evidenceItems as any)[displayActive.id] || [];
 
   return (
     <SiteFrame>
@@ -26,23 +43,7 @@ function CompetenciesPage() {
           Nine domains. Foundation year.
         </h1>
         <p className="mt-6 max-w-2xl text-base leading-7 text-muted">
-          Aligned with the Gulf Medical University framework. Click a domain. The note on
-          the right is the year-one aim — not a completed assessment, and not a patient
-          story written to sound like one.
-        </p>
-
-        <ol className="mt-12 grid gap-px bg-line sm:grid-cols-2 lg:grid-cols-3">
-          {gibbs.map((step) => (
-            <li key={step.step} className="bg-paper p-5">
-              <p className="font-serif text-lg text-brass">{step.step}</p>
-              <p className="mt-2 text-sm font-semibold">{step.title}</p>
-              <p className="mt-1 text-sm text-muted">{step.text}</p>
-            </li>
-          ))}
-        </ol>
-        <p className="mt-4 text-sm text-muted">
-          Reflections, when they exist, follow Gibbs. The cycle is the method. It is not
-          filled with invented ward rounds.
+          Aligned with the Gulf Medical University and EmiratesMEDs framework. Each domain has dedicated evidence and reflections.
         </p>
 
         <div className="mt-12 grid gap-8 lg:grid-cols-12">
@@ -57,7 +58,7 @@ function CompetenciesPage() {
                       search={{ id: item.id }}
                       className={
                         "flex min-h-12 items-center gap-4 py-3 pr-2 " +
-                        (on ? "border-l-2 border-brass pl-3" : "pl-3.5 text-muted hover:text-ink")
+                        (on ? "border-l-2 border-brass pl-3 bg-paper" : "pl-3.5 text-muted hover:text-ink")
                       }
                       aria-current={on ? "true" : undefined}
                     >
@@ -70,18 +71,51 @@ function CompetenciesPage() {
             </ul>
           </nav>
 
-          <article className="lg:col-span-8 lg:border-l lg:border-line lg:pl-10">
-            <p className="text-xs font-semibold tracking-widest text-brass uppercase">
-              {active.index} · Foundation
-            </p>
-            <h2 className="mt-3 font-serif text-4xl md:text-5xl">{active.title}</h2>
-            <p className="mt-4 font-serif text-xl leading-8 italic">{active.plain}</p>
-            <h3 className="mt-10 text-xs font-semibold tracking-widest uppercase">Year I aim</h3>
-            <p className="mt-3 max-w-xl text-base leading-7 text-muted">{active.yearOne}</p>
-            <h3 className="mt-8 text-xs font-semibold tracking-widest uppercase">
-              What will count as evidence
-            </h3>
-            <p className="mt-3 max-w-xl text-base leading-7 text-muted">{active.evidence}</p>
+          <article className="relative lg:col-span-8 lg:border-l lg:border-line lg:pl-10 min-h-[500px]">
+            {transitioning && (
+              <div className="absolute inset-0 z-10 flex items-center justify-center bg-bone/90 backdrop-blur-sm">
+                <div className="text-center">
+                  <div className="mx-auto size-8 animate-spin rounded-full border-2 border-brass border-t-transparent" />
+                  <p className="mt-3 text-sm font-medium text-brass">Loading competency…</p>
+                </div>
+              </div>
+            )}
+            <div className={transitioning ? "opacity-40 transition-opacity" : "opacity-100 transition-opacity duration-300"}>
+              <p className="text-xs font-semibold tracking-widest text-brass uppercase">
+                {displayActive.index} · Foundation
+              </p>
+              <h2 className="mt-3 font-serif text-4xl md:text-5xl">{displayActive.title}</h2>
+              <p className="mt-4 font-serif text-xl leading-8 italic">{displayActive.plain}</p>
+              <h3 className="mt-10 text-xs font-semibold tracking-widest uppercase">Year I aim</h3>
+              <p className="mt-3 max-w-xl text-base leading-7 text-muted">{displayActive.yearOne}</p>
+              <h3 className="mt-8 text-xs font-semibold tracking-widest uppercase">
+                What will count as evidence
+              </h3>
+              <p className="mt-3 max-w-xl text-base leading-7 text-muted">{displayActive.evidence}</p>
+
+              {evidences.length > 0 && (
+                <div className="mt-10">
+                  <h3 className="text-xs font-semibold tracking-widest uppercase">Evidence cards</h3>
+                  <div className="mt-4 grid gap-4 sm:grid-cols-2">
+                    {evidences.map((ev: any, i: number) => (
+                      <div key={i} className="overflow-hidden border border-line bg-paper">
+                        {ev.image ? (
+                          <img src={ev.image} alt={ev.title} className="h-40 w-full object-cover" />
+                        ) : (
+                          <div className="flex h-40 items-center justify-center bg-steel/10 text-xs tracking-widest text-muted uppercase">
+                            Certificate
+                          </div>
+                        )}
+                        <div className="p-4">
+                          <p className="text-sm font-semibold">{ev.title}</p>
+                          <p className="mt-1 text-xs leading-5 text-muted">{ev.description}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
           </article>
         </div>
       </div>
