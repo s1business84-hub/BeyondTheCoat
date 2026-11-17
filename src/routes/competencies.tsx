@@ -20,10 +20,12 @@ function CompetenciesPage() {
   const active = competencies.find((item) => item.id === id) ?? competencies[0];
   const [transitioning, setTransitioning] = useState(false);
   const [displayId, setDisplayId] = useState(id);
+  const [expanded, setExpanded] = useState<number | null>(null);
 
   useEffect(() => {
     if (id !== displayId) {
       setTransitioning(true);
+      setExpanded(null);
       const timer = setTimeout(() => {
         setDisplayId(id);
         setTransitioning(false);
@@ -95,23 +97,38 @@ function CompetenciesPage() {
 
               {evidences.length > 0 && (
                 <div className="mt-10">
-                  <h3 className="text-xs font-semibold tracking-widest uppercase">Evidence cards</h3>
+                  <h3 className="text-xs font-semibold tracking-widest uppercase">Evidence</h3>
                   <div className="mt-4 grid gap-4 sm:grid-cols-2">
-                    {evidences.map((ev: any, i: number) => (
-                      <div key={i} className="glass overflow-hidden rounded-xl transition-transform duration-300 hover:scale-[1.02]">
-                        {ev.image ? (
-                          <img src={ev.image} alt={ev.title} className="h-40 w-full object-cover" />
-                        ) : (
-                          <div className="flex h-40 items-center justify-center bg-steel/10 text-xs tracking-widest text-muted uppercase">
-                            Certificate
+                    {evidences.map((ev: any, i: number) => {
+                      const isOpen = expanded === i;
+                      return (
+                        <button
+                          key={i}
+                          type="button"
+                          onClick={() => setExpanded(isOpen ? null : i)}
+                          className={"glass overflow-hidden rounded-xl text-left transition-all duration-300 " + (isOpen ? "ring-2 ring-brass sm:col-span-2" : "hover:scale-[1.02]")}
+                        >
+                          {ev.image ? (
+                            <img src={ev.image} alt={ev.title} className="h-40 w-full object-cover" />
+                          ) : (
+                            <div className="flex h-40 items-center justify-center bg-steel/10 text-xs tracking-widest text-muted uppercase">
+                              Certificate
+                            </div>
+                          )}
+                          <div className="p-4">
+                            <p className="text-sm font-semibold">{ev.title}</p>
+                            <p className="mt-1 text-xs leading-5 text-muted">{ev.description}</p>
+                            {ev.date && <p className="mt-2 text-xs tracking-wide text-brass">{ev.date}</p>}
+                            {isOpen && ev.details && (
+                              <p className="mt-3 border-t border-white/30 pt-3 text-sm leading-6 text-ink">
+                                {ev.details}
+                              </p>
+                            )}
+                            <p className="mt-2 text-xs text-muted">{isOpen ? "Tap to collapse" : "Tap for details"}</p>
                           </div>
-                        )}
-                        <div className="p-4">
-                          <p className="text-sm font-semibold">{ev.title}</p>
-                          <p className="mt-1 text-xs leading-5 text-muted">{ev.description}</p>
-                        </div>
-                      </div>
-                    ))}
+                        </button>
+                      );
+                    })}
                   </div>
                 </div>
               )}
