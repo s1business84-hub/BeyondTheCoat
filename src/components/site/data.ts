@@ -204,3 +204,17 @@ export function answerJournal(raw: string): string {
   }
   return "I only answer from what this journal publishes: the record, the nine competencies, the ledger, and how to get in touch. Try one of those.";
 }
+
+export const evidenceItems = {
+  "medical-expert": [
+    { title: "Teaching laboratory sessions", description: "Practical skills development in the skills lab, applying biomedical principles hands-on.", image: "/lab-photo.jpg", type: "photo" },
+    { title: "Mid-semester achievement certificate", description: "Recognition for performance in foundational medical physiology.", image: null, type: "certificate" },
+  ],
+  "socially-accountable": [
+    { title: "MOHAP Hayat Program certificate", description: "Community health engagement through the Ministry of Health program.", image: null, type: "certificate" },
+    { title: "World Diabetes Day certificate", description: "Participation in community awareness and engagement activities.", image: null, type: "certificate" },
+  ],
+  "lifelong-learner": [
+    { title: "Gut-Brain Axis attendance certificate", description: "Continuing professional development through attendance at specialized session.", image: null, type: "certificate" },
+  ],
+};
