@@ -196,8 +196,7 @@ function Home() {
       <section className="bg-ink text-bone">
         <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-20">
           <p className="max-w-3xl font-serif text-3xl leading-tight italic md:text-5xl">
-            Every ward round is a masterclass. A first-year earns the right to say that
-            by paying attention before speaking.
+            Every lesson learned today is a step towards making a difference tomorrow.
           </p>
         </div>
       </section>
@@ -221,8 +220,7 @@ function Home() {
               Gulf Medical University, Ajman
             </p>
             <p className="mt-6 border-t border-line pt-6 font-serif text-lg italic leading-7">
-              “A direct email will be listed when it is ready to be public. Until then,
-              the university is the address of record.”
+              “Every lesson learned today is a step towards making a difference tomorrow.”
             </p>
           </div>
         </div>
