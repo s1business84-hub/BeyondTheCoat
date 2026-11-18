@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Kicker, SiteFrame } from "@/components/site/chrome";
 import { competencies, gibbs, evidenceItems } from "@/components/site/data";
+import { useEffect, useState } from "react";
 
 type Search = { id: string };
 
@@ -18,6 +19,15 @@ function CompetenciesPage() {
   const { id } = Route.useSearch();
   const selected = competencies.find((item) => item.id === id);
   const evidences = selected ? ((evidenceItems as any)[selected.id] || []) : [];
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (id) {
+      setLoading(true);
+      const t = setTimeout(() => setLoading(false), 450);
+      return () => clearTimeout(t);
+    }
+  }, [id]);
 
   return (
     <SiteFrame>
@@ -29,6 +39,15 @@ function CompetenciesPage() {
         <p className="mt-6 max-w-2xl text-base leading-7 text-muted">
           Click any competency to open its evidence and reflection.
         </p>
+
+        {loading && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-white/70 backdrop-blur-sm">
+            <div className="text-center">
+              <div className="mx-auto size-10 animate-spin rounded-full border-2 border-brass border-t-transparent" />
+              <p className="mt-4 text-sm font-medium text-brass">Opening…</p>
+            </div>
+          </div>
+        )}
 
         {!selected ? (
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
