@@ -4,6 +4,22 @@ import { competencies, purposes, standing, evidenceItems } from "@/components/si
 
 export const Route = createFileRoute("/")({ component: Home });
 
+function AnimatedName({ text, className }: { text: string; className?: string }) {
+  return (
+    <span className={className}>
+      {text.split("").map((char, i) => (
+        <span
+          key={i}
+          className="inline-block opacity-0 animate-[letterIn_0.5s_ease-out_forwards]"
+          style={{ animationDelay: `${i * 0.06}s` }}
+        >
+          {char === " " ? "\u00A0" : char}
+        </span>
+      ))}
+    </span>
+  );
+}
+
 function Home() {
   return (
     <SiteFrame>
@@ -14,8 +30,8 @@ function Home() {
               Year I · Ajman
             </p>
             <h1 className="mt-6 font-serif text-6xl font-medium leading-none lg:text-8xl">
-              <span className="block">Rahul</span>
-              <span className="block italic text-steel">Devnani</span>
+              <AnimatedName text="Rahul" className="block" />
+              <AnimatedName text="Devnani" className="block italic text-steel" />
             </h1>
             <p className="mt-8 max-w-lg font-serif text-xl leading-8 text-ink md:text-2xl">
               First-year MD student at Gulf Medical University.
