@@ -102,7 +102,7 @@ function Home() {
 
       <section className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
         <Kicker index="01">The record</Kicker>
-        <div className="mt-6 grid gap-10 lg:grid-cols-12">
+        <div className="mt-6 grid gap-10 lg:grid-cols-12 items-start">
           <div className="lg:col-span-7">
             <h2 className="font-serif text-4xl leading-tight md:text-5xl">
               A first year, written down before it can be polished.
@@ -127,14 +127,13 @@ function Home() {
               Full record →
             </Link>
           </div>
-          <blockquote className="border-t border-brass pt-6 lg:col-span-5 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-8">
-            <p className="font-serif text-2xl leading-9 italic">
-              “Anatomy first. Then judgment. The coat is earned in that order.”
-            </p>
-            <footer className="mt-4 text-xs tracking-widest text-muted uppercase">
-              Field note · Year I
-            </footer>
-          </blockquote>
+          <div className="lg:col-span-5">
+            <img
+              src="/lab-photo.jpg"
+              alt="Rahul Devnani working in the lab"
+              className="w-full h-auto object-cover"
+            />
+          </div>
         </div>
       </section>
 
