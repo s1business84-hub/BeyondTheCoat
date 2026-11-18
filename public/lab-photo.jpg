@@ -1,1 +1,1 @@
-/9j/4AAQSkZJRgABAQAASABIAAD/4QCARXhpZgAATU0AKgAAAAgABQESAAMAAAABAAEAAAEaAAUAAAABAAAASgEbAAUAAAABAAAA...truncated for this example, but in real it would be full
+$(cat /tmp/img_base64.txt)
