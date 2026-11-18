@@ -94,29 +94,30 @@ function Home() {
               View all →
             </Link>
           </div>
-          <ol className="mt-12 border-t border-line">
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {competencies.map((item) => {
               const count = ((evidenceItems as any)[item.id] || []).length;
               return (
-                <li key={item.id} className="border-b border-line">
-                  <Link
-                    to="/competencies"
-                    search={{ id: item.id }}
-                    className="grid grid-cols-12 items-baseline gap-3 py-5 hover:bg-bone transition-colors"
-                  >
-                    <span className="col-span-2 font-serif text-lg text-brass md:col-span-1">
-                      {item.index}
-                    </span>
-                    <span className="col-span-7 text-base font-medium md:col-span-3">{item.title}</span>
-                    <span className="col-span-3 text-right text-xs font-semibold tracking-wide text-brass md:col-span-1">
-                      {count > 0 ? count : "—"}
-                    </span>
-                    <span className="col-span-9 text-sm text-muted md:col-span-7">{item.plain}</span>
-                  </Link>
-                </li>
+                <Link
+                  key={item.id}
+                  to="/competencies"
+                  search={{ id: item.id }}
+                  className="glass-card group block p-6 transition-all hover:scale-[1.02]"
+                >
+                  <div className="flex items-start justify-between">
+                    <p className="font-serif text-2xl text-brass">{item.index}</p>
+                    {count > 0 && (
+                      <span className="rounded-full bg-brass/10 px-2.5 py-1 text-xs font-semibold text-brass">
+                        {count}
+                      </span>
+                    )}
+                  </div>
+                  <h3 className="mt-3 text-lg font-medium group-hover:text-brass transition-colors">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-muted line-clamp-3">{item.plain}</p>
+                </Link>
               );
             })}
-          </ol>
+          </div>
         </div>
       </section>
 
