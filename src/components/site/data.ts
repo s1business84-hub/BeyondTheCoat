@@ -219,7 +219,7 @@ export const evidenceItems = {
       title: "Mid-semester achievement certificate", 
       description: "Recognition for performance in foundational medical physiology.", 
       details: "Certificate of Achievement for the mid-semester examination in medical physiology, issued by faculty at Gulf Medical University.",
-      image: "/midsem-certificate.jpg", 
+      image: "/Certificate of Achievement-physiology.jpeg", 
       type: "certificate",
       date: "October 2026"
     },
@@ -229,7 +229,7 @@ export const evidenceItems = {
       title: "MOHAP Hayat Program certificate", 
       description: "Appreciation for contribution to the Hayat Program community health initiative.", 
       details: "Certificate of Appreciation from the Ministry of Health and Prevention – Ajman for contribution to the Hayat Program on 30 September 2026.",
-      image: "/hayat-certificate.jpg", 
+      image: "/HAYAT PROGRAMME.jpeg", 
       type: "certificate",
       date: "30 September 2026"
     },
@@ -237,7 +237,7 @@ export const evidenceItems = {
       title: "World Diabetes Day certificate", 
       description: "Participation in community awareness activities for World Diabetes Day.", 
       details: "Certificate of Participation from Gulf Medical University for involvement in World Diabetes Day community awareness activities.",
-      image: "/diabetes-certificate.jpg", 
+      image: "/World Diabetes Day.jpeg", 
       type: "certificate",
       date: "World Diabetes Day 2026"
     },
@@ -247,7 +247,7 @@ export const evidenceItems = {
       title: "Gut-Brain Axis attendance certificate", 
       description: "Attendance at the Gut-Brain Axis: Healthy Nutrition for Your Well-being session.", 
       details: "Certificate of Attendance for the session conducted on 5 November 2026 at Gulf Medical University College of Medicine.",
-      image: "/gutbrain-certificate.jpg", 
+      image: "/Gut-Brain Axis.jpeg", 
       type: "certificate",
       date: "5 November 2026"
     },
