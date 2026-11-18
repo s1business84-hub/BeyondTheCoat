@@ -1,1 +1,1 @@
-$(cat /tmp/img_base64.txt)
+FULL_BASE64_FROM_FILE
