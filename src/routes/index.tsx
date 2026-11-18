@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Kicker, Monogram, SiteFrame } from "@/components/site/chrome";
-import { competencies, ledger, purposes, standing, evidenceItems } from "@/components/site/data";
+import { competencies, purposes, standing, evidenceItems } from "@/components/site/data";
 
 export const Route = createFileRoute("/")({ component: Home });
 
@@ -64,17 +64,8 @@ function Home() {
                 </Link>
               </li>
               <li>
-                <Link to="/work" className="flex items-baseline gap-4 py-4">
-                  <span className="font-serif text-lg text-brass">03</span>
-                  <span>
-                    <span className="block text-sm font-semibold tracking-wide">The ledger</span>
-                    <span className="block text-sm text-muted">Scholarly work, when it exists</span>
-                  </span>
-                </Link>
-              </li>
-              <li>
                 <a href="#purpose" className="flex items-baseline gap-4 py-4">
-                  <span className="font-serif text-lg text-brass">04</span>
+                  <span className="font-serif text-lg text-brass">03</span>
                   <span>
                     <span className="block text-sm font-semibold tracking-wide">Purpose</span>
                     <span className="block text-sm text-muted">Why the journal is public</span>
@@ -115,9 +106,8 @@ function Home() {
               </p>
               <p>
                 This site is not a résumé with better type. Year one has no publications
-                to inflate and no ward stories to borrow. It has a structure: who I am,
-                the nine domains I am being measured on, and a ledger that stays empty
-                until the work is real.
+                to inflate and no ward stories to borrow. It has a structure: who I am
+                and the nine domains I am being measured on.
               </p>
             </div>
             <Link
@@ -181,36 +171,9 @@ function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
-        <Kicker index="03">Scholarly work</Kicker>
-        <h2 className="mt-4 font-serif text-4xl md:text-5xl">The ledger is open.</h2>
-        <p className="mt-4 max-w-xl text-base leading-7 text-muted">
-          Entries are added when there is a title, a method, and a result. A plan is not
-          an entry.
-        </p>
-        <div className="mt-10 grid gap-px bg-line md:grid-cols-3">
-          {ledger.map((item) => (
-            <article key={item.index} className="bg-bone p-6">
-              <p className="font-serif text-lg text-brass">{item.index}</p>
-              <h3 className="mt-4 text-lg font-medium">{item.kind}</h3>
-              <p className="mt-2 text-xs font-semibold tracking-widest text-brass uppercase">
-                {item.status}
-              </p>
-              <p className="mt-3 text-sm leading-6 text-muted">{item.text}</p>
-            </article>
-          ))}
-        </div>
-        <Link
-          to="/work"
-          className="mt-8 inline-flex h-12 items-center text-xs font-semibold tracking-widest uppercase"
-        >
-          Read the ledger →
-        </Link>
-      </section>
-
       <section id="purpose" className="scroll-mt-20 border-t border-line bg-paper">
         <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
-          <Kicker index="04">Purpose</Kicker>
+          <Kicker index="03">Purpose</Kicker>
           <h2 className="mt-4 max-w-2xl font-serif text-4xl md:text-5xl">
             Why this portfolio exists.
           </h2>
@@ -242,7 +205,7 @@ function Home() {
       <section id="contact" className="scroll-mt-20">
         <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:px-8 md:py-24 lg:grid-cols-2">
           <div>
-            <Kicker index="05">Contact</Kicker>
+            <Kicker index="04">Contact</Kicker>
             <h2 className="mt-4 font-serif text-4xl md:text-5xl">Write with a reason.</h2>
             <p className="mt-4 max-w-md text-base leading-7 text-muted">
               I read notes that are specific — a question about the program, a word from

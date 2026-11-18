@@ -7,7 +7,6 @@ const links = [
   { to: "/", label: "Home" },
   { to: "/about", label: "Record" },
   { to: "/competencies", label: "Competencies" },
-  { to: "/work", label: "Ledger" },
 ] as const;
 
 function ScrollProgress() {
@@ -149,7 +148,7 @@ function Footer() {
   );
 }
 
-const suggestions = ["The record", "Competencies", "The ledger", "Contact"];
+const suggestions = ["The record", "Competencies", "Contact"];
 
 function JournalDesk() {
   const [open, setOpen] = useState(false);
@@ -157,7 +156,7 @@ function JournalDesk() {
   const [messages, setMessages] = useState<{ from: "journal" | "you"; text: string }[]>([
     {
       from: "journal",
-      text: "Ask from the published record only — the year, the nine competencies, the ledger, or contact.",
+      text: "Ask from the published record only — the year, the nine competencies, or contact.",
     },
   ]);
   const titleId = useId();
