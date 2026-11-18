@@ -3,7 +3,7 @@ import { AuthProvider } from "@/lib/auth/provider";
 import { PreviewHostBridge } from "@/components/preview-host-bridge";
 import appCss from "../styles.css?url";
 
-const APP_NAME = "Rahul Devnani — The Field Coat Journal";
+const APP_NAME = "Beyond My White Coat — Rahul Devnani";
 
 function acceptShareHost(raw: string): string {
   const host = raw.split(",")[0]?.trim().split(":")[0]?.toLowerCase() ?? "";
@@ -38,9 +38,12 @@ export const Route = createRootRoute({
       {
         name: "description",
         content:
-          "The Field Coat Journal — Rahul Devnani, first-year GMD student at Gulf Medical University, Ajman. A working record of medical training.",
+          "Beyond My White Coat — Rahul Devnani, first-year MD student at Gulf Medical University, Ajman. A personal portfolio of medical training and competencies.",
       },
-      { name: "theme-color", content: "#161A1E" },
+      { property: "og:title", content: "Beyond My White Coat" },
+      { property: "og:description", content: "Rahul Devnani, first-year MD student at Gulf Medical University, Ajman." },
+      { property: "og:type", content: "website" },
+      { name: "theme-color", content: "#1a6fb5" },
     ];
     if (host) {
       meta.push({ property: "x:game:image", content: xBanner });
