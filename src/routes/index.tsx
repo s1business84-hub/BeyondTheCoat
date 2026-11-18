@@ -94,7 +94,7 @@ function Home() {
               View all →
             </Link>
           </div>
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="card-grid mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {competencies.map((item) => {
               const count = ((evidenceItems as any)[item.id] || []).length;
               return (
