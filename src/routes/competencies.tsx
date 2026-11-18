@@ -20,10 +20,12 @@ function CompetenciesPage() {
   const selected = competencies.find((item) => item.id === id);
   const evidences = selected ? ((evidenceItems as any)[selected.id] || []) : [];
   const [loading, setLoading] = useState(false);
+  const [openEvidence, setOpenEvidence] = useState<number | null>(null);
 
   useEffect(() => {
     if (id) {
       setLoading(true);
+      setOpenEvidence(null);
       const t = setTimeout(() => setLoading(false), 450);
       return () => clearTimeout(t);
     }
@@ -37,7 +39,7 @@ function CompetenciesPage() {
           Nine domains. Foundation year.
         </h1>
         <p className="mt-6 max-w-2xl text-base leading-7 text-muted">
-          Click any competency to open its evidence and reflection.
+          Tap a competency to see the images. Tap an image for full detail and reflection.
         </p>
 
         {loading && (
@@ -93,39 +95,52 @@ function CompetenciesPage() {
                 <div className="mt-10">
                   <h3 className="text-xs font-semibold tracking-widest uppercase">Evidence</h3>
                   <div className="mt-4 grid gap-6 sm:grid-cols-2">
-                    {evidences.map((ev: any, i: number) => (
-                      <div key={i} className="overflow-hidden rounded-xl">
-                        {ev.image && (
-                          <img src={ev.image} alt={ev.title} className="w-full h-auto object-contain" />
-                        )}
-                        <div className="p-4">
-                          <p className="text-sm font-semibold">{ev.title}</p>
-                          <p className="mt-1 text-xs leading-5 text-muted">{ev.description}</p>
-                          {ev.date && <p className="mt-2 text-xs tracking-wide text-brass">{ev.date}</p>}
-                          {ev.details && (
-                            <p className="mt-3 text-sm leading-6 text-ink">{ev.details}</p>
+                    {evidences.map((ev: any, i: number) => {
+                      const isOpen = openEvidence === i;
+                      return (
+                        <button
+                          key={i}
+                          type="button"
+                          onClick={() => setOpenEvidence(isOpen ? null : i)}
+                          className={"overflow-hidden rounded-xl text-left transition-all " + (isOpen ? "ring-2 ring-brass sm:col-span-2" : "hover:scale-[1.01]")}
+                        >
+                          {ev.image && (
+                            <img src={ev.image} alt={ev.title} className="w-full h-auto object-contain" />
                           )}
-                        </div>
-                      </div>
-                    ))}
+                          <div className="p-4">
+                            <p className="text-sm font-semibold">{ev.title}</p>
+                            <p className="mt-1 text-xs leading-5 text-muted">{ev.description}</p>
+                            {ev.date && <p className="mt-2 text-xs tracking-wide text-brass">{ev.date}</p>}
+                            {isOpen && ev.details && (
+                              <p className="mt-3 border-t border-white/30 pt-3 text-sm leading-6 text-ink">
+                                {ev.details}
+                              </p>
+                            )}
+                            <p className="mt-2 text-xs text-muted">{isOpen ? "Tap to collapse" : "Tap for details"}</p>
+                          </div>
+                        </button>
+                      );
+                    })}
                   </div>
                 </div>
               )}
 
-              <div className="mt-12 border-t border-line pt-8">
-                <h3 className="text-xs font-semibold tracking-widest uppercase">Reflection</h3>
-                <p className="mt-3 text-base leading-7 text-muted">
-                  Reflections for this competency will be added here using the Gibbs cycle when they are ready.
-                </p>
-                <ol className="mt-6 grid gap-4 sm:grid-cols-2">
-                  {gibbs.map((step) => (
-                    <li key={step.step} className="border-l-2 border-brass pl-4">
-                      <p className="text-xs font-semibold text-brass">{step.step} · {step.title}</p>
-                      <p className="mt-1 text-sm text-muted">{step.text}</p>
-                    </li>
-                  ))}
-                </ol>
-              </div>
+              {openEvidence !== null && (
+                <div className="mt-12 border-t border-line pt-8">
+                  <h3 className="text-xs font-semibold tracking-widest uppercase">Reflection</h3>
+                  <p className="mt-3 text-base leading-7 text-muted">
+                    Reflections for this competency will be added here using the Gibbs cycle when they are ready.
+                  </p>
+                  <ol className="mt-6 grid gap-4 sm:grid-cols-2">
+                    {gibbs.map((step) => (
+                      <li key={step.step} className="border-l-2 border-brass pl-4">
+                        <p className="text-xs font-semibold text-brass">{step.step} · {step.title}</p>
+                        <p className="mt-1 text-sm text-muted">{step.text}</p>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              )}
             </div>
           </div>
         )}
