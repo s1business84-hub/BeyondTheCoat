@@ -183,6 +183,11 @@ function Home() {
               <br />
               Gulf Medical University, Ajman
             </p>
+            <p className="mt-4 text-sm">
+              <a href="tel:+971527249865" className="font-medium text-brass hover:underline">
+                +971 52 724 9865
+              </a>
+            </p>
             <p className="mt-6 border-t border-line pt-6 font-serif text-lg italic leading-7">
               “Every lesson learned today is a step towards making a difference tomorrow.”
             </p>
