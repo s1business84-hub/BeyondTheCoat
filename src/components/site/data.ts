@@ -211,7 +211,7 @@ export const evidenceItems = {
       title: "Teaching laboratory sessions", 
       description: "Hands-on work in the skills lab applying foundational biomedical science.", 
       details: "Laboratory sessions covering core techniques in anatomy and physiology. These build the practical foundation required before clinical application.",
-      image: "/lab-photo.jpg", 
+      image: "/rahul.jpeg", 
       type: "photo",
       date: "Year I"
     },
