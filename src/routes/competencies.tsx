@@ -1,13 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Kicker, SiteFrame } from "@/components/site/chrome";
 import { competencies, gibbs, evidenceItems } from "@/components/site/data";
-import { useEffect, useState } from "react";
 
 type Search = { id: string };
 
 export const Route = createFileRoute("/competencies")({
   validateSearch: (search: Record<string, unknown>): Search => ({
-    id: typeof search.id === "string" ? search.id : "medical-expert",
+    id: typeof search.id === "string" ? search.id : "",
   }),
   head: () => ({
     meta: [{ title: "Competencies — Rahul Devnani" }],
@@ -17,25 +16,8 @@ export const Route = createFileRoute("/competencies")({
 
 function CompetenciesPage() {
   const { id } = Route.useSearch();
-  const active = competencies.find((item) => item.id === id) ?? competencies[0];
-  const [transitioning, setTransitioning] = useState(false);
-  const [displayId, setDisplayId] = useState(id);
-  const [expanded, setExpanded] = useState<number | null>(null);
-
-  useEffect(() => {
-    if (id !== displayId) {
-      setTransitioning(true);
-      setExpanded(null);
-      const timer = setTimeout(() => {
-        setDisplayId(id);
-        setTransitioning(false);
-      }, 550);
-      return () => clearTimeout(timer);
-    }
-  }, [id, displayId]);
-
-  const displayActive = competencies.find((item) => item.id === displayId) ?? competencies[0];
-  const evidences = (evidenceItems as any)[displayActive.id] || [];
+  const selected = competencies.find((item) => item.id === id);
+  const evidences = selected ? ((evidenceItems as any)[selected.id] || []) : [];
 
   return (
     <SiteFrame>
@@ -45,116 +27,89 @@ function CompetenciesPage() {
           Nine domains. Foundation year.
         </h1>
         <p className="mt-6 max-w-2xl text-base leading-7 text-muted">
-          Aligned with the Gulf Medical University and EmiratesMEDs framework. Each domain holds its own evidence and reflections.
+          Click any competency to open its evidence and reflection.
         </p>
 
-        <div className="mt-12 grid gap-8 lg:grid-cols-12">
-          <nav className="lg:col-span-4" aria-label="Competency index">
-            <ul className="glass-card border-0 lg:sticky lg:top-24 overflow-hidden">
-              {competencies.map((item) => {
-                const on = item.id === active.id;
-                const count = ((evidenceItems as any)[item.id] || []).length;
-                return (
-                  <li key={item.id} className="border-b border-white/20 last:border-b-0">
-                    <Link
-                      to="/competencies"
-                      search={{ id: item.id }}
-                      className={
-                        "flex min-h-12 items-center justify-between gap-3 py-3 pr-3 transition-all duration-300 " +
-                        (on ? "border-l-2 border-brass bg-white/35 pl-3" : "pl-3.5 text-muted hover:bg-white/25 hover:text-ink")
-                      }
-                      aria-current={on ? "true" : undefined}
-                    >
-                      <span className="flex items-center gap-3">
-                        <span className="font-serif text-brass">{item.index}</span>
-                        <span className="text-sm font-medium">{item.title}</span>
-                      </span>
-                      {count > 0 && (
-                        <span className="text-xs font-semibold tracking-wide text-brass">
-                          {count}
-                        </span>
-                      )}
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-          </nav>
+        {!selected ? (
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {competencies.map((item) => {
+              const count = ((evidenceItems as any)[item.id] || []).length;
+              return (
+                <Link
+                  key={item.id}
+                  to="/competencies"
+                  search={{ id: item.id }}
+                  className="glass-card p-6 transition-all hover:scale-[1.02]"
+                >
+                  <p className="font-serif text-lg text-brass">{item.index}</p>
+                  <h2 className="mt-2 text-xl font-medium">{item.title}</h2>
+                  <p className="mt-2 text-sm leading-6 text-muted line-clamp-3">{item.plain}</p>
+                  {count > 0 && (
+                    <p className="mt-3 text-xs font-semibold tracking-wide text-brass">
+                      {count} {count === 1 ? "entry" : "entries"}
+                    </p>
+                  )}
+                </Link>
+              );
+            })}
+          </div>
+        ) : (
+          <div className="mt-10">
+            <Link
+              to="/competencies"
+              search={{ id: "" }}
+              className="text-xs font-semibold tracking-widest uppercase text-brass"
+            >
+              ← All competencies
+            </Link>
 
-          <article className="relative lg:col-span-8 lg:pl-10 min-h-[520px]">
-            {transitioning && (
-              <div className="absolute inset-0 z-10 flex items-center justify-center glass rounded-2xl fade-in">
-                <div className="text-center">
-                  <div className="mx-auto size-8 animate-spin rounded-full border-2 border-brass border-t-transparent" />
-                  <p className="mt-3 text-sm font-medium text-brass">Loading competency…</p>
-                </div>
-              </div>
-            )}
-            <div className={"glass-card p-8 transition-all duration-300 " + (transitioning ? "opacity-30 scale-[0.98]" : "opacity-100 scale-100 slide-up")}>
+            <div className="mt-6 glass-card p-8">
               <p className="text-xs font-semibold tracking-widest text-brass uppercase">
-                {displayActive.index} · Foundation
+                {selected.index} · Foundation
               </p>
-              <h2 className="mt-3 font-serif text-4xl md:text-5xl">{displayActive.title}</h2>
-              <p className="mt-4 font-serif text-xl leading-8 italic">{displayActive.plain}</p>
+              <h2 className="mt-3 font-serif text-4xl md:text-5xl">{selected.title}</h2>
+              <p className="mt-4 font-serif text-xl leading-8 italic">{selected.plain}</p>
 
               {evidences.length > 0 && (
                 <div className="mt-10">
                   <h3 className="text-xs font-semibold tracking-widest uppercase">Evidence</h3>
-                  <div className="mt-4 grid gap-4 sm:grid-cols-2">
-                    {evidences.map((ev: any, i: number) => {
-                      const isOpen = expanded === i;
-                      return (
-                        <button
-                          key={i}
-                          type="button"
-                          onClick={() => setExpanded(isOpen ? null : i)}
-                          className={"glass overflow-hidden rounded-xl text-left transition-all duration-300 " + (isOpen ? "ring-2 ring-brass sm:col-span-2" : "hover:scale-[1.02]")}
-                        >
-                          {ev.image ? (
-                            <img src={ev.image} alt={ev.title} className="w-full h-auto object-contain" />
-                          ) : (
-                            <div className="flex h-40 items-center justify-center bg-steel/10 text-xs tracking-widest text-muted uppercase">
-                              Certificate
-                            </div>
+                  <div className="mt-4 grid gap-6 sm:grid-cols-2">
+                    {evidences.map((ev: any, i: number) => (
+                      <div key={i} className="overflow-hidden rounded-xl">
+                        {ev.image && (
+                          <img src={ev.image} alt={ev.title} className="w-full h-auto object-contain" />
+                        )}
+                        <div className="p-4">
+                          <p className="text-sm font-semibold">{ev.title}</p>
+                          <p className="mt-1 text-xs leading-5 text-muted">{ev.description}</p>
+                          {ev.date && <p className="mt-2 text-xs tracking-wide text-brass">{ev.date}</p>}
+                          {ev.details && (
+                            <p className="mt-3 text-sm leading-6 text-ink">{ev.details}</p>
                           )}
-                          <div className="p-4">
-                            <p className="text-sm font-semibold">{ev.title}</p>
-                            <p className="mt-1 text-xs leading-5 text-muted">{ev.description}</p>
-                            {ev.date && <p className="mt-2 text-xs tracking-wide text-brass">{ev.date}</p>}
-                            {isOpen && ev.details && (
-                              <p className="mt-3 border-t border-white/30 pt-3 text-sm leading-6 text-ink">
-                                {ev.details}
-                              </p>
-                            )}
-                            <p className="mt-2 text-xs text-muted">{isOpen ? "Tap to collapse" : "Tap for details"}</p>
-                          </div>
-                        </button>
-                      );
-                    })}
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
               )}
-            </div>
-          </article>
-        </div>
 
-        {/* Gibbs Reflective Cycle */}
-        <section className="mt-20 border-t border-line pt-16">
-          <Kicker index="03">Reflection</Kicker>
-          <h2 className="mt-4 font-serif text-4xl md:text-5xl">Gibbs reflective cycle</h2>
-          <p className="mt-4 max-w-2xl text-base leading-7 text-muted">
-            Reflections, when they exist, follow the Gibbs cycle. The structure keeps entries specific and actionable.
-          </p>
-          <ol className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {gibbs.map((step) => (
-              <li key={step.step} className="glass-card p-6">
-                <p className="font-serif text-lg text-brass">{step.step}</p>
-                <h3 className="mt-2 text-lg font-medium">{step.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-muted">{step.text}</p>
-              </li>
-            ))}
-          </ol>
-        </section>
+              <div className="mt-12 border-t border-line pt-8">
+                <h3 className="text-xs font-semibold tracking-widest uppercase">Reflection</h3>
+                <p className="mt-3 text-base leading-7 text-muted">
+                  Reflections for this competency will be added here using the Gibbs cycle when they are ready.
+                </p>
+                <ol className="mt-6 grid gap-4 sm:grid-cols-2">
+                  {gibbs.map((step) => (
+                    <li key={step.step} className="border-l-2 border-brass pl-4">
+                      <p className="text-xs font-semibold text-brass">{step.step} · {step.title}</p>
+                      <p className="mt-1 text-sm text-muted">{step.text}</p>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </SiteFrame>
   );
