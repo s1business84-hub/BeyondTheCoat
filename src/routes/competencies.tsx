@@ -143,6 +143,24 @@ function CompetenciesPage() {
             </div>
           </article>
         </div>
+
+        {/* Gibbs Reflective Cycle */}
+        <section className="mt-20 border-t border-line pt-16">
+          <Kicker index="03">Reflection</Kicker>
+          <h2 className="mt-4 font-serif text-4xl md:text-5xl">Gibbs reflective cycle</h2>
+          <p className="mt-4 max-w-2xl text-base leading-7 text-muted">
+            Reflections, when they exist, follow the Gibbs cycle. The structure keeps entries specific and actionable.
+          </p>
+          <ol className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {gibbs.map((step) => (
+              <li key={step.step} className="glass-card p-6">
+                <p className="font-serif text-lg text-brass">{step.step}</p>
+                <h3 className="mt-2 text-lg font-medium">{step.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-muted">{step.text}</p>
+              </li>
+            ))}
+          </ol>
+        </section>
       </div>
     </SiteFrame>
   );
