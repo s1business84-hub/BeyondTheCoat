@@ -117,7 +117,7 @@ function CompetenciesPage() {
                           className={"glass overflow-hidden rounded-xl text-left transition-all duration-300 " + (isOpen ? "ring-2 ring-brass sm:col-span-2" : "hover:scale-[1.02]")}
                         >
                           {ev.image ? (
-                            <img src={ev.image} alt={ev.title} className="h-40 w-full object-cover" />
+                            <img src={ev.image} alt={ev.title} className="w-full h-auto object-contain" />
                           ) : (
                             <div className="flex h-40 items-center justify-center bg-steel/10 text-xs tracking-widest text-muted uppercase">
                               Certificate
