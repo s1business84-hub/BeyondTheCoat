@@ -18,7 +18,7 @@ function Home() {
               <span className="block italic text-steel">Devnani</span>
             </h1>
             <p className="mt-8 max-w-xl font-serif text-xl leading-8 text-ink md:text-2xl">
-              First-year GMD at Gulf Medical University. A living record of the training — precise, dated, and open to change.
+              First-year MD at Gulf Medical University. A living record of the training — precise, dated, and open to change.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
@@ -100,7 +100,7 @@ function Home() {
             </h2>
             <div className="mt-6 max-w-xl space-y-4 text-base leading-7 text-muted">
               <p>
-                I am a first-year GMD student at Gulf Medical University in Ajman. The
+                I am a first-year MD student at Gulf Medical University in Ajman. The
                 program is the university's Doctor of Medicine training. I entered in
                 2026.
               </p>
@@ -215,7 +215,7 @@ function Home() {
             <Monogram />
             <h3 className="mt-6 font-serif text-3xl">Rahul Devnani</h3>
             <p className="mt-2 text-sm leading-6 text-muted">
-              First-year GMD student
+              First-year MD student
               <br />
               Gulf Medical University, Ajman
             </p>
