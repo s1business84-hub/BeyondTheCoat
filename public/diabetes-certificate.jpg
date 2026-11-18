@@ -1,1 +1,1 @@
-COMPRESSED_DIABETES_BASE64
+$(cat /tmp/diabetes-certificate.jpg.compressed.b64)
