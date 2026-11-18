@@ -119,9 +119,9 @@ function Home() {
           </div>
           <div className="lg:col-span-5">
             <img
-              src="/lab-photo.jpg"
-              alt="Rahul Devnani working in the lab"
-              className="w-full h-auto object-cover"
+              src="/rahul.jpeg"
+              alt="Rahul Devnani"
+              className="w-full h-auto object-cover rounded-lg"
             />
           </div>
         </div>
