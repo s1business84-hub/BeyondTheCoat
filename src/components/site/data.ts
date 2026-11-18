@@ -12,91 +12,73 @@ export const competencies: Competency[] = [
     id: "medical-expert",
     index: "01",
     title: "Medical Expert",
-    plain: "Develop a solid, precise foundation in the biomedical sciences that will inform safe clinical decisions later.",
-    yearOne:
-      "Concentrate on anatomy, physiology, and core mechanisms. Accuracy and clear understanding come before speed.",
-    evidence:
-      "Coursework, laboratory sessions, and the ability to explain a concept without jargon. Progress is recorded only after it has been assessed.",
+    plain: "Demonstrates a strong foundation of clinical knowledge, diagnostic reasoning, and technical skills essential for safe and effective patient care. Integrates scientific principles with clear clinical judgment.",
+    yearOne: "",
+    evidence: "",
   },
   {
     id: "communicator",
     index: "02",
     title: "Communicator",
-    plain: "Explain ideas simply and listen carefully, in the language the other person uses.",
-    yearOne:
-      "Practice clear explanations in class and skills sessions. The same skill will matter more later with patients.",
-    evidence:
-      "Presentations, written work, and observed communication in skills labs. Clarity matters more than volume.",
+    plain: "Builds effective relationships with patients, families, and healthcare professionals through clear, empathetic, and respectful communication. Ensures understanding and trust in every interaction.",
+    yearOne: "",
+    evidence: "",
   },
   {
     id: "collaborator",
     index: "03",
     title: "Collaborator",
-    plain: "Contribute reliably within a team and respect the role that has been assigned.",
-    yearOne:
-      "Show up prepared and complete the work that is given. Reliability is the first contribution a first-year can make.",
-    evidence:
-      "Group projects, laboratory partners, and early team activities. Credit is shared and gaps are named.",
+    plain: "Works effectively within teams, contributing reliably and respecting assigned roles. Promotes shared responsibility and clear communication to achieve better outcomes.",
+    yearOne: "",
+    evidence: "",
   },
   {
     id: "professionalism",
     index: "04",
-    title: "Professionalism",
-    plain: "Be punctual, prepared, and honest about the limits of current knowledge.",
-    yearOne:
-      "The white coat is a uniform and a responsibility. Skills that have not been signed off are not listed here.",
-    evidence:
-      "Attendance, conduct, and a record that matches what faculty have observed.",
+    title: "Professional",
+    plain: "Exemplifies integrity, accountability, and ethical conduct. Maintains professionalism, punctuality, and honesty about the limits of current knowledge.",
+    yearOne: "",
+    evidence: "",
   },
   {
     id: "patient-care",
     index: "05",
     title: "Patient Care",
-    plain: "Learn how to be safe and respectful in a clinical space before trying to be impressive.",
-    yearOne:
-      "Introduction, hand hygiene, observation, and clear understanding of what a student is not yet permitted to do.",
-    evidence:
-      "Clinical skills checklists and supervised exposure. Encounters are recorded only when they occurred.",
+    plain: "Places patients at the center of care, prioritising safety, dignity, and well-being. Learns to be safe and respectful in clinical spaces before aiming to be impressive.",
+    yearOne: "",
+    evidence: "",
   },
   {
     id: "evidence-based",
     index: "06",
     title: "Evidence-Based",
-    plain: "Read carefully before citing, and distinguish a result from a headline.",
-    yearOne:
-      "Learn how to identify a question, a method, and the limits of what can be claimed. A plan is not yet a finding.",
-    evidence:
-      "Journal discussions, structured appraisals, and any research entry that has a clear question, method, and outcome.",
+    plain: "Engages with research and evidence through critical appraisal. Applies findings carefully and distinguishes a result from a headline or a plan.",
+    yearOne: "",
+    evidence: "",
   },
   {
     id: "social-accountability",
     index: "07",
     title: "Social Accountability",
-    plain: "Recognise that medical training serves a community, not only a curriculum.",
-    yearOne:
-      "Notice who the health system in Ajman is designed for and where access is harder. Community work is recorded without turning it into a personal story.",
-    evidence:
-      "Community health activities and professionalism teaching, described factually.",
+    plain: "Recognises the responsibility of medicine to society. Addresses community health needs and contributes to the well-being of the local population.",
+    yearOne: "",
+    evidence: "",
   },
   {
     id: "health-systems",
     index: "08",
     title: "Health Systems",
-    plain: "Understand how a teaching hospital is organised before forming strong opinions about it.",
-    yearOne:
-      "Gulf Medical University sits within the Thumbay Academic Health System. The structure comes before any critique.",
-    evidence:
-      "Orientation to the academic health system and later notes on how different parts of the system work together.",
+    plain: "Understands how a teaching hospital and academic health system are organised. Learns the structure before forming opinions about how it works.",
+    yearOne: "",
+    evidence: "",
   },
   {
     id: "lifelong-learner",
     index: "09",
     title: "Lifelong Learner",
-    plain: "Keep a short, dated record that can be corrected when it is wrong.",
-    yearOne:
-      "This journal is the practice. A first-year record should be able to change without being rewritten as a success story.",
-    evidence:
-      "Specific reflections using the Gibbs cycle. An action is more useful than a feeling.",
+    plain: "Actively seeks opportunities for growth through reflection and continuous improvement. Keeps a dated, correctable record of learning.",
+    yearOne: "",
+    evidence: "",
   },
 ];
 
@@ -194,7 +176,7 @@ export function answerJournal(raw: string): string {
     return "The ledger is open and empty on purpose. Research, publications, and conference papers are added only when they have a title, a method, and a result. A plan is not an entry.";
   }
   if (s.includes("competenc") || s.includes("gibbs") || s.includes("domain")) {
-    return "Nine domains, aligned with the GMU framework: Medical Expert, Communicator, Collaborator, Professionalism, Patient Care, Evidence-Based practice, Social Accountability, Health Systems, and Lifelong Learner. Open Competencies and select one. Reflections, when they exist, follow the Gibbs cycle.";
+    return "Nine domains, aligned with the GMU framework: Medical Expert, Communicator, Collaborator, Professional, Patient Care, Evidence-Based, Social Accountability, Health Systems, and Lifelong Learner. Open Competencies and select one. Reflections, when they exist, follow the Gibbs cycle.";
   }
   if (s.includes("gmu") || s.includes("gulf") || s.includes("gmd") || s.includes("program") || s.includes("medicine") || s.includes("thumbay")) {
     return "Rahul Devnani is a first-year GMD student at Gulf Medical University, Ajman — the university's Doctor of Medicine training. He entered in 2026. Clinical teaching takes place within the Thumbay Academic Health System.";

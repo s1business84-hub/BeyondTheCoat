@@ -96,12 +96,6 @@ function CompetenciesPage() {
               </p>
               <h2 className="mt-3 font-serif text-4xl md:text-5xl">{displayActive.title}</h2>
               <p className="mt-4 font-serif text-xl leading-8 italic">{displayActive.plain}</p>
-              <h3 className="mt-10 text-xs font-semibold tracking-widest uppercase">Year I aim</h3>
-              <p className="mt-3 max-w-xl text-base leading-7 text-muted">{displayActive.yearOne}</p>
-              <h3 className="mt-8 text-xs font-semibold tracking-widest uppercase">
-                What will count as evidence
-              </h3>
-              <p className="mt-3 max-w-xl text-base leading-7 text-muted">{displayActive.evidence}</p>
 
               {evidences.length > 0 && (
                 <div className="mt-10">
