@@ -12,11 +12,11 @@ export const competencies: Competency[] = [
     id: "medical-expert",
     index: "01",
     title: "Medical Expert",
-    plain: "Build a clear, accurate foundation in the sciences that will later guide clinical decisions.",
+    plain: "Develop a solid, precise foundation in the biomedical sciences that will inform safe clinical decisions later.",
     yearOne:
-      "Focus on anatomy, physiology, and core mechanisms. The priority this year is precision and understanding, not speed or performance.",
+      "Concentrate on anatomy, physiology, and core mechanisms. Accuracy and clear understanding come before speed.",
     evidence:
-      "Coursework, laboratory sessions, and the ability to explain a concept clearly. Nothing is marked as achieved until it has been assessed.",
+      "Coursework, laboratory sessions, and the ability to explain a concept without jargon. Progress is recorded only after it has been assessed.",
   },
   {
     id: "communicator",
@@ -200,7 +200,7 @@ export function answerJournal(raw: string): string {
     return "Rahul Devnani is a first-year GMD student at Gulf Medical University, Ajman — the university's Doctor of Medicine training. He entered in 2026. Clinical teaching takes place within the Thumbay Academic Health System.";
   }
   if (s.includes("who") || s.includes("about") || s.includes("rahul") || s.includes("record") || s.includes("year")) {
-    return "Rahul Devnani. First-year GMD, Gulf Medical University, Ajman. Entered 2026. The Field Coat Journal is the working record of that training: direct, dated, and unfinished on purpose.";
+    return "Rahul Devnani. First-year GMD, Gulf Medical University, Ajman. Entered 2026. Beyond the White Coat is the working record of that training: direct, dated, and unfinished on purpose.";
   }
   return "I only answer from what this journal publishes: the record, the nine competencies, the ledger, and how to get in touch. Try one of those.";
 }
