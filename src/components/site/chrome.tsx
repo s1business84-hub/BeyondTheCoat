@@ -44,7 +44,7 @@ function Nav() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5 md:px-8">
         <Link to="/" className="leading-none">
           <span className="block text-xs font-semibold tracking-widest text-ink uppercase">
-            Beyond the
+            Beyond My
           </span>
           <span className="block text-xs font-medium tracking-widest text-muted uppercase">
             White Coat
@@ -139,7 +139,7 @@ function Footer() {
       <div className="border-t border-bone/15">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-5 py-4 text-xs text-bone/50 md:px-8">
           <p>© 2026 Rahul Devnani</p>
-          <p>Beyond the White Coat</p>
+          <p>Beyond My White Coat</p>
         </div>
       </div>
     </footer>
