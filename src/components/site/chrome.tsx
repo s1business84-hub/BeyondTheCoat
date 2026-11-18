@@ -5,7 +5,6 @@ import { answerJournal } from "./data";
 
 const links = [
   { to: "/", label: "Home" },
-  { to: "/about", label: "Record" },
   { to: "/competencies", label: "Competencies" },
 ] as const;
 
@@ -111,8 +110,7 @@ function Footer() {
         <div className="md:col-span-2">
           <p className="font-serif text-2xl">Rahul Devnani</p>
           <p className="mt-3 max-w-sm text-sm leading-6 text-bone/70">
-            First-year GMD student at Gulf Medical University, Ajman. This journal is the
-            working record — not a finished biography.
+            First-year MD student at Gulf Medical University, Ajman.
           </p>
         </div>
         <div>
@@ -141,14 +139,14 @@ function Footer() {
       <div className="border-t border-bone/15">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-5 py-4 text-xs text-bone/50 md:px-8">
           <p>© 2026 Rahul Devnani</p>
-          <p>Beyond the White Coat · Vol. I</p>
+          <p>Beyond the White Coat</p>
         </div>
       </div>
     </footer>
   );
 }
 
-const suggestions = ["The record", "Competencies", "Contact"];
+const suggestions = ["Competencies", "Contact"];
 
 function JournalDesk() {
   const [open, setOpen] = useState(false);
@@ -156,7 +154,7 @@ function JournalDesk() {
   const [messages, setMessages] = useState<{ from: "journal" | "you"; text: string }[]>([
     {
       from: "journal",
-      text: "Ask from the published record only — the year, the nine competencies, or contact.",
+      text: "Ask about the competencies, year one, or contact.",
     },
   ]);
   const titleId = useId();
