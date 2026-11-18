@@ -224,6 +224,16 @@ export const evidenceItems = {
       date: "October 2026"
     },
   ],
+  "evidence-based": [
+    { 
+      title: "Student research", 
+      description: "Early engagement with research methods and inquiry.", 
+      details: "Student research activity focused on developing questions, methods, and evidence-based thinking during year one.",
+      image: "/studentr.jpeg", 
+      type: "photo",
+      date: "Year I"
+    },
+  ],
   "social-accountability": [
     { 
       title: "MOHAP Hayat Program certificate", 
