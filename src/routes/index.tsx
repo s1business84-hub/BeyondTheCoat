@@ -10,8 +10,8 @@ function AnimatedName({ text, className }: { text: string; className?: string })
       {text.split("").map((char, i) => (
         <span
           key={i}
-          className="inline-block opacity-0 animate-[letterIn_0.5s_ease-out_forwards]"
-          style={{ animationDelay: `${i * 0.06}s` }}
+          className="name-letter inline-block"
+          style={{ animationDelay: `${0.15 + i * 0.07}s` }}
         >
           {char === " " ? "\u00A0" : char}
         </span>
@@ -25,7 +25,7 @@ function Home() {
     <SiteFrame>
       <section className="border-b border-line">
         <div className="mx-auto grid max-w-6xl gap-16 px-5 py-20 md:px-8 md:py-28 lg:grid-cols-12 lg:items-center">
-          <div className="lg:col-span-7 fade-in">
+          <div className="lg:col-span-7">
             <p className="text-xs font-semibold tracking-widest text-muted uppercase">
               Year I · Ajman
             </p>
