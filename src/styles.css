@@ -21,9 +21,9 @@
   html { scroll-behavior: smooth; }
   body {
     background: 
-      radial-gradient(ellipse 100% 60% at 0% 0%, rgba(26, 107, 181, 0.15) 0%, transparent 50%),
-      radial-gradient(ellipse 80% 50% at 100% 0%, rgba(42, 122, 196, 0.12) 0%, transparent 50%),
-      linear-gradient(180deg, #E8F2FA 0%, #F0F7FC 30%, #FFFFFF 100%);
+      radial-gradient(ellipse 100% 60% at 0% 0%, rgba(26, 107, 181, 0.18) 0%, transparent 50%),
+      radial-gradient(ellipse 80% 50% at 100% 0%, rgba(42, 122, 196, 0.15) 0%, transparent 50%),
+      linear-gradient(180deg, #E0EEF8 0%, #F0F7FC 30%, #FFFFFF 100%);
     background-attachment: fixed;
     color: #0A1F35;
     font-family: var(--font-sans);
@@ -35,24 +35,26 @@
 
 @layer utilities {
   .glass {
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(192, 216, 232, 0.5);
-    box-shadow: 0 4px 20px rgba(26, 107, 181, 0.08);
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 8px 32px rgba(26, 107, 181, 0.1);
   }
   .glass-card {
-    background: linear-gradient(180deg, #FFFFFF 0%, #F8FBFE 100%);
-    border: 1px solid #C0D8E8;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 251, 254, 0.85) 100%);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(192, 216, 232, 0.6);
     border-radius: 16px;
-    box-shadow: 0 4px 16px rgba(26, 107, 181, 0.06);
+    box-shadow: 0 4px 20px rgba(26, 107, 181, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     overflow: hidden;
   }
   .glass-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 28px rgba(26, 107, 181, 0.12);
+    box-shadow: 0 8px 32px rgba(26, 107, 181, 0.14);
     border-color: #1A6BB5;
   }
   .text-brass { color: #1A6BB5; }
@@ -92,12 +94,12 @@
     animation-play-state: paused;
   }
   .floating-card {
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid #C0D8E8;
-    border-radius: 16px;
-    box-shadow: 0 8px 28px rgba(26, 107, 181, 0.15);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.85) 0%, rgba(240, 248, 255, 0.75) 100%);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 18px;
+    box-shadow: 0 12px 40px rgba(26, 107, 181, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.9);
   }
   .hero-name {
     font-size: clamp(3.5rem, 10vw, 6.5rem);
@@ -106,16 +108,18 @@
     font-weight: 500;
   }
   .stat-card {
-    background: #FFFFFF;
-    border: 1px solid #C0D8E8;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 251, 254, 0.9) 100%);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(192, 216, 232, 0.6);
     border-radius: 14px;
     padding: 1rem 1.25rem;
-    box-shadow: 0 2px 10px rgba(26, 107, 181, 0.05);
+    box-shadow: 0 2px 12px rgba(26, 107, 181, 0.06);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   .stat-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(26, 107, 181, 0.1);
+    box-shadow: 0 6px 20px rgba(26, 107, 181, 0.12);
   }
   .title-overlay {
     position: fixed;
