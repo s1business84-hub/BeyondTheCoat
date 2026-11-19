@@ -30,7 +30,7 @@ function Home() {
             <div className="fade-up">
               <h1 className="font-serif text-6xl md:text-7xl lg:text-8xl leading-none tracking-tight">
                 <span className="block text-ink">Rahul</span>
-                <span className="block italic text-brass/40">Devnani</span>
+                <span className="block italic gradient-text">Devnani</span>
               </h1>
               <p className="mt-8 text-[0.65rem] font-medium tracking-[0.22em] text-brass uppercase">
                 About Me
@@ -63,14 +63,21 @@ function Home() {
               </div>
             </div>
             <div className="relative fade-up" style={{ animationDelay: "0.2s" }}>
-              <div className="rounded-3xl overflow-hidden shadow-2xl">
-                <img
-                  src="/rahul.jpeg"
-                  alt="Rahul Devnani"
-                  className="w-full"
-                />
+              <div className="image-frame">
+                <div className="image-inner">
+                  <img
+                    src="/rahul.jpeg"
+                    alt="Rahul Devnani"
+                    className="w-full"
+                  />
+                </div>
+                <div className="image-accent" aria-hidden="true">
+                  <svg className="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                  </svg>
+                </div>
               </div>
-              <div className="floating-card absolute -bottom-4 left-4 right-4 p-4 md:left-6 md:right-6">
+              <div className="floating-card absolute -bottom-6 left-4 right-4 p-4 md:left-6 md:right-6">
                 <div className="flex items-start gap-3">
                   <span className="mt-1.5 size-2.5 shrink-0 rounded-full bg-gradient-to-r from-brass to-warm" />
                   <div>
