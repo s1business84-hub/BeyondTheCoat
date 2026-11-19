@@ -24,10 +24,10 @@ function AnimatedName({ text, accent = false, className }: { text: string; accen
 function CompetencyMarquee() {
   const items = [...competencies, ...competencies];
   return (
-    <div className="overflow-hidden border-y border-line/40 bg-white/80 py-3">
+    <div className="overflow-hidden border-y border-line/40 bg-paper py-3">
       <div className="marquee-track">
         {items.map((item, i) => (
-          <span key={i} className="flex items-center gap-4 text-sm tracking-wide whitespace-nowrap text-ink/60">
+          <span key={i} className="flex items-center gap-4 text-sm tracking-wide whitespace-nowrap text-ink/55">
             {item.title}
             <span className="text-accent">•</span>
           </span>
@@ -40,8 +40,8 @@ function CompetencyMarquee() {
 function Home() {
   return (
     <SiteFrame>
-      <section className="hero-gradient relative overflow-hidden">
-        <div className="relative mx-auto grid w-full max-w-6xl items-center gap-8 px-5 py-10 md:gap-12 md:px-8 md:py-16 lg:grid-cols-12">
+      <section className="hero-gradient relative">
+        <div className="mx-auto grid w-full max-w-6xl items-center gap-8 px-5 py-10 md:gap-12 md:px-8 md:py-16 lg:grid-cols-12">
           <div className="lg:col-span-7">
             <p className="text-[0.65rem] font-semibold tracking-[0.22em] text-brass uppercase fade-up">
               Beyond My White Coat
@@ -57,7 +57,7 @@ function Home() {
               <Link
                 to="/competencies"
                 search={{ id: "" }}
-                className="inline-flex h-10 items-center rounded-full bg-brass px-5 text-[0.65rem] font-semibold tracking-widest text-white uppercase transition-transform hover:scale-[1.03]"
+                className="inline-flex h-10 items-center rounded-full bg-brass px-5 text-[0.65rem] font-semibold tracking-widest text-white uppercase transition-transform hover:scale-[1.02]"
               >
                 Competencies
               </Link>
@@ -74,7 +74,7 @@ function Home() {
               <img
                 src="/rahul.jpeg"
                 alt="Rahul Devnani"
-                className="aspect-[4/5] w-full rounded-2xl object-cover shadow-xl"
+                className="aspect-[4/5] w-full rounded-2xl object-cover shadow-lg"
               />
               <div className="floating-card absolute -bottom-2 left-2 right-2 p-3 md:left-4 md:right-auto md:bottom-4 md:w-48">
                 <div className="flex items-start gap-2">
@@ -113,9 +113,9 @@ function Home() {
         <div className="text-center">
           <p className="text-[0.65rem] font-semibold tracking-[0.2em] text-brass uppercase">About Me</p>
           <h2 className="mt-3 font-serif text-3xl leading-tight md:text-4xl">
-            Building a <span className="gradient-text">foundation</span> for medicine
+            Building a foundation for medicine
           </h2>
-          <div className="mx-auto mt-3 h-0.5 w-12 rounded-full bg-gradient-to-r from-brass to-accent" />
+          <div className="mx-auto mt-3 h-0.5 w-12 rounded-full bg-brass" />
         </div>
         <div className="mx-auto mt-6 max-w-xl space-y-3 text-center text-sm leading-6 text-muted">
           <p>
@@ -132,19 +132,19 @@ function Home() {
         </div>
       </section>
 
-      <section className="border-t border-line/40 bg-white/50">
+      <section className="border-t border-line/40">
         <div className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-16">
           <div className="text-center">
             <p className="text-[0.65rem] font-semibold tracking-[0.2em] text-brass uppercase">GMU Framework</p>
             <h2 className="mt-3 font-serif text-3xl md:text-4xl">
-              The 9 Core <span className="gradient-text">Competencies</span>
+              The 9 Core Competencies
             </h2>
-            <div className="mx-auto mt-3 h-0.5 w-12 rounded-full bg-gradient-to-r from-brass to-accent" />
+            <div className="mx-auto mt-3 h-0.5 w-12 rounded-full bg-brass" />
           </div>
           <p className="mx-auto mt-4 max-w-lg text-center text-sm leading-6 text-muted">
             Click any competency to explore reflections, evidence, and Gibbs Reflective Cycle documentation.
           </p>
-          <div className="card-grid mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {competencies.map((item) => {
               const count = ((evidenceItems as any)[item.id] || []).length;
               return (
@@ -166,7 +166,7 @@ function Home() {
                   </div>
                   <p className="mt-3 text-[0.6rem] font-semibold tracking-widest text-muted">{item.index}</p>
                   <h3 className="mt-0.5 font-serif text-lg leading-snug group-hover:text-brass transition-colors">{item.title}</h3>
-                  <p className="mt-1.5 text-xs leading-5 text-muted line-clamp-3">{item.plain}</p>
+                  <p className="mt-1.5 text-xs leading-5 text-muted">{item.plain}</p>
                   <p className="mt-3 text-xs font-semibold text-brass">
                     View Details →
                   </p>
@@ -182,7 +182,7 @@ function Home() {
           <div className="text-center">
             <p className="text-[0.65rem] font-semibold tracking-[0.2em] text-brass uppercase">Scholarly Work</p>
             <h2 className="mt-3 font-serif text-3xl md:text-4xl">Research & Publications</h2>
-            <div className="mx-auto mt-3 h-0.5 w-12 rounded-full bg-gradient-to-r from-brass to-accent" />
+            <div className="mx-auto mt-3 h-0.5 w-12 rounded-full bg-brass" />
           </div>
           <p className="mx-auto mt-4 max-w-md text-center text-sm leading-6 text-muted">
             A growing collection of research projects and scholarly contributions.
