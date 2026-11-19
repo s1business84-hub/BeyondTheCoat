@@ -255,6 +255,11 @@ function Home() {
               Gulf Medical University, Ajman
             </p>
             <p className="mt-4 text-sm">
+              <a href="mailto:2026md90@mygmu.ac.ae" className="font-medium text-brass hover:underline">
+                2026md90@mygmu.ac.ae
+              </a>
+            </p>
+            <p className="mt-2 text-sm">
               <a href="tel:+971527249865" className="font-medium text-brass hover:underline">
                 +971 52 724 9865
               </a>
