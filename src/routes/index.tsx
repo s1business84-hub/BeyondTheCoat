@@ -24,7 +24,7 @@ function AnimatedName({ text, accent = false, className }: { text: string; accen
 function CompetencyMarquee() {
   const items = [...competencies, ...competencies];
   return (
-    <div className="overflow-hidden border-y border-line/50 bg-white/50 backdrop-blur-sm py-3">
+    <div className="overflow-hidden border-y border-line/30 bg-white/60 backdrop-blur-sm py-3">
       <div className="marquee-track">
         {items.map((item, i) => (
           <span key={i} className="flex items-center gap-4 text-sm tracking-wide whitespace-nowrap text-muted">
@@ -40,54 +40,52 @@ function CompetencyMarquee() {
 function Home() {
   return (
     <SiteFrame>
-      <section className="relative bg-gradient-to-b from-bone to-white overflow-hidden">
+      <section className="relative bg-gradient-to-b from-bone via-white to-bone overflow-hidden">
         <div className="orb orb-1" />
         <div className="orb orb-2" />
-        <div className="mx-auto grid w-full max-w-6xl items-center gap-8 px-5 py-12 md:gap-12 md:px-8 md:py-16 lg:grid-cols-12 relative z-10">
-          <div className="lg:col-span-7">
+        <div className="mx-auto max-w-4xl px-5 py-12 md:px-8 md:py-16 relative z-10">
+          <div className="text-center">
             <p className="text-[0.65rem] font-medium tracking-[0.22em] text-brass uppercase fade-up">
               Beyond My White Coat
             </p>
-            <h1 className="hero-name mt-3 font-serif font-medium">
+            <h1 className="hero-name mt-4 font-serif font-medium">
               <AnimatedName text="Rahul" className="block" />
               <AnimatedName text="Devnani" accent className="block italic" />
             </h1>
-            <p className="mt-5 max-w-sm font-serif text-base leading-7 text-muted md:text-lg fade-up" style={{ animationDelay: "0.5s" }}>
+            <p className="mt-5 mx-auto max-w-md font-serif text-base leading-7 text-ink md:text-lg fade-up" style={{ animationDelay: "0.5s" }}>
               First-year MD student at Gulf Medical University, Ajman.
             </p>
-            <div className="mt-6 flex flex-wrap gap-3 fade-up" style={{ animationDelay: "0.6s" }}>
+            <div className="mt-6 flex flex-wrap justify-center gap-3 fade-up" style={{ animationDelay: "0.6s" }}>
               <Link
                 to="/competencies"
                 search={{ id: "" }}
-                className="inline-flex h-10 items-center bg-gradient-to-r from-ink to-steel px-5 text-[0.65rem] font-medium tracking-widest text-bone uppercase rounded-lg shadow-lg shadow-ink/20 hover:shadow-xl transition-all"
+                className="inline-flex h-11 items-center bg-ink px-6 text-[0.65rem] font-medium tracking-widest text-bone uppercase rounded-lg shadow-lg"
               >
-                Competencies
+                View Competencies
               </Link>
               <Link
                 to="/about"
-                className="inline-flex h-10 items-center border border-ink/30 bg-white/80 backdrop-blur-sm px-5 text-[0.65rem] font-medium tracking-widest text-ink uppercase rounded-lg hover:border-brass hover:text-brass transition-all"
+                className="inline-flex h-11 items-center border border-ink/30 bg-white px-6 text-[0.65rem] font-medium tracking-widest text-ink uppercase rounded-lg hover:border-brass hover:text-brass transition-all"
               >
                 About
               </Link>
             </div>
           </div>
-          <div className="relative lg:col-span-5">
-            <div className="relative mx-auto max-w-[16rem] lg:max-w-none">
-              <img
-                src="/rahul.jpeg"
-                alt="Rahul Devnani"
-                className="aspect-[4/5] w-full object-cover rounded-2xl shadow-xl"
-              />
-              <div className="floating-card absolute -bottom-3 left-2 right-2 p-3.5 md:left-4 md:right-auto md:bottom-4 md:w-52">
-                <div className="flex items-start gap-2.5">
-                  <span className="mt-1 size-2 shrink-0 rounded-full bg-gradient-to-r from-brass to-warm" />
-                  <div>
-                    <p className="text-xs font-medium text-ink">Year 1 · MD</p>
-                    <p className="text-[0.65rem] text-muted">Entered 2026</p>
-                    <p className="mt-0.5 text-[0.65rem] leading-4 text-steel">
-                      Gulf Medical University<br />Ajman, UAE
-                    </p>
-                  </div>
+          <div className="relative mt-10 mx-auto max-w-lg fade-up" style={{ animationDelay: "0.7s" }}>
+            <img
+              src="/rahul.jpeg"
+              alt="Rahul Devnani"
+              className="w-full rounded-2xl shadow-xl"
+            />
+            <div className="floating-card absolute -bottom-4 left-4 right-4 p-4 md:left-6 md:right-auto md:w-56">
+              <div className="flex items-start gap-2.5">
+                <span className="mt-1 size-2.5 shrink-0 rounded-full bg-gradient-to-r from-brass to-warm" />
+                <div>
+                  <p className="text-sm font-medium text-ink">Year 1 · MD</p>
+                  <p className="text-xs text-muted">Entered 2026</p>
+                  <p className="mt-0.5 text-xs leading-4 text-brass">
+                    Gulf Medical University<br />Ajman, UAE
+                  </p>
                 </div>
               </div>
             </div>
@@ -97,27 +95,27 @@ function Home() {
 
       <CompetencyMarquee />
 
-      <section className="mx-auto max-w-6xl px-5 py-6 md:px-8" aria-label="Standing">
-        <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+      <section className="mx-auto max-w-4xl px-5 py-8 md:px-8" aria-label="Standing">
+        <div className="grid grid-cols-2 gap-4">
           {standing.map((item) => (
             <div key={item.index} className="stat-card">
-              <p className="text-[0.6rem] font-medium tracking-widest text-brass">{item.index}</p>
-              <p className="mt-1 text-[0.55rem] font-medium tracking-widest text-muted uppercase">
+              <p className="text-xs font-medium tracking-widest text-brass">{item.index}</p>
+              <p className="mt-1 text-[0.6rem] font-medium tracking-widest text-muted uppercase">
                 {item.label}
               </p>
-              <p className="mt-0.5 text-sm font-medium text-ink">{item.value}</p>
+              <p className="mt-1 text-base font-medium text-ink">{item.value}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section id="about" className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-16">
+      <section id="about" className="mx-auto max-w-4xl px-5 py-12 md:px-8 md:py-16">
         <div className="text-center">
           <p className="text-[0.65rem] font-medium tracking-[0.2em] text-brass uppercase">About Me</p>
           <h2 className="mt-3 font-serif text-3xl leading-tight md:text-4xl">
-            Building a <span className="gradient-text italic">foundation</span> for medicine
+            Building a <span className="gradient-text italic">foundation</span> for<br />medicine
           </h2>
-          <div className="mx-auto mt-3 h-0.5 w-12 bg-gradient-to-r from-brass to-warm rounded-full" />
+          <div className="mx-auto mt-4 h-0.5 w-16 bg-gradient-to-r from-brass to-warm rounded-full" />
         </div>
         <div className="mx-auto mt-6 max-w-xl space-y-3 text-center text-sm leading-6 text-muted">
           <p>
