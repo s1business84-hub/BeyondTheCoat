@@ -136,7 +136,7 @@ export const ledger = [
 ];
 
 export const standing = [
-  { index: "01", label: "Standing", value: "Year I · GMD" },
+  { index: "01", label: "Standing", value: "Year 1 · ME" },
   { index: "02", label: "Framework", value: "Nine domains" },
   { index: "03", label: "Campus", value: "Ajman, UAE" },
   { index: "04", label: "Clinical home", value: "Thumbay system" },
@@ -148,15 +148,15 @@ export const yearMap = [
     what: "The professional introduction given to a medical intake, followed by the work of becoming a student who can be trusted in a teaching hospital.",
   },
   {
-    when: "Year I · Science",
+    when: "Year 1 · Science",
     what: "Structure and function taught to a clinical standard. Anatomy and physiology before opinions about specialties.",
   },
   {
-    when: "Year I · Skills",
+    when: "Year 1 · Skills",
     what: "Communication, first examination skills, and conduct in a room where someone else is the patient.",
   },
   {
-    when: "Year I · System",
+    when: "Year 1 · System",
     what: "How Gulf Medical University and the Thumbay hospitals are organised — the map a first-year is expected to learn.",
   },
 ];
@@ -172,7 +172,7 @@ export function answerJournal(raw: string): string {
   }
 
   if (s.includes("who") || s.includes("about") || s.includes("rahul") || s.includes("you") || s.includes("student") || s.includes("name")) {
-    return "Rahul Devnani is a first-year Doctor of Medicine (MD) student at Gulf Medical University in Ajman. He entered in 2026. This site (Beyond My White Coat) is his working e-portfolio documenting progress across the nine GMU competency domains.";
+    return "Rahul Devnani is a first-year Doctor of Medicine (ME) student at Gulf Medical University in Ajman. He entered in 2026. This site (Beyond My White Coat) is his working e-portfolio documenting progress across the nine GMU competency domains.";
   }
 
   if (s.includes("competenc") || s.includes("domain") || s.includes("nine") || s.includes("framework")) {
@@ -211,8 +211,8 @@ export function answerJournal(raw: string): string {
     return "Reflections follow the Gibbs cycle: 01 Description (facts), 02 Feelings, 03 Evaluation, 04 Analysis, 05 Conclusion, and 06 Action Plan. Open a competency and expand an evidence item to read the full reflection when available.";
   }
 
-  if (s.includes("gmu") || s.includes("gulf") || s.includes("gmd") || s.includes("university") || s.includes("ajman") || s.includes("year")) {
-    return "Rahul is a first-year GMD (Doctor of Medicine) student at Gulf Medical University, Ajman, UAE. He entered in 2026. Clinical teaching is within the Thumbay Academic Health System.";
+  if (s.includes("gmu") || s.includes("gulf") || s.includes("me") || s.includes("university") || s.includes("ajman") || s.includes("year")) {
+    return "Rahul is a first-year ME (Doctor of Medicine) student at Gulf Medical University, Ajman, UAE. He entered in 2026. Clinical teaching is within the Thumbay Academic Health System.";
   }
 
   if (s.includes("certificate") || s.includes("evidence") || s.includes("lab") || s.includes("biochem") || s.includes("physiology")) {
@@ -242,7 +242,7 @@ export const evidenceItems = {
       details: "Sessions covered biochemical calculations, precipitation reactions of proteins, colour reactions of proteins and amino acids, buffering capacity, reactions of monosaccharides and disaccharides, identification of abnormal constituents in urine samples, reactions of lipids and enzyme kinetics.",
       image: "/rahul.jpeg", 
       type: "photo",
-      date: "Year I",
+      date: "Year 1",
       reflection: {
         description: "During my first semester of the MD programme, I participated in several Biochemistry laboratory practicals that allowed me to explore the chemical processes involved in the functioning of the human body. The sessions covered a range of topics, including biochemical calculations, precipitation reactions of proteins, colour reactions of proteins and amino acids, buffering capacity, reactions of monosaccharides and disaccharides, identification of abnormal constituents in urine samples, reactions of lipids and enzyme kinetics. These practicals provided an opportunity to apply concepts learned during lectures through laboratory experiments and observations. In particular, the urine analysis practicals introduced me to identifying abnormal constituents, such as excess glucose, which could indicate underlying health conditions.",
         feelings: "Initially, I was curious about how the theoretical concepts discussed during lectures would translate into practical experiments. As this was my first experience with university-level medical laboratory sessions, I was also becoming familiar with the procedures, equipment and techniques involved. I found some experiments particularly interesting, especially those involving colour changes and chemical reactions, as they allowed me to observe biochemical processes directly. However, interpreting certain results and understanding the scientific explanations behind them required additional thought and concentration.",
@@ -276,7 +276,7 @@ export const evidenceItems = {
       details: "Student research activity focused on developing questions, methods, and evidence-based thinking during year one.",
       image: "/studentr.jpeg", 
       type: "photo",
-      date: "Year I"
+      date: "Year 1"
     },
   ],
   "social-accountability": [
