@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Kicker, Monogram, SiteFrame } from "@/components/site/chrome";
+import { CompetencyIcon } from "@/components/site/icons";
 import { competencies, purposes, standing, evidenceItems, ledger } from "@/components/site/data";
 
 export const Route = createFileRoute("/")({ component: Home });
@@ -150,14 +151,17 @@ function Home() {
                   className="glass-card group block p-7 transition-all hover:scale-[1.015]"
                 >
                   <div className="flex items-start justify-between">
-                    <p className="text-xs font-semibold tracking-widest text-muted">{item.index}</p>
+                    <div className="grid size-12 place-items-center rounded-2xl bg-brass/12 text-brass">
+                      <CompetencyIcon id={item.id} />
+                    </div>
                     {count > 0 && (
                       <span className="rounded-full bg-accent/15 px-3 py-1 text-[0.65rem] font-semibold tracking-wide text-brass">
                         {count} {count === 1 ? "ENTRY" : "ENTRIES"}
                       </span>
                     )}
                   </div>
-                  <h3 className="mt-4 font-serif text-2xl leading-tight group-hover:text-brass transition-colors">{item.title}</h3>
+                  <p className="mt-4 text-xs font-semibold tracking-widest text-muted">{item.index}</p>
+                  <h3 className="mt-1 font-serif text-2xl leading-tight group-hover:text-brass transition-colors">{item.title}</h3>
                   <p className="mt-3 text-sm leading-6 text-muted line-clamp-3">{item.plain}</p>
                   <p className="mt-6 text-sm font-semibold tracking-wide text-ink group-hover:text-brass">
                     View Details →
