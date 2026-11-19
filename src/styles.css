@@ -21,11 +21,11 @@
   html { scroll-behavior: smooth; }
   body {
     background: 
-      radial-gradient(ellipse 100% 60% at 0% 0%, rgba(0, 136, 212, 0.22) 0%, transparent 50%),
-      radial-gradient(ellipse 80% 50% at 100% 0%, rgba(0, 168, 232, 0.18) 0%, transparent 50%),
-      radial-gradient(ellipse 60% 40% at 50% 100%, rgba(0, 136, 212, 0.12) 0%, transparent 50%),
-      radial-gradient(ellipse 40% 30% at 80% 40%, rgba(0, 180, 200, 0.08) 0%, transparent 45%),
-      linear-gradient(180deg, #D4EEF8 0%, #E8F4FC 40%, #FFFFFF 100%);
+      radial-gradient(ellipse 120% 80% at -10% -10%, rgba(0, 136, 212, 0.3) 0%, transparent 45%),
+      radial-gradient(ellipse 100% 70% at 110% -5%, rgba(0, 168, 232, 0.25) 0%, transparent 45%),
+      radial-gradient(ellipse 80% 60% at 50% 110%, rgba(0, 136, 212, 0.18) 0%, transparent 45%),
+      radial-gradient(ellipse 50% 40% at 80% 40%, rgba(0, 200, 220, 0.12) 0%, transparent 40%),
+      linear-gradient(165deg, #C0E0F4 0%, #D8EEF8 20%, #E8F4FC 40%, #F4FAFE 65%, #FFFFFF 100%);
     background-attachment: fixed;
     color: #0A1F35;
     font-family: var(--font-sans);
@@ -44,12 +44,12 @@
     box-shadow: 0 8px 32px rgba(0, 136, 212, 0.1);
   }
   .glass-card {
-    background: rgba(255, 255, 255, 0.75);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(244, 250, 254, 0.85) 100%);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(184, 212, 232, 0.5);
     border-radius: 20px;
-    box-shadow: 0 8px 32px rgba(0, 136, 212, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    box-shadow: 0 8px 32px rgba(0, 136, 212, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9);
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -58,15 +58,15 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(115deg, transparent 40%, rgba(0, 136, 212, 0.1) 50%, transparent 60%);
+    background: linear-gradient(115deg, transparent 40%, rgba(0, 168, 232, 0.12) 50%, transparent 60%);
     transform: translateX(-150%);
     transition: transform 0.5s ease;
     pointer-events: none;
   }
   .glass-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(0, 136, 212, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.9);
-    border-color: rgba(0, 136, 212, 0.4);
+    box-shadow: 0 16px 48px rgba(0, 136, 212, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+    border-color: rgba(0, 136, 212, 0.45);
   }
   .glass-card:hover::before {
     transform: translateX(150%);
@@ -80,16 +80,13 @@
   .name-letter {
     opacity: 0;
     display: inline-block;
-    background: linear-gradient(135deg, #0A1F35 0%, #1A4A6A 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #0A1F35;
     animation: letterIn 0.4s ease-out forwards;
   }
   .name-letter-accent {
     opacity: 0;
     display: inline-block;
-    background: linear-gradient(135deg, #0066CC 0%, #00A0E0 40%, #40D0FF 100%);
+    background: linear-gradient(135deg, #0066CC 0%, #0088D4 30%, #00A8E8 60%, #40D0FF 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -111,12 +108,12 @@
     animation-play-state: paused;
   }
   .floating-card {
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(184, 212, 232, 0.6);
     border-radius: 16px;
-    box-shadow: 0 12px 40px rgba(0, 136, 212, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    box-shadow: 0 12px 40px rgba(0, 136, 212, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.95);
   }
   .hero-name {
     font-size: clamp(3.5rem, 10vw, 6.5rem);
@@ -125,18 +122,18 @@
     font-weight: 500;
   }
   .stat-card {
-    background: rgba(255, 255, 255, 0.7);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(244, 250, 254, 0.8) 100%);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(184, 212, 232, 0.5);
     border-radius: 14px;
     padding: 1rem 1.25rem;
-    box-shadow: 0 4px 16px rgba(0, 136, 212, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 16px rgba(0, 136, 212, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.9);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   .stat-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0, 136, 212, 0.15);
+    box-shadow: 0 8px 24px rgba(0, 136, 212, 0.16);
   }
   .title-overlay {
     position: fixed;
@@ -183,7 +180,7 @@
     color: #3D6A8A;
   }
   .gradient-text {
-    background: linear-gradient(135deg, #0066CC 0%, #00A0E0 50%, #40D0FF 100%);
+    background: linear-gradient(135deg, #0066CC 0%, #0088D4 30%, #00A8E8 60%, #40D0FF 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -195,7 +192,7 @@
   }
   .btn-gradient:hover {
     transform: translateY(-1px);
-    box-shadow: 0 4px 16px rgba(0, 136, 212, 0.35);
+    box-shadow: 0 6px 20px rgba(0, 136, 212, 0.4);
   }
   .image-frame {
     position: relative;
