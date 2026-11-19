@@ -15,6 +15,32 @@ export const Route = createFileRoute("/competencies")({
   component: CompetenciesPage,
 });
 
+function ReflectionBlock({ reflection }: { reflection: any }) {
+  const stages = [
+    { key: "description", title: "Description", step: "01" },
+    { key: "feelings", title: "Feelings", step: "02" },
+    { key: "evaluation", title: "Evaluation", step: "03" },
+    { key: "analysis", title: "Analysis", step: "04" },
+    { key: "conclusion", title: "Conclusion", step: "05" },
+    { key: "action", title: "Action Plan", step: "06" },
+  ];
+  return (
+    <div className="mt-6 rounded-2xl border border-line bg-paper/60 p-6">
+      <h4 className="text-xs font-semibold tracking-widest uppercase text-brass">Reflection</h4>
+      <div className="mt-5 space-y-6">
+        {stages.map((stage) => (
+          <div key={stage.key} className="border-l-2 border-brass pl-5">
+            <p className="text-xs font-semibold text-brass">{stage.step} · {stage.title}</p>
+            <p className="mt-2 text-base leading-7 text-ink whitespace-pre-line">
+              {reflection[stage.key]}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function CompetenciesPage() {
   const { id } = Route.useSearch();
   const selected = competencies.find((item) => item.id === id);
@@ -30,8 +56,6 @@ function CompetenciesPage() {
       return () => clearTimeout(t);
     }
   }, [id]);
-
-  const openEv = openEvidence !== null ? evidences[openEvidence] : null;
 
   return (
     <SiteFrame>
@@ -96,73 +120,52 @@ function CompetenciesPage() {
               {evidences.length > 0 && (
                 <div className="mt-10">
                   <h3 className="text-xs font-semibold tracking-widest uppercase">Evidence</h3>
-                  <div className="mt-4 grid gap-6 sm:grid-cols-2">
+                  <div className="mt-4 space-y-6">
                     {evidences.map((ev: any, i: number) => {
                       const isOpen = openEvidence === i;
                       return (
-                        <button
-                          key={i}
-                          type="button"
-                          onClick={() => setOpenEvidence(isOpen ? null : i)}
-                          className={"overflow-hidden rounded-xl text-left transition-all " + (isOpen ? "ring-2 ring-brass sm:col-span-2" : "hover:scale-[1.01]")}
-                        >
-                          {ev.image && (
-                            <img src={ev.image} alt={ev.title} className="w-full h-auto object-contain" />
-                          )}
-                          <div className="p-4">
-                            <p className="text-sm font-semibold">{ev.title}</p>
-                            <p className="mt-1 text-xs leading-5 text-muted">{ev.description}</p>
-                            {ev.date && <p className="mt-2 text-xs tracking-wide text-brass">{ev.date}</p>}
-                            {isOpen && ev.details && (
-                              <p className="mt-3 border-t border-white/30 pt-3 text-sm leading-6 text-ink">
-                                {ev.details}
-                              </p>
+                        <div key={i}>
+                          <button
+                            type="button"
+                            onClick={() => setOpenEvidence(isOpen ? null : i)}
+                            className={"w-full overflow-hidden rounded-xl text-left transition-all " + (isOpen ? "ring-2 ring-brass" : "hover:scale-[1.01]")}
+                          >
+                            {ev.image && (
+                              <img src={ev.image} alt={ev.title} className="w-full h-auto object-contain" />
                             )}
-                            <p className="mt-2 text-xs text-muted">{isOpen ? "Tap to collapse" : "Tap for details"}</p>
-                          </div>
-                        </button>
+                            <div className="p-4">
+                              <p className="text-sm font-semibold">{ev.title}</p>
+                              <p className="mt-1 text-xs leading-5 text-muted">{ev.description}</p>
+                              {ev.date && <p className="mt-2 text-xs tracking-wide text-brass">{ev.date}</p>}
+                              {isOpen && ev.details && (
+                                <p className="mt-3 border-t border-white/30 pt-3 text-sm leading-6 text-ink">
+                                  {ev.details}
+                                </p>
+                              )}
+                              <p className="mt-2 text-xs text-muted">{isOpen ? "Tap to collapse" : "Tap for details"}</p>
+                            </div>
+                          </button>
+                          {isOpen && ev.reflection && <ReflectionBlock reflection={ev.reflection} />}
+                          {isOpen && !ev.reflection && (
+                            <div className="mt-4 rounded-2xl border border-line bg-paper/60 p-6">
+                              <h4 className="text-xs font-semibold tracking-widest uppercase text-brass">Reflection</h4>
+                              <p className="mt-3 text-base leading-7 text-muted">
+                                Reflections for this entry will be added here using the Gibbs cycle when they are ready.
+                              </p>
+                              <ol className="mt-6 grid gap-4 sm:grid-cols-2">
+                                {gibbs.map((step) => (
+                                  <li key={step.step} className="border-l-2 border-brass pl-4">
+                                    <p className="text-xs font-semibold text-brass">{step.step} · {step.title}</p>
+                                    <p className="mt-1 text-sm text-muted">{step.text}</p>
+                                  </li>
+                                ))}
+                              </ol>
+                            </div>
+                          )}
+                        </div>
                       );
                     })}
                   </div>
-                </div>
-              )}
-
-              {openEvidence !== null && openEv && (
-                <div className="mt-12 border-t border-line pt-8">
-                  <h3 className="text-xs font-semibold tracking-widest uppercase">Reflection</h3>
-                  {openEv.reflection ? (
-                    <div className="mt-6 space-y-8">
-                      {[
-                        { key: "description", title: "Description", step: "01" },
-                        { key: "feelings", title: "Feelings", step: "02" },
-                        { key: "evaluation", title: "Evaluation", step: "03" },
-                        { key: "analysis", title: "Analysis", step: "04" },
-                        { key: "conclusion", title: "Conclusion", step: "05" },
-                        { key: "action", title: "Action Plan", step: "06" },
-                      ].map((stage) => (
-                        <div key={stage.key} className="border-l-2 border-brass pl-5">
-                          <p className="text-xs font-semibold text-brass">{stage.step} · {stage.title}</p>
-                          <p className="mt-2 text-base leading-7 text-ink whitespace-pre-line">
-                            {(openEv.reflection as any)[stage.key]}
-                          </p>
-                        </div>
-                      ))}
-                    </div>
-                  ) : (
-                    <>
-                      <p className="mt-3 text-base leading-7 text-muted">
-                        Reflections for this entry will be added here using the Gibbs cycle when they are ready.
-                      </p>
-                      <ol className="mt-6 grid gap-4 sm:grid-cols-2">
-                        {gibbs.map((step) => (
-                          <li key={step.step} className="border-l-2 border-brass pl-4">
-                            <p className="text-xs font-semibold text-brass">{step.step} · {step.title}</p>
-                            <p className="mt-1 text-sm text-muted">{step.text}</p>
-                          </li>
-                        ))}
-                      </ol>
-                    </>
-                  )}
                 </div>
               )}
             </div>
