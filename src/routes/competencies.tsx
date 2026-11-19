@@ -36,13 +36,15 @@ function ReflectionBlock({ reflection }: { reflection: any }) {
     { key: "action", title: "Action Plan", step: "06" },
   ];
   return (
-    <div className="mt-6 rounded-2xl border border-line bg-paper/60 p-6">
-      <h4 className="text-xs font-semibold tracking-widest uppercase text-brass">Reflection</h4>
-      <div className="mt-5 space-y-6">
+    <div className="mt-6 rounded-2xl border border-line bg-white p-5">
+      <h4 className="text-xs font-semibold tracking-widest uppercase text-brass">Gibbs Reflective Cycle</h4>
+      <div className="mt-4 grid gap-4 sm:grid-cols-2">
         {stages.map((stage) => (
-          <div key={stage.key} className="border-l-2 border-brass pl-5">
-            <p className="text-xs font-semibold text-brass">{stage.step} · {stage.title}</p>
-            <p className="mt-2 text-base leading-7 text-ink whitespace-pre-line">
+          <div key={stage.key} className="rounded-xl border border-line/70 bg-paper/40 p-4">
+            <p className="text-[0.65rem] font-semibold tracking-widest text-brass uppercase">
+              {stage.step} · {stage.title}
+            </p>
+            <p className="mt-2 text-sm leading-6 text-ink whitespace-pre-line">
               {reflection[stage.key]}
             </p>
           </div>
@@ -62,7 +64,7 @@ function CompetenciesPage() {
   useEffect(() => {
     setShowTitle(true);
     setOpenEvidence(null);
-    const t = setTimeout(() => setShowTitle(false), 1600);
+    const t = setTimeout(() => setShowTitle(false), 1400);
     return () => clearTimeout(t);
   }, [id]);
 
@@ -73,18 +75,18 @@ function CompetenciesPage() {
     <SiteFrame>
       {showTitle && <TitleOverlay title={overlayTitle} subtitle={overlaySub} />}
 
-      <div className="mx-auto max-w-6xl px-5 py-14 md:px-8 md:py-20">
+      <div className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-16">
         <p className="text-xs font-semibold tracking-[0.18em] text-brass uppercase">GMU Framework</p>
-        <h1 className="mt-4 max-w-3xl font-serif text-5xl leading-none md:text-6xl fade-in">
+        <h1 className="mt-3 max-w-3xl font-serif text-4xl leading-tight md:text-5xl fade-in">
           The 9 Core <span className="gradient-text">Competencies</span>
         </h1>
-        <div className="mt-4 h-0.5 w-16 rounded-full bg-gradient-to-r from-brass to-accent" />
-        <p className="mt-6 max-w-2xl text-base leading-7 text-muted">
+        <div className="mt-3 h-0.5 w-14 rounded-full bg-gradient-to-r from-brass to-accent" />
+        <p className="mt-5 max-w-2xl text-sm leading-6 text-muted">
           Click any competency to explore detailed reflections, evidence, and structured Gibbs Reflective Cycle documentation aligned with Gulf Medical University standards.
         </p>
 
         {!selected ? (
-          <div className="mt-12 grid gap-6 sm:grid-cols-2">
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {competencies.map((item) => {
               const count = ((evidenceItems as any)[item.id] || []).length;
               return (
@@ -92,22 +94,22 @@ function CompetenciesPage() {
                   key={item.id}
                   to="/competencies"
                   search={{ id: item.id }}
-                  className="glass-card group block p-7 transition-all hover:scale-[1.015]"
+                  className="glass-card group block p-5"
                 >
                   <div className="flex items-start justify-between">
-                    <div className="grid size-12 place-items-center rounded-2xl bg-brass/12 text-brass">
+                    <div className="grid size-10 place-items-center rounded-xl bg-brass/10 text-brass">
                       <CompetencyIcon id={item.id} />
                     </div>
                     {count > 0 && (
-                      <span className="rounded-full bg-accent/15 px-3 py-1 text-[0.65rem] font-semibold tracking-wide text-brass">
+                      <span className="rounded-full bg-accent/15 px-2.5 py-0.5 text-[0.6rem] font-semibold tracking-wide text-brass">
                         {count} {count === 1 ? "ENTRY" : "ENTRIES"}
                       </span>
                     )}
                   </div>
-                  <p className="mt-4 text-xs font-semibold tracking-widest text-muted">{item.index}</p>
-                  <h2 className="mt-1 font-serif text-2xl leading-tight md:text-3xl">{item.title}</h2>
-                  <p className="mt-3 text-sm leading-6 text-muted line-clamp-4">{item.plain}</p>
-                  <p className="mt-6 text-sm font-semibold tracking-wide text-ink group-hover:text-brass">
+                  <p className="mt-3 text-[0.65rem] font-semibold tracking-widest text-muted">{item.index}</p>
+                  <h2 className="mt-1 font-serif text-xl leading-snug">{item.title}</h2>
+                  <p className="mt-2 text-xs leading-5 text-muted line-clamp-3">{item.plain}</p>
+                  <p className="mt-4 text-xs font-semibold text-brass">
                     Explore →
                   </p>
                 </Link>
@@ -115,7 +117,7 @@ function CompetenciesPage() {
             })}
           </div>
         ) : (
-          <div className="mt-10">
+          <div className="mt-8">
             <Link
               to="/competencies"
               search={{ id: "" }}
@@ -124,24 +126,24 @@ function CompetenciesPage() {
               ← All competencies
             </Link>
 
-            <div className="mt-6 glass-card p-8">
+            <div className="mt-5 glass-card p-6">
               <div className="flex items-center gap-4">
-                <div className="grid size-14 place-items-center rounded-2xl bg-brass/12 text-brass">
+                <div className="grid size-12 place-items-center rounded-xl bg-brass/10 text-brass">
                   <CompetencyIcon id={selected.id} />
                 </div>
                 <div>
-                  <p className="text-xs font-semibold tracking-widest text-brass uppercase">
+                  <p className="text-[0.65rem] font-semibold tracking-widest text-brass uppercase">
                     {selected.index} · Foundation
                   </p>
-                  <h2 className="mt-1 font-serif text-4xl md:text-5xl">{selected.title}</h2>
+                  <h2 className="mt-1 font-serif text-3xl md:text-4xl">{selected.title}</h2>
                 </div>
               </div>
-              <p className="mt-5 font-serif text-xl leading-8 italic text-muted">{selected.plain}</p>
+              <p className="mt-4 text-base leading-7 text-muted">{selected.plain}</p>
 
               {evidences.length > 0 && (
-                <div className="mt-10">
+                <div className="mt-8">
                   <h3 className="text-xs font-semibold tracking-widest uppercase">Evidence</h3>
-                  <div className="mt-4 space-y-6">
+                  <div className="mt-4 space-y-5">
                     {evidences.map((ev: any, i: number) => {
                       const isOpen = openEvidence === i;
                       return (
@@ -149,39 +151,39 @@ function CompetenciesPage() {
                           <button
                             type="button"
                             onClick={() => setOpenEvidence(isOpen ? null : i)}
-                            className={"w-full overflow-hidden rounded-2xl border border-line bg-paper text-left transition-all " + (isOpen ? "ring-2 ring-brass" : "hover:scale-[1.005]")}
+                            className={"w-full overflow-hidden rounded-2xl border border-line bg-white text-left transition-all " + (isOpen ? "ring-2 ring-brass" : "")}
                           >
                             {ev.image && (
                               <img src={ev.image} alt={ev.title} className="w-full h-auto object-contain" />
                             )}
-                            <div className="p-5">
+                            <div className="p-4">
                               {ev.date && (
-                                <p className="text-[0.65rem] font-semibold tracking-widest text-brass uppercase">{ev.date}</p>
+                                <p className="text-[0.6rem] font-semibold tracking-widest text-brass uppercase">{ev.date}</p>
                               )}
-                              <p className="mt-1 text-base font-semibold">{ev.title}</p>
-                              <p className="mt-1 text-sm leading-6 text-muted">{ev.description}</p>
+                              <p className="mt-1 text-sm font-semibold">{ev.title}</p>
+                              <p className="mt-1 text-xs leading-5 text-muted">{ev.description}</p>
                               {isOpen && ev.details && (
-                                <p className="mt-3 border-t border-line pt-3 text-sm leading-6 text-ink">
+                                <p className="mt-3 border-t border-line pt-3 text-xs leading-5 text-ink">
                                   {ev.details}
                                 </p>
                               )}
-                              <p className="mt-3 text-sm font-semibold text-ink">
+                              <p className="mt-3 text-xs font-semibold text-brass">
                                 {isOpen ? "Collapse" : "Read reflection →"}
                               </p>
                             </div>
                           </button>
                           {isOpen && ev.reflection && <ReflectionBlock reflection={ev.reflection} />}
                           {isOpen && !ev.reflection && (
-                            <div className="mt-4 rounded-2xl border border-line bg-paper/60 p-6">
+                            <div className="mt-4 rounded-2xl border border-line bg-white p-5">
                               <h4 className="text-xs font-semibold tracking-widest uppercase text-brass">Reflection</h4>
-                              <p className="mt-3 text-base leading-7 text-muted">
+                              <p className="mt-2 text-sm leading-6 text-muted">
                                 Reflections for this entry will be added here using the Gibbs cycle when they are ready.
                               </p>
-                              <ol className="mt-6 grid gap-4 sm:grid-cols-2">
+                              <ol className="mt-4 grid gap-3 sm:grid-cols-2">
                                 {gibbs.map((step) => (
-                                  <li key={step.step} className="border-l-2 border-brass pl-4">
-                                    <p className="text-xs font-semibold text-brass">{step.step} · {step.title}</p>
-                                    <p className="mt-1 text-sm text-muted">{step.text}</p>
+                                  <li key={step.step} className="rounded-xl border border-line/70 p-3">
+                                    <p className="text-[0.6rem] font-semibold text-brass">{step.step} · {step.title}</p>
+                                    <p className="mt-1 text-xs text-muted">{step.text}</p>
                                   </li>
                                 ))}
                               </ol>
