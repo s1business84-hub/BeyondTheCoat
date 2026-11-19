@@ -4,11 +4,12 @@ import { CompetencyIcon } from "@/components/site/icons";
 import { competencies, gibbs, evidenceItems } from "@/components/site/data";
 import { useEffect, useState } from "react";
 
-type Search = { id: string };
+type Search = { id: string; entry?: string };
 
 export const Route = createFileRoute("/competencies")({
   validateSearch: (search: Record<string, unknown>): Search => ({
     id: typeof search.id === "string" ? search.id : "",
+    entry: typeof search.entry === "string" ? search.entry : undefined,
   }),
   head: () => ({
     meta: [{ title: "Competencies — Rahul Devnani" }],
@@ -58,20 +59,21 @@ function ReflectionBlock({ reflection }: { reflection: any }) {
 }
 
 function CompetenciesPage() {
-  const { id } = Route.useSearch();
+  const { id, entry } = Route.useSearch();
   const selected = competencies.find((item) => item.id === id);
   const evidences = selected ? ((evidenceItems as any)[selected.id] || []) : [];
+  const entryIndex = entry ? parseInt(entry, 10) : null;
+  const currentEntry = entryIndex !== null && evidences[entryIndex] ? evidences[entryIndex] : null;
+  const nextEntry = entryIndex !== null && evidences[entryIndex + 1] ? evidences[entryIndex + 1] : null;
   const [showTitle, setShowTitle] = useState(true);
-  const [openEvidence, setOpenEvidence] = useState<number | null>(null);
 
   useEffect(() => {
     setShowTitle(true);
-    setOpenEvidence(null);
     const t = setTimeout(() => setShowTitle(false), 1100);
     return () => clearTimeout(t);
-  }, [id]);
+  }, [id, entry]);
 
-  const overlayTitle = selected ? selected.title.toUpperCase() : "COMPETENCIES";
+  const overlayTitle = currentEntry ? currentEntry.title.toUpperCase() : selected ? selected.title.toUpperCase() : "COMPETENCIES";
   const overlaySub = selected ? `Beyond My White Coat · ${selected.index}` : "Beyond My White Coat";
 
   return (
@@ -116,6 +118,60 @@ function CompetenciesPage() {
               })}
             </div>
           </>
+        ) : currentEntry ? (
+          <>
+            <Link
+              to="/competencies"
+              search={{ id: selected.id }}
+              className="text-sm text-muted hover:text-brass"
+            >
+              ← Back to {selected.title}
+            </Link>
+
+            <p className="mt-6 text-[0.6rem] font-medium tracking-[0.2em] text-brass uppercase">
+              Reflection · {selected.title}
+            </p>
+            <h1 className="mt-3 font-serif text-4xl md:text-5xl leading-tight">
+              {currentEntry.title}
+            </h1>
+            <div className="mt-4 h-px w-full bg-line/50" />
+            {currentEntry.date && (
+              <p className="mt-4 text-sm text-muted">{currentEntry.date}</p>
+            )}
+            <p className="mt-2 text-base leading-7 text-ink/80">
+              {currentEntry.description}
+            </p>
+
+            {currentEntry.image && (
+              <div className="relative mt-6 overflow-hidden rounded-2xl">
+                <img src={currentEntry.image} alt={currentEntry.title} className="w-full" />
+                {currentEntry.type && (
+                  <span className="absolute bottom-3 left-3 rounded bg-ink/80 px-2 py-1 text-[0.55rem] font-medium tracking-wide text-white uppercase">
+                    {currentEntry.type}
+                  </span>
+                )}
+              </div>
+            )}
+
+            {currentEntry.details && (
+              <p className="mt-6 text-base leading-7 text-ink">
+                {currentEntry.details}
+              </p>
+            )}
+
+            {currentEntry.reflection && <ReflectionBlock reflection={currentEntry.reflection} />}
+
+            {nextEntry && (
+              <Link
+                to="/competencies"
+                search={{ id: selected.id, entry: String(entryIndex! + 1) }}
+                className="mt-10 block rounded-2xl border border-line p-5 hover:border-brass transition-colors"
+              >
+                <p className="text-[0.6rem] font-medium tracking-[0.2em] text-muted uppercase">Next Entry →</p>
+                <p className="mt-2 font-serif text-xl">{nextEntry.title}</p>
+              </Link>
+            )}
+          </>
         ) : (
           <>
             <Link
@@ -143,52 +199,28 @@ function CompetenciesPage() {
             {evidences.length > 0 && (
               <div className="mt-10">
                 <h2 className="font-serif text-2xl">Evidence</h2>
-                <div className="mt-6 space-y-8">
-                  {evidences.map((ev: any, i: number) => {
-                    const isOpen = openEvidence === i;
-                    return (
-                      <div key={i} className="border-t border-line/50 pt-6">
+                <div className="mt-6 space-y-4">
+                  {evidences.map((ev: any, i: number) => (
+                    <Link
+                      key={i}
+                      to="/competencies"
+                      search={{ id: selected.id, entry: String(i) }}
+                      className="block glass-card p-4 hover:border-brass"
+                    >
+                      <div className="flex items-start gap-4">
                         {ev.image && (
-                          <div className="relative mb-4 overflow-hidden rounded-2xl">
-                            <img src={ev.image} alt={ev.title} className="w-full" />
-                            {ev.type && (
-                              <span className="absolute bottom-3 left-3 rounded bg-ink/80 px-2 py-1 text-[0.55rem] font-medium tracking-wide text-white uppercase">
-                                {ev.type}
-                              </span>
-                            )}
-                          </div>
+                          <img src={ev.image} alt={ev.title} className="size-16 rounded-lg object-cover" />
                         )}
-                        <button
-                          type="button"
-                          onClick={() => setOpenEvidence(isOpen ? null : i)}
-                          className="w-full text-left"
-                        >
+                        <div className="flex-1">
                           {ev.date && (
-                            <p className="text-sm text-muted">{ev.date}</p>
+                            <p className="text-[0.55rem] font-medium tracking-widest text-brass uppercase">{ev.date}</p>
                           )}
-                          <h3 className="mt-1 font-serif text-xl">{ev.title}</h3>
-                          <p className="mt-2 text-sm leading-6 text-muted">{ev.description}</p>
-                          <p className="mt-3 text-sm font-medium text-brass">
-                            {isOpen ? "Collapse" : "Read reflection →"}
-                          </p>
-                        </button>
-                        {isOpen && ev.details && (
-                          <p className="mt-4 text-sm leading-6 text-ink">
-                            {ev.details}
-                          </p>
-                        )}
-                        {isOpen && ev.reflection && <ReflectionBlock reflection={ev.reflection} />}
-                        {isOpen && !ev.reflection && (
-                          <div className="mt-6 rounded-xl border border-line bg-bone p-5">
-                            <h4 className="text-[0.6rem] font-medium tracking-[0.2em] uppercase text-brass">Reflection</h4>
-                            <p className="mt-2 text-sm leading-6 text-muted">
-                              Reflections for this entry will be added here using the Gibbs cycle when they are ready.
-                            </p>
-                          </div>
-                        )}
+                          <h3 className="mt-1 font-serif text-lg">{ev.title}</h3>
+                          <p className="mt-1 text-sm text-muted line-clamp-2">{ev.description}</p>
+                        </div>
                       </div>
-                    );
-                  })}
+                    </Link>
+                  ))}
                 </div>
               </div>
             )}
