@@ -5,6 +5,7 @@ import { answerJournal } from "./data";
 
 const links = [
   { to: "/", label: "Home" },
+  { to: "/about", label: "About" },
   { to: "/competencies", label: "Competencies" },
 ] as const;
 
