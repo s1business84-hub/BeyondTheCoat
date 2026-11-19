@@ -17,6 +17,18 @@ export const Route = createFileRoute("/competencies")({
   component: CompetenciesPage,
 });
 
+const iconColors: Record<string, string> = {
+  "medical-expert": "bg-gradient-to-br from-cyan-500 to-blue-600",
+  "communicator": "bg-gradient-to-br from-purple-500 to-indigo-600",
+  "collaborator": "bg-gradient-to-br from-blue-500 to-cyan-600",
+  "professionalism": "bg-gradient-to-br from-amber-500 to-orange-600",
+  "patient-care": "bg-gradient-to-br from-rose-500 to-pink-600",
+  "evidence-based": "bg-gradient-to-br from-emerald-500 to-teal-600",
+  "social-accountability": "bg-gradient-to-br from-violet-500 to-purple-600",
+  "health-systems": "bg-gradient-to-br from-sky-500 to-blue-600",
+  "lifelong-learner": "bg-gradient-to-br from-indigo-500 to-blue-600",
+};
+
 function TitleOverlay({ title, subtitle }: { title: string; subtitle: string }) {
   return (
     <div className="title-overlay">
@@ -43,7 +55,7 @@ function ReflectionBlock({ reflection }: { reflection: any }) {
       {stages.map((stage) => (
         <div key={stage.key} className="border-t border-line/50 pt-8">
           <div className="flex items-start gap-4">
-            <div className="grid size-12 shrink-0 place-items-center rounded-full bg-ink text-white text-lg font-medium">
+            <div className="grid size-12 shrink-0 place-items-center rounded-full bg-gradient-to-br from-brass to-warm text-white text-lg font-medium shadow-lg">
               {stage.letter}
             </div>
             <div>
@@ -82,7 +94,7 @@ function CompetenciesPage() {
     <SiteFrame>
       {showTitle && <TitleOverlay title={overlayTitle} subtitle={overlaySub} />}
 
-      <div className="mx-auto max-w-4xl px-5 py-10 md:px-8 md:py-14">
+      <div className="mx-auto max-w-5xl px-5 py-10 md:px-8 md:py-14">
         {!selected ? (
           <>
             <p className="text-[0.6rem] font-medium tracking-[0.2em] text-brass uppercase">GMU Framework</p>
@@ -93,9 +105,10 @@ function CompetenciesPage() {
             <p className="mt-5 max-w-xl text-sm leading-6 text-muted">
               Click any competency to explore detailed reflections, evidence, and structured Gibbs Reflective Cycle documentation aligned with Gulf Medical University standards.
             </p>
-            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {competencies.map((item) => {
                 const count = ((evidenceItems as any)[item.id] || []).length;
+                const colorClass = iconColors[item.id] || "bg-gradient-to-br from-brass to-warm";
                 return (
                   <Link
                     key={item.id}
@@ -104,19 +117,19 @@ function CompetenciesPage() {
                     className="glass-card group block p-5"
                   >
                     <div className="flex items-start justify-between">
-                      <div className="grid size-10 place-items-center rounded-xl bg-gradient-to-br from-brass/20 to-warm/10 text-brass">
+                      <div className={`grid size-12 place-items-center rounded-2xl text-white shadow-lg ${colorClass}`}>
                         <CompetencyIcon id={item.id} />
                       </div>
                       {count > 0 && (
-                        <span className="rounded-full bg-brass/10 px-2 py-0.5 text-[0.5rem] font-medium tracking-wide text-brass">
+                        <span className="rounded-full bg-gradient-to-r from-brass/15 to-warm/15 px-3 py-1 text-[0.55rem] font-semibold tracking-wide text-brass">
                           {count} {count === 1 ? "ENTRY" : "ENTRIES"}
                         </span>
                       )}
                     </div>
-                    <h2 className="mt-3 font-serif text-lg leading-snug group-hover:text-brass transition-colors">{item.title}</h2>
-                    <p className="mt-1 text-sm leading-5 text-muted line-clamp-3">{item.plain}</p>
-                    <span className="mt-4 inline-flex items-center text-sm font-medium text-brass">
-                      View Details →
+                    <h2 className="mt-4 font-serif text-xl leading-snug group-hover:text-brass transition-colors">{item.title}</h2>
+                    <p className="mt-2 text-sm leading-6 text-muted line-clamp-3">{item.plain}</p>
+                    <span className="mt-4 inline-flex items-center text-sm font-semibold text-brass group-hover:gap-2 transition-all">
+                      View Details <span className="ml-1">→</span>
                     </span>
                   </Link>
                 );
@@ -148,10 +161,10 @@ function CompetenciesPage() {
             </p>
 
             {currentEntry.image && (
-              <div className="relative mt-8 overflow-hidden rounded-2xl shadow-lg">
+              <div className="relative mt-8 overflow-hidden rounded-2xl shadow-xl">
                 <img src={currentEntry.image} alt={currentEntry.title} className="w-full" />
                 {currentEntry.type && (
-                  <span className="absolute bottom-4 left-4 rounded-lg bg-ink/90 px-3 py-1.5 text-[0.55rem] font-medium tracking-wide text-white uppercase">
+                  <span className="absolute bottom-4 left-4 rounded-lg bg-gradient-to-r from-brass to-warm px-3 py-1.5 text-[0.55rem] font-semibold tracking-wide text-white uppercase shadow-lg">
                     {currentEntry.type}
                   </span>
                 )}
@@ -170,9 +183,9 @@ function CompetenciesPage() {
               <Link
                 to="/competencies"
                 search={{ id: selected.id, entry: String(entryIndex! + 1) }}
-                className="mt-12 block rounded-2xl border-2 border-line p-6 hover:border-brass transition-colors"
+                className="mt-12 block rounded-2xl border-2 border-line p-6 hover:border-brass hover:shadow-lg transition-all"
               >
-                <p className="text-[0.6rem] font-medium tracking-[0.2em] text-muted uppercase">Next Entry →</p>
+                <p className="text-[0.6rem] font-semibold tracking-[0.2em] text-brass uppercase">Next Entry →</p>
                 <p className="mt-2 font-serif text-xl">{nextEntry.title}</p>
               </Link>
             )}
@@ -187,17 +200,21 @@ function CompetenciesPage() {
               ← All Competencies
             </Link>
 
-            <p className="mt-8 text-[0.6rem] font-medium tracking-[0.2em] text-brass uppercase">
-              Reflection · {selected.title}
-            </p>
-            <h1 className="mt-3 font-serif text-4xl md:text-5xl leading-tight">
-              {selected.title}
-            </h1>
+            <div className="mt-8 flex items-center gap-4">
+              <div className={`grid size-14 place-items-center rounded-2xl text-white shadow-lg ${iconColors[selected.id] || "bg-gradient-to-br from-brass to-warm"}`}>
+                <CompetencyIcon id={selected.id} />
+              </div>
+              <div>
+                <p className="text-[0.6rem] font-medium tracking-[0.2em] text-brass uppercase">
+                  {selected.index} · Foundation
+                </p>
+                <h1 className="mt-1 font-serif text-3xl md:text-4xl">
+                  {selected.title}
+                </h1>
+              </div>
+            </div>
             <div className="mt-6 h-px w-full bg-line/50" />
-            <p className="mt-6 text-sm text-muted">
-              {selected.index} · Foundation
-            </p>
-            <p className="mt-2 text-base leading-7 text-ink/80">
+            <p className="mt-6 text-base leading-7 text-ink/80">
               {selected.plain}
             </p>
 
@@ -214,15 +231,15 @@ function CompetenciesPage() {
                     >
                       <div className="flex items-start gap-4">
                         {ev.image && (
-                          <img src={ev.image} alt={ev.title} className="size-20 rounded-xl object-cover" />
+                          <img src={ev.image} alt={ev.title} className="size-20 rounded-xl object-cover shadow-md" />
                         )}
                         <div className="flex-1">
                           {ev.date && (
-                            <p className="text-[0.55rem] font-medium tracking-widest text-brass uppercase">{ev.date}</p>
+                            <p className="text-[0.55rem] font-semibold tracking-widest text-brass uppercase">{ev.date}</p>
                           )}
                           <h3 className="mt-1 font-serif text-lg">{ev.title}</h3>
                           <p className="mt-1 text-sm text-muted line-clamp-2">{ev.description}</p>
-                          <span className="mt-3 inline-flex items-center text-sm font-medium text-brass">
+                          <span className="mt-3 inline-flex items-center text-sm font-semibold text-brass">
                             Read Reflection →
                           </span>
                         </div>
