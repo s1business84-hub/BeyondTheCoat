@@ -79,13 +79,16 @@
   .name-letter {
     opacity: 0;
     display: inline-block;
-    color: #0A1F35;
+    background: linear-gradient(135deg, #0A1F35 0%, #1A4A6A 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
     animation: letterIn 0.4s ease-out forwards;
   }
   .name-letter-accent {
     opacity: 0;
     display: inline-block;
-    background: linear-gradient(135deg, #0088D4 0%, #00A8E8 50%, #40C4F0 100%);
+    background: linear-gradient(135deg, #0066CC 0%, #00A0E0 40%, #40D0FF 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -179,7 +182,7 @@
     color: #3D6A8A;
   }
   .gradient-text {
-    background: linear-gradient(135deg, #0088D4 0%, #00A8E8 50%, #40C4F0 100%);
+    background: linear-gradient(135deg, #0066CC 0%, #00A0E0 50%, #40D0FF 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
