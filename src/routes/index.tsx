@@ -5,6 +5,22 @@ import { competencies, purposes, standing, evidenceItems, ledger, yearMap } from
 
 export const Route = createFileRoute("/")({ component: Home });
 
+function AnimatedName({ text, accent = false, className }: { text: string; accent?: boolean; className?: string }) {
+  return (
+    <span className={className}>
+      {text.split("").map((char, i) => (
+        <span
+          key={i}
+          className={accent ? "name-letter-accent" : "name-letter"}
+          style={{ animationDelay: `${0.04 + i * 0.04}s` }}
+        >
+          {char === " " ? "\u00A0" : char}
+        </span>
+      ))}
+    </span>
+  );
+}
+
 function CompetencyMarquee() {
   const items = [...competencies, ...competencies];
   return (
@@ -25,22 +41,18 @@ function Home() {
   return (
     <SiteFrame>
       <section className="mx-auto max-w-6xl px-5 py-10 md:px-8 md:py-16">
-        <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
+        <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
           <div className="fade-up">
-            <h1 className="font-serif text-5xl md:text-6xl leading-none">
-              <span className="gradient-text">Impact</span>
+            <p className="text-[0.65rem] font-medium tracking-[0.22em] text-brass uppercase">
+              Beyond My White Coat
+            </p>
+            <h1 className="hero-name mt-3 font-serif font-medium">
+              <AnimatedName text="Rahul" accent className="block" />
+              <AnimatedName text="Devnani" accent className="block italic" />
             </h1>
-            <div className="mt-6 space-y-4 text-base leading-7 text-ink/80">
-              <p>
-                I am a medical student at <strong>Gulf Medical University (GMU)</strong>, Ajman, UAE, currently in my <strong>first year of the MD program</strong> with a passion for clinical excellence and patient-centered care.
-              </p>
-              <p>
-                My journey has been shaped by early academic exposure, structured reflection, and a commitment to building competency across all dimensions of medical practice.
-              </p>
-              <p>
-                This portfolio documents my reflective practice across nine core medical competencies, tracking my growth as I develop the knowledge, skills, and professional values essential for becoming a competent healthcare professional.
-              </p>
-            </div>
+            <p className="mt-4 max-w-sm font-serif text-base leading-7 text-ink md:text-lg">
+              First-year MD student at Gulf Medical University, Ajman.
+            </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Link
                 to="/competencies"
