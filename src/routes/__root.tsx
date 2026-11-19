@@ -43,7 +43,7 @@ export const Route = createRootRoute({
       { property: "og:title", content: "Beyond My White Coat" },
       { property: "og:description", content: "Rahul Devnani, first-year MD student at Gulf Medical University, Ajman." },
       { property: "og:type", content: "website" },
-      { name: "theme-color", content: "#B76E79" },
+      { name: "theme-color", content: "#1A6FB5" },
     ];
     if (host) {
       meta.push({ property: "x:game:image", content: xBanner });
