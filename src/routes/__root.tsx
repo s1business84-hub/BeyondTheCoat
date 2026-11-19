@@ -43,7 +43,7 @@ export const Route = createRootRoute({
       { property: "og:title", content: "Beyond My White Coat" },
       { property: "og:description", content: "Rahul Devnani, first-year MD student at Gulf Medical University, Ajman." },
       { property: "og:type", content: "website" },
-      { name: "theme-color", content: "#1a6fb5" },
+      { name: "theme-color", content: "#B76E79" },
     ];
     if (host) {
       meta.push({ property: "x:game:image", content: xBanner });
@@ -57,7 +57,7 @@ export const Route = createRootRoute({
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500;1,6..72,600&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap",
       },
       { rel: "manifest", href: "/__grok/manifest.webmanifest" },
       { rel: "apple-touch-icon", href: "/__grok/icon-180.png" },
