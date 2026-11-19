@@ -144,7 +144,7 @@ function Home() {
             <div className="mx-auto mt-3 h-0.5 w-12 bg-gradient-to-r from-brass to-warm rounded-full" />
           </div>
           <p className="mx-auto mt-5 max-w-lg text-center text-sm leading-6 text-muted">
-            Click any competency to explore reflections, evidence, and Gibbs Reflective Cycle documentation.
+            Click any competency to explore detailed reflections, evidence, and structured Gibbs Reflective Cycle documentation aligned with Gulf Medical University standards.
           </p>
           <div className="card-grid mt-8 grid gap-4 sm:grid-cols-2">
             {competencies.map((item) => {
@@ -187,7 +187,7 @@ function Home() {
             <div className="mx-auto mt-3 h-0.5 w-12 bg-gradient-to-r from-brass to-warm rounded-full" />
           </div>
           <p className="mx-auto mt-5 max-w-md text-center text-sm leading-6 text-muted">
-            A growing collection of research projects and scholarly contributions.
+            A growing collection of research projects, publications, and scholarly contributions to medicine.
           </p>
           <div className="mx-auto mt-8 max-w-sm">
             <div className="glass-card p-6 text-center">
@@ -217,12 +217,12 @@ function Home() {
 
       <section id="purpose" className="scroll-mt-20 border-t border-line/50">
         <div className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-16">
-          <Kicker index="03">Purpose</Kicker>
+          <Kicker index="03">Purpose of This Portfolio</Kicker>
           <h2 className="mt-3 max-w-lg font-serif text-3xl md:text-4xl">
             Why this portfolio exists.
           </h2>
           <p className="mt-3 max-w-md text-sm leading-6 text-muted">
-            A structured record of year one, aligned with the GMU e-portfolio framework.
+            A structured record of academic and clinical development reflecting progression across key medical competencies — aligned with the GMU e-portfolio framework.
           </p>
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             {purposes.map((item) => (
@@ -239,7 +239,7 @@ function Home() {
       <section className="border-t border-line/50">
         <div className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-14">
           <p className="mx-auto max-w-2xl text-center font-serif text-xl leading-snug italic text-ink/75 md:text-2xl">
-            “Every lesson learned today is a step towards making a difference tomorrow.”
+            “Every ward round is a masterclass. Every patient, a textbook.”
           </p>
         </div>
       </section>
@@ -270,7 +270,7 @@ function Home() {
               </a>
             </p>
             <p className="mt-5 border-t border-line/50 pt-4 font-serif text-sm italic leading-6 text-muted">
-              “Every lesson learned today is a step towards making a difference tomorrow.”
+              “Every ward round is a masterclass. Every patient, a textbook.”
             </p>
           </div>
         </div>
