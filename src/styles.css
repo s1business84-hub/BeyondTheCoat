@@ -21,10 +21,10 @@
   html { scroll-behavior: smooth; }
   body {
     background: 
-      radial-gradient(ellipse 120% 80% at -10% -10%, rgba(0, 136, 212, 0.3) 0%, transparent 45%),
-      radial-gradient(ellipse 100% 70% at 110% -5%, rgba(0, 168, 232, 0.25) 0%, transparent 45%),
-      radial-gradient(ellipse 80% 60% at 50% 110%, rgba(0, 136, 212, 0.18) 0%, transparent 45%),
-      radial-gradient(ellipse 50% 40% at 80% 40%, rgba(0, 200, 220, 0.12) 0%, transparent 40%),
+      radial-gradient(ellipse 120% 80% at -10% -10%, rgba(0, 136, 212, 0.28) 0%, transparent 45%),
+      radial-gradient(ellipse 100% 70% at 110% -5%, rgba(0, 168, 232, 0.22) 0%, transparent 45%),
+      radial-gradient(ellipse 80% 60% at 50% 110%, rgba(0, 136, 212, 0.16) 0%, transparent 45%),
+      radial-gradient(ellipse 50% 40% at 80% 40%, rgba(0, 136, 212, 0.08) 0%, transparent 40%),
       linear-gradient(165deg, #C0E0F4 0%, #D8EEF8 20%, #E8F4FC 40%, #F4FAFE 65%, #FFFFFF 100%);
     background-attachment: fixed;
     color: #0A1F35;
@@ -228,7 +228,7 @@
     right: -6px;
     width: 42px;
     height: 42px;
-    background: linear-gradient(135deg, #0088D4, #00B4C8);
+    background: linear-gradient(135deg, #0066CC, #0088D4);
     border-radius: 50%;
     box-shadow: 0 4px 12px rgba(0, 136, 212, 0.4);
     display: flex;
