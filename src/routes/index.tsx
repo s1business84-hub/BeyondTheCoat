@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Kicker, Monogram, SiteFrame } from "@/components/site/chrome";
 import { CompetencyIcon } from "@/components/site/icons";
-import { competencies, purposes, standing, evidenceItems, ledger, yearMap } from "@/components/site/data";
+import { competencies, purposes, standing, evidenceItems, ledger } from "@/components/site/data";
 
 export const Route = createFileRoute("/")({ component: Home });
 
@@ -127,28 +127,6 @@ function Home() {
           <Link to="/about" className="text-sm font-medium text-brass hover:underline">
             Read more →
           </Link>
-        </div>
-      </section>
-
-      <section className="border-t border-line/30">
-        <div className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-16">
-          <div className="space-y-3 max-w-xl">
-            {yearMap.map((item) => (
-              <div key={item.when} className="glass-card p-4">
-                <p className="text-[0.6rem] font-medium tracking-widest text-brass uppercase">{item.when}</p>
-                <p className="mt-1.5 text-sm leading-6 text-ink">{item.what}</p>
-              </div>
-            ))}
-          </div>
-          <div className="mt-6">
-            <Link
-              to="/competencies"
-              search={{ id: "" }}
-              className="btn-gradient inline-flex h-11 items-center px-6 text-[0.65rem] font-medium tracking-widest uppercase rounded-full shadow-md"
-            >
-              View Competencies
-            </Link>
-          </div>
         </div>
       </section>
 
