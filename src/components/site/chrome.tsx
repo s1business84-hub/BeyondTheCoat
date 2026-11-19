@@ -41,13 +41,13 @@ function Nav() {
   }, [pathname]);
 
   return (
-    <header className="sticky top-0 z-40 glass-nav">
+    <header className="sticky top-0 z-40 bg-gradient-to-b from-bone to-white/90 backdrop-blur-md border-b border-line/50">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5 md:px-8">
         <Link to="/" className="leading-none">
-          <span className="block font-serif text-lg font-medium tracking-wide text-bone">
+          <span className="block font-serif text-lg font-medium tracking-wide text-brass">
             Beyond My White Coat
           </span>
-          <span className="block text-[0.55rem] font-medium tracking-[0.2em] text-brass uppercase">
+          <span className="block text-[0.55rem] font-medium tracking-[0.2em] text-ink uppercase">
             Rahul Devnani
           </span>
         </Link>
@@ -60,7 +60,7 @@ function Nav() {
                 to={link.to}
                 className={
                   "text-[0.65rem] font-medium tracking-[0.15em] uppercase " +
-                  (active ? "text-brass" : "text-bone/70 hover:text-bone")
+                  (active ? "text-brass" : "text-ink/70 hover:text-ink")
                 }
                 aria-current={active ? "page" : undefined}
               >
@@ -71,7 +71,7 @@ function Nav() {
         </nav>
         <button
           type="button"
-          className="grid size-10 place-items-center border border-bone/20 text-bone md:hidden"
+          className="grid size-10 place-items-center border border-line text-ink md:hidden rounded-lg"
           aria-expanded={open}
           aria-controls="mobile-nav"
           onClick={() => setOpen((v) => !v)}
@@ -81,7 +81,7 @@ function Nav() {
         </button>
       </div>
       {open ? (
-        <nav id="mobile-nav" className="border-t border-bone/15 md:hidden" aria-label="Mobile">
+        <nav id="mobile-nav" className="border-t border-line/50 bg-white md:hidden" aria-label="Mobile">
           {links.map((link) => {
             const active = pathname === link.to;
             return (
@@ -89,8 +89,8 @@ function Nav() {
                 key={link.to}
                 to={link.to}
                 className={
-                  "flex h-12 items-center border-b border-bone/10 px-5 text-sm tracking-wide " +
-                  (active ? "bg-bone/10 text-brass" : "text-bone/70")
+                  "flex h-12 items-center border-b border-line/30 px-5 text-sm tracking-wide " +
+                  (active ? "bg-bone text-brass" : "text-ink/70")
                 }
                 aria-current={active ? "page" : undefined}
               >
@@ -186,7 +186,7 @@ function JournalDesk() {
         <section
           role="dialog"
           aria-labelledby={titleId}
-          className="flex w-[min(100vw-2rem,22rem)] flex-col border border-line bg-bone rounded-xl"
+          className="flex w-[min(100vw-2rem,22rem)] flex-col border border-line bg-white rounded-xl shadow-xl"
         >
           <header className="flex items-center justify-between border-b border-line px-4 py-3">
             <div>
@@ -258,11 +258,11 @@ function JournalDesk() {
       ) : null}
       <button
         type="button"
-        className="h-11 bg-ink px-5 text-[0.6rem] font-medium tracking-[0.2em] text-bone uppercase rounded-md"
+        className="h-11 bg-ink px-5 text-[0.6rem] font-medium tracking-[0.2em] text-bone uppercase rounded-lg shadow-lg"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
       >
-        {open ? "Close" : "Journal"}
+        {open ? "Close" : "Journal Desk"}
       </button>
     </div>
   );
@@ -299,7 +299,7 @@ export function Kicker({ index, children }: { index: string; children: string })
 export function Monogram() {
   return (
     <div
-      className="grid size-14 place-items-center border border-brass font-serif text-lg text-ink"
+      className="grid size-14 place-items-center border border-brass font-serif text-lg text-ink rounded-xl"
       aria-hidden="true"
     >
       RD
