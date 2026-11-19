@@ -94,23 +94,23 @@ export const gibbs = [
 export const purposes = [
   {
     index: "01",
-    title: "Document the year",
-    text: "Lectures, skills labs, and early clinical exposure recorded while they are still clear, not reconstructed later.",
+    title: "Document Clinical Exposure",
+    text: "Record clinical experiences and learning encounters through structured, reflective documentation of real patient care environments.",
   },
   {
     index: "02",
-    title: "Hold the standard",
-    text: "Nine competencies aligned with the GMU framework. Empty cells stay empty until there is evidence.",
+    title: "Demonstrate Growth",
+    text: "Show measurable development in medical knowledge and patient care skills across all nine competency domains defined by medical education standards.",
   },
   {
     index: "03",
-    title: "Practice judgment",
-    text: "Gibbs reflections used only when there has been a real encounter. The cycle is not filled in advance.",
+    title: "Reflect & Reason",
+    text: "Apply structured clinical reasoning to real-world scenarios through reflective practice, identifying strengths and areas for continuous improvement.",
   },
   {
     index: "04",
-    title: "Stay accountable",
-    text: "A public record that mentors and a future self can check against the starting point.",
+    title: "Support CPD",
+    text: "Enable continuous professional development through systematic self-assessment, evidence-based documentation, and goal-setting aligned with future practice.",
   },
 ];
 
@@ -118,25 +118,25 @@ export const ledger = [
   {
     index: "01",
     kind: "Research project",
-    status: "Open",
-    text: "No title is listed until there is a clear question, a method, and a supervisor.",
+    status: "Coming Soon",
+    text: "Research projects will be added here as they progress.",
   },
   {
     index: "02",
     kind: "Publication",
-    status: "Open",
-    text: "Nothing is currently in press. A blog post and a peer-reviewed paper are recorded differently.",
+    status: "Coming Soon",
+    text: "Publications will be added as they are completed.",
   },
   {
     index: "03",
     kind: "Conference paper",
-    status: "Open",
-    text: "Posters and presentations will be added here only after they have been accepted.",
+    status: "Coming Soon",
+    text: "Conference presentations will be documented here.",
   },
 ];
 
 export const standing = [
-  { index: "01", label: "Standing", value: "Year 1 · ME" },
+  { index: "01", label: "Standing", value: "Year 1 · MD" },
   { index: "02", label: "Framework", value: "Nine domains" },
   { index: "03", label: "Campus", value: "Ajman, UAE" },
   { index: "04", label: "Clinical home", value: "Thumbay system" },
@@ -172,7 +172,7 @@ export function answerJournal(raw: string): string {
   }
 
   if (s.includes("who") || s.includes("about") || s.includes("rahul") || s.includes("you") || s.includes("student") || s.includes("name")) {
-    return "Rahul Devnani is a first-year Doctor of Medicine (ME) student at Gulf Medical University in Ajman. He entered in 2026. This site (Beyond My White Coat) is his working e-portfolio documenting progress across the nine GMU competency domains.";
+    return "Rahul Devnani is a first-year Doctor of Medicine (MD) student at Gulf Medical University in Ajman. He entered in 2026. This site (Beyond My White Coat) is his working e-portfolio documenting progress across the nine GMU competency domains.";
   }
 
   if (s.includes("competenc") || s.includes("domain") || s.includes("nine") || s.includes("framework")) {
@@ -211,8 +211,8 @@ export function answerJournal(raw: string): string {
     return "Reflections follow the Gibbs cycle: 01 Description (facts), 02 Feelings, 03 Evaluation, 04 Analysis, 05 Conclusion, and 06 Action Plan. Open a competency and expand an evidence item to read the full reflection when available.";
   }
 
-  if (s.includes("gmu") || s.includes("gulf") || s.includes("me") || s.includes("university") || s.includes("ajman") || s.includes("year")) {
-    return "Rahul is a first-year ME (Doctor of Medicine) student at Gulf Medical University, Ajman, UAE. He entered in 2026. Clinical teaching is within the Thumbay Academic Health System.";
+  if (s.includes("gmu") || s.includes("gulf") || s.includes("md") || s.includes("university") || s.includes("ajman") || s.includes("year")) {
+    return "Rahul is a first-year MD (Doctor of Medicine) student at Gulf Medical University, Ajman, UAE. He entered in 2026. Clinical teaching is within the Thumbay Academic Health System.";
   }
 
   if (s.includes("certificate") || s.includes("evidence") || s.includes("lab") || s.includes("biochem") || s.includes("physiology")) {
