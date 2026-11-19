@@ -23,9 +23,9 @@ function ScrollProgress() {
   }, []);
 
   return (
-    <div className="pointer-events-none fixed inset-x-0 top-0 z-50 h-px" aria-hidden="true">
+    <div className="pointer-events-none fixed inset-x-0 top-0 z-50 h-0.5" aria-hidden="true">
       <div
-        className="h-full w-full origin-left bg-brass"
+        className="h-full w-full origin-left moving-bar"
         style={{ transform: `scaleX(${scale})` }}
       />
     </div>
