@@ -82,7 +82,21 @@
   .fade-up { animation: fadeUp 0.7s ease-out both; }
   .name-letter {
     opacity: 0;
-    animation: letterIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    display: inline-block;
+    background: linear-gradient(135deg, #0C2340 0%, #1A6FB5 40%, #0EA5E9 70%, #60A5FA 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: letterIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  .name-letter-accent {
+    opacity: 0;
+    display: inline-block;
+    background: linear-gradient(135deg, #1A6FB5 0%, #0EA5E9 50%, #60A5FA 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: letterIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
   .gradient-text {
     background: linear-gradient(135deg, #1A6FB5, #60A5FA);
@@ -112,15 +126,23 @@
     border: 1px solid rgba(212, 228, 244, 0.8);
   }
   .hero-gradient {
-    background: radial-gradient(ellipse 80% 60% at 70% 20%, rgba(26, 111, 181, 0.12) 0%, transparent 50%),
-                radial-gradient(ellipse 60% 50% at 20% 80%, rgba(14, 165, 233, 0.08) 0%, transparent 50%),
-                linear-gradient(180deg, #f0f7ff 0%, #ffffff 100%);
+    background: radial-gradient(ellipse 90% 70% at 75% 15%, rgba(26, 111, 181, 0.18) 0%, transparent 55%),
+                radial-gradient(ellipse 70% 60% at 10% 85%, rgba(14, 165, 233, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse 40% 40% at 50% 50%, rgba(96, 165, 250, 0.06) 0%, transparent 60%),
+                linear-gradient(180deg, #e8f4ff 0%, #f0f7ff 40%, #ffffff 100%);
+    min-height: 85vh;
+  }
+  .hero-name {
+    font-size: clamp(4.5rem, 14vw, 8.5rem);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
   }
 }
 
 @keyframes letterIn {
-  from { opacity: 0; transform: translateY(24px) scale(0.9); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
+  0% { opacity: 0; transform: translateY(40px) scale(0.85); filter: blur(4px); }
+  60% { opacity: 1; transform: translateY(-4px) scale(1.02); filter: blur(0); }
+  100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
 }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes slideUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
