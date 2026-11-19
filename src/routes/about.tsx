@@ -4,7 +4,7 @@ import { yearMap } from "@/components/site/data";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
-    meta: [{ title: "The Record — Rahul Devnani" }],
+    meta: [{ title: "About — Rahul Devnani" }],
   }),
   component: AboutPage,
 });
@@ -59,19 +59,13 @@ function AboutPage() {
           </aside>
         </div>
 
-        <div className="mt-14 flex flex-wrap gap-3 border-t border-line pt-10">
+        <div className="mt-14 border-t border-line pt-10">
           <Link
             to="/competencies"
-            search={{ id: "medical-expert" }}
-            className="inline-flex h-12 items-center bg-ink px-5 text-xs font-semibold tracking-widest text-bone uppercase"
+            search={{ id: "" }}
+            className="inline-flex h-12 items-center rounded-full bg-brass px-6 text-xs font-semibold tracking-widest text-white uppercase"
           >
-            Nine competencies
-          </Link>
-          <Link
-            to="/work"
-            className="inline-flex h-12 items-center border border-ink px-5 text-xs font-semibold tracking-widest uppercase"
-          >
-            The ledger
+            View competencies
           </Link>
         </div>
       </article>
