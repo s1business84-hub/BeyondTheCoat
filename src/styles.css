@@ -20,7 +20,7 @@
 @layer base {
   html { scroll-behavior: smooth; }
   body {
-    background: #F0F7FF;
+    background: linear-gradient(165deg, #e8f4ff 0%, #f0f7ff 30%, #ffffff 55%, #f5f9ff 100%);
     color: var(--color-ink);
     font-family: var(--font-sans);
     line-height: 1.75;
@@ -95,6 +95,27 @@
     background-size: 200% 100%;
     animation: moveBar 8s linear infinite;
   }
+  .marquee-track {
+    display: flex;
+    gap: 2.5rem;
+    width: max-content;
+    animation: marquee 28s linear infinite;
+  }
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+  .floating-card {
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(16px);
+    border-radius: 20px;
+    box-shadow: 0 12px 40px rgba(12, 35, 64, 0.15);
+    border: 1px solid rgba(212, 228, 244, 0.8);
+  }
+  .hero-gradient {
+    background: radial-gradient(ellipse 80% 60% at 70% 20%, rgba(26, 111, 181, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 50% at 20% 80%, rgba(14, 165, 233, 0.08) 0%, transparent 50%),
+                linear-gradient(180deg, #f0f7ff 0%, #ffffff 100%);
+  }
 }
 
 @keyframes letterIn {
@@ -107,4 +128,8 @@
 @keyframes moveBar {
   0% { background-position: 0% 50%; }
   100% { background-position: 200% 50%; }
+}
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
