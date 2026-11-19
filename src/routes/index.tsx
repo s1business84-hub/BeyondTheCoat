@@ -40,50 +40,56 @@ function CompetencyMarquee() {
 function Home() {
   return (
     <SiteFrame>
-      <section className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-20">
-        <div className="fade-up">
-          <p className="text-[0.65rem] font-medium tracking-[0.22em] text-brass uppercase">
-            Beyond My White Coat
-          </p>
-          <h1 className="hero-name mt-4 font-serif font-medium">
-            <AnimatedName text="Rahul" accent className="block" />
-            <AnimatedName text="Devnani" accent className="block italic" />
-          </h1>
-          <p className="mt-6 max-w-md font-serif text-lg leading-8 text-ink md:text-xl">
-            First-year MD student at Gulf Medical University, Ajman.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              to="/competencies"
-              search={{ id: "" }}
-              className="inline-flex h-12 items-center bg-ink px-8 text-[0.65rem] font-medium tracking-widest text-white uppercase"
-            >
-              View Competencies
-            </Link>
-            <Link
-              to="/about"
-              className="inline-flex h-12 items-center border border-ink/30 bg-white px-8 text-[0.65rem] font-medium tracking-widest text-ink uppercase hover:border-brass hover:text-brass transition-all"
-            >
-              About
-            </Link>
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brass/5 to-transparent pointer-events-none" />
+        <div className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-20">
+          <div className="fade-up">
+            <p className="text-[0.65rem] font-medium tracking-[0.22em] text-brass uppercase">
+              Beyond My White Coat
+            </p>
+            <h1 className="hero-name mt-4 font-serif font-medium">
+              <AnimatedName text="Rahul" accent className="block" />
+              <AnimatedName text="Devnani" accent className="block italic" />
+            </h1>
+            <p className="mt-6 max-w-md font-serif text-lg leading-8 text-ink md:text-xl">
+              First-year MD student at Gulf Medical University, Ajman.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                to="/competencies"
+                search={{ id: "" }}
+                className="inline-flex h-12 items-center bg-ink px-8 text-[0.65rem] font-medium tracking-widest text-white uppercase"
+              >
+                View Competencies
+              </Link>
+              <Link
+                to="/about"
+                className="inline-flex h-12 items-center border border-ink/30 bg-white px-8 text-[0.65rem] font-medium tracking-widest text-ink uppercase hover:border-brass hover:text-brass transition-all"
+              >
+                About
+              </Link>
+            </div>
           </div>
-        </div>
-        <div className="relative mt-10 fade-up" style={{ animationDelay: "0.3s" }}>
-          <div className="rounded-2xl overflow-hidden shadow-xl">
-            <img
-              src="/rahul.jpeg"
-              alt="Rahul Devnani"
-              className="w-full"
-            />
-          </div>
-          <div className="floating-card absolute -bottom-4 left-4 right-4 p-4 md:left-6 md:right-6">
-            <div className="flex items-start gap-3">
-              <span className="mt-1.5 size-2.5 shrink-0 rounded-full bg-gradient-to-r from-brass to-warm" />
-              <div>
-                <p className="text-sm font-medium text-ink">Year 1 · MD</p>
-                <p className="text-xs text-muted">Entered 2026</p>
-                <p className="text-xs text-brass">Gulf Medical University</p>
-                <p className="text-xs text-muted">Ajman, UAE</p>
+          <div className="relative mt-12 fade-up" style={{ animationDelay: "0.3s" }}>
+            <div className="absolute -inset-4 bg-gradient-to-r from-brass/20 via-warm/10 to-brass/20 rounded-3xl blur-2xl opacity-60" />
+            <div className="relative image-frame">
+              <div className="image-inner">
+                <img
+                  src="/rahul.jpeg"
+                  alt="Rahul Devnani"
+                  className="w-full"
+                />
+              </div>
+            </div>
+            <div className="floating-card absolute -bottom-4 left-4 right-4 p-4 md:left-6 md:right-6">
+              <div className="flex items-start gap-3">
+                <span className="mt-1.5 size-2.5 shrink-0 rounded-full bg-gradient-to-r from-brass to-warm" />
+                <div>
+                  <p className="text-sm font-medium text-ink">Year 1 · MD</p>
+                  <p className="text-xs text-muted">Entered 2026</p>
+                  <p className="text-xs text-brass">Gulf Medical University</p>
+                  <p className="text-xs text-muted">Ajman, UAE</p>
+                </div>
               </div>
             </div>
           </div>
