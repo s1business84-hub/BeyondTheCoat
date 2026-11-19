@@ -36,11 +36,11 @@ function ReflectionBlock({ reflection }: { reflection: any }) {
     { key: "action", title: "Action Plan", step: "06" },
   ];
   return (
-    <div className="mt-6 rounded-2xl border border-line bg-bone p-5">
+    <div className="mt-6 rounded-2xl border border-line bg-gradient-to-b from-white to-bone p-5">
       <h4 className="text-[0.6rem] font-medium tracking-[0.2em] uppercase text-brass">Gibbs Reflective Cycle</h4>
       <div className="mt-4 space-y-4">
         {stages.map((stage) => (
-          <div key={stage.key} className="rounded-xl border border-line/70 bg-paper p-4">
+          <div key={stage.key} className="rounded-xl border border-line/70 bg-white p-4 shadow-sm">
             <p className="text-[0.55rem] font-medium tracking-[0.2em] text-brass uppercase">
               {stage.step} · {stage.title}
             </p>
@@ -76,11 +76,11 @@ function CompetenciesPage() {
       {showTitle && <TitleOverlay title={overlayTitle} subtitle={overlaySub} />}
 
       <div className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-16">
-        <p className="editorial-label">GMU Framework</p>
+        <p className="text-[0.65rem] font-medium tracking-[0.22em] text-brass uppercase">GMU Framework</p>
         <h1 className="mt-3 max-w-3xl font-serif text-4xl leading-tight md:text-5xl">
-          The 9 Core Competencies
+          The 9 Core <span className="gradient-text">Competencies</span>
         </h1>
-        <div className="mt-3 h-px w-12 bg-brass" />
+        <div className="mt-3 h-0.5 w-14 bg-gradient-to-r from-brass to-warm rounded-full" />
         <p className="mt-5 max-w-2xl text-sm leading-6 text-muted">
           Click any competency to explore detailed reflections, evidence, and structured Gibbs Reflective Cycle documentation aligned with Gulf Medical University standards.
         </p>
@@ -97,17 +97,17 @@ function CompetenciesPage() {
                   className="glass-card group block p-5"
                 >
                   <div className="flex items-start justify-between">
-                    <div className="grid size-10 place-items-center rounded-xl bg-brass/10 text-brass">
+                    <div className="grid size-10 place-items-center rounded-xl bg-gradient-to-br from-brass/15 to-warm/10 text-brass">
                       <CompetencyIcon id={item.id} />
                     </div>
                     {count > 0 && (
-                      <span className="rounded-full bg-brass/10 px-2.5 py-0.5 text-[0.55rem] font-medium tracking-wide text-brass">
+                      <span className="rounded-full bg-gradient-to-r from-brass/10 to-warm/10 px-2.5 py-0.5 text-[0.55rem] font-medium tracking-wide text-brass">
                         {count} {count === 1 ? "ENTRY" : "ENTRIES"}
                       </span>
                     )}
                   </div>
                   <p className="mt-4 text-[0.55rem] font-medium tracking-[0.2em] text-muted">{item.index}</p>
-                  <h2 className="mt-1 font-serif text-xl leading-snug">{item.title}</h2>
+                  <h2 className="mt-1 font-serif text-xl leading-snug group-hover:text-brass transition-colors">{item.title}</h2>
                   <p className="mt-2 text-sm leading-6 text-muted">{item.plain}</p>
                   <p className="mt-4 text-xs font-medium tracking-wide text-brass">
                     Explore →
@@ -121,14 +121,14 @@ function CompetenciesPage() {
             <Link
               to="/competencies"
               search={{ id: "" }}
-              className="text-xs font-medium tracking-widest uppercase text-brass"
+              className="text-xs font-medium tracking-widest uppercase text-brass hover:underline"
             >
               ← All competencies
             </Link>
 
             <div className="mt-5 glass-card p-6">
               <div className="flex items-center gap-4">
-                <div className="grid size-12 place-items-center rounded-xl bg-brass/10 text-brass">
+                <div className="grid size-12 place-items-center rounded-xl bg-gradient-to-br from-brass/15 to-warm/10 text-brass">
                   <CompetencyIcon id={selected.id} />
                 </div>
                 <div>
@@ -142,7 +142,7 @@ function CompetenciesPage() {
 
               {evidences.length > 0 && (
                 <div className="mt-8">
-                  <h3 className="text-[0.6rem] font-medium tracking-[0.2em] uppercase">Evidence</h3>
+                  <h3 className="text-[0.6rem] font-medium tracking-[0.2em] uppercase text-brass">Evidence</h3>
                   <div className="mt-4 space-y-5">
                     {evidences.map((ev: any, i: number) => {
                       const isOpen = openEvidence === i;
@@ -151,7 +151,7 @@ function CompetenciesPage() {
                           <button
                             type="button"
                             onClick={() => setOpenEvidence(isOpen ? null : i)}
-                            className={"w-full overflow-hidden rounded-2xl border border-line bg-paper text-left transition-all " + (isOpen ? "ring-2 ring-brass" : "hover:border-brass")}
+                            className={"w-full overflow-hidden rounded-2xl border bg-white text-left transition-all shadow-sm " + (isOpen ? "border-brass ring-2 ring-brass/20" : "border-line hover:border-brass")}
                           >
                             {ev.image && (
                               <img src={ev.image} alt={ev.title} className="w-full h-auto object-contain" />
@@ -174,14 +174,14 @@ function CompetenciesPage() {
                           </button>
                           {isOpen && ev.reflection && <ReflectionBlock reflection={ev.reflection} />}
                           {isOpen && !ev.reflection && (
-                            <div className="mt-4 rounded-2xl border border-line bg-bone p-5">
+                            <div className="mt-4 rounded-2xl border border-line bg-gradient-to-b from-white to-bone p-5">
                               <h4 className="text-[0.6rem] font-medium tracking-[0.2em] uppercase text-brass">Reflection</h4>
                               <p className="mt-2 text-sm leading-6 text-muted">
                                 Reflections for this entry will be added here using the Gibbs cycle when they are ready.
                               </p>
                               <ol className="mt-4 space-y-3">
                                 {gibbs.map((step) => (
-                                  <li key={step.step} className="rounded-xl border border-line/70 bg-paper p-3">
+                                  <li key={step.step} className="rounded-xl border border-line/70 bg-white p-3 shadow-sm">
                                     <p className="text-[0.55rem] font-medium text-brass">{step.step} · {step.title}</p>
                                     <p className="mt-1 text-xs text-muted">{step.text}</p>
                                   </li>
