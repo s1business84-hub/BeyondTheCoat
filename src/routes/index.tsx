@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Kicker, Monogram, SiteFrame } from "@/components/site/chrome";
 import { CompetencyIcon } from "@/components/site/icons";
-import { competencies, purposes, standing, evidenceItems, ledger } from "@/components/site/data";
+import { competencies, purposes, standing, evidenceItems, ledger, yearMap } from "@/components/site/data";
 
 export const Route = createFileRoute("/")({ component: Home });
 
@@ -24,7 +24,7 @@ function AnimatedName({ text, accent = false, className }: { text: string; accen
 function CompetencyMarquee() {
   const items = [...competencies, ...competencies];
   return (
-    <div className="overflow-hidden border-y border-line/30 bg-white/50 py-3">
+    <div className="overflow-hidden border-y border-line/30 bg-white/40 backdrop-blur-sm py-3">
       <div className="marquee-track">
         {items.map((item, i) => (
           <span key={i} className="flex items-center gap-4 text-sm tracking-wide whitespace-nowrap text-muted">
@@ -76,11 +76,12 @@ function Home() {
               className="w-full"
             />
           </div>
-          <div className="floating-card absolute bottom-4 right-4 p-4 md:bottom-6 md:right-6">
+          <div className="floating-card absolute -bottom-4 left-4 right-4 p-4 md:left-6 md:right-6">
             <div className="flex items-start gap-3">
               <span className="mt-1.5 size-2.5 shrink-0 rounded-full bg-gradient-to-r from-brass to-warm" />
               <div>
                 <p className="text-sm font-medium text-ink">Year 1 · MD</p>
+                <p className="text-xs text-muted">Entered 2026</p>
                 <p className="text-xs text-brass">Gulf Medical University</p>
                 <p className="text-xs text-muted">Ajman, UAE</p>
               </div>
@@ -125,6 +126,28 @@ function Home() {
           <Link to="/about" className="text-sm font-medium text-brass hover:underline">
             Read more →
           </Link>
+        </div>
+      </section>
+
+      <section className="border-t border-line/30">
+        <div className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-16">
+          <div className="space-y-4 max-w-xl">
+            {yearMap.map((item) => (
+              <div key={item.when} className="glass-card p-5">
+                <p className="text-[0.6rem] font-medium tracking-widest text-brass uppercase">{item.when}</p>
+                <p className="mt-2 text-sm leading-6 text-ink">{item.what}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-8">
+            <Link
+              to="/competencies"
+              search={{ id: "" }}
+              className="btn-gradient inline-flex h-12 items-center px-8 text-[0.65rem] font-medium tracking-widest uppercase rounded-full shadow-lg"
+            >
+              View Competencies
+            </Link>
+          </div>
         </div>
       </section>
 
