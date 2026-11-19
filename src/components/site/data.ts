@@ -162,29 +162,86 @@ export const yearMap = [
 ];
 
 export function answerJournal(raw: string): string {
-  const s = raw.toLowerCase();
-  if (!s.trim()) {
-    return "Ask about the record, the GMD year, a competency, or the ledger.";
+  const s = raw.toLowerCase().trim();
+  if (!s) {
+    return "Hi. You can ask about Rahul, the competencies, contact details, evidence, reflections, or year one at GMU.";
   }
-  if (s.includes("contact") || s.includes("email") || s.includes("linkedin") || s.includes("reach")) {
-    return "No public email or LinkedIn is listed yet. For academic enquiries, Gulf Medical University in Ajman is the institution of record. A direct line will be added when it is ready.";
+
+  // Contact
+  if (s.includes("contact") || s.includes("email") || s.includes("phone") || s.includes("number") || s.includes("reach") || s.includes("call") || s.includes("mail")) {
+    return "You can reach Rahul at 2026md90@mygmu.ac.ae or +971 52 724 9865. For official academic matters, Gulf Medical University in Ajman is the institution of record.";
   }
-  if (s.includes("cv") || s.includes("resume") || s.includes("résumé")) {
-    return "There is no CV file on this site. The record and the nine competencies are the current documents. A CV will not be linked until it matches what is written here.";
+
+  // About / who
+  if (s.includes("who") || s.includes("about") || s.includes("rahul") || s.includes("you") || s.includes("student") || s.includes("name")) {
+    return "Rahul Devnani is a first-year Doctor of Medicine (MD) student at Gulf Medical University in Ajman. He entered in 2026. This site (Beyond My White Coat) is his working e-portfolio documenting progress across the nine GMU competency domains.";
   }
-  if (s.includes("research") || s.includes("publish") || s.includes("ledger") || s.includes("paper") || s.includes("conference")) {
-    return "The ledger is open and empty on purpose. Research, publications, and conference papers are added only when they have a title, a method, and a result. A plan is not an entry.";
+
+  // Competencies list
+  if (s.includes("competenc") || s.includes("domain") || s.includes("nine") || s.includes("framework")) {
+    return "There are nine competencies: 01 Medical Expert, 02 Communicator, 03 Collaborator, 04 Professional, 05 Patient Care, 06 Evidence-Based, 07 Social Accountability, 08 Health Systems, and 09 Lifelong Learner. Open the Competencies page and select any one to see evidence and reflections.";
   }
-  if (s.includes("competenc") || s.includes("gibbs") || s.includes("domain")) {
-    return "Nine domains, aligned with the GMU framework: Medical Expert, Communicator, Collaborator, Professional, Patient Care, Evidence-Based, Social Accountability, Health Systems, and Lifelong Learner. Open Competencies and select one. Reflections, when they exist, follow the Gibbs cycle.";
+
+  // Specific competencies
+  if (s.includes("medical expert") || s.includes("expert")) {
+    return "Medical Expert: Demonstrates clinical knowledge, diagnostic reasoning, and technical skills for safe patient care. Evidence currently includes biochemistry laboratory sessions and a mid-semester physiology achievement certificate.";
   }
-  if (s.includes("gmu") || s.includes("gulf") || s.includes("gmd") || s.includes("program") || s.includes("medicine") || s.includes("thumbay")) {
-    return "Rahul Devnani is a first-year GMD student at Gulf Medical University, Ajman — the university's Doctor of Medicine training. He entered in 2026. Clinical teaching takes place within the Thumbay Academic Health System.";
+  if (s.includes("communicator") || s.includes("communication")) {
+    return "Communicator: Builds effective, empathetic relationships with patients, families, and healthcare professionals through clear and respectful communication.";
   }
-  if (s.includes("who") || s.includes("about") || s.includes("rahul") || s.includes("record") || s.includes("year")) {
-    return "Rahul Devnani. First-year GMD, Gulf Medical University, Ajman. Entered 2026. Beyond the White Coat is the working record of that training: direct, dated, and unfinished on purpose.";
+  if (s.includes("collaborator") || s.includes("team")) {
+    return "Collaborator: Works effectively within teams, contributes reliably, and promotes shared responsibility and clear communication.";
   }
-  return "I only answer from what this journal publishes: the record, the nine competencies, the ledger, and how to get in touch. Try one of those.";
+  if (s.includes("professional")) {
+    return "Professional: Exemplifies integrity, accountability, and ethical conduct. Maintains punctuality and honesty about the limits of current knowledge.";
+  }
+  if (s.includes("patient care") || s.includes("patient")) {
+    return "Patient Care: Places patients at the center of care, prioritising safety, dignity, and well-being. Focuses on being safe and respectful in clinical spaces.";
+  }
+  if (s.includes("evidence") || s.includes("research")) {
+    return "Evidence-Based: Engages with research through critical appraisal. Current evidence includes early student research activity. Full research projects are added only when they have a clear question, method, and supervisor.";
+  }
+  if (s.includes("social") || s.includes("accountability") || s.includes("community") || s.includes("hayat") || s.includes("diabetes")) {
+    return "Social Accountability: Recognises medicine’s responsibility to society. Evidence includes the MOHAP Hayat Program certificate (30 September 2026) and World Diabetes Day participation.";
+  }
+  if (s.includes("health system") || s.includes("hospital") || s.includes("thumbay")) {
+    return "Health Systems: Understands how a teaching hospital and academic health system are organised. Clinical teaching takes place within the Thumbay Academic Health System.";
+  }
+  if (s.includes("lifelong") || s.includes("learner") || s.includes("learning")) {
+    return "Lifelong Learner: Actively seeks growth through reflection and continuous improvement. Keeps a dated, correctable record of learning.";
+  }
+
+  // Gibbs / reflection
+  if (s.includes("gibbs") || s.includes("reflect")) {
+    return "Reflections follow the Gibbs cycle: 01 Description (facts), 02 Feelings, 03 Evaluation, 04 Analysis, 05 Conclusion, and 06 Action Plan. Open a competency and expand an evidence item to read the full reflection when available.";
+  }
+
+  // GMU / program
+  if (s.includes("gmu") || s.includes("gulf") || s.includes("gmd") || s.includes("university") || s.includes("ajman") || s.includes("year")) {
+    return "Rahul is a first-year GMD (Doctor of Medicine) student at Gulf Medical University, Ajman, UAE. He entered in 2026. Clinical teaching is within the Thumbay Academic Health System.";
+  }
+
+  // Evidence / certificates
+  if (s.includes("certificate") || s.includes("evidence") || s.includes("lab") || s.includes("biochem") || s.includes("physiology")) {
+    return "Current evidence includes biochemistry laboratory sessions, a mid-semester physiology achievement certificate (October 2026), the MOHAP Hayat Program certificate, and World Diabetes Day participation. Open Competencies to view them with reflections.";
+  }
+
+  // Portfolio / site purpose
+  if (s.includes("portfolio") || s.includes("site") || s.includes("journal") || s.includes("purpose") || s.includes("why")) {
+    return "Beyond My White Coat is Rahul’s living e-portfolio. It documents year one across the nine GMU competencies with evidence and Gibbs reflections. Empty sections stay empty until real evidence exists.";
+  }
+
+  // CV
+  if (s.includes("cv") || s.includes("resume")) {
+    return "There is no CV file on this site. The About page, competencies, and evidence serve as the current record of progress.";
+  }
+
+  // Greeting
+  if (s.includes("hi") || s.includes("hello") || s.includes("hey") || s.includes("good")) {
+    return "Hello. Ask about Rahul, the nine competencies, contact details (email or phone), evidence, or reflections.";
+  }
+
+  return "I can answer questions about Rahul Devnani, the nine competencies, contact details, evidence and reflections, or year one at Gulf Medical University. Try asking about one of those.";
 }
 
 export const evidenceItems = {
@@ -250,22 +307,12 @@ export const evidenceItems = {
       date: "World Diabetes Day 2026",
       reflection: {
         description: "During my first semester as a Year 1 medical student at Gulf Medical University, I had the opportunity to participate in a World Diabetes Day awareness event. The event focused on raising awareness about diabetes, its risk factors, prevention and the importance of early detection. Being part of this initiative allowed me to engage with an important public health topic beyond the classroom. Although I had previously learned about diabetes through my academic studies, participating in an awareness event gave me a different perspective on the condition and its impact on individuals and communities. Receiving a Certificate of Participation from Gulf Medical University was a rewarding part of the experience and recognised my involvement in the initiative.",
-        feelings: "Before participating, I viewed World Diabetes Day mainly as an awareness initiative. However, being involved made me realise how relevant the condition is to everyday life, particularly in a community where diabetes is an important health concern. I felt interested in learning more about how awareness initiatives can influence people’s understanding of their health. As a first-year medical student, I also felt that participating in such an event was a valuable opportunity to experience a different aspect of medicine outside the academic environment.",
-        evaluation: "One of the most valuable aspects of the event was the opportunity to become involved in promoting awareness about a condition that affects many individuals worldwide. It helped me recognise that medical knowledge should not remain limited to textbooks and examinations but should also be communicated in ways that benefit the wider community. The experience also highlighted the importance of prevention and early detection. However, it made me realise that raising awareness alone is not always sufficient, as encouraging individuals to make lasting lifestyle changes can be considerably more challenging.",
-        analysis: "This experience helped me understand the importance of preventive medicine and health education. Diabetes is not simply a condition involving elevated blood glucose levels; it can have significant long-term consequences if not properly managed. I began to appreciate that healthcare professionals have responsibilities beyond diagnosing and treating illnesses. They also play an important role in educating individuals, encouraging healthier lifestyles and helping prevent complications. Another important lesson was recognising that effective communication is essential when discussing health-related topics. Medical information needs to be explained in a clear and understandable manner, particularly when communicating with individuals who may not have a medical background. I also realised that developing empathy is important, as patients may experience different challenges when managing a chronic condition.",
-        conclusion: "Overall, participating in World Diabetes Day was a meaningful experience during my first semester of medical school. It broadened my understanding of the role of awareness campaigns in promoting public health and reminded me that medicine extends beyond clinical treatment. The experience also encouraged me to become more aware of the responsibilities that come with pursuing a career in healthcare, particularly the importance of patient education, prevention and effective communication.",
-        action: "Moving forward, I intend to participate in more university awareness initiatives and community health activities to broaden my exposure to public health. I also aim to strengthen my understanding of common chronic conditions, particularly their risk factors, prevention and long-term management. As I progress through medical school, I hope to improve my ability to communicate medical information in a simple and approachable manner while developing the empathy and awareness necessary to become a well-rounded healthcare professional."
+        feelings: "Before participating, I viewed World Diabetes Day mainly as an awareness initiative. However, being involved made me realise how relevant the condition is to everyday life, particularly in a community where diabetes is an important health concern. I felt interested in learning more about how awareness initiatives can influence people’s understanding of health conditions and encourage healthier lifestyle choices. At the same time, I recognised that awareness alone does not guarantee behavioural change, and that ongoing education and support are necessary to make a meaningful difference.",
+        evaluation: "Participating in the event helped me appreciate the importance of public health education. I learned that effective communication is essential when discussing health topics with the community, particularly when explaining risk factors and prevention strategies in a way that is accessible and understandable. One challenge was ensuring that the information shared was accurate and appropriate for the audience, as simplifying complex medical concepts without losing their meaning requires careful thought.",
+        analysis: "This experience highlighted the role of social accountability in medicine. Healthcare professionals have a responsibility not only to treat individual patients but also to contribute to the health of the wider community. World Diabetes Day provided an opportunity to engage with a condition that has significant public health implications. I began to understand that prevention and early detection are just as important as treatment, and that community awareness initiatives can play a valuable role in reducing the burden of chronic diseases. The experience also reinforced the importance of clear communication and cultural sensitivity when addressing health topics in a community setting.",
+        conclusion: "Overall, participating in World Diabetes Day strengthened my understanding of the broader responsibilities of healthcare professionals beyond clinical practice. It allowed me to apply communication skills in a real-world context and appreciate the impact of public health initiatives. Most importantly, it helped me recognise the value of community engagement as part of medical education and professional development.",
+        action: "Moving forward, I intend to seek further opportunities to participate in community health initiatives and public awareness events. I will also work on improving my ability to communicate health information clearly and effectively to different audiences. As I progress through medical school, I hope to develop a stronger understanding of public health principles and continue contributing to initiatives that promote community well-being."
       }
-    },
-  ],
-  "lifelong-learner": [
-    { 
-      title: "Gut-Brain Axis attendance certificate", 
-      description: "Attendance at the Gut-Brain Axis: Healthy Nutrition for Your Well-being session.", 
-      details: "Certificate of Attendance for the session conducted on 5 November 2026 at Gulf Medical University College of Medicine.",
-      image: "/Gut-Brain Axis.jpeg", 
-      type: "certificate",
-      date: "5 November 2026"
     },
   ],
 };
