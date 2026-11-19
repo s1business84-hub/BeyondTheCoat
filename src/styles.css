@@ -1,18 +1,18 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bone: #FAF6F1;
-  --color-paper: #FFFCFA;
-  --color-ink: #3D2B1F;
+  --color-bone: #FAF6EF;
+  --color-paper: #FFFFFF;
+  --color-ink: #302017;
   --color-muted: #7A6A5A;
-  --color-brass: #C4A77D;
-  --color-steel: #5C4A3A;
-  --color-line: #E8E0D6;
-  --color-accent: #C4A77D;
-  --color-warm: #D4B896;
-  --color-rose: #C4A77D;
-  --color-lavender: #E8E0D6;
-  --color-blush: #C4A77D;
+  --color-brass: #B49A76;
+  --color-steel: #302017;
+  --color-line: #E7DCCE;
+  --color-accent: #B49A76;
+  --color-warm: #E7DCCE;
+  --color-rose: #B49A76;
+  --color-lavender: #E7DCCE;
+  --color-blush: #B49A76;
   --font-sans: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
 }
@@ -20,8 +20,8 @@
 @layer base {
   html { scroll-behavior: smooth; }
   body {
-    background: #FAF6F1;
-    color: #3D2B1F;
+    background: #FAF6EF;
+    color: #302017;
     font-family: var(--font-sans);
     line-height: 1.7;
   }
@@ -30,51 +30,51 @@
 
 @layer utilities {
   .glass {
-    background: rgba(250, 246, 241, 0.92);
+    background: rgba(250, 246, 239, 0.94);
     backdrop-filter: blur(12px);
-    border: 1px solid #E8E0D6;
+    border: 1px solid #E7DCCE;
   }
   .glass-card {
-    background: #FFFCFA;
-    border: 1px solid #E8E0D6;
+    background: #FFFFFF;
+    border: 1px solid #E7DCCE;
     border-radius: 12px;
-    box-shadow: 0 1px 3px rgba(61, 43, 31, 0.04);
+    box-shadow: none;
     transition: border-color 0.2s ease;
   }
   .glass-card:hover {
-    border-color: #C4A77D;
+    border-color: #B49A76;
   }
   .glass-nav {
-    background: #3D2B1F;
-    border-bottom: 1px solid #2A1D14;
+    background: #302017;
+    border-bottom: 1px solid #241C18;
   }
-  .text-brass { color: #C4A77D; }
-  .text-accent { color: #C4A77D; }
-  .border-brass { border-color: #C4A77D; }
-  .bg-brass { background-color: #3D2B1F; }
+  .text-brass { color: #B49A76; }
+  .text-accent { color: #B49A76; }
+  .border-brass { border-color: #B49A76; }
+  .bg-brass { background-color: #302017; }
   .fade-in { animation: fadeIn 0.6s ease-out both; }
   .fade-up { animation: fadeUp 0.6s ease-out both; }
   .name-letter {
     opacity: 0;
     display: inline-block;
-    color: #3D2B1F;
+    color: #302017;
     animation: letterIn 0.5s ease-out forwards;
   }
   .name-letter-accent {
     opacity: 0;
     display: inline-block;
-    color: #3D2B1F;
+    color: #302017;
     font-style: italic;
     animation: letterIn 0.5s ease-out forwards;
   }
   .moving-bar {
-    background: #C4A77D;
+    background: #B49A76;
   }
   .floating-card {
-    background: #FFFCFA;
-    border: 1px solid #E8E0D6;
+    background: #FFFFFF;
+    border: 1px solid #E7DCCE;
     border-radius: 16px;
-    box-shadow: 0 4px 16px rgba(61, 43, 31, 0.08);
+    box-shadow: 0 2px 12px rgba(48, 32, 23, 0.06);
   }
   .hero-name {
     font-size: clamp(3.5rem, 10vw, 6.5rem);
@@ -83,8 +83,8 @@
     font-weight: 500;
   }
   .stat-card {
-    background: #FFFCFA;
-    border: 1px solid #E8E0D6;
+    background: #FFFFFF;
+    border: 1px solid #E7DCCE;
     border-radius: 12px;
     padding: 1rem 1.25rem;
   }
@@ -96,7 +96,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: #3D2B1F;
+    background: #241C18;
     animation: overlayIn 0.3s ease-out, overlayOut 0.4s ease-in 1s forwards;
   }
   .title-overlay h1 {
@@ -104,7 +104,7 @@
     font-size: clamp(2rem, 6vw, 3.5rem);
     font-weight: 500;
     letter-spacing: 0.15em;
-    color: #FAF6F1;
+    color: #FAF6EF;
     text-transform: uppercase;
     animation: titleRise 0.5s ease-out 0.1s both;
   }
@@ -112,7 +112,7 @@
     margin-top: 0.75rem;
     height: 1px;
     width: 4rem;
-    background: #C4A77D;
+    background: #B49A76;
     animation: lineGrow 0.4s ease-out 0.3s both;
   }
   .title-overlay .title-sub {
@@ -120,7 +120,7 @@
     font-size: 0.6rem;
     letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: rgba(250, 246, 241, 0.45);
+    color: rgba(250, 246, 239, 0.45);
     animation: fadeIn 0.4s ease-out 0.4s both;
   }
   .editorial-label {
