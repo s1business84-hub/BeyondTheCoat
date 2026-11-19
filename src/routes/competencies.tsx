@@ -101,14 +101,14 @@ function CompetenciesPage() {
                       <CompetencyIcon id={item.id} />
                     </div>
                     {count > 0 && (
-                      <span className="rounded-full bg-brass/15 px-2.5 py-0.5 text-[0.55rem] font-medium tracking-wide text-brass">
+                      <span className="rounded-full bg-brass/10 px-2.5 py-0.5 text-[0.55rem] font-medium tracking-wide text-brass">
                         {count} {count === 1 ? "ENTRY" : "ENTRIES"}
                       </span>
                     )}
                   </div>
                   <p className="mt-4 text-[0.55rem] font-medium tracking-[0.2em] text-muted">{item.index}</p>
                   <h2 className="mt-1 font-serif text-xl leading-snug">{item.title}</h2>
-                  <p className="mt-2 text-xs leading-5 text-muted">{item.plain}</p>
+                  <p className="mt-2 text-sm leading-6 text-muted">{item.plain}</p>
                   <p className="mt-4 text-xs font-medium tracking-wide text-brass">
                     Explore →
                   </p>
@@ -161,9 +161,9 @@ function CompetenciesPage() {
                                 <p className="text-[0.55rem] font-medium tracking-[0.2em] text-brass uppercase">{ev.date}</p>
                               )}
                               <p className="mt-1 text-sm font-medium">{ev.title}</p>
-                              <p className="mt-1 text-xs leading-5 text-muted">{ev.description}</p>
+                              <p className="mt-1 text-sm leading-6 text-muted">{ev.description}</p>
                               {isOpen && ev.details && (
-                                <p className="mt-3 border-t border-line pt-3 text-xs leading-5 text-ink">
+                                <p className="mt-3 border-t border-line pt-3 text-sm leading-6 text-ink">
                                   {ev.details}
                                 </p>
                               )}
