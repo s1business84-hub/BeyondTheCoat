@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteFrame } from "@/components/site/chrome";
+import { CompetencyIcon } from "@/components/site/icons";
 import { competencies, gibbs, evidenceItems } from "@/components/site/data";
 import { useEffect, useState } from "react";
 
@@ -94,14 +95,17 @@ function CompetenciesPage() {
                   className="glass-card group block p-7 transition-all hover:scale-[1.015]"
                 >
                   <div className="flex items-start justify-between">
-                    <p className="text-xs font-semibold tracking-widest text-muted">{item.index}</p>
+                    <div className="grid size-12 place-items-center rounded-2xl bg-brass/12 text-brass">
+                      <CompetencyIcon id={item.id} />
+                    </div>
                     {count > 0 && (
                       <span className="rounded-full bg-accent/15 px-3 py-1 text-[0.65rem] font-semibold tracking-wide text-brass">
                         {count} {count === 1 ? "ENTRY" : "ENTRIES"}
                       </span>
                     )}
                   </div>
-                  <h2 className="mt-4 font-serif text-2xl leading-tight md:text-3xl">{item.title}</h2>
+                  <p className="mt-4 text-xs font-semibold tracking-widest text-muted">{item.index}</p>
+                  <h2 className="mt-1 font-serif text-2xl leading-tight md:text-3xl">{item.title}</h2>
                   <p className="mt-3 text-sm leading-6 text-muted line-clamp-4">{item.plain}</p>
                   <p className="mt-6 text-sm font-semibold tracking-wide text-ink group-hover:text-brass">
                     Explore →
@@ -121,11 +125,18 @@ function CompetenciesPage() {
             </Link>
 
             <div className="mt-6 glass-card p-8">
-              <p className="text-xs font-semibold tracking-widest text-brass uppercase">
-                {selected.index} · Foundation
-              </p>
-              <h2 className="mt-3 font-serif text-4xl md:text-5xl">{selected.title}</h2>
-              <p className="mt-4 font-serif text-xl leading-8 italic text-muted">{selected.plain}</p>
+              <div className="flex items-center gap-4">
+                <div className="grid size-14 place-items-center rounded-2xl bg-brass/12 text-brass">
+                  <CompetencyIcon id={selected.id} />
+                </div>
+                <div>
+                  <p className="text-xs font-semibold tracking-widest text-brass uppercase">
+                    {selected.index} · Foundation
+                  </p>
+                  <h2 className="mt-1 font-serif text-4xl md:text-5xl">{selected.title}</h2>
+                </div>
+              </div>
+              <p className="mt-5 font-serif text-xl leading-8 italic text-muted">{selected.plain}</p>
 
               {evidences.length > 0 && (
                 <div className="mt-10">
