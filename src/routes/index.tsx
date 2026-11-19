@@ -5,22 +5,6 @@ import { competencies, purposes, standing, evidenceItems, ledger, yearMap } from
 
 export const Route = createFileRoute("/")({ component: Home });
 
-function AnimatedName({ text, accent = false, className }: { text: string; accent?: boolean; className?: string }) {
-  return (
-    <span className={className}>
-      {text.split("").map((char, i) => (
-        <span
-          key={i}
-          className={accent ? "name-letter-accent" : "name-letter"}
-          style={{ animationDelay: `${0.04 + i * 0.04}s` }}
-        >
-          {char === " " ? "\u00A0" : char}
-        </span>
-      ))}
-    </span>
-  );
-}
-
 function CompetencyMarquee() {
   const items = [...competencies, ...competencies];
   return (
@@ -40,52 +24,54 @@ function CompetencyMarquee() {
 function Home() {
   return (
     <SiteFrame>
-      <section>
-        <div className="mx-auto max-w-6xl px-5 py-10 md:px-8 md:py-14">
-          <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
-            <div>
-              <p className="text-[0.65rem] font-medium tracking-[0.22em] text-brass uppercase fade-up">
-                Beyond My White Coat
+      <section className="mx-auto max-w-6xl px-5 py-10 md:px-8 md:py-16">
+        <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
+          <div className="fade-up">
+            <h1 className="font-serif text-5xl md:text-6xl leading-none">
+              <span className="gradient-text">Impact</span>
+            </h1>
+            <div className="mt-6 space-y-4 text-base leading-7 text-ink/80">
+              <p>
+                I am a medical student at <strong>Gulf Medical University (GMU)</strong>, Ajman, UAE, currently in my <strong>first year of the MD program</strong> with a passion for clinical excellence and patient-centered care.
               </p>
-              <h1 className="hero-name mt-3 font-serif font-medium">
-                <AnimatedName text="Rahul" accent className="block" />
-                <AnimatedName text="Devnani" accent className="block italic" />
-              </h1>
-              <p className="mt-4 max-w-sm font-serif text-base leading-7 text-ink md:text-lg fade-up" style={{ animationDelay: "0.5s" }}>
-                First-year MD student at Gulf Medical University, Ajman.
+              <p>
+                My journey has been shaped by early academic exposure, structured reflection, and a commitment to building competency across all dimensions of medical practice.
               </p>
-              <div className="mt-5 flex flex-wrap gap-3 fade-up" style={{ animationDelay: "0.6s" }}>
-                <Link
-                  to="/competencies"
-                  search={{ id: "" }}
-                  className="btn-gradient inline-flex h-11 items-center px-6 text-[0.65rem] font-medium tracking-widest uppercase rounded-lg shadow-lg"
-                >
-                  View Competencies
-                </Link>
-                <Link
-                  to="/about"
-                  className="inline-flex h-11 items-center border border-ink/30 bg-white px-6 text-[0.65rem] font-medium tracking-widest text-ink uppercase rounded-lg hover:border-brass hover:text-brass transition-all"
-                >
-                  About
-                </Link>
-              </div>
+              <p>
+                This portfolio documents my reflective practice across nine core medical competencies, tracking my growth as I develop the knowledge, skills, and professional values essential for becoming a competent healthcare professional.
+              </p>
             </div>
-            <div className="relative fade-up" style={{ animationDelay: "0.7s" }}>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link
+                to="/competencies"
+                search={{ id: "" }}
+                className="btn-gradient inline-flex h-11 items-center px-6 text-[0.65rem] font-medium tracking-widest uppercase rounded-lg shadow-lg"
+              >
+                View Competencies
+              </Link>
+              <Link
+                to="/about"
+                className="inline-flex h-11 items-center border border-ink/30 bg-white px-6 text-[0.65rem] font-medium tracking-widest text-ink uppercase rounded-lg hover:border-brass hover:text-brass transition-all"
+              >
+                About
+              </Link>
+            </div>
+          </div>
+          <div className="relative fade-up" style={{ animationDelay: "0.2s" }}>
+            <div className="rounded-2xl overflow-hidden shadow-xl">
               <img
                 src="/rahul.jpeg"
                 alt="Rahul Devnani"
-                className="w-full rounded-2xl shadow-xl"
+                className="w-full"
               />
-              <div className="floating-card absolute -bottom-3 left-3 right-3 p-3.5 md:left-4 md:right-auto md:w-52">
-                <div className="flex items-start gap-2.5">
-                  <span className="mt-1 size-2.5 shrink-0 rounded-full bg-gradient-to-r from-brass to-warm" />
-                  <div>
-                    <p className="text-sm font-medium text-ink">Year 1 · MD</p>
-                    <p className="text-xs text-muted">Entered 2026</p>
-                    <p className="mt-0.5 text-xs leading-4 text-brass">
-                      Gulf Medical University<br />Ajman, UAE
-                    </p>
-                  </div>
+            </div>
+            <div className="floating-card absolute -bottom-4 left-4 right-4 p-4 md:left-6 md:right-6">
+              <div className="flex items-start gap-3">
+                <span className="mt-1.5 size-2.5 shrink-0 rounded-full bg-gradient-to-r from-brass to-warm" />
+                <div>
+                  <p className="text-sm font-medium text-ink">Year 1 · MD</p>
+                  <p className="text-xs text-brass">Gulf Medical University</p>
+                  <p className="text-xs text-muted">Ajman, UAE</p>
                 </div>
               </div>
             </div>
@@ -95,8 +81,8 @@ function Home() {
 
       <CompetencyMarquee />
 
-      <section className="mx-auto max-w-6xl px-5 py-6 md:px-8" aria-label="Standing">
-        <div className="grid grid-cols-2 gap-3 max-w-lg">
+      <section className="mx-auto max-w-6xl px-5 py-8 md:px-8" aria-label="Standing">
+        <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
           {standing.map((item) => (
             <div key={item.index} className="stat-card">
               <p className="text-xs font-medium tracking-widest text-brass">{item.index}</p>
@@ -109,7 +95,7 @@ function Home() {
         </div>
       </section>
 
-      <section id="about" className="mx-auto max-w-6xl px-5 py-10 md:px-8 md:py-14">
+      <section id="about" className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-16">
         <div className="text-center max-w-xl mx-auto">
           <p className="text-[0.65rem] font-medium tracking-[0.2em] text-brass uppercase">About Me</p>
           <h2 className="mt-2 font-serif text-3xl leading-tight md:text-4xl">
@@ -117,7 +103,7 @@ function Home() {
           </h2>
           <div className="mx-auto mt-3 h-0.5 w-14 bg-gradient-to-r from-brass to-warm rounded-full" />
         </div>
-        <div className="mx-auto mt-5 max-w-lg space-y-3 text-center text-sm leading-6 text-muted">
+        <div className="mx-auto mt-6 max-w-lg space-y-3 text-center text-sm leading-6 text-muted">
           <p>
             I am a first-year MD student at Gulf Medical University in Ajman, entered in 2026. This portfolio documents my progress across the nine competency domains of the MD program.
           </p>
@@ -133,7 +119,7 @@ function Home() {
       </section>
 
       <section className="border-t border-line/50">
-        <div className="mx-auto max-w-6xl px-5 py-10 md:px-8 md:py-14">
+        <div className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-16">
           <div className="space-y-3 max-w-xl">
             {yearMap.map((item) => (
               <div key={item.when} className="glass-card p-4">
@@ -155,7 +141,7 @@ function Home() {
       </section>
 
       <section className="border-t border-line/50">
-        <div className="mx-auto max-w-6xl px-5 py-10 md:px-8 md:py-14">
+        <div className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-16">
           <div className="text-center">
             <p className="text-[0.65rem] font-medium tracking-[0.2em] text-brass uppercase">GMU Framework</p>
             <h2 className="mt-2 font-serif text-3xl md:text-4xl">
@@ -200,7 +186,7 @@ function Home() {
       </section>
 
       <section className="border-t border-line/50">
-        <div className="mx-auto max-w-6xl px-5 py-10 md:px-8 md:py-14">
+        <div className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-16">
           <div className="text-center">
             <p className="text-[0.65rem] font-medium tracking-[0.2em] text-brass uppercase">Scholarly Work</p>
             <h2 className="mt-2 font-serif text-3xl md:text-4xl">Research & Publications</h2>
@@ -236,7 +222,7 @@ function Home() {
       </section>
 
       <section id="purpose" className="scroll-mt-20 border-t border-line/50">
-        <div className="mx-auto max-w-6xl px-5 py-10 md:px-8 md:py-14">
+        <div className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-16">
           <Kicker index="03">Purpose of This Portfolio</Kicker>
           <h2 className="mt-2 max-w-lg font-serif text-3xl md:text-4xl">
             Why this portfolio exists.
@@ -257,7 +243,7 @@ function Home() {
       </section>
 
       <section className="border-t border-line/50">
-        <div className="mx-auto max-w-6xl px-5 py-10 md:px-8 md:py-12">
+        <div className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-14">
           <p className="mx-auto max-w-2xl text-center font-serif text-lg leading-snug italic text-ink/75 md:text-xl">
             “Every ward round is a masterclass. Every patient, a textbook.”
           </p>
@@ -265,7 +251,7 @@ function Home() {
       </section>
 
       <section id="contact" className="scroll-mt-20 border-t border-line/50">
-        <div className="mx-auto grid max-w-6xl gap-6 px-5 py-10 md:px-8 md:py-14 lg:grid-cols-2">
+        <div className="mx-auto grid max-w-6xl gap-6 px-5 py-12 md:px-8 md:py-16 lg:grid-cols-2">
           <div>
             <Kicker index="04">Contact</Kicker>
             <h2 className="mt-2 font-serif text-3xl md:text-4xl">Get in touch.</h2>
