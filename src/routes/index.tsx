@@ -24,7 +24,7 @@ function AnimatedName({ text, accent = false, className }: { text: string; accen
 function CompetencyMarquee() {
   const items = [...competencies, ...competencies];
   return (
-    <div className="overflow-hidden border-y border-line/30 bg-white/50 backdrop-blur-sm py-3">
+    <div className="overflow-hidden border-y border-line/40 bg-white/40 py-3">
       <div className="marquee-track">
         {items.map((item, i) => (
           <span key={i} className="flex items-center gap-4 text-sm tracking-wide whitespace-nowrap text-muted">
@@ -40,11 +40,11 @@ function CompetencyMarquee() {
 function Home() {
   return (
     <SiteFrame>
-      <section className="relative bg-gradient-to-b from-bone via-white to-bone overflow-hidden">
+      <section className="relative overflow-hidden">
         <div className="orb orb-1" />
         <div className="orb orb-2" />
-        <div className="mx-auto max-w-4xl px-5 py-10 md:px-8 md:py-14 relative z-10">
-          <div className="text-center">
+        <div className="mx-auto max-w-5xl px-5 py-10 md:px-8 md:py-14 relative z-10">
+          <div className="max-w-xl">
             <p className="text-[0.65rem] font-medium tracking-[0.22em] text-brass uppercase fade-up">
               Beyond My White Coat
             </p>
@@ -52,34 +52,34 @@ function Home() {
               <AnimatedName text="Rahul" className="block" />
               <AnimatedName text="Devnani" accent className="block italic" />
             </h1>
-            <p className="mt-4 mx-auto max-w-sm font-serif text-base leading-7 text-ink md:text-lg fade-up" style={{ animationDelay: "0.5s" }}>
+            <p className="mt-4 max-w-sm font-serif text-base leading-7 text-ink md:text-lg fade-up" style={{ animationDelay: "0.5s" }}>
               First-year MD student at Gulf Medical University, Ajman.
             </p>
-            <div className="mt-5 flex flex-wrap justify-center gap-3 fade-up" style={{ animationDelay: "0.6s" }}>
+            <div className="mt-5 flex flex-wrap gap-3 fade-up" style={{ animationDelay: "0.6s" }}>
               <Link
                 to="/competencies"
                 search={{ id: "" }}
-                className="inline-flex h-11 items-center bg-ink px-6 text-[0.65rem] font-medium tracking-widest text-bone uppercase rounded-lg shadow-lg"
+                className="inline-flex h-11 items-center bg-ink px-6 text-[0.65rem] font-medium tracking-widest text-bone uppercase rounded-lg"
               >
                 View Competencies
               </Link>
               <Link
                 to="/about"
-                className="inline-flex h-11 items-center border border-ink/40 bg-white px-6 text-[0.65rem] font-medium tracking-widest text-ink uppercase rounded-lg hover:border-brass hover:text-brass transition-all"
+                className="inline-flex h-11 items-center border border-ink/30 bg-white px-6 text-[0.65rem] font-medium tracking-widest text-ink uppercase rounded-lg hover:border-brass hover:text-brass transition-all"
               >
                 About
               </Link>
             </div>
           </div>
-          <div className="relative mt-8 mx-auto max-w-md fade-up" style={{ animationDelay: "0.7s" }}>
+          <div className="relative mt-8 fade-up" style={{ animationDelay: "0.7s" }}>
             <img
               src="/rahul.jpeg"
               alt="Rahul Devnani"
-              className="w-full rounded-2xl shadow-xl"
+              className="w-full max-w-lg rounded-2xl shadow-lg"
             />
-            <div className="floating-card absolute -bottom-3 left-3 right-3 p-3.5 md:left-4 md:right-auto md:w-52">
+            <div className="floating-card absolute -bottom-3 left-3 p-3.5 w-48 md:w-52">
               <div className="flex items-start gap-2.5">
-                <span className="mt-1 size-2.5 shrink-0 rounded-full bg-gradient-to-r from-brass to-warm" />
+                <span className="mt-1 size-2.5 shrink-0 rounded-full bg-brass" />
                 <div>
                   <p className="text-sm font-medium text-ink">Year 1 · MD</p>
                   <p className="text-xs text-muted">Entered 2026</p>
@@ -95,8 +95,8 @@ function Home() {
 
       <CompetencyMarquee />
 
-      <section className="mx-auto max-w-4xl px-5 py-6 md:px-8" aria-label="Standing">
-        <div className="grid grid-cols-2 gap-3">
+      <section className="mx-auto max-w-5xl px-5 py-6 md:px-8" aria-label="Standing">
+        <div className="grid grid-cols-2 gap-3 max-w-lg">
           {standing.map((item) => (
             <div key={item.index} className="stat-card">
               <p className="text-xs font-medium tracking-widest text-brass">{item.index}</p>
@@ -109,8 +109,8 @@ function Home() {
         </div>
       </section>
 
-      <section id="about" className="mx-auto max-w-4xl px-5 py-10 md:px-8 md:py-14">
-        <div className="text-center">
+      <section id="about" className="mx-auto max-w-5xl px-5 py-10 md:px-8 md:py-14">
+        <div className="text-center max-w-xl mx-auto">
           <p className="text-[0.65rem] font-medium tracking-[0.2em] text-brass uppercase">About Me</p>
           <h2 className="mt-2 font-serif text-3xl leading-tight md:text-4xl">
             Building a <span className="gradient-text italic">foundation</span> for<br />medicine
@@ -133,8 +133,8 @@ function Home() {
       </section>
 
       <section className="border-t border-line/50">
-        <div className="mx-auto max-w-4xl px-5 py-10 md:px-8 md:py-14">
-          <div className="space-y-3">
+        <div className="mx-auto max-w-5xl px-5 py-10 md:px-8 md:py-14">
+          <div className="space-y-3 max-w-xl">
             {yearMap.map((item) => (
               <div key={item.when} className="glass-card p-4">
                 <p className="text-[0.6rem] font-medium tracking-widest text-brass uppercase">{item.when}</p>
@@ -142,7 +142,7 @@ function Home() {
               </div>
             ))}
           </div>
-          <div className="mt-6 text-center">
+          <div className="mt-6">
             <Link
               to="/competencies"
               search={{ id: "" }}
@@ -177,11 +177,11 @@ function Home() {
                   className="glass-card group block p-4"
                 >
                   <div className="flex items-start justify-between">
-                    <div className="grid size-9 place-items-center rounded-lg bg-gradient-to-br from-brass/15 to-warm/10 text-brass">
+                    <div className="grid size-9 place-items-center rounded-lg bg-brass/10 text-brass">
                       <CompetencyIcon id={item.id} />
                     </div>
                     {count > 0 && (
-                      <span className="rounded-full bg-gradient-to-r from-brass/10 to-warm/10 px-2 py-0.5 text-[0.5rem] font-medium tracking-wide text-brass">
+                      <span className="rounded-full bg-brass/10 px-2 py-0.5 text-[0.5rem] font-medium tracking-wide text-brass">
                         {count} {count === 1 ? "ENTRY" : "ENTRIES"}
                       </span>
                     )}
@@ -211,7 +211,7 @@ function Home() {
           </p>
           <div className="mx-auto mt-6 max-w-sm">
             <div className="glass-card p-5 text-center">
-              <div className="mx-auto grid size-10 place-items-center rounded-lg bg-gradient-to-br from-brass/15 to-warm/10 text-brass">
+              <div className="mx-auto grid size-10 place-items-center rounded-lg bg-brass/10 text-brass">
                 <svg className="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
