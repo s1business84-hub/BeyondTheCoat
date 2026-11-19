@@ -38,7 +38,7 @@ function ReflectionBlock({ reflection }: { reflection: any }) {
   return (
     <div className="mt-6 rounded-2xl border border-line bg-bone p-5">
       <h4 className="text-[0.6rem] font-medium tracking-[0.2em] uppercase text-brass">Gibbs Reflective Cycle</h4>
-      <div className="mt-4 grid gap-4 sm:grid-cols-2">
+      <div className="mt-4 space-y-4">
         {stages.map((stage) => (
           <div key={stage.key} className="rounded-xl border border-line/70 bg-paper p-4">
             <p className="text-[0.55rem] font-medium tracking-[0.2em] text-brass uppercase">
@@ -179,7 +179,7 @@ function CompetenciesPage() {
                               <p className="mt-2 text-sm leading-6 text-muted">
                                 Reflections for this entry will be added here using the Gibbs cycle when they are ready.
                               </p>
-                              <ol className="mt-4 grid gap-3 sm:grid-cols-2">
+                              <ol className="mt-4 space-y-3">
                                 {gibbs.map((step) => (
                                   <li key={step.step} className="rounded-xl border border-line/70 bg-paper p-3">
                                     <p className="text-[0.55rem] font-medium text-brass">{step.step} · {step.title}</p>
