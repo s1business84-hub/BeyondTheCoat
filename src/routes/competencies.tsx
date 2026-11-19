@@ -18,15 +18,15 @@ export const Route = createFileRoute("/competencies")({
 });
 
 const iconColors: Record<string, string> = {
-  "medical-expert": "bg-gradient-to-br from-cyan-500 to-blue-600",
-  "communicator": "bg-gradient-to-br from-purple-500 to-indigo-600",
-  "collaborator": "bg-gradient-to-br from-blue-500 to-cyan-600",
-  "professionalism": "bg-gradient-to-br from-amber-500 to-orange-600",
-  "patient-care": "bg-gradient-to-br from-rose-500 to-pink-600",
-  "evidence-based": "bg-gradient-to-br from-emerald-500 to-teal-600",
-  "social-accountability": "bg-gradient-to-br from-violet-500 to-purple-600",
-  "health-systems": "bg-gradient-to-br from-sky-500 to-blue-600",
-  "lifelong-learner": "bg-gradient-to-br from-indigo-500 to-blue-600",
+  "medical-expert": "bg-gradient-to-br from-blue-500 to-blue-700",
+  "communicator": "bg-gradient-to-br from-sky-500 to-blue-600",
+  "collaborator": "bg-gradient-to-br from-cyan-500 to-blue-600",
+  "professionalism": "bg-gradient-to-br from-blue-600 to-indigo-700",
+  "patient-care": "bg-gradient-to-br from-teal-500 to-cyan-600",
+  "evidence-based": "bg-gradient-to-br from-blue-500 to-cyan-600",
+  "social-accountability": "bg-gradient-to-br from-indigo-500 to-blue-700",
+  "health-systems": "bg-gradient-to-br from-sky-600 to-blue-700",
+  "lifelong-learner": "bg-gradient-to-br from-cyan-600 to-blue-700",
 };
 
 function TitleOverlay({ title, subtitle }: { title: string; subtitle: string }) {
