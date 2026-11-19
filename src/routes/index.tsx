@@ -20,10 +20,26 @@ function AnimatedName({ text, className }: { text: string; className?: string })
   );
 }
 
+function CompetencyMarquee() {
+  const items = [...competencies, ...competencies];
+  return (
+    <div className="overflow-hidden bg-steel py-4 text-bone">
+      <div className="marquee-track">
+        {items.map((item, i) => (
+          <span key={i} className="flex items-center gap-6 text-sm tracking-wide whitespace-nowrap">
+            {item.title}
+            <span className="text-brass">•</span>
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function Home() {
   return (
     <SiteFrame>
-      <section className="border-b border-line">
+      <section className="hero-gradient relative overflow-hidden">
         <div className="mx-auto grid max-w-6xl gap-16 px-5 py-20 md:px-8 md:py-28 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-7">
             <p className="text-xs font-semibold tracking-widest text-muted uppercase">
@@ -31,7 +47,7 @@ function Home() {
             </p>
             <h1 className="mt-6 font-serif text-6xl font-medium leading-none lg:text-8xl">
               <AnimatedName text="Rahul" className="block" />
-              <AnimatedName text="Devnani" className="block italic text-steel" />
+              <AnimatedName text="Devnani" className="block italic gradient-text" />
             </h1>
             <p className="mt-8 max-w-lg font-serif text-xl leading-8 text-ink md:text-2xl">
               First-year MD student at Gulf Medical University.
@@ -52,15 +68,29 @@ function Home() {
               </a>
             </div>
           </div>
-          <div className="lg:col-span-5">
+          <div className="relative lg:col-span-5">
             <img
               src="/rahul.jpeg"
               alt="Rahul Devnani"
               className="w-full rounded-2xl object-cover shadow-lg"
             />
+            <div className="floating-card absolute bottom-6 left-4 right-4 p-5 md:left-6 md:right-auto md:w-64">
+              <div className="flex items-start gap-3">
+                <span className="mt-1 size-2.5 shrink-0 rounded-full bg-brass" />
+                <div>
+                  <p className="font-semibold text-ink">White Coat Ceremony</p>
+                  <p className="mt-0.5 text-sm text-muted">2026</p>
+                  <p className="mt-1 text-sm text-brass">
+                    Gulf Medical University ·<br />Ajman, UAE
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
+
+      <CompetencyMarquee />
 
       <section className="bg-steel text-bone" aria-label="Standing">
         <div className="mx-auto grid max-w-6xl sm:grid-cols-2 lg:grid-cols-4">
@@ -100,7 +130,9 @@ function Home() {
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
               <Kicker index="02">Competencies</Kicker>
-              <h2 className="mt-4 font-serif text-4xl md:text-5xl">Nine domains</h2>
+              <h2 className="mt-4 font-serif text-4xl md:text-5xl">
+                The 9 Core <span className="gradient-text">Competencies</span>
+              </h2>
             </div>
             <Link
               to="/competencies"
@@ -110,6 +142,9 @@ function Home() {
               View all →
             </Link>
           </div>
+          <p className="mt-4 max-w-2xl text-base leading-7 text-muted">
+            Click any competency to explore detailed reflections, evidence, and structured Gibbs Reflective Cycle documentation aligned with Gulf Medical University standards.
+          </p>
           <div className="card-grid mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {competencies.map((item) => {
               const count = ((evidenceItems as any)[item.id] || []).length;
