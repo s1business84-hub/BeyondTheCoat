@@ -4,14 +4,14 @@ import { competencies, purposes, standing, evidenceItems } from "@/components/si
 
 export const Route = createFileRoute("/")({ component: Home });
 
-function AnimatedName({ text, className }: { text: string; className?: string }) {
+function AnimatedName({ text, accent = false, className }: { text: string; accent?: boolean; className?: string }) {
   return (
     <span className={className}>
       {text.split("").map((char, i) => (
         <span
           key={i}
-          className="name-letter inline-block"
-          style={{ animationDelay: `${0.15 + i * 0.07}s` }}
+          className={accent ? "name-letter-accent" : "name-letter"}
+          style={{ animationDelay: `${0.08 + i * 0.06}s` }}
         >
           {char === " " ? "\u00A0" : char}
         </span>
@@ -23,7 +23,7 @@ function AnimatedName({ text, className }: { text: string; className?: string })
 function CompetencyMarquee() {
   const items = [...competencies, ...competencies];
   return (
-    <div className="overflow-hidden bg-steel py-4 text-bone">
+    <div className="overflow-hidden bg-steel py-3.5 text-bone">
       <div className="marquee-track">
         {items.map((item, i) => (
           <span key={i} className="flex items-center gap-6 text-sm tracking-wide whitespace-nowrap">
@@ -39,18 +39,18 @@ function CompetencyMarquee() {
 function Home() {
   return (
     <SiteFrame>
-      <section className="hero-gradient relative overflow-hidden">
-        <div className="mx-auto grid max-w-6xl gap-16 px-5 py-20 md:px-8 md:py-28 lg:grid-cols-12 lg:items-center">
+      <section className="hero-gradient relative flex items-center overflow-hidden">
+        <div className="mx-auto grid w-full max-w-6xl items-center gap-12 px-5 py-16 md:gap-16 md:px-8 md:py-24 lg:grid-cols-12">
           <div className="lg:col-span-7">
-            <p className="text-xs font-semibold tracking-widest text-muted uppercase">
-              Year I · Ajman
+            <p className="text-xs font-semibold tracking-[0.2em] text-brass uppercase">
+              Beyond My White Coat
             </p>
-            <h1 className="mt-6 font-serif text-6xl font-medium leading-none lg:text-8xl">
+            <h1 className="hero-name mt-5 font-serif font-medium">
               <AnimatedName text="Rahul" className="block" />
-              <AnimatedName text="Devnani" className="block italic gradient-text" />
+              <AnimatedName text="Devnani" accent className="block italic" />
             </h1>
-            <p className="mt-8 max-w-lg font-serif text-xl leading-8 text-ink md:text-2xl">
-              First-year MD student at Gulf Medical University.
+            <p className="mt-8 max-w-md font-serif text-xl leading-8 text-ink/80 md:text-2xl">
+              First-year MD student at Gulf Medical University, Ajman.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <Link
@@ -62,27 +62,29 @@ function Home() {
               </Link>
               <a
                 href="#about"
-                className="inline-flex h-12 items-center border border-ink px-6 text-xs font-semibold tracking-widest uppercase transition-colors hover:bg-ink hover:text-bone"
+                className="inline-flex h-12 items-center border border-ink/30 px-6 text-xs font-semibold tracking-widest uppercase transition-colors hover:bg-ink hover:text-bone"
               >
                 About
               </a>
             </div>
           </div>
           <div className="relative lg:col-span-5">
-            <img
-              src="/rahul.jpeg"
-              alt="Rahul Devnani"
-              className="w-full rounded-2xl object-cover shadow-lg"
-            />
-            <div className="floating-card absolute bottom-6 left-4 right-4 p-5 md:left-6 md:right-auto md:w-64">
-              <div className="flex items-start gap-3">
-                <span className="mt-1 size-2.5 shrink-0 rounded-full bg-brass" />
-                <div>
-                  <p className="font-semibold text-ink">White Coat Ceremony</p>
-                  <p className="mt-0.5 text-sm text-muted">2026</p>
-                  <p className="mt-1 text-sm text-brass">
-                    Gulf Medical University ·<br />Ajman, UAE
-                  </p>
+            <div className="relative mx-auto max-w-sm lg:max-w-none">
+              <img
+                src="/rahul.jpeg"
+                alt="Rahul Devnani"
+                className="aspect-[4/5] w-full rounded-3xl object-cover shadow-2xl"
+              />
+              <div className="floating-card absolute -bottom-4 left-4 right-4 p-5 md:left-6 md:right-auto md:bottom-6 md:w-60">
+                <div className="flex items-start gap-3">
+                  <span className="mt-1.5 size-2.5 shrink-0 rounded-full bg-brass shadow-sm" />
+                  <div>
+                    <p className="font-semibold text-ink">White Coat Ceremony</p>
+                    <p className="mt-0.5 text-sm text-muted">2026</p>
+                    <p className="mt-1 text-sm leading-5 text-brass">
+                      Gulf Medical University<br />Ajman, UAE
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -92,15 +94,15 @@ function Home() {
 
       <CompetencyMarquee />
 
-      <section className="bg-steel text-bone" aria-label="Standing">
+      <section className="bg-ink text-bone" aria-label="Standing">
         <div className="mx-auto grid max-w-6xl sm:grid-cols-2 lg:grid-cols-4">
           {standing.map((item) => (
-            <div key={item.index} className="border-b border-bone/15 px-5 py-10 md:px-8 lg:border-r lg:border-b-0">
-              <p className="font-serif text-2xl">{item.index}</p>
-              <p className="mt-4 text-xs font-semibold tracking-widest text-bone/50 uppercase">
+            <div key={item.index} className="border-b border-bone/10 px-5 py-8 md:px-8 lg:border-r lg:border-b-0">
+              <p className="font-serif text-xl text-brass">{item.index}</p>
+              <p className="mt-3 text-[0.65rem] font-semibold tracking-widest text-bone/40 uppercase">
                 {item.label}
               </p>
-              <p className="mt-1 text-base">{item.value}</p>
+              <p className="mt-1 text-sm">{item.value}</p>
             </div>
           ))}
         </div>
