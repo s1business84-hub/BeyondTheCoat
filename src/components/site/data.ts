@@ -272,7 +272,8 @@ export const evidenceItems = {
       title: "Gut-Brain Axis Seminar", 
       description: "Seminar on the relationship between the digestive and nervous systems and the role of healthy nutrition in overall well-being.", 
       details: "Attended a seminar exploring how the gut and brain communicate and influence one another, and how nutrition affects both physical and mental health.",
-      type: "seminar",
+      image: "/Gut-Brain Axis.jpeg",
+      type: "certificate",
       date: "Year 1",
       reflection: {
         description: "During my first semester as a Year 1 medical student at Gulf Medical University, I attended a seminar focusing on the gut-brain axis and how healthy nutrition contributes to overall well-being. The session explored the relationship between the digestive system and the nervous system, highlighting how these two systems communicate and influence one another. It introduced me to the idea that nutrition affects more than just physical health and can also play a role in mental well-being. The seminar provided an opportunity to explore a topic that connects different areas of medical science and helped me appreciate the importance of nutrition in maintaining a healthy lifestyle.",
