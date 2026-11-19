@@ -24,7 +24,7 @@ function AnimatedName({ text, accent = false, className }: { text: string; accen
 function CompetencyMarquee() {
   const items = [...competencies, ...competencies];
   return (
-    <div className="overflow-hidden border-y border-line/40 bg-white/40 py-3">
+    <div className="overflow-hidden border-y border-line/40 bg-white py-3">
       <div className="marquee-track">
         {items.map((item, i) => (
           <span key={i} className="flex items-center gap-4 text-sm tracking-wide whitespace-nowrap text-muted">
@@ -40,10 +40,8 @@ function CompetencyMarquee() {
 function Home() {
   return (
     <SiteFrame>
-      <section className="relative overflow-hidden">
-        <div className="orb orb-1" />
-        <div className="orb orb-2" />
-        <div className="mx-auto max-w-5xl px-5 py-10 md:px-8 md:py-14 relative z-10">
+      <section>
+        <div className="mx-auto max-w-5xl px-5 py-10 md:px-8 md:py-14">
           <div className="max-w-xl">
             <p className="text-[0.65rem] font-medium tracking-[0.22em] text-brass uppercase fade-up">
               Beyond My White Coat
