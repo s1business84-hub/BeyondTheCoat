@@ -60,12 +60,13 @@ function CompetenciesPage() {
   return (
     <SiteFrame>
       <div className="mx-auto max-w-6xl px-5 py-14 md:px-8 md:py-20">
-        <Kicker index="02">Competencies</Kicker>
+        <p className="text-xs font-semibold tracking-[0.18em] text-brass uppercase">GMU Framework</p>
         <h1 className="mt-4 max-w-3xl font-serif text-5xl leading-none md:text-6xl fade-in">
-          Nine domains. Foundation year.
+          The 9 Core <span className="gradient-text">Competencies</span>
         </h1>
+        <div className="mt-4 h-0.5 w-16 rounded-full bg-gradient-to-r from-brass to-accent" />
         <p className="mt-6 max-w-2xl text-base leading-7 text-muted">
-          Tap a competency to see the images. Tap an image for full detail and reflection.
+          Click any competency to explore detailed reflections, evidence, and structured Gibbs Reflective Cycle documentation aligned with Gulf Medical University standards.
         </p>
 
         {loading && (
@@ -78,7 +79,7 @@ function CompetenciesPage() {
         )}
 
         {!selected ? (
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid gap-6 sm:grid-cols-2">
             {competencies.map((item) => {
               const count = ((evidenceItems as any)[item.id] || []).length;
               return (
@@ -86,16 +87,21 @@ function CompetenciesPage() {
                   key={item.id}
                   to="/competencies"
                   search={{ id: item.id }}
-                  className="glass-card p-6 transition-all hover:scale-[1.02]"
+                  className="glass-card group block p-7 transition-all hover:scale-[1.015]"
                 >
-                  <p className="font-serif text-lg text-brass">{item.index}</p>
-                  <h2 className="mt-2 text-xl font-medium">{item.title}</h2>
-                  <p className="mt-2 text-sm leading-6 text-muted line-clamp-3">{item.plain}</p>
-                  {count > 0 && (
-                    <p className="mt-3 text-xs font-semibold tracking-wide text-brass">
-                      {count} {count === 1 ? "entry" : "entries"}
-                    </p>
-                  )}
+                  <div className="flex items-start justify-between">
+                    <p className="text-xs font-semibold tracking-widest text-muted">{item.index}</p>
+                    {count > 0 && (
+                      <span className="rounded-full bg-accent/15 px-3 py-1 text-[0.65rem] font-semibold tracking-wide text-brass">
+                        {count} {count === 1 ? "ENTRY" : "ENTRIES"}
+                      </span>
+                    )}
+                  </div>
+                  <h2 className="mt-4 font-serif text-2xl leading-tight md:text-3xl">{item.title}</h2>
+                  <p className="mt-3 text-sm leading-6 text-muted line-clamp-4">{item.plain}</p>
+                  <p className="mt-6 text-sm font-semibold tracking-wide text-ink group-hover:text-brass">
+                    Explore →
+                  </p>
                 </Link>
               );
             })}
@@ -115,7 +121,7 @@ function CompetenciesPage() {
                 {selected.index} · Foundation
               </p>
               <h2 className="mt-3 font-serif text-4xl md:text-5xl">{selected.title}</h2>
-              <p className="mt-4 font-serif text-xl leading-8 italic">{selected.plain}</p>
+              <p className="mt-4 font-serif text-xl leading-8 italic text-muted">{selected.plain}</p>
 
               {evidences.length > 0 && (
                 <div className="mt-10">
@@ -128,21 +134,25 @@ function CompetenciesPage() {
                           <button
                             type="button"
                             onClick={() => setOpenEvidence(isOpen ? null : i)}
-                            className={"w-full overflow-hidden rounded-xl text-left transition-all " + (isOpen ? "ring-2 ring-brass" : "hover:scale-[1.01]")}
+                            className={"w-full overflow-hidden rounded-2xl border border-line bg-paper text-left transition-all " + (isOpen ? "ring-2 ring-brass" : "hover:scale-[1.005]")}
                           >
                             {ev.image && (
                               <img src={ev.image} alt={ev.title} className="w-full h-auto object-contain" />
                             )}
-                            <div className="p-4">
-                              <p className="text-sm font-semibold">{ev.title}</p>
-                              <p className="mt-1 text-xs leading-5 text-muted">{ev.description}</p>
-                              {ev.date && <p className="mt-2 text-xs tracking-wide text-brass">{ev.date}</p>}
+                            <div className="p-5">
+                              {ev.date && (
+                                <p className="text-[0.65rem] font-semibold tracking-widest text-brass uppercase">{ev.date}</p>
+                              )}
+                              <p className="mt-1 text-base font-semibold">{ev.title}</p>
+                              <p className="mt-1 text-sm leading-6 text-muted">{ev.description}</p>
                               {isOpen && ev.details && (
-                                <p className="mt-3 border-t border-white/30 pt-3 text-sm leading-6 text-ink">
+                                <p className="mt-3 border-t border-line pt-3 text-sm leading-6 text-ink">
                                   {ev.details}
                                 </p>
                               )}
-                              <p className="mt-2 text-xs text-muted">{isOpen ? "Tap to collapse" : "Tap for details"}</p>
+                              <p className="mt-3 text-sm font-semibold text-ink">
+                                {isOpen ? "Collapse" : "Read reflection →"}
+                              </p>
                             </div>
                           </button>
                           {isOpen && ev.reflection && <ReflectionBlock reflection={ev.reflection} />}
