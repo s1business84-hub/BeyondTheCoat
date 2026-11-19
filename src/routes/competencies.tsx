@@ -17,16 +17,16 @@ export const Route = createFileRoute("/competencies")({
   component: CompetenciesPage,
 });
 
-const iconColors: Record<string, string> = {
-  "medical-expert": "bg-gradient-to-br from-blue-500 to-blue-700",
-  "communicator": "bg-gradient-to-br from-sky-500 to-blue-600",
-  "collaborator": "bg-gradient-to-br from-cyan-500 to-blue-600",
-  "professionalism": "bg-gradient-to-br from-blue-600 to-indigo-700",
-  "patient-care": "bg-gradient-to-br from-teal-500 to-cyan-600",
-  "evidence-based": "bg-gradient-to-br from-blue-500 to-cyan-600",
-  "social-accountability": "bg-gradient-to-br from-indigo-500 to-blue-700",
-  "health-systems": "bg-gradient-to-br from-sky-600 to-blue-700",
-  "lifelong-learner": "bg-gradient-to-br from-cyan-600 to-blue-700",
+const iconColors: Record<string, { bg: string; icon: string }> = {
+  "medical-expert": { bg: "bg-gradient-to-br from-blue-500 to-blue-700", icon: "text-white" },
+  "communicator": { bg: "bg-gradient-to-br from-sky-400 to-blue-600", icon: "text-white" },
+  "collaborator": { bg: "bg-gradient-to-br from-cyan-400 to-blue-600", icon: "text-white" },
+  "professionalism": { bg: "bg-gradient-to-br from-indigo-500 to-blue-700", icon: "text-white" },
+  "patient-care": { bg: "bg-gradient-to-br from-teal-400 to-cyan-600", icon: "text-white" },
+  "evidence-based": { bg: "bg-gradient-to-br from-blue-400 to-cyan-600", icon: "text-white" },
+  "social-accountability": { bg: "bg-gradient-to-br from-indigo-400 to-blue-700", icon: "text-white" },
+  "health-systems": { bg: "bg-gradient-to-br from-sky-500 to-blue-700", icon: "text-white" },
+  "lifelong-learner": { bg: "bg-gradient-to-br from-cyan-500 to-blue-700", icon: "text-white" },
 };
 
 function TitleOverlay({ title, subtitle }: { title: string; subtitle: string }) {
@@ -108,7 +108,7 @@ function CompetenciesPage() {
             <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {competencies.map((item) => {
                 const count = ((evidenceItems as any)[item.id] || []).length;
-                const colorClass = iconColors[item.id] || "bg-gradient-to-br from-brass to-warm";
+                const colors = iconColors[item.id] || { bg: "bg-gradient-to-br from-brass to-warm", icon: "text-white" };
                 return (
                   <Link
                     key={item.id}
@@ -117,18 +117,18 @@ function CompetenciesPage() {
                     className="glass-card group block p-5"
                   >
                     <div className="flex items-start justify-between">
-                      <div className={`grid size-12 place-items-center rounded-2xl text-white shadow-lg ${colorClass}`}>
+                      <div className={`grid size-14 place-items-center rounded-2xl shadow-xl ${colors.bg} ${colors.icon}`}>
                         <CompetencyIcon id={item.id} />
                       </div>
                       {count > 0 && (
-                        <span className="rounded-full bg-gradient-to-r from-brass/15 to-warm/15 px-3 py-1 text-[0.55rem] font-semibold tracking-wide text-brass">
+                        <span className="rounded-full bg-gradient-to-r from-brass to-warm px-3 py-1 text-[0.55rem] font-bold tracking-wide text-white shadow-md">
                           {count} {count === 1 ? "ENTRY" : "ENTRIES"}
                         </span>
                       )}
                     </div>
                     <h2 className="mt-4 font-serif text-xl leading-snug group-hover:text-brass transition-colors">{item.title}</h2>
                     <p className="mt-2 text-sm leading-6 text-muted line-clamp-3">{item.plain}</p>
-                    <span className="mt-4 inline-flex items-center text-sm font-semibold text-brass group-hover:gap-2 transition-all">
+                    <span className="mt-4 inline-flex items-center text-sm font-bold text-brass group-hover:gap-2 transition-all">
                       View Details <span className="ml-1">→</span>
                     </span>
                   </Link>
@@ -164,7 +164,7 @@ function CompetenciesPage() {
               <div className="relative mt-8 overflow-hidden rounded-2xl shadow-xl">
                 <img src={currentEntry.image} alt={currentEntry.title} className="w-full" />
                 {currentEntry.type && (
-                  <span className="absolute bottom-4 left-4 rounded-lg bg-gradient-to-r from-brass to-warm px-3 py-1.5 text-[0.55rem] font-semibold tracking-wide text-white uppercase shadow-lg">
+                  <span className="absolute bottom-4 left-4 rounded-lg bg-gradient-to-r from-brass to-warm px-3 py-1.5 text-[0.55rem] font-bold tracking-wide text-white uppercase shadow-lg">
                     {currentEntry.type}
                   </span>
                 )}
@@ -185,7 +185,7 @@ function CompetenciesPage() {
                 search={{ id: selected.id, entry: String(entryIndex! + 1) }}
                 className="mt-12 block rounded-2xl border-2 border-line p-6 hover:border-brass hover:shadow-lg transition-all"
               >
-                <p className="text-[0.6rem] font-semibold tracking-[0.2em] text-brass uppercase">Next Entry →</p>
+                <p className="text-[0.6rem] font-bold tracking-[0.2em] text-brass uppercase">Next Entry →</p>
                 <p className="mt-2 font-serif text-xl">{nextEntry.title}</p>
               </Link>
             )}
@@ -201,7 +201,7 @@ function CompetenciesPage() {
             </Link>
 
             <div className="mt-8 flex items-center gap-4">
-              <div className={`grid size-14 place-items-center rounded-2xl text-white shadow-lg ${iconColors[selected.id] || "bg-gradient-to-br from-brass to-warm"}`}>
+              <div className={`grid size-16 place-items-center rounded-2xl text-white shadow-xl ${iconColors[selected.id]?.bg || "bg-gradient-to-br from-brass to-warm"}`}>
                 <CompetencyIcon id={selected.id} />
               </div>
               <div>
@@ -235,11 +235,11 @@ function CompetenciesPage() {
                         )}
                         <div className="flex-1">
                           {ev.date && (
-                            <p className="text-[0.55rem] font-semibold tracking-widest text-brass uppercase">{ev.date}</p>
+                            <p className="text-[0.55rem] font-bold tracking-widest text-brass uppercase">{ev.date}</p>
                           )}
                           <h3 className="mt-1 font-serif text-lg">{ev.title}</h3>
                           <p className="mt-1 text-sm text-muted line-clamp-2">{ev.description}</p>
-                          <span className="mt-3 inline-flex items-center text-sm font-semibold text-brass">
+                          <span className="mt-3 inline-flex items-center text-sm font-bold text-brass">
                             Read Reflection →
                           </span>
                         </div>
