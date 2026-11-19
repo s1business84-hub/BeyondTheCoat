@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Kicker, Monogram, SiteFrame } from "@/components/site/chrome";
 import { CompetencyIcon } from "@/components/site/icons";
-import { competencies, purposes, standing, evidenceItems, ledger } from "@/components/site/data";
+import { competencies, purposes, standing, evidenceItems, ledger, yearMap } from "@/components/site/data";
 
 export const Route = createFileRoute("/")({ component: Home });
 
@@ -24,7 +24,7 @@ function AnimatedName({ text, accent = false, className }: { text: string; accen
 function CompetencyMarquee() {
   const items = [...competencies, ...competencies];
   return (
-    <div className="overflow-hidden border-y border-line/30 bg-white/60 backdrop-blur-sm py-3">
+    <div className="overflow-hidden border-y border-line/30 bg-white/50 backdrop-blur-sm py-3">
       <div className="marquee-track">
         {items.map((item, i) => (
           <span key={i} className="flex items-center gap-4 text-sm tracking-wide whitespace-nowrap text-muted">
@@ -43,19 +43,19 @@ function Home() {
       <section className="relative bg-gradient-to-b from-bone via-white to-bone overflow-hidden">
         <div className="orb orb-1" />
         <div className="orb orb-2" />
-        <div className="mx-auto max-w-4xl px-5 py-12 md:px-8 md:py-16 relative z-10">
+        <div className="mx-auto max-w-4xl px-5 py-10 md:px-8 md:py-14 relative z-10">
           <div className="text-center">
             <p className="text-[0.65rem] font-medium tracking-[0.22em] text-brass uppercase fade-up">
               Beyond My White Coat
             </p>
-            <h1 className="hero-name mt-4 font-serif font-medium">
+            <h1 className="hero-name mt-3 font-serif font-medium">
               <AnimatedName text="Rahul" className="block" />
               <AnimatedName text="Devnani" accent className="block italic" />
             </h1>
-            <p className="mt-5 mx-auto max-w-md font-serif text-base leading-7 text-ink md:text-lg fade-up" style={{ animationDelay: "0.5s" }}>
+            <p className="mt-4 mx-auto max-w-sm font-serif text-base leading-7 text-ink md:text-lg fade-up" style={{ animationDelay: "0.5s" }}>
               First-year MD student at Gulf Medical University, Ajman.
             </p>
-            <div className="mt-6 flex flex-wrap justify-center gap-3 fade-up" style={{ animationDelay: "0.6s" }}>
+            <div className="mt-5 flex flex-wrap justify-center gap-3 fade-up" style={{ animationDelay: "0.6s" }}>
               <Link
                 to="/competencies"
                 search={{ id: "" }}
@@ -65,19 +65,19 @@ function Home() {
               </Link>
               <Link
                 to="/about"
-                className="inline-flex h-11 items-center border border-ink/30 bg-white px-6 text-[0.65rem] font-medium tracking-widest text-ink uppercase rounded-lg hover:border-brass hover:text-brass transition-all"
+                className="inline-flex h-11 items-center border border-ink/40 bg-white px-6 text-[0.65rem] font-medium tracking-widest text-ink uppercase rounded-lg hover:border-brass hover:text-brass transition-all"
               >
                 About
               </Link>
             </div>
           </div>
-          <div className="relative mt-10 mx-auto max-w-lg fade-up" style={{ animationDelay: "0.7s" }}>
+          <div className="relative mt-8 mx-auto max-w-md fade-up" style={{ animationDelay: "0.7s" }}>
             <img
               src="/rahul.jpeg"
               alt="Rahul Devnani"
               className="w-full rounded-2xl shadow-xl"
             />
-            <div className="floating-card absolute -bottom-4 left-4 right-4 p-4 md:left-6 md:right-auto md:w-56">
+            <div className="floating-card absolute -bottom-3 left-3 right-3 p-3.5 md:left-4 md:right-auto md:w-52">
               <div className="flex items-start gap-2.5">
                 <span className="mt-1 size-2.5 shrink-0 rounded-full bg-gradient-to-r from-brass to-warm" />
                 <div>
@@ -95,29 +95,29 @@ function Home() {
 
       <CompetencyMarquee />
 
-      <section className="mx-auto max-w-4xl px-5 py-8 md:px-8" aria-label="Standing">
-        <div className="grid grid-cols-2 gap-4">
+      <section className="mx-auto max-w-4xl px-5 py-6 md:px-8" aria-label="Standing">
+        <div className="grid grid-cols-2 gap-3">
           {standing.map((item) => (
             <div key={item.index} className="stat-card">
               <p className="text-xs font-medium tracking-widest text-brass">{item.index}</p>
-              <p className="mt-1 text-[0.6rem] font-medium tracking-widest text-muted uppercase">
+              <p className="mt-0.5 text-[0.55rem] font-medium tracking-widest text-muted uppercase">
                 {item.label}
               </p>
-              <p className="mt-1 text-base font-medium text-ink">{item.value}</p>
+              <p className="mt-0.5 text-sm font-medium text-ink">{item.value}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section id="about" className="mx-auto max-w-4xl px-5 py-12 md:px-8 md:py-16">
+      <section id="about" className="mx-auto max-w-4xl px-5 py-10 md:px-8 md:py-14">
         <div className="text-center">
           <p className="text-[0.65rem] font-medium tracking-[0.2em] text-brass uppercase">About Me</p>
-          <h2 className="mt-3 font-serif text-3xl leading-tight md:text-4xl">
+          <h2 className="mt-2 font-serif text-3xl leading-tight md:text-4xl">
             Building a <span className="gradient-text italic">foundation</span> for<br />medicine
           </h2>
-          <div className="mx-auto mt-4 h-0.5 w-16 bg-gradient-to-r from-brass to-warm rounded-full" />
+          <div className="mx-auto mt-3 h-0.5 w-14 bg-gradient-to-r from-brass to-warm rounded-full" />
         </div>
-        <div className="mx-auto mt-6 max-w-xl space-y-3 text-center text-sm leading-6 text-muted">
+        <div className="mx-auto mt-5 max-w-lg space-y-3 text-center text-sm leading-6 text-muted">
           <p>
             I am a first-year MD student at Gulf Medical University in Ajman, entered in 2026. This portfolio documents my progress across the nine competency domains of the MD program.
           </p>
@@ -125,7 +125,7 @@ function Home() {
             It is a living record of learning, reflection, and growth — aligned with the university’s e-portfolio framework.
           </p>
         </div>
-        <div className="mt-6 text-center">
+        <div className="mt-5 text-center">
           <Link to="/about" className="text-sm font-medium text-brass hover:underline">
             Read more →
           </Link>
@@ -133,18 +133,40 @@ function Home() {
       </section>
 
       <section className="border-t border-line/50">
-        <div className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-16">
+        <div className="mx-auto max-w-4xl px-5 py-10 md:px-8 md:py-14">
+          <div className="space-y-3">
+            {yearMap.map((item) => (
+              <div key={item.when} className="glass-card p-4">
+                <p className="text-[0.6rem] font-medium tracking-widest text-brass uppercase">{item.when}</p>
+                <p className="mt-1.5 text-sm leading-6 text-ink">{item.what}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-6 text-center">
+            <Link
+              to="/competencies"
+              search={{ id: "" }}
+              className="inline-flex h-11 items-center bg-gradient-to-r from-brass to-warm px-6 text-[0.65rem] font-medium tracking-widest text-white uppercase rounded-full shadow-lg"
+            >
+              View Competencies
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-line/50">
+        <div className="mx-auto max-w-6xl px-5 py-10 md:px-8 md:py-14">
           <div className="text-center">
             <p className="text-[0.65rem] font-medium tracking-[0.2em] text-brass uppercase">GMU Framework</p>
-            <h2 className="mt-3 font-serif text-3xl md:text-4xl">
+            <h2 className="mt-2 font-serif text-3xl md:text-4xl">
               The 9 Core Competencies
             </h2>
             <div className="mx-auto mt-3 h-0.5 w-12 bg-gradient-to-r from-brass to-warm rounded-full" />
           </div>
-          <p className="mx-auto mt-5 max-w-lg text-center text-sm leading-6 text-muted">
+          <p className="mx-auto mt-4 max-w-lg text-center text-sm leading-6 text-muted">
             Click any competency to explore detailed reflections, evidence, and structured Gibbs Reflective Cycle documentation aligned with Gulf Medical University standards.
           </p>
-          <div className="card-grid mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="card-grid mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {competencies.map((item) => {
               const count = ((evidenceItems as any)[item.id] || []).length;
               return (
@@ -152,22 +174,22 @@ function Home() {
                   key={item.id}
                   to="/competencies"
                   search={{ id: item.id }}
-                  className="glass-card group block p-5"
+                  className="glass-card group block p-4"
                 >
                   <div className="flex items-start justify-between">
-                    <div className="grid size-10 place-items-center rounded-xl bg-gradient-to-br from-brass/15 to-warm/10 text-brass">
+                    <div className="grid size-9 place-items-center rounded-lg bg-gradient-to-br from-brass/15 to-warm/10 text-brass">
                       <CompetencyIcon id={item.id} />
                     </div>
                     {count > 0 && (
-                      <span className="rounded-full bg-gradient-to-r from-brass/15 to-warm/15 px-2.5 py-0.5 text-[0.55rem] font-medium tracking-wide text-brass">
+                      <span className="rounded-full bg-gradient-to-r from-brass/10 to-warm/10 px-2 py-0.5 text-[0.5rem] font-medium tracking-wide text-brass">
                         {count} {count === 1 ? "ENTRY" : "ENTRIES"}
                       </span>
                     )}
                   </div>
-                  <p className="mt-3 text-[0.6rem] font-medium tracking-widest text-muted">{item.index}</p>
-                  <h3 className="mt-0.5 font-serif text-lg leading-snug group-hover:text-brass transition-colors">{item.title}</h3>
-                  <p className="mt-1.5 text-sm leading-6 text-muted">{item.plain}</p>
-                  <p className="mt-3 text-xs font-medium text-brass">
+                  <p className="mt-2 text-[0.55rem] font-medium tracking-widest text-muted">{item.index}</p>
+                  <h3 className="mt-0.5 font-serif text-base leading-snug group-hover:text-brass transition-colors">{item.title}</h3>
+                  <p className="mt-1 text-xs leading-5 text-muted">{item.plain}</p>
+                  <p className="mt-2 text-xs font-medium text-brass">
                     View Details →
                   </p>
                 </Link>
@@ -178,35 +200,35 @@ function Home() {
       </section>
 
       <section className="border-t border-line/50">
-        <div className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-16">
+        <div className="mx-auto max-w-6xl px-5 py-10 md:px-8 md:py-14">
           <div className="text-center">
             <p className="text-[0.65rem] font-medium tracking-[0.2em] text-brass uppercase">Scholarly Work</p>
-            <h2 className="mt-3 font-serif text-3xl md:text-4xl">Research & Publications</h2>
+            <h2 className="mt-2 font-serif text-3xl md:text-4xl">Research & Publications</h2>
             <div className="mx-auto mt-3 h-0.5 w-12 bg-gradient-to-r from-brass to-warm rounded-full" />
           </div>
-          <p className="mx-auto mt-5 max-w-md text-center text-sm leading-6 text-muted">
+          <p className="mx-auto mt-4 max-w-md text-center text-sm leading-6 text-muted">
             A growing collection of research projects, publications, and scholarly contributions to medicine.
           </p>
-          <div className="mx-auto mt-8 max-w-sm">
-            <div className="glass-card p-6 text-center">
-              <div className="mx-auto grid size-12 place-items-center rounded-xl bg-gradient-to-br from-brass/15 to-warm/10 text-brass">
-                <svg className="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+          <div className="mx-auto mt-6 max-w-sm">
+            <div className="glass-card p-5 text-center">
+              <div className="mx-auto grid size-10 place-items-center rounded-lg bg-gradient-to-br from-brass/15 to-warm/10 text-brass">
+                <svg className="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
               </div>
-              <h3 className="mt-4 font-serif text-xl">Research Project</h3>
-              <p className="mt-1 text-xs text-muted">Coming Soon</p>
-              <div className="mt-4 rounded-xl border border-line/50 bg-bone/50 px-4 py-3 text-xs leading-5 text-muted">
+              <h3 className="mt-3 font-serif text-lg">Research Project</h3>
+              <p className="mt-0.5 text-xs text-muted">Coming Soon</p>
+              <div className="mt-3 rounded-lg border border-line/50 bg-bone/50 px-3 py-2 text-xs leading-5 text-muted">
                 Research projects will be added here as they progress
               </div>
             </div>
           </div>
-          <div className="mt-6 grid grid-cols-3 gap-4">
+          <div className="mt-5 grid grid-cols-3 gap-3">
             {ledger.map((item) => (
               <div key={item.index} className="text-center">
-                <p className="text-[0.6rem] font-medium tracking-widest text-brass">{item.index}</p>
-                <p className="mt-1 font-serif text-sm">{item.kind}</p>
-                <p className="mt-0.5 text-[0.6rem] uppercase tracking-wide text-muted">{item.status}</p>
+                <p className="text-[0.55rem] font-medium tracking-widest text-brass">{item.index}</p>
+                <p className="mt-0.5 font-serif text-sm">{item.kind}</p>
+                <p className="mt-0.5 text-[0.55rem] uppercase tracking-wide text-muted">{item.status}</p>
               </div>
             ))}
           </div>
@@ -214,20 +236,20 @@ function Home() {
       </section>
 
       <section id="purpose" className="scroll-mt-20 border-t border-line/50">
-        <div className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-16">
+        <div className="mx-auto max-w-6xl px-5 py-10 md:px-8 md:py-14">
           <Kicker index="03">Purpose of This Portfolio</Kicker>
-          <h2 className="mt-3 max-w-lg font-serif text-3xl md:text-4xl">
+          <h2 className="mt-2 max-w-lg font-serif text-3xl md:text-4xl">
             Why this portfolio exists.
           </h2>
-          <p className="mt-3 max-w-md text-sm leading-6 text-muted">
+          <p className="mt-2 max-w-md text-sm leading-6 text-muted">
             A structured record of academic and clinical development reflecting progression across key medical competencies — aligned with the GMU e-portfolio framework.
           </p>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+          <div className="mt-6 grid gap-3 sm:grid-cols-2">
             {purposes.map((item) => (
-              <article key={item.index} className="glass-card p-5">
-                <p className="text-[0.6rem] font-medium tracking-widest text-brass">{item.index}</p>
-                <h3 className="mt-1.5 font-serif text-lg">{item.title}</h3>
-                <p className="mt-1.5 text-sm leading-6 text-muted">{item.text}</p>
+              <article key={item.index} className="glass-card p-4">
+                <p className="text-[0.55rem] font-medium tracking-widest text-brass">{item.index}</p>
+                <h3 className="mt-1 font-serif text-base">{item.title}</h3>
+                <p className="mt-1 text-xs leading-5 text-muted">{item.text}</p>
               </article>
             ))}
           </div>
@@ -235,39 +257,39 @@ function Home() {
       </section>
 
       <section className="border-t border-line/50">
-        <div className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-14">
-          <p className="mx-auto max-w-2xl text-center font-serif text-xl leading-snug italic text-ink/75 md:text-2xl">
+        <div className="mx-auto max-w-6xl px-5 py-10 md:px-8 md:py-12">
+          <p className="mx-auto max-w-2xl text-center font-serif text-lg leading-snug italic text-ink/75 md:text-xl">
             “Every ward round is a masterclass. Every patient, a textbook.”
           </p>
         </div>
       </section>
 
       <section id="contact" className="scroll-mt-20 border-t border-line/50">
-        <div className="mx-auto grid max-w-6xl gap-8 px-5 py-12 md:px-8 md:py-16 lg:grid-cols-2">
+        <div className="mx-auto grid max-w-6xl gap-6 px-5 py-10 md:px-8 md:py-14 lg:grid-cols-2">
           <div>
             <Kicker index="04">Contact</Kicker>
-            <h2 className="mt-3 font-serif text-3xl md:text-4xl">Get in touch.</h2>
-            <p className="mt-3 max-w-xs text-sm leading-6 text-muted">
+            <h2 className="mt-2 font-serif text-3xl md:text-4xl">Get in touch.</h2>
+            <p className="mt-2 max-w-xs text-sm leading-6 text-muted">
               For academic enquiries, Gulf Medical University in Ajman is the institution of record.
             </p>
           </div>
-          <div className="glass-card p-6">
+          <div className="glass-card p-5">
             <Monogram />
-            <h3 className="mt-4 font-serif text-2xl">Rahul Devnani</h3>
+            <h3 className="mt-3 font-serif text-xl">Rahul Devnani</h3>
             <p className="mt-1 text-xs leading-5 text-muted">
               First-year MD student<br />Gulf Medical University, Ajman
             </p>
-            <p className="mt-3 text-sm">
+            <p className="mt-2 text-sm">
               <a href="mailto:2026md90@mygmu.ac.ae" className="font-medium text-brass hover:underline">
                 2026md90@mygmu.ac.ae
               </a>
             </p>
-            <p className="mt-1 text-sm">
+            <p className="mt-0.5 text-sm">
               <a href="tel:+971527249865" className="font-medium text-brass hover:underline">
                 +971 52 724 9865
               </a>
             </p>
-            <p className="mt-5 border-t border-line/50 pt-4 font-serif text-sm italic leading-6 text-muted">
+            <p className="mt-4 border-t border-line/50 pt-3 font-serif text-sm italic leading-6 text-muted">
               “Every ward round is a masterclass. Every patient, a textbook.”
             </p>
           </div>
