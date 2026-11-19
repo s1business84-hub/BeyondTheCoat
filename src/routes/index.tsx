@@ -84,8 +84,8 @@ function Home() {
                 <div className="flex items-start gap-2.5">
                   <span className="mt-1 size-2.5 shrink-0 rounded-full bg-gradient-to-br from-brass to-accent" />
                   <div>
-                    <p className="text-xs font-semibold text-ink">White Coat Ceremony</p>
-                    <p className="text-[0.65rem] text-muted">2026</p>
+                    <p className="text-xs font-semibold text-ink">Year I · GMD</p>
+                    <p className="text-[0.65rem] text-muted">Entered 2026</p>
                     <p className="mt-0.5 text-[0.65rem] leading-4 text-brass">
                       Gulf Medical University<br />Ajman, UAE
                     </p>
