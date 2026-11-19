@@ -24,7 +24,7 @@ function AnimatedName({ text, accent = false, className }: { text: string; accen
 function CompetencyMarquee() {
   const items = [...competencies, ...competencies];
   return (
-    <div className="overflow-hidden border-y border-line/40 bg-white py-3">
+    <div className="overflow-hidden border-y border-line/40 bg-white/60 py-3">
       <div className="marquee-track">
         {items.map((item, i) => (
           <span key={i} className="flex items-center gap-4 text-sm tracking-wide whitespace-nowrap text-muted">
@@ -57,7 +57,7 @@ function Home() {
               <Link
                 to="/competencies"
                 search={{ id: "" }}
-                className="inline-flex h-11 items-center bg-ink px-6 text-[0.65rem] font-medium tracking-widest text-bone uppercase rounded-lg"
+                className="btn-gradient inline-flex h-11 items-center px-6 text-[0.65rem] font-medium tracking-widest uppercase rounded-lg shadow-lg"
               >
                 View Competencies
               </Link>
@@ -73,11 +73,11 @@ function Home() {
             <img
               src="/rahul.jpeg"
               alt="Rahul Devnani"
-              className="w-full max-w-lg rounded-2xl shadow-lg"
+              className="w-full max-w-lg rounded-2xl shadow-xl"
             />
             <div className="floating-card absolute -bottom-3 left-3 p-3.5 w-48 md:w-52">
               <div className="flex items-start gap-2.5">
-                <span className="mt-1 size-2.5 shrink-0 rounded-full bg-brass" />
+                <span className="mt-1 size-2.5 shrink-0 rounded-full bg-gradient-to-r from-brass to-warm" />
                 <div>
                   <p className="text-sm font-medium text-ink">Year 1 · MD</p>
                   <p className="text-xs text-muted">Entered 2026</p>
@@ -144,7 +144,7 @@ function Home() {
             <Link
               to="/competencies"
               search={{ id: "" }}
-              className="inline-flex h-11 items-center bg-gradient-to-r from-brass to-warm px-6 text-[0.65rem] font-medium tracking-widest text-white uppercase rounded-full shadow-lg"
+              className="btn-gradient inline-flex h-11 items-center px-6 text-[0.65rem] font-medium tracking-widest uppercase rounded-full shadow-lg"
             >
               View Competencies
             </Link>
@@ -175,11 +175,11 @@ function Home() {
                   className="glass-card group block p-4"
                 >
                   <div className="flex items-start justify-between">
-                    <div className="grid size-9 place-items-center rounded-lg bg-brass/10 text-brass">
+                    <div className="grid size-9 place-items-center rounded-lg bg-gradient-to-br from-brass/15 to-warm/10 text-brass">
                       <CompetencyIcon id={item.id} />
                     </div>
                     {count > 0 && (
-                      <span className="rounded-full bg-brass/10 px-2 py-0.5 text-[0.5rem] font-medium tracking-wide text-brass">
+                      <span className="rounded-full bg-gradient-to-r from-brass/10 to-warm/10 px-2 py-0.5 text-[0.5rem] font-medium tracking-wide text-brass">
                         {count} {count === 1 ? "ENTRY" : "ENTRIES"}
                       </span>
                     )}
@@ -209,7 +209,7 @@ function Home() {
           </p>
           <div className="mx-auto mt-6 max-w-sm">
             <div className="glass-card p-5 text-center">
-              <div className="mx-auto grid size-10 place-items-center rounded-lg bg-brass/10 text-brass">
+              <div className="mx-auto grid size-10 place-items-center rounded-lg bg-gradient-to-br from-brass/15 to-warm/10 text-brass">
                 <svg className="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
