@@ -1,18 +1,18 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bone: #FAF6EF;
+  --color-bone: #F7F9FC;
   --color-paper: #FFFFFF;
-  --color-ink: #302017;
-  --color-muted: #7A6A5A;
-  --color-brass: #B49A76;
-  --color-steel: #302017;
-  --color-line: #E7DCCE;
-  --color-accent: #B49A76;
-  --color-warm: #E7DCCE;
-  --color-rose: #B49A76;
-  --color-lavender: #E7DCCE;
-  --color-blush: #B49A76;
+  --color-ink: #0F2B46;
+  --color-muted: #5A7A94;
+  --color-brass: #1A6FB5;
+  --color-steel: #2E5A7A;
+  --color-line: #D4E4F0;
+  --color-accent: #1A6FB5;
+  --color-warm: #3A8FD4;
+  --color-rose: #1A6FB5;
+  --color-lavender: #D4E4F0;
+  --color-blush: #3A8FD4;
   --font-sans: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
 }
@@ -20,8 +20,8 @@
 @layer base {
   html { scroll-behavior: smooth; }
   body {
-    background: #FAF6EF;
-    color: #302017;
+    background: #F7F9FC;
+    color: #0F2B46;
     font-family: var(--font-sans);
     line-height: 1.7;
   }
@@ -30,16 +30,16 @@
 
 @layer utilities {
   .glass {
-    background: rgba(250, 246, 239, 0.88);
+    background: rgba(247, 249, 252, 0.88);
     backdrop-filter: blur(16px) saturate(140%);
-    border: 1px solid rgba(231, 220, 206, 0.6);
-    box-shadow: 0 4px 20px rgba(48, 32, 23, 0.04);
+    border: 1px solid rgba(212, 228, 240, 0.6);
+    box-shadow: 0 4px 20px rgba(15, 43, 70, 0.04);
   }
   .glass-card {
-    background: linear-gradient(155deg, #ffffff 0%, #faf6ef 100%);
-    border: 1px solid #E7DCCE;
+    background: linear-gradient(155deg, #ffffff 0%, #f7f9fc 100%);
+    border: 1px solid #D4E4F0;
     border-radius: 16px;
-    box-shadow: 0 4px 16px rgba(48, 32, 23, 0.04), 0 1px 2px rgba(48, 32, 23, 0.02);
+    box-shadow: 0 4px 16px rgba(15, 43, 70, 0.04), 0 1px 2px rgba(15, 43, 70, 0.02);
     transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease, border-color 0.4s ease;
     position: relative;
     overflow: hidden;
@@ -49,15 +49,15 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(115deg, transparent 35%, rgba(180, 154, 118, 0.08) 50%, transparent 65%);
+    background: linear-gradient(115deg, transparent 35%, rgba(26, 111, 181, 0.08) 50%, transparent 65%);
     transform: translateX(-130%);
     transition: transform 0.65s ease;
     pointer-events: none;
   }
   .glass-card:hover {
     transform: translateY(-4px) scale(1.008);
-    box-shadow: 0 10px 32px rgba(48, 32, 23, 0.1);
-    border-color: #B49A76;
+    box-shadow: 0 10px 32px rgba(15, 43, 70, 0.1);
+    border-color: #1A6FB5;
   }
   .glass-card:hover::before {
     transform: translateX(130%);
@@ -68,30 +68,36 @@
     transform: scale(0.985);
   }
   .glass-nav {
-    background: #302017;
-    border-bottom: 1px solid #241C18;
+    background: #0F2B46;
+    border-bottom: 1px solid #0A1F33;
   }
-  .text-brass { color: #B49A76; }
-  .text-accent { color: #B49A76; }
-  .border-brass { border-color: #B49A76; }
-  .bg-brass { background-color: #302017; }
+  .text-brass { color: #1A6FB5; }
+  .text-accent { color: #1A6FB5; }
+  .border-brass { border-color: #1A6FB5; }
+  .bg-brass { background-color: #0F2B46; }
   .fade-in { animation: fadeIn 0.6s ease-out both; }
   .fade-up { animation: fadeUp 0.6s ease-out both; }
   .name-letter {
     opacity: 0;
     display: inline-block;
-    color: #302017;
+    background: linear-gradient(135deg, #0F2B46 0%, #1A6FB5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     animation: letterIn 0.5s ease-out forwards;
   }
   .name-letter-accent {
     opacity: 0;
     display: inline-block;
-    color: #302017;
+    background: linear-gradient(135deg, #1A6FB5 0%, #3A8FD4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     font-style: italic;
     animation: letterIn 0.5s ease-out forwards;
   }
   .moving-bar {
-    background: #B49A76;
+    background: linear-gradient(90deg, #1A6FB5, #3A8FD4);
   }
   .marquee-track {
     display: flex;
@@ -105,9 +111,9 @@
   .floating-card {
     background: rgba(255, 255, 255, 0.97);
     backdrop-filter: blur(12px);
-    border: 1px solid #E7DCCE;
+    border: 1px solid #D4E4F0;
     border-radius: 16px;
-    box-shadow: 0 6px 24px rgba(48, 32, 23, 0.08);
+    box-shadow: 0 6px 24px rgba(15, 43, 70, 0.08);
     animation: float 4s ease-in-out infinite;
   }
   .hero-name {
@@ -118,15 +124,15 @@
   }
   .stat-card {
     background: #FFFFFF;
-    border: 1px solid #E7DCCE;
+    border: 1px solid #D4E4F0;
     border-radius: 14px;
     padding: 1rem 1.25rem;
-    box-shadow: 0 2px 8px rgba(48, 32, 23, 0.03);
+    box-shadow: 0 2px 8px rgba(15, 43, 70, 0.03);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   .stat-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(48, 32, 23, 0.06);
+    box-shadow: 0 6px 18px rgba(15, 43, 70, 0.06);
   }
   .title-overlay {
     position: fixed;
@@ -136,7 +142,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: #241C18;
+    background: #0F2B46;
     animation: overlayIn 0.3s ease-out, overlayOut 0.4s ease-in 1s forwards;
   }
   .title-overlay h1 {
@@ -144,7 +150,7 @@
     font-size: clamp(2rem, 6vw, 3.5rem);
     font-weight: 500;
     letter-spacing: 0.15em;
-    color: #FAF6EF;
+    color: #F7F9FC;
     text-transform: uppercase;
     animation: titleRise 0.5s ease-out 0.1s both;
   }
@@ -152,7 +158,7 @@
     margin-top: 0.75rem;
     height: 1px;
     width: 4rem;
-    background: #B49A76;
+    background: #1A6FB5;
     animation: lineGrow 0.4s ease-out 0.3s both;
   }
   .title-overlay .title-sub {
@@ -160,14 +166,20 @@
     font-size: 0.6rem;
     letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: rgba(250, 246, 239, 0.45);
+    color: rgba(247, 249, 252, 0.45);
     animation: fadeIn 0.4s ease-out 0.4s both;
   }
   .editorial-label {
     font-size: 0.6rem;
     letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: #7A6A5A;
+    color: #5A7A94;
+  }
+  .gradient-text {
+    background: linear-gradient(135deg, #1A6FB5 0%, #3A8FD4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }
 
