@@ -24,7 +24,7 @@ function ScrollProgress() {
   return (
     <div className="pointer-events-none fixed inset-x-0 top-0 z-50 h-0.5" aria-hidden="true">
       <div
-        className="h-full w-full origin-left bg-brass"
+        className="h-full w-full origin-left moving-bar"
         style={{ transform: `scaleX(${scale})` }}
       />
     </div>
@@ -43,11 +43,11 @@ function Nav() {
     <header className="sticky top-0 z-40 glass-nav">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5 md:px-8">
         <Link to="/" className="leading-none">
-          <span className="block text-xs font-semibold tracking-widest text-ink uppercase">
-            Beyond My
+          <span className="block font-serif text-sm font-semibold tracking-wide text-ink">
+            Beyond My <span className="gradient-text">White Coat</span>
           </span>
-          <span className="block text-xs font-medium tracking-widest text-muted uppercase">
-            White Coat
+          <span className="block text-[0.65rem] font-medium tracking-widest text-muted uppercase">
+            Rahul Devnani
           </span>
         </Link>
         <nav className="hidden items-center gap-1 md:flex" aria-label="Primary">
