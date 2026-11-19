@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Kicker, Monogram, SiteFrame } from "@/components/site/chrome";
-import { competencies, purposes, standing, evidenceItems } from "@/components/site/data";
+import { competencies, purposes, standing, evidenceItems, ledger } from "@/components/site/data";
 
 export const Route = createFileRoute("/")({ component: Home });
 
@@ -129,25 +129,17 @@ function Home() {
 
       <section className="border-t border-line bg-paper">
         <div className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-28">
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <Kicker index="02">Competencies</Kicker>
-              <h2 className="mt-4 font-serif text-4xl md:text-5xl">
-                The 9 Core <span className="gradient-text">Competencies</span>
-              </h2>
-            </div>
-            <Link
-              to="/competencies"
-              search={{ id: "" }}
-              className="text-xs font-semibold tracking-widest uppercase"
-            >
-              View all →
-            </Link>
+          <div className="text-center">
+            <p className="text-xs font-semibold tracking-[0.18em] text-brass uppercase">GMU Framework</p>
+            <h2 className="mt-4 font-serif text-4xl md:text-5xl">
+              The 9 Core <span className="gradient-text">Competencies</span>
+            </h2>
+            <div className="mx-auto mt-4 h-0.5 w-16 rounded-full bg-gradient-to-r from-brass to-accent" />
           </div>
-          <p className="mt-4 max-w-2xl text-base leading-7 text-muted">
+          <p className="mx-auto mt-6 max-w-2xl text-center text-base leading-7 text-muted">
             Click any competency to explore detailed reflections, evidence, and structured Gibbs Reflective Cycle documentation aligned with Gulf Medical University standards.
           </p>
-          <div className="card-grid mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="card-grid mt-12 grid gap-6 sm:grid-cols-2">
             {competencies.map((item) => {
               const count = ((evidenceItems as any)[item.id] || []).length;
               return (
@@ -155,21 +147,60 @@ function Home() {
                   key={item.id}
                   to="/competencies"
                   search={{ id: item.id }}
-                  className="glass-card group block p-6 transition-all hover:scale-[1.02]"
+                  className="glass-card group block p-7 transition-all hover:scale-[1.015]"
                 >
                   <div className="flex items-start justify-between">
-                    <p className="font-serif text-2xl text-brass">{item.index}</p>
+                    <p className="text-xs font-semibold tracking-widest text-muted">{item.index}</p>
                     {count > 0 && (
-                      <span className="rounded-full bg-brass/10 px-2.5 py-1 text-xs font-semibold text-brass">
-                        {count}
+                      <span className="rounded-full bg-accent/15 px-3 py-1 text-[0.65rem] font-semibold tracking-wide text-brass">
+                        {count} {count === 1 ? "ENTRY" : "ENTRIES"}
                       </span>
                     )}
                   </div>
-                  <h3 className="mt-3 text-lg font-medium group-hover:text-brass transition-colors">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-muted line-clamp-3">{item.plain}</p>
+                  <h3 className="mt-4 font-serif text-2xl leading-tight group-hover:text-brass transition-colors">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-muted line-clamp-3">{item.plain}</p>
+                  <p className="mt-6 text-sm font-semibold tracking-wide text-ink group-hover:text-brass">
+                    View Details →
+                  </p>
                 </Link>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-line">
+        <div className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-28">
+          <div className="text-center">
+            <p className="text-xs font-semibold tracking-[0.18em] text-brass uppercase">Scholarly Work</p>
+            <h2 className="mt-4 font-serif text-4xl md:text-5xl">Research & Publications</h2>
+            <div className="mx-auto mt-4 h-0.5 w-16 rounded-full bg-gradient-to-r from-brass to-accent" />
+          </div>
+          <p className="mx-auto mt-6 max-w-xl text-center text-base leading-7 text-muted">
+            A growing collection of research projects, publications, and scholarly contributions to medicine.
+          </p>
+          <div className="mx-auto mt-12 max-w-lg">
+            <div className="glass-card p-8 text-center">
+              <div className="mx-auto grid size-14 place-items-center rounded-2xl bg-brass/15 text-brass">
+                <svg className="size-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
+              <h3 className="mt-5 font-serif text-2xl">Research Project</h3>
+              <p className="mt-1 text-sm text-muted">Coming Soon</p>
+              <div className="mt-5 rounded-2xl bg-brass/10 px-5 py-4 text-sm leading-6 text-muted">
+                Research projects will be added here as they progress
+              </div>
+            </div>
+          </div>
+          <div className="mt-10 grid gap-6 sm:grid-cols-3">
+            {ledger.map((item) => (
+              <div key={item.index} className="text-center">
+                <p className="text-xs font-semibold tracking-widest text-brass">{item.index}</p>
+                <p className="mt-2 font-serif text-lg">{item.kind}</p>
+                <p className="mt-1 text-xs uppercase tracking-wide text-muted">{item.status}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
