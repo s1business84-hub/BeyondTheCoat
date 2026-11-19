@@ -139,7 +139,7 @@ export const standing = [
   { index: "01", label: "Year", value: "Year 1 · MD" },
   { index: "02", label: "Framework", value: "Nine domains" },
   { index: "03", label: "Campus", value: "Ajman, UAE" },
-  { index: "04", label: "Hospital", value: "Thumbay system" },
+  { index: "04", label: "Hospital", value: "Thumbay Hospital" },
 ];
 
 export const yearMap = [
@@ -157,7 +157,7 @@ export const yearMap = [
   },
   {
     when: "Year 1 · Hospital",
-    what: "How Gulf Medical University and the Thumbay hospitals are organised — the map a first-year is expected to learn.",
+    what: "How Gulf Medical University and Thumbay Hospital are organised — the map a first-year is expected to learn.",
   },
 ];
 
@@ -201,7 +201,7 @@ export function answerJournal(raw: string): string {
     return "Social Accountability: Recognises medicine’s responsibility to society. Evidence includes the MOHAP Hayat Program certificate (30 September 2026) and World Diabetes Day participation.";
   }
   if (s.includes("health system") || s.includes("hospital") || s.includes("thumbay")) {
-    return "Health Systems: Understands how a teaching hospital and academic health system are organised. Clinical teaching takes place within the Thumbay Academic Health System.";
+    return "Health Systems: Understands how a teaching hospital is organised. Clinical teaching takes place at Thumbay Hospital.";
   }
   if (s.includes("lifelong") || s.includes("learner") || s.includes("learning")) {
     return "Lifelong Learner: Actively seeks growth through reflection and continuous improvement. Keeps a dated, correctable record of learning.";
@@ -212,7 +212,7 @@ export function answerJournal(raw: string): string {
   }
 
   if (s.includes("gmu") || s.includes("gulf") || s.includes("md") || s.includes("university") || s.includes("ajman") || s.includes("year")) {
-    return "Rahul is a first-year MD (Doctor of Medicine) student at Gulf Medical University, Ajman, UAE. He entered in 2026. Clinical teaching is within the Thumbay Academic Health System.";
+    return "Rahul is a first-year MD (Doctor of Medicine) student at Gulf Medical University, Ajman, UAE. He entered in 2026. Clinical teaching is at Thumbay Hospital.";
   }
 
   if (s.includes("certificate") || s.includes("evidence") || s.includes("lab") || s.includes("biochem") || s.includes("physiology") || s.includes("gut") || s.includes("nutrition") || s.includes("seminar")) {
