@@ -37,19 +37,21 @@ function ReflectionBlock({ reflection }: { reflection: any }) {
     { key: "action", title: "Action Plan", subtitle: "The next concrete step", letter: "F" },
   ];
   return (
-    <div className="mt-8 space-y-8">
+    <div className="mt-10 space-y-10">
+      <h2 className="font-serif text-3xl">Personal Reflection</h2>
+      <div className="h-px w-full bg-line/50" />
       {stages.map((stage) => (
-        <div key={stage.key} className="border-t border-line/50 pt-6">
+        <div key={stage.key} className="border-t border-line/50 pt-8">
           <div className="flex items-start gap-4">
-            <div className="grid size-10 shrink-0 place-items-center rounded-full bg-ink text-white text-sm font-medium">
+            <div className="grid size-12 shrink-0 place-items-center rounded-full bg-ink text-white text-lg font-medium">
               {stage.letter}
             </div>
             <div>
-              <h4 className="font-serif text-2xl">{stage.title}</h4>
+              <h3 className="font-serif text-2xl md:text-3xl">{stage.title}</h3>
               <p className="mt-1 text-sm italic text-muted">{stage.subtitle}</p>
             </div>
           </div>
-          <p className="mt-4 text-base leading-7 text-ink whitespace-pre-line">
+          <p className="mt-6 text-base leading-8 text-ink whitespace-pre-line">
             {reflection[stage.key]}
           </p>
         </div>
@@ -112,7 +114,10 @@ function CompetenciesPage() {
                       )}
                     </div>
                     <h2 className="mt-3 font-serif text-lg leading-snug group-hover:text-brass transition-colors">{item.title}</h2>
-                    <p className="mt-1 text-sm leading-5 text-muted">{item.plain}</p>
+                    <p className="mt-1 text-sm leading-5 text-muted line-clamp-3">{item.plain}</p>
+                    <span className="mt-4 inline-flex items-center text-sm font-medium text-brass">
+                      View Details →
+                    </span>
                   </Link>
                 );
               })}
@@ -128,25 +133,25 @@ function CompetenciesPage() {
               ← Back to {selected.title}
             </Link>
 
-            <p className="mt-6 text-[0.6rem] font-medium tracking-[0.2em] text-brass uppercase">
+            <p className="mt-8 text-[0.6rem] font-medium tracking-[0.2em] text-brass uppercase">
               Reflection · {selected.title}
             </p>
             <h1 className="mt-3 font-serif text-4xl md:text-5xl leading-tight">
               {currentEntry.title}
             </h1>
-            <div className="mt-4 h-px w-full bg-line/50" />
+            <div className="mt-6 h-px w-full bg-line/50" />
             {currentEntry.date && (
-              <p className="mt-4 text-sm text-muted">{currentEntry.date}</p>
+              <p className="mt-6 text-sm text-muted">{currentEntry.date}</p>
             )}
-            <p className="mt-2 text-base leading-7 text-ink/80">
+            <p className="mt-2 text-base text-muted">
               {currentEntry.description}
             </p>
 
             {currentEntry.image && (
-              <div className="relative mt-6 overflow-hidden rounded-2xl">
+              <div className="relative mt-8 overflow-hidden rounded-2xl shadow-lg">
                 <img src={currentEntry.image} alt={currentEntry.title} className="w-full" />
                 {currentEntry.type && (
-                  <span className="absolute bottom-3 left-3 rounded bg-ink/80 px-2 py-1 text-[0.55rem] font-medium tracking-wide text-white uppercase">
+                  <span className="absolute bottom-4 left-4 rounded-lg bg-ink/90 px-3 py-1.5 text-[0.55rem] font-medium tracking-wide text-white uppercase">
                     {currentEntry.type}
                   </span>
                 )}
@@ -154,7 +159,7 @@ function CompetenciesPage() {
             )}
 
             {currentEntry.details && (
-              <p className="mt-6 text-base leading-7 text-ink">
+              <p className="mt-8 text-base leading-7 text-ink">
                 {currentEntry.details}
               </p>
             )}
@@ -165,7 +170,7 @@ function CompetenciesPage() {
               <Link
                 to="/competencies"
                 search={{ id: selected.id, entry: String(entryIndex! + 1) }}
-                className="mt-10 block rounded-2xl border border-line p-5 hover:border-brass transition-colors"
+                className="mt-12 block rounded-2xl border-2 border-line p-6 hover:border-brass transition-colors"
               >
                 <p className="text-[0.6rem] font-medium tracking-[0.2em] text-muted uppercase">Next Entry →</p>
                 <p className="mt-2 font-serif text-xl">{nextEntry.title}</p>
@@ -182,14 +187,14 @@ function CompetenciesPage() {
               ← All Competencies
             </Link>
 
-            <p className="mt-6 text-[0.6rem] font-medium tracking-[0.2em] text-brass uppercase">
+            <p className="mt-8 text-[0.6rem] font-medium tracking-[0.2em] text-brass uppercase">
               Reflection · {selected.title}
             </p>
             <h1 className="mt-3 font-serif text-4xl md:text-5xl leading-tight">
               {selected.title}
             </h1>
-            <div className="mt-4 h-px w-full bg-line/50" />
-            <p className="mt-4 text-sm text-muted">
+            <div className="mt-6 h-px w-full bg-line/50" />
+            <p className="mt-6 text-sm text-muted">
               {selected.index} · Foundation
             </p>
             <p className="mt-2 text-base leading-7 text-ink/80">
@@ -205,11 +210,11 @@ function CompetenciesPage() {
                       key={i}
                       to="/competencies"
                       search={{ id: selected.id, entry: String(i) }}
-                      className="block glass-card p-4 hover:border-brass"
+                      className="block glass-card p-5 hover:border-brass"
                     >
                       <div className="flex items-start gap-4">
                         {ev.image && (
-                          <img src={ev.image} alt={ev.title} className="size-16 rounded-lg object-cover" />
+                          <img src={ev.image} alt={ev.title} className="size-20 rounded-xl object-cover" />
                         )}
                         <div className="flex-1">
                           {ev.date && (
@@ -217,6 +222,9 @@ function CompetenciesPage() {
                           )}
                           <h3 className="mt-1 font-serif text-lg">{ev.title}</h3>
                           <p className="mt-1 text-sm text-muted line-clamp-2">{ev.description}</p>
+                          <span className="mt-3 inline-flex items-center text-sm font-medium text-brass">
+                            Read Reflection →
+                          </span>
                         </div>
                       </div>
                     </Link>
