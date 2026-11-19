@@ -41,49 +41,51 @@ function Home() {
   return (
     <SiteFrame>
       <section>
-        <div className="mx-auto max-w-5xl px-5 py-10 md:px-8 md:py-14">
-          <div className="max-w-xl">
-            <p className="text-[0.65rem] font-medium tracking-[0.22em] text-brass uppercase fade-up">
-              Beyond My White Coat
-            </p>
-            <h1 className="hero-name mt-3 font-serif font-medium">
-              <AnimatedName text="Rahul" accent className="block" />
-              <AnimatedName text="Devnani" accent className="block italic" />
-            </h1>
-            <p className="mt-4 max-w-sm font-serif text-base leading-7 text-ink md:text-lg fade-up" style={{ animationDelay: "0.5s" }}>
-              First-year MD student at Gulf Medical University, Ajman.
-            </p>
-            <div className="mt-5 flex flex-wrap gap-3 fade-up" style={{ animationDelay: "0.6s" }}>
-              <Link
-                to="/competencies"
-                search={{ id: "" }}
-                className="btn-gradient inline-flex h-11 items-center px-6 text-[0.65rem] font-medium tracking-widest uppercase rounded-lg shadow-lg"
-              >
-                View Competencies
-              </Link>
-              <Link
-                to="/about"
-                className="inline-flex h-11 items-center border border-ink/30 bg-white px-6 text-[0.65rem] font-medium tracking-widest text-ink uppercase rounded-lg hover:border-brass hover:text-brass transition-all"
-              >
-                About
-              </Link>
+        <div className="mx-auto max-w-6xl px-5 py-10 md:px-8 md:py-14">
+          <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
+            <div>
+              <p className="text-[0.65rem] font-medium tracking-[0.22em] text-brass uppercase fade-up">
+                Beyond My White Coat
+              </p>
+              <h1 className="hero-name mt-3 font-serif font-medium">
+                <AnimatedName text="Rahul" accent className="block" />
+                <AnimatedName text="Devnani" accent className="block italic" />
+              </h1>
+              <p className="mt-4 max-w-sm font-serif text-base leading-7 text-ink md:text-lg fade-up" style={{ animationDelay: "0.5s" }}>
+                First-year MD student at Gulf Medical University, Ajman.
+              </p>
+              <div className="mt-5 flex flex-wrap gap-3 fade-up" style={{ animationDelay: "0.6s" }}>
+                <Link
+                  to="/competencies"
+                  search={{ id: "" }}
+                  className="btn-gradient inline-flex h-11 items-center px-6 text-[0.65rem] font-medium tracking-widest uppercase rounded-lg shadow-lg"
+                >
+                  View Competencies
+                </Link>
+                <Link
+                  to="/about"
+                  className="inline-flex h-11 items-center border border-ink/30 bg-white px-6 text-[0.65rem] font-medium tracking-widest text-ink uppercase rounded-lg hover:border-brass hover:text-brass transition-all"
+                >
+                  About
+                </Link>
+              </div>
             </div>
-          </div>
-          <div className="relative mt-8 fade-up" style={{ animationDelay: "0.7s" }}>
-            <img
-              src="/rahul.jpeg"
-              alt="Rahul Devnani"
-              className="w-full max-w-lg rounded-2xl shadow-xl"
-            />
-            <div className="floating-card absolute -bottom-3 left-3 p-3.5 w-48 md:w-52">
-              <div className="flex items-start gap-2.5">
-                <span className="mt-1 size-2.5 shrink-0 rounded-full bg-gradient-to-r from-brass to-warm" />
-                <div>
-                  <p className="text-sm font-medium text-ink">Year 1 · MD</p>
-                  <p className="text-xs text-muted">Entered 2026</p>
-                  <p className="mt-0.5 text-xs leading-4 text-brass">
-                    Gulf Medical University<br />Ajman, UAE
-                  </p>
+            <div className="relative fade-up" style={{ animationDelay: "0.7s" }}>
+              <img
+                src="/rahul.jpeg"
+                alt="Rahul Devnani"
+                className="w-full rounded-2xl shadow-xl"
+              />
+              <div className="floating-card absolute -bottom-3 left-3 right-3 p-3.5 md:left-4 md:right-auto md:w-52">
+                <div className="flex items-start gap-2.5">
+                  <span className="mt-1 size-2.5 shrink-0 rounded-full bg-gradient-to-r from-brass to-warm" />
+                  <div>
+                    <p className="text-sm font-medium text-ink">Year 1 · MD</p>
+                    <p className="text-xs text-muted">Entered 2026</p>
+                    <p className="mt-0.5 text-xs leading-4 text-brass">
+                      Gulf Medical University<br />Ajman, UAE
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -93,7 +95,7 @@ function Home() {
 
       <CompetencyMarquee />
 
-      <section className="mx-auto max-w-5xl px-5 py-6 md:px-8" aria-label="Standing">
+      <section className="mx-auto max-w-6xl px-5 py-6 md:px-8" aria-label="Standing">
         <div className="grid grid-cols-2 gap-3 max-w-lg">
           {standing.map((item) => (
             <div key={item.index} className="stat-card">
@@ -107,7 +109,7 @@ function Home() {
         </div>
       </section>
 
-      <section id="about" className="mx-auto max-w-5xl px-5 py-10 md:px-8 md:py-14">
+      <section id="about" className="mx-auto max-w-6xl px-5 py-10 md:px-8 md:py-14">
         <div className="text-center max-w-xl mx-auto">
           <p className="text-[0.65rem] font-medium tracking-[0.2em] text-brass uppercase">About Me</p>
           <h2 className="mt-2 font-serif text-3xl leading-tight md:text-4xl">
@@ -131,7 +133,7 @@ function Home() {
       </section>
 
       <section className="border-t border-line/50">
-        <div className="mx-auto max-w-5xl px-5 py-10 md:px-8 md:py-14">
+        <div className="mx-auto max-w-6xl px-5 py-10 md:px-8 md:py-14">
           <div className="space-y-3 max-w-xl">
             {yearMap.map((item) => (
               <div key={item.when} className="glass-card p-4">
