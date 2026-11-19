@@ -25,7 +25,7 @@ function ScrollProgress() {
   return (
     <div className="pointer-events-none fixed inset-x-0 top-0 z-50 h-px" aria-hidden="true">
       <div
-        className="h-full w-full origin-left bg-ink"
+        className="h-full w-full origin-left bg-brass"
         style={{ transform: `scaleX(${scale})` }}
       />
     </div>
@@ -44,10 +44,10 @@ function Nav() {
     <header className="sticky top-0 z-40 glass-nav">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5 md:px-8">
         <Link to="/" className="leading-none">
-          <span className="block font-serif text-base font-medium tracking-wide text-ink">
+          <span className="block font-serif text-lg font-medium tracking-wide text-bone">
             Beyond My White Coat
           </span>
-          <span className="block text-[0.55rem] font-medium tracking-[0.2em] text-muted uppercase">
+          <span className="block text-[0.55rem] font-medium tracking-[0.2em] text-brass uppercase">
             Rahul Devnani
           </span>
         </Link>
@@ -60,7 +60,7 @@ function Nav() {
                 to={link.to}
                 className={
                   "text-[0.65rem] font-medium tracking-[0.15em] uppercase " +
-                  (active ? "text-ink" : "text-muted hover:text-ink")
+                  (active ? "text-brass" : "text-bone/70 hover:text-bone")
                 }
                 aria-current={active ? "page" : undefined}
               >
@@ -71,7 +71,7 @@ function Nav() {
         </nav>
         <button
           type="button"
-          className="grid size-10 place-items-center border border-line md:hidden"
+          className="grid size-10 place-items-center border border-bone/20 text-bone md:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
           onClick={() => setOpen((v) => !v)}
@@ -81,7 +81,7 @@ function Nav() {
         </button>
       </div>
       {open ? (
-        <nav id="mobile-nav" className="border-t border-line md:hidden" aria-label="Mobile">
+        <nav id="mobile-nav" className="border-t border-bone/15 md:hidden" aria-label="Mobile">
           {links.map((link) => {
             const active = pathname === link.to;
             return (
@@ -89,8 +89,8 @@ function Nav() {
                 key={link.to}
                 to={link.to}
                 className={
-                  "flex h-12 items-center border-b border-line px-5 text-sm tracking-wide " +
-                  (active ? "bg-bone text-ink" : "text-muted")
+                  "flex h-12 items-center border-b border-bone/10 px-5 text-sm tracking-wide " +
+                  (active ? "bg-bone/10 text-brass" : "text-bone/70")
                 }
                 aria-current={active ? "page" : undefined}
               >
@@ -115,7 +115,7 @@ function Footer() {
           </p>
         </div>
         <div>
-          <p className="text-[0.6rem] font-medium tracking-[0.2em] text-bone/40 uppercase">Index</p>
+          <p className="text-[0.6rem] font-medium tracking-[0.2em] text-brass uppercase">Index</p>
           <ul className="mt-4 space-y-2 text-sm">
             {links.map((link) => (
               <li key={link.to}>
@@ -127,7 +127,7 @@ function Footer() {
           </ul>
         </div>
         <div>
-          <p className="text-[0.6rem] font-medium tracking-[0.2em] text-bone/40 uppercase">Colophon</p>
+          <p className="text-[0.6rem] font-medium tracking-[0.2em] text-brass uppercase">Colophon</p>
           <p className="mt-4 text-sm leading-6 text-bone/70">
             Gulf Medical University
             <br />
@@ -186,7 +186,7 @@ function JournalDesk() {
         <section
           role="dialog"
           aria-labelledby={titleId}
-          className="flex w-[min(100vw-2rem,22rem)] flex-col border border-line bg-bone"
+          className="flex w-[min(100vw-2rem,22rem)] flex-col border border-line bg-bone rounded-xl"
         >
           <header className="flex items-center justify-between border-b border-line px-4 py-3">
             <div>
@@ -225,7 +225,7 @@ function JournalDesk() {
               <button
                 key={item}
                 type="button"
-                className="border border-line px-3 py-2 text-xs tracking-wide text-muted hover:text-ink"
+                className="border border-line px-3 py-2 text-xs tracking-wide text-muted hover:text-ink rounded-md"
                 onClick={() => ask(item)}
               >
                 {item}
@@ -250,7 +250,7 @@ function JournalDesk() {
               placeholder="Ask the journal"
               className="min-w-0 flex-1 bg-transparent px-4 py-3 text-sm outline-none"
             />
-            <button type="submit" className="px-4 text-xs font-medium tracking-widest uppercase">
+            <button type="submit" className="px-4 text-xs font-medium tracking-widest uppercase text-brass">
               Send
             </button>
           </form>
@@ -258,7 +258,7 @@ function JournalDesk() {
       ) : null}
       <button
         type="button"
-        className="h-11 border border-ink bg-ink px-5 text-[0.6rem] font-medium tracking-[0.2em] text-bone uppercase"
+        className="h-11 bg-ink px-5 text-[0.6rem] font-medium tracking-[0.2em] text-bone uppercase rounded-md"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
       >
