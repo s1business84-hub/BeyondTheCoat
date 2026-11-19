@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Kicker, Monogram, SiteFrame } from "@/components/site/chrome";
 import { CompetencyIcon } from "@/components/site/icons";
-import { competencies, purposes, standing, evidenceItems, ledger, yearMap } from "@/components/site/data";
+import { competencies, purposes, standing, evidenceItems, ledger } from "@/components/site/data";
 
 export const Route = createFileRoute("/")({ component: Home });
 
@@ -24,7 +24,7 @@ function AnimatedName({ text, accent = false, className }: { text: string; accen
 function CompetencyMarquee() {
   const items = [...competencies, ...competencies];
   return (
-    <div className="overflow-hidden border-y border-line/30 bg-white/40 backdrop-blur-sm py-3">
+    <div className="overflow-hidden border-y border-line/30 bg-white/60 py-3">
       <div className="marquee-track">
         {items.map((item, i) => (
           <span key={i} className="flex items-center gap-4 text-sm tracking-wide whitespace-nowrap text-muted">
@@ -40,56 +40,50 @@ function CompetencyMarquee() {
 function Home() {
   return (
     <SiteFrame>
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brass/5 to-transparent pointer-events-none" />
-        <div className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-20">
-          <div className="fade-up">
-            <p className="text-[0.65rem] font-medium tracking-[0.22em] text-brass uppercase">
-              Beyond My White Coat
-            </p>
-            <h1 className="hero-name mt-4 font-serif font-medium">
-              <AnimatedName text="Rahul" accent className="block" />
-              <AnimatedName text="Devnani" accent className="block italic" />
-            </h1>
-            <p className="mt-6 max-w-md font-serif text-lg leading-8 text-ink md:text-xl">
-              First-year MD student at Gulf Medical University, Ajman.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                to="/competencies"
-                search={{ id: "" }}
-                className="inline-flex h-12 items-center bg-ink px-8 text-[0.65rem] font-medium tracking-widest text-white uppercase"
-              >
-                View Competencies
-              </Link>
-              <Link
-                to="/about"
-                className="inline-flex h-12 items-center border border-ink/30 bg-white px-8 text-[0.65rem] font-medium tracking-widest text-ink uppercase hover:border-brass hover:text-brass transition-all"
-              >
-                About
-              </Link>
-            </div>
+      <section className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-16">
+        <div className="fade-up">
+          <p className="text-[0.65rem] font-medium tracking-[0.22em] text-brass uppercase">
+            Beyond My White Coat
+          </p>
+          <h1 className="hero-name mt-4 font-serif font-medium">
+            <AnimatedName text="Rahul" accent className="block" />
+            <AnimatedName text="Devnani" accent className="block italic" />
+          </h1>
+          <p className="mt-6 max-w-md font-serif text-lg leading-8 text-ink md:text-xl">
+            First-year MD student at Gulf Medical University, Ajman.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link
+              to="/competencies"
+              search={{ id: "" }}
+              className="inline-flex h-12 items-center bg-ink px-8 text-[0.65rem] font-medium tracking-widest text-white uppercase"
+            >
+              View Competencies
+            </Link>
+            <Link
+              to="/about"
+              className="inline-flex h-12 items-center border border-ink/20 bg-white px-8 text-[0.65rem] font-medium tracking-widest text-ink uppercase hover:border-brass hover:text-brass transition-all"
+            >
+              About
+            </Link>
           </div>
-          <div className="relative mt-12 fade-up" style={{ animationDelay: "0.3s" }}>
-            <div className="absolute -inset-4 bg-gradient-to-r from-brass/20 via-warm/10 to-brass/20 rounded-3xl blur-2xl opacity-60" />
-            <div className="relative image-frame">
-              <div className="image-inner">
-                <img
-                  src="/rahul.jpeg"
-                  alt="Rahul Devnani"
-                  className="w-full"
-                />
-              </div>
-            </div>
-            <div className="floating-card absolute -bottom-4 left-4 right-4 p-4 md:left-6 md:right-6">
-              <div className="flex items-start gap-3">
-                <span className="mt-1.5 size-2.5 shrink-0 rounded-full bg-gradient-to-r from-brass to-warm" />
-                <div>
-                  <p className="text-sm font-medium text-ink">Year 1 · MD</p>
-                  <p className="text-xs text-muted">Entered 2026</p>
-                  <p className="text-xs text-brass">Gulf Medical University</p>
-                  <p className="text-xs text-muted">Ajman, UAE</p>
-                </div>
+        </div>
+        <div className="relative mt-10 fade-up" style={{ animationDelay: "0.3s" }}>
+          <div className="rounded-2xl overflow-hidden shadow-lg">
+            <img
+              src="/rahul.jpeg"
+              alt="Rahul Devnani"
+              className="w-full"
+            />
+          </div>
+          <div className="floating-card absolute bottom-4 left-4 p-4 md:bottom-6 md:left-6">
+            <div className="flex items-start gap-3">
+              <span className="mt-1.5 size-2.5 shrink-0 rounded-full bg-brass" />
+              <div>
+                <p className="text-sm font-medium text-ink">Year 1 · MD</p>
+                <p className="text-xs text-muted">Entered 2026</p>
+                <p className="text-xs text-brass">Gulf Medical University</p>
+                <p className="text-xs text-muted">Ajman, UAE</p>
               </div>
             </div>
           </div>
@@ -118,7 +112,7 @@ function Home() {
           <h2 className="mt-2 font-serif text-3xl leading-tight md:text-4xl">
             Building a <span className="gradient-text italic">foundation</span> for medicine
           </h2>
-          <div className="mx-auto mt-3 h-0.5 w-14 bg-gradient-to-r from-brass to-warm rounded-full" />
+          <div className="mx-auto mt-3 h-0.5 w-14 bg-brass rounded-full" />
         </div>
         <div className="mx-auto mt-6 max-w-lg space-y-3 text-center text-sm leading-6 text-muted">
           <p>
@@ -137,34 +131,12 @@ function Home() {
 
       <section className="border-t border-line/30">
         <div className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-16">
-          <div className="space-y-4 max-w-xl">
-            {yearMap.map((item) => (
-              <div key={item.when} className="glass-card p-5">
-                <p className="text-[0.6rem] font-medium tracking-widest text-brass uppercase">{item.when}</p>
-                <p className="mt-2 text-sm leading-6 text-ink">{item.what}</p>
-              </div>
-            ))}
-          </div>
-          <div className="mt-8">
-            <Link
-              to="/competencies"
-              search={{ id: "" }}
-              className="btn-gradient inline-flex h-12 items-center px-8 text-[0.65rem] font-medium tracking-widest uppercase rounded-full shadow-lg"
-            >
-              View Competencies
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="border-t border-line/30">
-        <div className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-16">
           <div className="text-center">
             <p className="text-[0.6rem] font-medium tracking-[0.2em] text-brass uppercase">GMU Framework</p>
             <h2 className="mt-2 font-serif text-3xl md:text-4xl">
               The 9 Core <span className="gradient-text">Competencies</span>
             </h2>
-            <div className="mx-auto mt-3 h-0.5 w-12 bg-gradient-to-r from-brass to-warm rounded-full" />
+            <div className="mx-auto mt-3 h-0.5 w-12 bg-brass rounded-full" />
           </div>
           <p className="mx-auto mt-4 max-w-lg text-center text-sm leading-6 text-muted">
             Click any competency to explore detailed reflections, evidence, and structured Gibbs Reflective Cycle documentation aligned with Gulf Medical University standards.
@@ -180,7 +152,7 @@ function Home() {
                   className="glass-card group block p-5"
                 >
                   <div className="flex items-start justify-between">
-                    <div className="grid size-10 place-items-center rounded-xl bg-gradient-to-br from-brass/20 to-warm/10 text-brass">
+                    <div className="grid size-10 place-items-center rounded-xl bg-brass/10 text-brass">
                       <CompetencyIcon id={item.id} />
                     </div>
                     {count > 0 && (
@@ -202,7 +174,7 @@ function Home() {
         <div className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-16">
           <div className="text-center">
             <h2 className="font-serif text-3xl md:text-4xl">Purpose of This Portfolio</h2>
-            <div className="mx-auto mt-3 h-0.5 w-12 bg-gradient-to-r from-brass to-warm rounded-full" />
+            <div className="mx-auto mt-3 h-0.5 w-12 bg-brass rounded-full" />
             <p className="mx-auto mt-4 max-w-lg text-sm leading-6 text-muted">
               A structured record of academic and clinical development reflecting progression across key medical competencies — aligned with the GMU e-portfolio framework.
             </p>
@@ -210,7 +182,7 @@ function Home() {
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {purposes.map((item) => (
               <article key={item.index} className="glass-card p-5">
-                <div className="grid size-10 place-items-center rounded-xl bg-gradient-to-br from-brass/20 to-warm/10 text-brass">
+                <div className="grid size-10 place-items-center rounded-xl bg-brass/10 text-brass">
                   <svg className="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                   </svg>
@@ -228,14 +200,14 @@ function Home() {
           <div className="text-center">
             <p className="text-[0.6rem] font-medium tracking-[0.2em] text-brass uppercase">Scholarly Work</p>
             <h2 className="mt-2 font-serif text-3xl md:text-4xl">Research & Publications</h2>
-            <div className="mx-auto mt-3 h-0.5 w-12 bg-gradient-to-r from-brass to-warm rounded-full" />
+            <div className="mx-auto mt-3 h-0.5 w-12 bg-brass rounded-full" />
           </div>
           <p className="mx-auto mt-4 max-w-md text-center text-sm leading-6 text-muted">
             A growing collection of research projects, publications, and scholarly contributions to medicine.
           </p>
           <div className="mx-auto mt-6 max-w-sm">
             <div className="glass-card p-5 text-center">
-              <div className="mx-auto grid size-10 place-items-center rounded-xl bg-gradient-to-br from-brass/20 to-warm/10 text-brass">
+              <div className="mx-auto grid size-10 place-items-center rounded-xl bg-brass/10 text-brass">
                 <svg className="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
