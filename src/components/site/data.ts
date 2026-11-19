@@ -136,10 +136,10 @@ export const ledger = [
 ];
 
 export const standing = [
-  { index: "01", label: "Standing", value: "Year 1 · MD" },
+  { index: "01", label: "Year", value: "Year 1 · MD" },
   { index: "02", label: "Framework", value: "Nine domains" },
   { index: "03", label: "Campus", value: "Ajman, UAE" },
-  { index: "04", label: "Clinical home", value: "Thumbay system" },
+  { index: "04", label: "Hospital", value: "Thumbay system" },
 ];
 
 export const yearMap = [
@@ -156,7 +156,7 @@ export const yearMap = [
     what: "Communication, first examination skills, and conduct in a room where someone else is the patient.",
   },
   {
-    when: "Year 1 · System",
+    when: "Year 1 · Hospital",
     what: "How Gulf Medical University and the Thumbay hospitals are organised — the map a first-year is expected to learn.",
   },
 ];
