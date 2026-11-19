@@ -61,12 +61,12 @@ function Home() {
               >
                 View competencies
               </Link>
-              <a
-                href="#about"
+              <Link
+                to="/about"
                 className="inline-flex h-11 items-center rounded-full border border-brass/40 px-6 text-xs font-semibold tracking-widest text-brass uppercase transition-colors hover:bg-brass hover:text-white"
               >
                 About
-              </a>
+              </Link>
             </div>
           </div>
           <div className="relative lg:col-span-5">
@@ -124,6 +124,11 @@ function Home() {
           <p>
             It is a living record of learning, reflection, and growth — aligned with the university’s e-portfolio framework.
           </p>
+        </div>
+        <div className="mt-8 text-center">
+          <Link to="/about" className="text-sm font-semibold tracking-wide text-brass hover:underline">
+            Read more about me →
+          </Link>
         </div>
       </section>
 
