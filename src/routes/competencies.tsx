@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Kicker, SiteFrame } from "@/components/site/chrome";
+import { SiteFrame } from "@/components/site/chrome";
 import { competencies, gibbs, evidenceItems } from "@/components/site/data";
 import { useEffect, useState } from "react";
 
@@ -14,6 +14,16 @@ export const Route = createFileRoute("/competencies")({
   }),
   component: CompetenciesPage,
 });
+
+function TitleOverlay({ title, subtitle }: { title: string; subtitle: string }) {
+  return (
+    <div className="title-overlay">
+      <h1>{title}</h1>
+      <div className="title-line" />
+      <p className="title-sub">{subtitle}</p>
+    </div>
+  );
+}
 
 function ReflectionBlock({ reflection }: { reflection: any }) {
   const stages = [
@@ -45,20 +55,23 @@ function CompetenciesPage() {
   const { id } = Route.useSearch();
   const selected = competencies.find((item) => item.id === id);
   const evidences = selected ? ((evidenceItems as any)[selected.id] || []) : [];
-  const [loading, setLoading] = useState(false);
+  const [showTitle, setShowTitle] = useState(true);
   const [openEvidence, setOpenEvidence] = useState<number | null>(null);
 
   useEffect(() => {
-    if (id) {
-      setLoading(true);
-      setOpenEvidence(null);
-      const t = setTimeout(() => setLoading(false), 450);
-      return () => clearTimeout(t);
-    }
+    setShowTitle(true);
+    setOpenEvidence(null);
+    const t = setTimeout(() => setShowTitle(false), 1600);
+    return () => clearTimeout(t);
   }, [id]);
+
+  const overlayTitle = selected ? selected.title.toUpperCase() : "COMPETENCIES";
+  const overlaySub = selected ? `Beyond My White Coat · ${selected.index}` : "Beyond My White Coat";
 
   return (
     <SiteFrame>
+      {showTitle && <TitleOverlay title={overlayTitle} subtitle={overlaySub} />}
+
       <div className="mx-auto max-w-6xl px-5 py-14 md:px-8 md:py-20">
         <p className="text-xs font-semibold tracking-[0.18em] text-brass uppercase">GMU Framework</p>
         <h1 className="mt-4 max-w-3xl font-serif text-5xl leading-none md:text-6xl fade-in">
@@ -68,15 +81,6 @@ function CompetenciesPage() {
         <p className="mt-6 max-w-2xl text-base leading-7 text-muted">
           Click any competency to explore detailed reflections, evidence, and structured Gibbs Reflective Cycle documentation aligned with Gulf Medical University standards.
         </p>
-
-        {loading && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-white/70 backdrop-blur-sm">
-            <div className="text-center">
-              <div className="mx-auto size-10 animate-spin rounded-full border-2 border-brass border-t-transparent" />
-              <p className="mt-4 text-sm font-medium text-brass">Opening…</p>
-            </div>
-          </div>
-        )}
 
         {!selected ? (
           <div className="mt-12 grid gap-6 sm:grid-cols-2">
