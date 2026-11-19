@@ -26,7 +26,7 @@ function AboutPage() {
             <p className="mt-4 text-sm leading-6 text-muted">
               Rahul Devnani
               <br />
-              GMD · Year I
+              Year 1 · ME
               <br />
               Gulf Medical University
             </p>
@@ -36,7 +36,7 @@ function AboutPage() {
         <div className="mt-14 grid gap-12 border-t border-line pt-12 lg:grid-cols-12">
           <div className="space-y-5 text-base leading-7 text-muted lg:col-span-7">
             <p className="font-serif text-2xl leading-9 text-ink fade-up" style={{ animationDelay: "0.25s" }}>
-              I am a first-year Doctor of Medicine (MD) student at Gulf Medical University, beginning my journey in the field of medicine with a strong interest in understanding the complexities of human health and disease.
+              I am a first-year Doctor of Medicine (ME) student at Gulf Medical University, beginning my journey in the field of medicine with a strong interest in understanding the complexities of human health and disease.
             </p>
             <p className="fade-up" style={{ animationDelay: "0.35s" }}>
               As I embark on my medical education, I aim to develop a strong foundation in medical sciences while continuously strengthening my critical thinking, communication and problem-solving skills. I believe that becoming a competent healthcare professional requires not only academic knowledge but also empathy, integrity, adaptability and a commitment to lifelong learning.
