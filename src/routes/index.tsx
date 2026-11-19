@@ -51,7 +51,7 @@ function Home() {
               <AnimatedName text="Devnani" accent className="block italic" />
             </h1>
             <p className="mt-5 max-w-sm font-serif text-base leading-7 text-muted md:text-lg">
-              First-year ME student at Gulf Medical University, Ajman.
+              First-year MD student at Gulf Medical University, Ajman.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Link
@@ -80,7 +80,7 @@ function Home() {
                 <div className="flex items-start gap-2.5">
                   <span className="mt-1 size-2 shrink-0 rounded-full bg-brass" />
                   <div>
-                    <p className="text-xs font-medium text-ink">Year 1 · ME</p>
+                    <p className="text-xs font-medium text-ink">Year 1 · MD</p>
                     <p className="text-[0.65rem] text-muted">Entered 2026</p>
                     <p className="mt-0.5 text-[0.65rem] leading-4 text-steel">
                       Gulf Medical University<br />Ajman, UAE
@@ -119,7 +119,7 @@ function Home() {
         </div>
         <div className="mx-auto mt-6 max-w-xl space-y-3 text-center text-sm leading-6 text-muted">
           <p>
-            I am a first-year ME student at Gulf Medical University in Ajman, entered in 2026. This portfolio documents my progress across the nine competency domains of the MD program.
+            I am a first-year MD student at Gulf Medical University in Ajman, entered in 2026. This portfolio documents my progress across the nine competency domains of the MD program.
           </p>
           <p>
             It is a living record of learning, reflection, and growth — aligned with the university’s e-portfolio framework.
@@ -255,7 +255,7 @@ function Home() {
             <Monogram />
             <h3 className="mt-4 font-serif text-2xl">Rahul Devnani</h3>
             <p className="mt-1 text-xs leading-5 text-muted">
-              First-year ME student<br />Gulf Medical University, Ajman
+              First-year MD student<br />Gulf Medical University, Ajman
             </p>
             <p className="mt-3 text-sm">
               <a href="mailto:2026md90@mygmu.ac.ae" className="font-medium text-ink hover:underline">
