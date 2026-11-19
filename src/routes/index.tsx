@@ -5,6 +5,22 @@ import { competencies, purposes, standing, evidenceItems, ledger } from "@/compo
 
 export const Route = createFileRoute("/")({ component: Home });
 
+function AnimatedName({ text, accent = false, className }: { text: string; accent?: boolean; className?: string }) {
+  return (
+    <span className={className}>
+      {text.split("").map((char, i) => (
+        <span
+          key={i}
+          className={accent ? "name-letter-accent" : "name-letter"}
+          style={{ animationDelay: `${0.04 + i * 0.04}s` }}
+        >
+          {char === " " ? "\u00A0" : char}
+        </span>
+      ))}
+    </span>
+  );
+}
+
 function CompetencyMarquee() {
   const items = [...competencies, ...competencies];
   return (
@@ -24,68 +40,49 @@ function CompetencyMarquee() {
 function Home() {
   return (
     <SiteFrame>
-      <section className="relative overflow-hidden">
-        <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-            <div className="fade-up">
-              <h1 className="font-serif text-6xl md:text-7xl lg:text-8xl leading-none tracking-tight">
-                <span className="block text-ink">Rahul</span>
-                <span className="block italic gradient-text">Devnani</span>
-              </h1>
-              <p className="mt-8 text-[0.65rem] font-medium tracking-[0.22em] text-brass uppercase">
-                About Me
-              </p>
-              <h2 className="mt-2 font-serif text-3xl md:text-4xl leading-tight">
-                Building a <span className="gradient-text italic">foundation</span> for medicine
-              </h2>
-              <div className="mt-6 space-y-4 text-base leading-7 text-ink/80">
-                <p>
-                  I am a medical student at <strong>Gulf Medical University (GMU)</strong>, Ajman, UAE, currently in my <strong>first year of the MD program</strong> with a passion for clinical excellence and patient-centered care.
-                </p>
-                <p>
-                  My journey has been shaped by early academic exposure, structured reflection, and a commitment to building competency across all dimensions of medical practice.
-                </p>
-              </div>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Link
-                  to="/competencies"
-                  search={{ id: "" }}
-                  className="btn-gradient inline-flex h-12 items-center px-8 text-[0.65rem] font-medium tracking-widest uppercase rounded-full shadow-lg"
-                >
-                  View Competencies
-                </Link>
-                <Link
-                  to="/about"
-                  className="inline-flex h-12 items-center border-2 border-ink/20 bg-white/80 px-8 text-[0.65rem] font-medium tracking-widest text-ink uppercase rounded-full hover:border-brass hover:text-brass transition-all"
-                >
-                  About
-                </Link>
-              </div>
-            </div>
-            <div className="relative fade-up" style={{ animationDelay: "0.2s" }}>
-              <div className="image-frame">
-                <div className="image-inner">
-                  <img
-                    src="/rahul.jpeg"
-                    alt="Rahul Devnani"
-                    className="w-full"
-                  />
-                </div>
-                <div className="image-accent" aria-hidden="true">
-                  <svg className="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                  </svg>
-                </div>
-              </div>
-              <div className="floating-card absolute -bottom-6 left-4 right-4 p-4 md:left-6 md:right-6">
-                <div className="flex items-start gap-3">
-                  <span className="mt-1.5 size-2.5 shrink-0 rounded-full bg-gradient-to-r from-brass to-warm" />
-                  <div>
-                    <p className="text-sm font-medium text-ink">Year 1 · MD</p>
-                    <p className="text-xs text-brass">Gulf Medical University</p>
-                    <p className="text-xs text-muted">Ajman, UAE</p>
-                  </div>
-                </div>
+      <section className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-20">
+        <div className="fade-up">
+          <p className="text-[0.65rem] font-medium tracking-[0.22em] text-brass uppercase">
+            Beyond My White Coat
+          </p>
+          <h1 className="hero-name mt-4 font-serif font-medium">
+            <AnimatedName text="Rahul" accent className="block" />
+            <AnimatedName text="Devnani" accent className="block italic" />
+          </h1>
+          <p className="mt-6 max-w-md font-serif text-lg leading-8 text-ink md:text-xl">
+            First-year MD student at Gulf Medical University, Ajman.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link
+              to="/competencies"
+              search={{ id: "" }}
+              className="inline-flex h-12 items-center bg-ink px-8 text-[0.65rem] font-medium tracking-widest text-white uppercase"
+            >
+              View Competencies
+            </Link>
+            <Link
+              to="/about"
+              className="inline-flex h-12 items-center border border-ink/30 bg-white px-8 text-[0.65rem] font-medium tracking-widest text-ink uppercase hover:border-brass hover:text-brass transition-all"
+            >
+              About
+            </Link>
+          </div>
+        </div>
+        <div className="relative mt-10 fade-up" style={{ animationDelay: "0.3s" }}>
+          <div className="rounded-2xl overflow-hidden shadow-xl">
+            <img
+              src="/rahul.jpeg"
+              alt="Rahul Devnani"
+              className="w-full"
+            />
+          </div>
+          <div className="floating-card absolute bottom-4 right-4 p-4 md:bottom-6 md:right-6">
+            <div className="flex items-start gap-3">
+              <span className="mt-1.5 size-2.5 shrink-0 rounded-full bg-gradient-to-r from-brass to-warm" />
+              <div>
+                <p className="text-sm font-medium text-ink">Year 1 · MD</p>
+                <p className="text-xs text-brass">Gulf Medical University</p>
+                <p className="text-xs text-muted">Ajman, UAE</p>
               </div>
             </div>
           </div>
@@ -105,6 +102,29 @@ function Home() {
               <p className="mt-0.5 text-sm font-medium text-ink">{item.value}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section id="about" className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-16">
+        <div className="text-center max-w-xl mx-auto">
+          <p className="text-[0.65rem] font-medium tracking-[0.2em] text-brass uppercase">About Me</p>
+          <h2 className="mt-2 font-serif text-3xl leading-tight md:text-4xl">
+            Building a <span className="gradient-text italic">foundation</span> for medicine
+          </h2>
+          <div className="mx-auto mt-3 h-0.5 w-14 bg-gradient-to-r from-brass to-warm rounded-full" />
+        </div>
+        <div className="mx-auto mt-6 max-w-lg space-y-3 text-center text-sm leading-6 text-muted">
+          <p>
+            I am a first-year MD student at Gulf Medical University in Ajman, entered in 2026. This portfolio documents my progress across the nine competency domains of the MD program.
+          </p>
+          <p>
+            It is a living record of learning, reflection, and growth — aligned with the university’s e-portfolio framework.
+          </p>
+        </div>
+        <div className="mt-5 text-center">
+          <Link to="/about" className="text-sm font-medium text-brass hover:underline">
+            Read more →
+          </Link>
         </div>
       </section>
 
