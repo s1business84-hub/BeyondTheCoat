@@ -19,14 +19,14 @@ export const Route = createFileRoute("/competencies")({
 
 const iconColors: Record<string, { bg: string; icon: string }> = {
   "medical-expert": { bg: "bg-gradient-to-br from-blue-500 to-blue-700", icon: "text-white" },
-  "communicator": { bg: "bg-gradient-to-br from-sky-400 to-blue-600", icon: "text-white" },
-  "collaborator": { bg: "bg-gradient-to-br from-cyan-400 to-blue-600", icon: "text-white" },
-  "professionalism": { bg: "bg-gradient-to-br from-indigo-500 to-blue-700", icon: "text-white" },
-  "patient-care": { bg: "bg-gradient-to-br from-teal-400 to-cyan-600", icon: "text-white" },
-  "evidence-based": { bg: "bg-gradient-to-br from-blue-400 to-cyan-600", icon: "text-white" },
-  "social-accountability": { bg: "bg-gradient-to-br from-indigo-400 to-blue-700", icon: "text-white" },
-  "health-systems": { bg: "bg-gradient-to-br from-sky-500 to-blue-700", icon: "text-white" },
-  "lifelong-learner": { bg: "bg-gradient-to-br from-cyan-500 to-blue-700", icon: "text-white" },
+  "communicator": { bg: "bg-gradient-to-br from-cyan-400 to-teal-600", icon: "text-white" },
+  "collaborator": { bg: "bg-gradient-to-br from-sky-400 to-cyan-600", icon: "text-white" },
+  "professionalism": { bg: "bg-gradient-to-br from-teal-500 to-cyan-700", icon: "text-white" },
+  "patient-care": { bg: "bg-gradient-to-br from-blue-400 to-cyan-500", icon: "text-white" },
+  "evidence-based": { bg: "bg-gradient-to-br from-cyan-500 to-blue-600", icon: "text-white" },
+  "social-accountability": { bg: "bg-gradient-to-br from-teal-400 to-blue-600", icon: "text-white" },
+  "health-systems": { bg: "bg-gradient-to-br from-sky-500 to-teal-600", icon: "text-white" },
+  "lifelong-learner": { bg: "bg-gradient-to-br from-cyan-400 to-blue-600", icon: "text-white" },
 };
 
 function TitleOverlay({ title, subtitle }: { title: string; subtitle: string }) {
