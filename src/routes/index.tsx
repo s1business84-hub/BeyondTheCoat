@@ -47,7 +47,7 @@ function Home() {
               Beyond My White Coat
             </p>
             <h1 className="hero-name mt-3 font-serif font-medium">
-              <AnimatedName text="Rahul" className="block" />
+              <AnimatedName text="Rahul" accent className="block" />
               <AnimatedName text="Devnani" accent className="block italic" />
             </h1>
             <p className="mt-4 max-w-sm font-serif text-base leading-7 text-ink md:text-lg fade-up" style={{ animationDelay: "0.5s" }}>
