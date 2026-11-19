@@ -12,7 +12,7 @@ export const competencies: Competency[] = [
     id: "medical-expert",
     index: "01",
     title: "Medical Expert",
-    plain: "Demonstrates a strong foundation of clinical knowledge, diagnostic reasoning, and technical skills essential for safe and effective patient care. Integrates scientific principles with clear clinical judgment.",
+    plain: "Demonstrates a strong foundation of clinical knowledge, diagnostic reasoning, and technical skills essential for safe and effective patient care. Integrates scientific principles with compassionate clinical judgment in all healthcare settings.",
     yearOne: "",
     evidence: "",
   },
@@ -20,7 +20,7 @@ export const competencies: Competency[] = [
     id: "communicator",
     index: "02",
     title: "Communicator",
-    plain: "Builds effective relationships with patients, families, and healthcare professionals through clear, empathetic, and respectful communication. Ensures understanding and trust in every interaction.",
+    plain: "Builds effective relationships with patients, families, and healthcare professionals through clear, empathetic, and respectful communication. Ensures understanding and trust in every clinical interaction.",
     yearOne: "",
     evidence: "",
   },
@@ -28,7 +28,7 @@ export const competencies: Competency[] = [
     id: "collaborator",
     index: "03",
     title: "Collaborator",
-    plain: "Works effectively within teams, contributing reliably and respecting assigned roles. Promotes shared responsibility and clear communication to achieve better outcomes.",
+    plain: "Works effectively within interprofessional teams, demonstrating leadership, initiative, and innovation. Promotes teamwork, adaptability, and shared responsibility to achieve optimal healthcare outcomes.",
     yearOne: "",
     evidence: "",
   },
@@ -36,7 +36,7 @@ export const competencies: Competency[] = [
     id: "professionalism",
     index: "04",
     title: "Professional",
-    plain: "Exemplifies integrity, accountability, and ethical conduct. Maintains professionalism, punctuality, and honesty about the limits of current knowledge.",
+    plain: "Exemplifies integrity, accountability, and ethical conduct in all aspects of medical practice. Maintains professionalism, empathy, and respect for patients, colleagues, and the profession.",
     yearOne: "",
     evidence: "",
   },
@@ -44,7 +44,7 @@ export const competencies: Competency[] = [
     id: "patient-care",
     index: "05",
     title: "Patient Care",
-    plain: "Places patients at the center of care, prioritising safety, dignity, and well-being. Learns to be safe and respectful in clinical spaces before aiming to be impressive.",
+    plain: "Places patients at the center of care, ensuring their safety, dignity, and well-being. Advocates for equitable access to healthcare and supports initiatives that enhance public health outcomes.",
     yearOne: "",
     evidence: "",
   },
@@ -52,7 +52,7 @@ export const competencies: Competency[] = [
     id: "evidence-based",
     index: "06",
     title: "Evidence-Based",
-    plain: "Engages with research and evidence through critical appraisal. Applies findings carefully and distinguishes a result from a headline or a plan.",
+    plain: "Engages in lifelong learning through critical appraisal of research and evidence. Applies scientific findings to clinical decision-making and contributes to advancing medical knowledge through inquiry and reflection.",
     yearOne: "",
     evidence: "",
   },
@@ -60,7 +60,7 @@ export const competencies: Competency[] = [
     id: "social-accountability",
     index: "07",
     title: "Social Accountability",
-    plain: "Recognises the responsibility of medicine to society. Addresses community health needs and contributes to the well-being of the local population.",
+    plain: "Recognises the responsibility of medicine to society by addressing public health challenges, promoting social justice, and contributing to the well-being of local and global communities.",
     yearOne: "",
     evidence: "",
   },
@@ -68,7 +68,7 @@ export const competencies: Competency[] = [
     id: "health-systems",
     index: "08",
     title: "Health Systems",
-    plain: "Understands how a teaching hospital and academic health system are organised. Learns the structure before forming opinions about how it works.",
+    plain: "Understands and supports the functioning of healthcare systems, contributing to improvements in quality, efficiency, and sustainability. Engages in advocacy and collaboration to strengthen health services.",
     yearOne: "",
     evidence: "",
   },
@@ -76,7 +76,7 @@ export const competencies: Competency[] = [
     id: "lifelong-learner",
     index: "09",
     title: "Lifelong Learner",
-    plain: "Actively seeks opportunities for growth through reflection and continuous improvement. Keeps a dated, correctable record of learning.",
+    plain: "Actively seeks opportunities for personal and professional growth through reflection, feedback, and continuous improvement. Demonstrates commitment to lifelong learning and professional excellence.",
     yearOne: "",
     evidence: "",
   },
@@ -167,22 +167,18 @@ export function answerJournal(raw: string): string {
     return "Hi. You can ask about Rahul, the competencies, contact details, evidence, reflections, or year one at GMU.";
   }
 
-  // Contact
   if (s.includes("contact") || s.includes("email") || s.includes("phone") || s.includes("number") || s.includes("reach") || s.includes("call") || s.includes("mail")) {
     return "You can reach Rahul at 2026md90@mygmu.ac.ae or +971 52 724 9865. For official academic matters, Gulf Medical University in Ajman is the institution of record.";
   }
 
-  // About / who
   if (s.includes("who") || s.includes("about") || s.includes("rahul") || s.includes("you") || s.includes("student") || s.includes("name")) {
     return "Rahul Devnani is a first-year Doctor of Medicine (MD) student at Gulf Medical University in Ajman. He entered in 2026. This site (Beyond My White Coat) is his working e-portfolio documenting progress across the nine GMU competency domains.";
   }
 
-  // Competencies list
   if (s.includes("competenc") || s.includes("domain") || s.includes("nine") || s.includes("framework")) {
     return "There are nine competencies: 01 Medical Expert, 02 Communicator, 03 Collaborator, 04 Professional, 05 Patient Care, 06 Evidence-Based, 07 Social Accountability, 08 Health Systems, and 09 Lifelong Learner. Open the Competencies page and select any one to see evidence and reflections.";
   }
 
-  // Specific competencies
   if (s.includes("medical expert") || s.includes("expert")) {
     return "Medical Expert: Demonstrates clinical knowledge, diagnostic reasoning, and technical skills for safe patient care. Evidence currently includes biochemistry laboratory sessions and a mid-semester physiology achievement certificate.";
   }
@@ -211,32 +207,26 @@ export function answerJournal(raw: string): string {
     return "Lifelong Learner: Actively seeks growth through reflection and continuous improvement. Keeps a dated, correctable record of learning.";
   }
 
-  // Gibbs / reflection
   if (s.includes("gibbs") || s.includes("reflect")) {
     return "Reflections follow the Gibbs cycle: 01 Description (facts), 02 Feelings, 03 Evaluation, 04 Analysis, 05 Conclusion, and 06 Action Plan. Open a competency and expand an evidence item to read the full reflection when available.";
   }
 
-  // GMU / program
   if (s.includes("gmu") || s.includes("gulf") || s.includes("gmd") || s.includes("university") || s.includes("ajman") || s.includes("year")) {
     return "Rahul is a first-year GMD (Doctor of Medicine) student at Gulf Medical University, Ajman, UAE. He entered in 2026. Clinical teaching is within the Thumbay Academic Health System.";
   }
 
-  // Evidence / certificates
   if (s.includes("certificate") || s.includes("evidence") || s.includes("lab") || s.includes("biochem") || s.includes("physiology")) {
     return "Current evidence includes biochemistry laboratory sessions, a mid-semester physiology achievement certificate (October 2026), the MOHAP Hayat Program certificate, and World Diabetes Day participation. Open Competencies to view them with reflections.";
   }
 
-  // Portfolio / site purpose
   if (s.includes("portfolio") || s.includes("site") || s.includes("journal") || s.includes("purpose") || s.includes("why")) {
     return "Beyond My White Coat is Rahul’s living e-portfolio. It documents year one across the nine GMU competencies with evidence and Gibbs reflections. Empty sections stay empty until real evidence exists.";
   }
 
-  // CV
   if (s.includes("cv") || s.includes("resume")) {
     return "There is no CV file on this site. The About page, competencies, and evidence serve as the current record of progress.";
   }
 
-  // Greeting
   if (s.includes("hi") || s.includes("hello") || s.includes("hey") || s.includes("good")) {
     return "Hello. Ask about Rahul, the nine competencies, contact details (email or phone), evidence, or reflections.";
   }
