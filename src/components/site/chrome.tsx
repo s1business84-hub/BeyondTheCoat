@@ -41,17 +41,17 @@ function Nav() {
   }, [pathname]);
 
   return (
-    <header className="sticky top-0 z-40 bg-gradient-to-b from-bone to-white/90 backdrop-blur-md border-b border-line/50">
+    <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-xl border-b border-line/30">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5 md:px-8">
         <Link to="/" className="leading-none">
-          <span className="block font-serif text-lg font-medium tracking-wide text-brass">
+          <span className="block font-serif text-lg font-medium tracking-wide text-ink">
             Beyond My White Coat
           </span>
-          <span className="block text-[0.55rem] font-medium tracking-[0.2em] text-ink uppercase">
+          <span className="block text-[0.55rem] font-medium tracking-[0.2em] text-brass uppercase">
             Rahul Devnani
           </span>
         </Link>
-        <nav className="hidden items-center gap-6 md:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
           {links.map((link) => {
             const active = pathname === link.to;
             return (
@@ -59,8 +59,8 @@ function Nav() {
                 key={link.to}
                 to={link.to}
                 className={
-                  "text-[0.65rem] font-medium tracking-[0.15em] uppercase " +
-                  (active ? "text-brass" : "text-ink/70 hover:text-ink")
+                  "text-[0.65rem] font-medium tracking-[0.15em] uppercase transition-colors " +
+                  (active ? "text-brass" : "text-ink/60 hover:text-ink")
                 }
                 aria-current={active ? "page" : undefined}
               >
@@ -71,7 +71,7 @@ function Nav() {
         </nav>
         <button
           type="button"
-          className="grid size-10 place-items-center border border-line text-ink md:hidden rounded-lg"
+          className="grid size-10 place-items-center border border-line/50 text-ink md:hidden rounded-lg hover:border-brass hover:text-brass transition-colors"
           aria-expanded={open}
           aria-controls="mobile-nav"
           onClick={() => setOpen((v) => !v)}
@@ -81,7 +81,7 @@ function Nav() {
         </button>
       </div>
       {open ? (
-        <nav id="mobile-nav" className="border-t border-line/50 bg-white md:hidden" aria-label="Mobile">
+        <nav id="mobile-nav" className="border-t border-line/30 bg-white/95 backdrop-blur-xl md:hidden" aria-label="Mobile">
           {links.map((link) => {
             const active = pathname === link.to;
             return (
@@ -89,8 +89,8 @@ function Nav() {
                 key={link.to}
                 to={link.to}
                 className={
-                  "flex h-12 items-center border-b border-line/30 px-5 text-sm tracking-wide " +
-                  (active ? "bg-bone text-brass" : "text-ink/70")
+                  "flex h-12 items-center border-b border-line/20 px-5 text-sm tracking-wide transition-colors " +
+                  (active ? "bg-bone/50 text-brass" : "text-ink/70 hover:text-ink")
                 }
                 aria-current={active ? "page" : undefined}
               >
