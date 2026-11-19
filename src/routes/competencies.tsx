@@ -36,11 +36,11 @@ function ReflectionBlock({ reflection }: { reflection: any }) {
     { key: "action", title: "Action Plan", step: "06" },
   ];
   return (
-    <div className="mt-6 rounded-2xl border border-line bg-white p-5">
+    <div className="mt-6 rounded-2xl border border-line bg-paper p-5">
       <h4 className="text-xs font-semibold tracking-widest uppercase text-brass">Gibbs Reflective Cycle</h4>
       <div className="mt-4 grid gap-4 sm:grid-cols-2">
         {stages.map((stage) => (
-          <div key={stage.key} className="rounded-xl border border-line/70 bg-paper/40 p-4">
+          <div key={stage.key} className="rounded-xl border border-line/60 bg-white p-4">
             <p className="text-[0.65rem] font-semibold tracking-widest text-brass uppercase">
               {stage.step} · {stage.title}
             </p>
@@ -64,7 +64,7 @@ function CompetenciesPage() {
   useEffect(() => {
     setShowTitle(true);
     setOpenEvidence(null);
-    const t = setTimeout(() => setShowTitle(false), 1400);
+    const t = setTimeout(() => setShowTitle(false), 1200);
     return () => clearTimeout(t);
   }, [id]);
 
@@ -77,10 +77,10 @@ function CompetenciesPage() {
 
       <div className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-16">
         <p className="text-xs font-semibold tracking-[0.18em] text-brass uppercase">GMU Framework</p>
-        <h1 className="mt-3 max-w-3xl font-serif text-4xl leading-tight md:text-5xl fade-in">
-          The 9 Core <span className="gradient-text">Competencies</span>
+        <h1 className="mt-3 max-w-3xl font-serif text-4xl leading-tight md:text-5xl">
+          The 9 Core Competencies
         </h1>
-        <div className="mt-3 h-0.5 w-14 rounded-full bg-gradient-to-r from-brass to-accent" />
+        <div className="mt-3 h-0.5 w-12 rounded-full bg-brass" />
         <p className="mt-5 max-w-2xl text-sm leading-6 text-muted">
           Click any competency to explore detailed reflections, evidence, and structured Gibbs Reflective Cycle documentation aligned with Gulf Medical University standards.
         </p>
@@ -108,7 +108,7 @@ function CompetenciesPage() {
                   </div>
                   <p className="mt-3 text-[0.65rem] font-semibold tracking-widest text-muted">{item.index}</p>
                   <h2 className="mt-1 font-serif text-xl leading-snug">{item.title}</h2>
-                  <p className="mt-2 text-xs leading-5 text-muted line-clamp-3">{item.plain}</p>
+                  <p className="mt-2 text-xs leading-5 text-muted">{item.plain}</p>
                   <p className="mt-4 text-xs font-semibold text-brass">
                     Explore →
                   </p>
@@ -151,7 +151,7 @@ function CompetenciesPage() {
                           <button
                             type="button"
                             onClick={() => setOpenEvidence(isOpen ? null : i)}
-                            className={"w-full overflow-hidden rounded-2xl border border-line bg-white text-left transition-all " + (isOpen ? "ring-2 ring-brass" : "")}
+                            className={"w-full overflow-hidden rounded-2xl border border-line bg-white text-left " + (isOpen ? "ring-2 ring-brass" : "")}
                           >
                             {ev.image && (
                               <img src={ev.image} alt={ev.title} className="w-full h-auto object-contain" />
@@ -174,14 +174,14 @@ function CompetenciesPage() {
                           </button>
                           {isOpen && ev.reflection && <ReflectionBlock reflection={ev.reflection} />}
                           {isOpen && !ev.reflection && (
-                            <div className="mt-4 rounded-2xl border border-line bg-white p-5">
+                            <div className="mt-4 rounded-2xl border border-line bg-paper p-5">
                               <h4 className="text-xs font-semibold tracking-widest uppercase text-brass">Reflection</h4>
                               <p className="mt-2 text-sm leading-6 text-muted">
                                 Reflections for this entry will be added here using the Gibbs cycle when they are ready.
                               </p>
                               <ol className="mt-4 grid gap-3 sm:grid-cols-2">
                                 {gibbs.map((step) => (
-                                  <li key={step.step} className="rounded-xl border border-line/70 p-3">
+                                  <li key={step.step} className="rounded-xl border border-line/60 bg-white p-3">
                                     <p className="text-[0.6rem] font-semibold text-brass">{step.step} · {step.title}</p>
                                     <p className="mt-1 text-xs text-muted">{step.text}</p>
                                   </li>
