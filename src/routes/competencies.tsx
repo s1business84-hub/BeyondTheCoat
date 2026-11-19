@@ -31,6 +31,8 @@ function CompetenciesPage() {
     }
   }, [id]);
 
+  const openEv = openEvidence !== null ? evidences[openEvidence] : null;
+
   return (
     <SiteFrame>
       <div className="mx-auto max-w-6xl px-5 py-14 md:px-8 md:py-20">
@@ -125,20 +127,42 @@ function CompetenciesPage() {
                 </div>
               )}
 
-              {openEvidence !== null && (
+              {openEvidence !== null && openEv && (
                 <div className="mt-12 border-t border-line pt-8">
                   <h3 className="text-xs font-semibold tracking-widest uppercase">Reflection</h3>
-                  <p className="mt-3 text-base leading-7 text-muted">
-                    Reflections for this competency will be added here using the Gibbs cycle when they are ready.
-                  </p>
-                  <ol className="mt-6 grid gap-4 sm:grid-cols-2">
-                    {gibbs.map((step) => (
-                      <li key={step.step} className="border-l-2 border-brass pl-4">
-                        <p className="text-xs font-semibold text-brass">{step.step} · {step.title}</p>
-                        <p className="mt-1 text-sm text-muted">{step.text}</p>
-                      </li>
-                    ))}
-                  </ol>
+                  {openEv.reflection ? (
+                    <div className="mt-6 space-y-8">
+                      {[
+                        { key: "description", title: "Description", step: "01" },
+                        { key: "feelings", title: "Feelings", step: "02" },
+                        { key: "evaluation", title: "Evaluation", step: "03" },
+                        { key: "analysis", title: "Analysis", step: "04" },
+                        { key: "conclusion", title: "Conclusion", step: "05" },
+                        { key: "action", title: "Action Plan", step: "06" },
+                      ].map((stage) => (
+                        <div key={stage.key} className="border-l-2 border-brass pl-5">
+                          <p className="text-xs font-semibold text-brass">{stage.step} · {stage.title}</p>
+                          <p className="mt-2 text-base leading-7 text-ink whitespace-pre-line">
+                            {(openEv.reflection as any)[stage.key]}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <>
+                      <p className="mt-3 text-base leading-7 text-muted">
+                        Reflections for this entry will be added here using the Gibbs cycle when they are ready.
+                      </p>
+                      <ol className="mt-6 grid gap-4 sm:grid-cols-2">
+                        {gibbs.map((step) => (
+                          <li key={step.step} className="border-l-2 border-brass pl-4">
+                            <p className="text-xs font-semibold text-brass">{step.step} · {step.title}</p>
+                            <p className="mt-1 text-sm text-muted">{step.text}</p>
+                          </li>
+                        ))}
+                      </ol>
+                    </>
+                  )}
                 </div>
               )}
             </div>
