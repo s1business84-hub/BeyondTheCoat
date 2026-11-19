@@ -20,7 +20,7 @@
 @layer base {
   html { scroll-behavior: smooth; }
   body {
-    background: linear-gradient(180deg, #E5F4FA 0%, #F0F8FC 25%, #F5FAFC 50%, #FFFFFF 100%);
+    background: linear-gradient(180deg, #E0F0F8 0%, #EAF6FA 20%, #F5FAFC 50%, #FFFFFF 100%);
     color: #1A2B3C;
     font-family: var(--font-sans);
     line-height: 1.7;
@@ -32,7 +32,6 @@
 @layer utilities {
   .glass {
     background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(12px);
     border: 1px solid rgba(216, 232, 242, 0.8);
     box-shadow: 0 4px 16px rgba(26, 43, 60, 0.04);
   }
@@ -45,49 +44,35 @@
     position: relative;
     overflow: hidden;
   }
-  .glass-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(115deg, transparent 40%, rgba(43, 159, 212, 0.04) 50%, transparent 60%);
-    transform: translateX(-150%);
-    transition: transform 0.5s ease;
-    pointer-events: none;
-  }
   .glass-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(43, 159, 212, 0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(43, 159, 212, 0.1);
     border-color: #2B9FD4;
-  }
-  .glass-card:hover::before {
-    transform: translateX(150%);
   }
   .text-brass { color: #2B9FD4; }
   .text-accent { color: #2B9FD4; }
   .border-brass { border-color: #2B9FD4; }
   .bg-brass { background-color: #1A2B3C; }
-  .fade-in { animation: fadeIn 0.6s ease-out both; }
-  .fade-up { animation: fadeUp 0.6s ease-out both; }
+  .fade-in { animation: fadeIn 0.5s ease-out both; }
+  .fade-up { animation: fadeUp 0.5s ease-out both; }
   .name-letter {
     opacity: 0;
     display: inline-block;
     color: #1A2B3C;
-    animation: letterIn 0.5s ease-out forwards;
+    animation: letterIn 0.4s ease-out forwards;
   }
   .name-letter-accent {
     opacity: 0;
     display: inline-block;
-    background: linear-gradient(135deg, #2B9FD4 0%, #5BB8E0 50%, #8DD4F0 100%);
+    background: linear-gradient(135deg, #2B9FD4 0%, #5BB8E0 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     font-style: italic;
-    animation: letterIn 0.5s ease-out forwards;
+    animation: letterIn 0.4s ease-out forwards;
   }
   .moving-bar {
-    background: linear-gradient(90deg, #2B9FD4, #5BB8E0, #2B9FD4);
-    background-size: 200% 100%;
-    animation: barShift 2.5s linear infinite;
+    background: linear-gradient(90deg, #2B9FD4, #5BB8E0);
   }
   .marquee-track {
     display: flex;
@@ -99,12 +84,10 @@
     animation-play-state: paused;
   }
   .floating-card {
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(16px);
+    background: #FFFFFF;
     border: 1px solid #D8E8F2;
     border-radius: 16px;
-    box-shadow: 0 8px 28px rgba(43, 159, 212, 0.08);
-    animation: float 4s ease-in-out infinite;
+    box-shadow: 0 4px 16px rgba(43, 159, 212, 0.08);
   }
   .hero-name {
     font-size: clamp(3.5rem, 10vw, 6.5rem);
@@ -118,11 +101,6 @@
     border-radius: 14px;
     padding: 1rem 1.25rem;
     box-shadow: 0 2px 8px rgba(43, 159, 212, 0.04);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  .stat-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(43, 159, 212, 0.06);
   }
   .title-overlay {
     position: fixed;
@@ -132,7 +110,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(160deg, #1A2B3C 0%, #2A4A6A 50%, #1A2B3C 100%);
+    background: #1A2B3C;
     animation: overlayIn 0.3s ease-out, overlayOut 0.4s ease-in 1s forwards;
   }
   .title-overlay h1 {
@@ -140,10 +118,7 @@
     font-size: clamp(2rem, 6vw, 3.5rem);
     font-weight: 500;
     letter-spacing: 0.15em;
-    background: linear-gradient(135deg, #F5FAFC 0%, #5BB8E0 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #F5FAFC;
     text-transform: uppercase;
     animation: titleRise 0.5s ease-out 0.1s both;
   }
@@ -151,7 +126,7 @@
     margin-top: 0.75rem;
     height: 2px;
     width: 4rem;
-    background: linear-gradient(90deg, #2B9FD4, #5BB8E0);
+    background: #2B9FD4;
     animation: lineGrow 0.4s ease-out 0.3s both;
   }
   .title-overlay .title-sub {
@@ -169,42 +144,19 @@
     color: #5A7A90;
   }
   .gradient-text {
-    background: linear-gradient(135deg, #2B9FD4 0%, #5BB8E0 50%, #8DD4F0 100%);
+    background: linear-gradient(135deg, #2B9FD4 0%, #5BB8E0 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-  .orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.35;
-    animation: orbFloat 10s ease-in-out infinite;
-    pointer-events: none;
-  }
-  .orb-1 {
-    width: 280px;
-    height: 280px;
-    background: radial-gradient(circle, rgba(43, 159, 212, 0.2) 0%, transparent 70%);
-    top: 0%;
-    right: -10%;
-  }
-  .orb-2 {
-    width: 220px;
-    height: 220px;
-    background: radial-gradient(circle, rgba(91, 184, 224, 0.15) 0%, transparent 70%);
-    bottom: 10%;
-    left: -10%;
-    animation-delay: -5s;
-  }
 }
 
 @keyframes letterIn {
-  0% { opacity: 0; transform: translateY(20px); }
+  0% { opacity: 0; transform: translateY(16px); }
   100% { opacity: 1; transform: translateY(0); }
 }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-@keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -212,22 +164,10 @@
 @keyframes overlayIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes overlayOut { to { opacity: 0; visibility: hidden; } }
 @keyframes titleRise {
-  from { opacity: 0; transform: translateY(16px); }
+  from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: translateY(0); }
 }
 @keyframes lineGrow {
   from { width: 0; opacity: 0; }
   to { width: 4rem; opacity: 1; }
-}
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}
-@keyframes barShift {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 200% 50%; }
-}
-@keyframes orbFloat {
-  0%, 100% { transform: translate(0, 0); }
-  50% { transform: translate(12px, -10px); }
 }
