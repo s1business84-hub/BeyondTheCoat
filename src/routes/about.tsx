@@ -37,13 +37,6 @@ function AboutPage() {
 
         <div className="mt-12 grid gap-12 lg:grid-cols-12">
           <div className="space-y-5 text-base leading-7 text-muted lg:col-span-7">
-            <div className="fade-up" style={{ animationDelay: "0.2s" }}>
-              <img
-                src="/rahul.jpeg"
-                alt="Rahul Devnani"
-                className="w-full max-w-md rounded-2xl shadow-xl border border-brass/10 object-cover"
-              />
-            </div>
             <p className="font-serif text-2xl leading-9 text-ink fade-up" style={{ animationDelay: "0.25s" }}>
               I am a first-year Doctor of Medicine (MD) student at Gulf Medical University, beginning my journey in the field of medicine with a strong interest in understanding the complexities of human health and disease.
             </p>
