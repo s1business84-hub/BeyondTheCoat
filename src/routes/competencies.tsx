@@ -40,24 +40,11 @@ function TitleOverlay({ title, subtitle }: { title: string; subtitle: string }) 
 }
 
 function ReflectionBlock({ reflection }: { reflection: any }) {
-  const stages = [
-    { key: "feelings", title: "Feelings", subtitle: "What you noticed in yourself", letter: "B" },
-    { key: "evaluation", title: "Evaluation", subtitle: "What worked and what did not", letter: "C" },
-    { key: "analysis", title: "Analysis", subtitle: "Why, against the science and standard", letter: "D" },
-    { key: "conclusion", title: "Conclusion", subtitle: "What you would do differently", letter: "E" },
-    { key: "action", title: "Action Plan", subtitle: "The next concrete step", letter: "F" },
-  ];
   return (
     <div className="mt-10 space-y-10">
       <h2 className="font-serif text-3xl">Personal Reflection</h2>
       <div className="h-px w-full bg-line/50" />
       
-      {reflection.shortDescription && (
-        <p className="text-base leading-8 text-ink whitespace-pre-line">
-          {reflection.shortDescription}
-        </p>
-      )}
-
       {reflection.activityDescription && (
         <div className="border-t border-line/50 pt-8">
           <div className="flex items-start gap-4">
@@ -75,22 +62,111 @@ function ReflectionBlock({ reflection }: { reflection: any }) {
         </div>
       )}
 
-      {stages.map((stage) => (
-        <div key={stage.key} className="border-t border-line/50 pt-8">
-          <div className="flex items-start gap-4">
-            <div className="grid size-12 shrink-0 place-items-center rounded-full bg-gradient-to-br from-brass to-warm text-white text-lg font-medium shadow-lg">
-              {stage.letter}
+      <div className="border-t border-line/50 pt-8">
+        <h3 className="font-serif text-2xl md:text-3xl mb-6">Self-Reflection Using Gibbs’ Reflective Cycle</h3>
+        
+        {reflection.shortDescription && (
+          <div className="mb-8">
+            <div className="flex items-start gap-4">
+              <div className="grid size-12 shrink-0 place-items-center rounded-full bg-gradient-to-br from-brass to-warm text-white text-lg font-medium shadow-lg">
+                1
+              </div>
+              <div>
+                <h4 className="font-serif text-xl md:text-2xl">Description</h4>
+                <p className="mt-1 text-sm italic text-muted">What happened</p>
+              </div>
             </div>
-            <div>
-              <h3 className="font-serif text-2xl md:text-3xl">{stage.title}</h3>
-              <p className="mt-1 text-sm italic text-muted">{stage.subtitle}</p>
-            </div>
+            <p className="mt-6 text-base leading-8 text-ink whitespace-pre-line">
+              {reflection.shortDescription}
+            </p>
           </div>
-          <p className="mt-6 text-base leading-8 text-ink whitespace-pre-line">
-            {reflection[stage.key]}
-          </p>
-        </div>
-      ))}
+        )}
+
+        {reflection.feelings && (
+          <div className="mb-8 border-t border-line/50 pt-8">
+            <div className="flex items-start gap-4">
+              <div className="grid size-12 shrink-0 place-items-center rounded-full bg-gradient-to-br from-brass to-warm text-white text-lg font-medium shadow-lg">
+                2
+              </div>
+              <div>
+                <h4 className="font-serif text-xl md:text-2xl">Feelings</h4>
+                <p className="mt-1 text-sm italic text-muted">What you noticed in yourself</p>
+              </div>
+            </div>
+            <p className="mt-6 text-base leading-8 text-ink whitespace-pre-line">
+              {reflection.feelings}
+            </p>
+          </div>
+        )}
+
+        {reflection.evaluation && (
+          <div className="mb-8 border-t border-line/50 pt-8">
+            <div className="flex items-start gap-4">
+              <div className="grid size-12 shrink-0 place-items-center rounded-full bg-gradient-to-br from-brass to-warm text-white text-lg font-medium shadow-lg">
+                3
+              </div>
+              <div>
+                <h4 className="font-serif text-xl md:text-2xl">Evaluation</h4>
+                <p className="mt-1 text-sm italic text-muted">What worked and what did not</p>
+              </div>
+            </div>
+            <p className="mt-6 text-base leading-8 text-ink whitespace-pre-line">
+              {reflection.evaluation}
+            </p>
+          </div>
+        )}
+
+        {reflection.analysis && (
+          <div className="mb-8 border-t border-line/50 pt-8">
+            <div className="flex items-start gap-4">
+              <div className="grid size-12 shrink-0 place-items-center rounded-full bg-gradient-to-br from-brass to-warm text-white text-lg font-medium shadow-lg">
+                4
+              </div>
+              <div>
+                <h4 className="font-serif text-xl md:text-2xl">Analysis</h4>
+                <p className="mt-1 text-sm italic text-muted">Why, against the science and standard</p>
+              </div>
+            </div>
+            <p className="mt-6 text-base leading-8 text-ink whitespace-pre-line">
+              {reflection.analysis}
+            </p>
+          </div>
+        )}
+
+        {reflection.conclusion && (
+          <div className="mb-8 border-t border-line/50 pt-8">
+            <div className="flex items-start gap-4">
+              <div className="grid size-12 shrink-0 place-items-center rounded-full bg-gradient-to-br from-brass to-warm text-white text-lg font-medium shadow-lg">
+                5
+              </div>
+              <div>
+                <h4 className="font-serif text-xl md:text-2xl">Conclusion</h4>
+                <p className="mt-1 text-sm italic text-muted">What you would do differently</p>
+              </div>
+            </div>
+            <p className="mt-6 text-base leading-8 text-ink whitespace-pre-line">
+              {reflection.conclusion}
+            </p>
+          </div>
+        )}
+
+        {reflection.action && (
+          <div className="border-t border-line/50 pt-8">
+            <div className="flex items-start gap-4">
+              <div className="grid size-12 shrink-0 place-items-center rounded-full bg-gradient-to-br from-brass to-warm text-white text-lg font-medium shadow-lg">
+                6
+              </div>
+              <div>
+                <h4 className="font-serif text-xl md:text-2xl">Action Plan</h4>
+                <p className="mt-1 text-sm italic text-muted">The next concrete step</p>
+              </div>
+            </div>
+            <p className="mt-6 text-base leading-8 text-ink whitespace-pre-line">
+              {reflection.action}
+            </p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
