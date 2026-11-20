@@ -241,14 +241,6 @@ function Home() {
         </div>
       </section>
 
-      <section className="border-t border-brass/10">
-        <div className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-14">
-          <p className="mx-auto max-w-2xl text-center font-serif text-lg leading-snug italic text-ink/75 md:text-xl">
-            “Every ward round is a masterclass. Every patient, a textbook.”
-          </p>
-        </div>
-      </section>
-
       <section id="contact" className="scroll-mt-20 border-t border-brass/10">
         <div className="mx-auto grid max-w-6xl gap-6 px-5 py-12 md:px-8 md:py-16 lg:grid-cols-2">
           <div>
@@ -273,9 +265,6 @@ function Home() {
               <a href="tel:+971527249865" className="font-medium text-brass hover:underline">
                 +971 52 724 9865
               </a>
-            </p>
-            <p className="mt-4 border-t border-brass/10 pt-3 font-serif text-sm italic leading-6 text-muted">
-              “Every ward round is a masterclass. Every patient, a textbook.”
             </p>
           </div>
         </div>
