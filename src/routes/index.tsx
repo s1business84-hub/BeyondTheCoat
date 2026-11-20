@@ -24,12 +24,12 @@ function AnimatedName({ text, accent = false, className }: { text: string; accen
 function CompetencyMarquee() {
   const items = [...competencies, ...competencies];
   return (
-    <div className="overflow-hidden border-y border-line/30 bg-white/60 py-3">
+    <div className="overflow-hidden border-y border-brass/20 bg-gradient-to-r from-brass/10 via-warm/5 to-brass/10 py-3">
       <div className="marquee-track">
         {items.map((item, i) => (
-          <span key={i} className="flex items-center gap-4 text-sm tracking-wide whitespace-nowrap text-muted">
+          <span key={i} className="flex items-center gap-4 text-sm tracking-wide whitespace-nowrap text-brass font-medium">
             {item.title}
-            <span className="text-brass">•</span>
+            <span className="text-warm">•</span>
           </span>
         ))}
       </div>
@@ -65,20 +65,20 @@ function Home() {
               <Link
                 to="/competencies"
                 search={{ id: "" }}
-                className="inline-flex h-11 items-center bg-ink px-6 text-[0.6rem] font-medium tracking-widest text-white uppercase"
+                className="inline-flex h-11 items-center bg-gradient-to-r from-ink to-steel px-6 text-[0.6rem] font-medium tracking-widest text-white uppercase shadow-md hover:shadow-lg transition-shadow"
               >
                 View Competencies
               </Link>
               <Link
                 to="/about"
-                className="inline-flex h-11 items-center border border-ink/20 bg-white px-6 text-[0.6rem] font-medium tracking-widest text-ink uppercase hover:border-brass hover:text-brass transition-all"
+                className="inline-flex h-11 items-center border border-brass/30 bg-white px-6 text-[0.6rem] font-medium tracking-widest text-ink uppercase hover:border-brass hover:text-brass hover:bg-brass/5 transition-all"
               >
                 About
               </Link>
             </div>
           </div>
           <div className="relative fade-up" style={{ animationDelay: "0.3s" }}>
-            <div className="rounded-2xl overflow-hidden shadow-xl">
+            <div className="rounded-2xl overflow-hidden shadow-xl border border-brass/10">
               <img
                 src="/rahul.jpeg"
                 alt="Rahul Devnani"
@@ -116,7 +116,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="border-t border-line/30">
+      <section className="border-t border-brass/10">
         <div className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-16">
           <div className="space-y-4 max-w-xl">
             {yearMap.map((item) => (
@@ -138,7 +138,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="border-t border-line/30">
+      <section className="border-t border-brass/10">
         <div className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-16">
           <div className="text-center">
             <p className="text-[0.6rem] font-medium tracking-[0.2em] text-brass uppercase">GMU Framework</p>
@@ -161,7 +161,7 @@ function Home() {
                   className="glass-card group block p-5"
                 >
                   <div className="flex items-start justify-between">
-                    <div className="grid size-12 place-items-center rounded-xl bg-gradient-to-br from-brass/20 to-warm/10 text-brass">
+                    <div className="grid size-12 place-items-center rounded-xl bg-gradient-to-br from-brass to-warm text-white shadow-lg">
                       <CompetencyIcon id={item.id} />
                     </div>
                     {count > 0 && (
@@ -179,7 +179,7 @@ function Home() {
         </div>
       </section>
 
-      <section id="purpose" className="scroll-mt-20 border-t border-line/30">
+      <section id="purpose" className="scroll-mt-20 border-t border-brass/10">
         <div className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-16">
           <div className="text-center">
             <h2 className="font-serif text-3xl md:text-4xl">Purpose of This Portfolio</h2>
@@ -191,7 +191,7 @@ function Home() {
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {purposes.map((item) => (
               <article key={item.index} className="glass-card p-5">
-                <div className="grid size-10 place-items-center rounded-xl bg-gradient-to-br from-brass/20 to-warm/10 text-brass">
+                <div className="grid size-10 place-items-center rounded-xl bg-gradient-to-br from-brass to-warm text-white shadow-md">
                   <svg className="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                   </svg>
@@ -204,7 +204,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="border-t border-line/30">
+      <section className="border-t border-brass/10">
         <div className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-16">
           <div className="text-center">
             <p className="text-[0.6rem] font-medium tracking-[0.2em] text-brass uppercase">Scholarly Work</p>
@@ -216,7 +216,7 @@ function Home() {
           </p>
           <div className="mx-auto mt-6 max-w-sm">
             <div className="glass-card p-5 text-center">
-              <div className="mx-auto grid size-10 place-items-center rounded-xl bg-gradient-to-br from-brass/20 to-warm/10 text-brass">
+              <div className="mx-auto grid size-10 place-items-center rounded-xl bg-gradient-to-br from-brass to-warm text-white shadow-md">
                 <svg className="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
@@ -228,7 +228,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="border-t border-line/30">
+      <section className="border-t border-brass/10">
         <div className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-14">
           <p className="mx-auto max-w-2xl text-center font-serif text-lg leading-snug italic text-ink/75 md:text-xl">
             “Every ward round is a masterclass. Every patient, a textbook.”
@@ -236,7 +236,7 @@ function Home() {
         </div>
       </section>
 
-      <section id="contact" className="scroll-mt-20 border-t border-line/30">
+      <section id="contact" className="scroll-mt-20 border-t border-brass/10">
         <div className="mx-auto grid max-w-6xl gap-6 px-5 py-12 md:px-8 md:py-16 lg:grid-cols-2">
           <div>
             <Kicker index="04">Contact</Kicker>
@@ -261,7 +261,7 @@ function Home() {
                 +971 52 724 9865
               </a>
             </p>
-            <p className="mt-4 border-t border-line/50 pt-3 font-serif text-sm italic leading-6 text-muted">
+            <p className="mt-4 border-t border-brass/10 pt-3 font-serif text-sm italic leading-6 text-muted">
               “Every ward round is a masterclass. Every patient, a textbook.”
             </p>
           </div>
