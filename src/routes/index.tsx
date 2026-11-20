@@ -5,22 +5,6 @@ import { competencies, purposes, standing, evidenceItems, ledger, yearMap } from
 
 export const Route = createFileRoute("/")({ component: Home });
 
-function AnimatedName({ text, accent = false, className }: { text: string; accent?: boolean; className?: string }) {
-  return (
-    <span className={className}>
-      {text.split("").map((char, i) => (
-        <span
-          key={i}
-          className={accent ? "name-letter-accent" : "name-letter"}
-          style={{ animationDelay: `${0.04 + i * 0.04}s` }}
-        >
-          {char === " " ? "\u00A0" : char}
-        </span>
-      ))}
-    </span>
-  );
-}
-
 function CompetencyMarquee() {
   const items = [...competencies, ...competencies];
   return (
@@ -40,18 +24,26 @@ function CompetencyMarquee() {
 function Home() {
   return (
     <SiteFrame>
-      <section className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-16">
+      <section className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
         <div className="fade-up">
-          <p className="text-[0.65rem] font-medium tracking-[0.22em] text-brass uppercase">
-            Beyond My White Coat
-          </p>
-          <h1 className="hero-name mt-4 font-serif font-medium">
-            <AnimatedName text="Rahul" accent className="block" />
-            <AnimatedName text="Devnani" accent className="block italic" />
+          <h1 className="font-serif text-6xl md:text-7xl lg:text-8xl leading-none tracking-tight">
+            <span className="block text-ink">Rahul</span>
+            <span className="block italic text-brass/40">Devnani</span>
           </h1>
-          <p className="mt-6 max-w-md font-serif text-lg leading-8 text-ink md:text-xl">
-            First-year MD student at Gulf Medical University, Ajman.
+          <p className="mt-10 text-[0.65rem] font-medium tracking-[0.22em] text-brass uppercase">
+            About Me
           </p>
+          <h2 className="mt-2 font-serif text-3xl md:text-4xl leading-tight">
+            Building a <span className="gradient-text italic">foundation</span> for medicine
+          </h2>
+          <div className="mt-6 max-w-lg space-y-4 text-base leading-7 text-ink/80">
+            <p>
+              I am a medical student at <strong>Gulf Medical University (GMU)</strong>, Ajman, UAE, currently in my <strong>first year of the MD program</strong> with a passion for clinical excellence and patient-centered care.
+            </p>
+            <p>
+              My journey has been shaped by early academic exposure, structured reflection, and a commitment to building competency across all dimensions of medical practice.
+            </p>
+          </div>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               to="/competencies"
@@ -68,7 +60,7 @@ function Home() {
             </Link>
           </div>
         </div>
-        <div className="relative mt-10 fade-up" style={{ animationDelay: "0.3s" }}>
+        <div className="relative mt-12 fade-up" style={{ animationDelay: "0.3s" }}>
           <div className="rounded-2xl overflow-hidden shadow-lg">
             <img
               src="/rahul.jpeg"
@@ -103,29 +95,6 @@ function Home() {
               <p className="mt-0.5 text-sm font-medium text-ink">{item.value}</p>
             </div>
           ))}
-        </div>
-      </section>
-
-      <section id="about" className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-16">
-        <div className="text-center max-w-xl mx-auto">
-          <p className="text-[0.65rem] font-medium tracking-[0.2em] text-brass uppercase">About Me</p>
-          <h2 className="mt-2 font-serif text-3xl leading-tight md:text-4xl">
-            Building a <span className="gradient-text italic">foundation</span> for medicine
-          </h2>
-          <div className="mx-auto mt-3 h-0.5 w-14 bg-brass rounded-full" />
-        </div>
-        <div className="mx-auto mt-6 max-w-lg space-y-3 text-center text-sm leading-6 text-muted">
-          <p>
-            I am a first-year MD student at Gulf Medical University in Ajman, entered in 2026. This portfolio documents my progress across the nine competency domains of the MD program.
-          </p>
-          <p>
-            It is a living record of learning, reflection, and growth — aligned with the university’s e-portfolio framework.
-          </p>
-        </div>
-        <div className="mt-5 text-center">
-          <Link to="/about" className="text-sm font-medium text-brass hover:underline">
-            Read more →
-          </Link>
         </div>
       </section>
 
