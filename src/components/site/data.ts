@@ -142,20 +142,7 @@ export const standing = [
   { index: "04", label: "University", value: "Gulf Medical University" },
 ];
 
-export const yearMap = [
-  {
-    when: "2026 · Entry",
-    what: "The professional introduction given to a medical intake, followed by the work of becoming a student who can be trusted in a teaching hospital.",
-  },
-  {
-    when: "Year 1 · Science",
-    what: "Structure and function taught to a clinical standard. Anatomy and physiology before opinions about specialties.",
-  },
-  {
-    when: "Year 1 · Skills",
-    what: "Communication, first examination skills, and conduct in a room where someone else is the patient.",
-  },
-];
+export const yearMap: { when: string; what: string }[] = [];
 
 export function answerJournal(raw: string): string {
   const s = raw.toLowerCase().trim();
