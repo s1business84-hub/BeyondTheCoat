@@ -41,7 +41,6 @@ function TitleOverlay({ title, subtitle }: { title: string; subtitle: string }) 
 
 function ReflectionBlock({ reflection }: { reflection: any }) {
   const stages = [
-    { key: "description", title: "Description of the Activity", subtitle: "What happened — the factual account", letter: "A" },
     { key: "feelings", title: "Feelings", subtitle: "What you noticed in yourself", letter: "B" },
     { key: "evaluation", title: "Evaluation", subtitle: "What worked and what did not", letter: "C" },
     { key: "analysis", title: "Analysis", subtitle: "Why, against the science and standard", letter: "D" },
@@ -52,6 +51,30 @@ function ReflectionBlock({ reflection }: { reflection: any }) {
     <div className="mt-10 space-y-10">
       <h2 className="font-serif text-3xl">Personal Reflection</h2>
       <div className="h-px w-full bg-line/50" />
+      
+      {reflection.shortDescription && (
+        <p className="text-base leading-8 text-ink whitespace-pre-line">
+          {reflection.shortDescription}
+        </p>
+      )}
+
+      {reflection.activityDescription && (
+        <div className="border-t border-line/50 pt-8">
+          <div className="flex items-start gap-4">
+            <div className="grid size-12 shrink-0 place-items-center rounded-full bg-gradient-to-br from-brass to-warm text-white text-lg font-medium shadow-lg">
+              A
+            </div>
+            <div>
+              <h3 className="font-serif text-2xl md:text-3xl">Description of the Activity</h3>
+              <p className="mt-1 text-sm italic text-muted">What happened — the factual account</p>
+            </div>
+          </div>
+          <p className="mt-6 text-base leading-8 text-ink whitespace-pre-line">
+            {reflection.activityDescription}
+          </p>
+        </div>
+      )}
+
       {stages.map((stage) => (
         <div key={stage.key} className="border-t border-line/50 pt-8">
           <div className="flex items-start gap-4">
