@@ -5,6 +5,18 @@ import { competencies, purposes, standing, evidenceItems, ledger, yearMap } from
 
 export const Route = createFileRoute("/")({ component: Home });
 
+const iconColors: Record<string, string> = {
+  "medical-expert": "bg-gradient-to-br from-blue-500 to-blue-700",
+  "communicator": "bg-gradient-to-br from-teal-400 to-cyan-600",
+  "collaborator": "bg-gradient-to-br from-sky-400 to-blue-600",
+  "professionalism": "bg-gradient-to-br from-indigo-500 to-purple-700",
+  "patient-care": "bg-gradient-to-br from-rose-400 to-pink-600",
+  "evidence-based": "bg-gradient-to-br from-emerald-500 to-teal-600",
+  "social-accountability": "bg-gradient-to-br from-amber-400 to-orange-600",
+  "health-systems": "bg-gradient-to-br from-violet-500 to-purple-600",
+  "lifelong-learner": "bg-gradient-to-br from-cyan-400 to-blue-600",
+};
+
 function AnimatedName({ text, accent = false, className }: { text: string; accent?: boolean; className?: string }) {
   return (
     <span className={className}>
@@ -153,6 +165,7 @@ function Home() {
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {competencies.map((item) => {
               const count = ((evidenceItems as any)[item.id] || []).length;
+              const iconBg = iconColors[item.id] || "bg-gradient-to-br from-brass to-warm";
               return (
                 <Link
                   key={item.id}
@@ -161,11 +174,11 @@ function Home() {
                   className="glass-card group block p-5"
                 >
                   <div className="flex items-start justify-between">
-                    <div className="grid size-12 place-items-center rounded-xl bg-gradient-to-br from-brass to-warm text-white shadow-lg">
+                    <div className={`grid size-12 place-items-center rounded-xl text-white shadow-lg ${iconBg}`}>
                       <CompetencyIcon id={item.id} />
                     </div>
                     {count > 0 && (
-                      <span className="rounded-full bg-gradient-to-r from-brass to-warm px-2.5 py-1 text-[0.5rem] font-bold tracking-wide text-white shadow-md">
+                      <span className={`rounded-full px-2.5 py-1 text-[0.5rem] font-bold tracking-wide text-white shadow-md ${iconBg}`}>
                         {count} {count === 1 ? "ENTRY" : "ENTRIES"}
                       </span>
                     )}
