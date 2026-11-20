@@ -236,7 +236,7 @@ export const evidenceItems = {
       title: "Biochemistry laboratory sessions", 
       description: "Hands-on practicals applying chemical processes involved in the functioning of the human body.", 
       details: "Sessions covered biochemical calculations, precipitation reactions of proteins, colour reactions of proteins and amino acids, buffering capacity, reactions of monosaccharides and disaccharides, identification of abnormal constituents in urine samples, reactions of lipids and enzyme kinetics.",
-      image: "/rahul.jpeg", 
+      image: "/studentr.jpeg", 
       type: "photo",
       date: "Year 1",
       reflection: {
@@ -268,7 +268,7 @@ export const evidenceItems = {
       title: "Gut-Brain Axis Seminar", 
       description: "Seminar on healthy nutrition and well-being, exploring the relationship between the digestive and nervous systems.", 
       details: "The seminar explored how the gut-brain axis influences overall health, including the connection between nutrition and mental well-being.",
-      image: "/rahul.jpeg", 
+      image: "/Gut-Brain Axis.jpeg", 
       type: "seminar",
       date: "Year 1",
       reflection: {
@@ -286,7 +286,7 @@ export const evidenceItems = {
       title: "MOHAP Hayat Program", 
       description: "National organ donation awareness programme, Ministry of Health and Prevention, UAE.", 
       details: "Certificate of participation in the Hayat organ donation awareness programme, issued by the Ministry of Health and Prevention, United Arab Emirates.",
-      image: "/MOHAP Hayat Program.jpeg", 
+      image: "/HAYAT PROGRAMME.jpeg", 
       type: "certificate",
       date: "30 September 2026",
       reflection: {
@@ -302,7 +302,7 @@ export const evidenceItems = {
       title: "World Diabetes Day", 
       description: "Participation in World Diabetes Day awareness activities.", 
       details: "Engaged in activities promoting diabetes awareness and healthy lifestyle choices.",
-      image: "/rahul.jpeg", 
+      image: "/World Diabetes Day.jpeg", 
       type: "event",
       date: "14 November 2026",
       reflection: {
