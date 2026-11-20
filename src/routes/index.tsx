@@ -40,58 +40,60 @@ function CompetencyMarquee() {
 function Home() {
   return (
     <SiteFrame>
-      <section className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
-        <div className="fade-up">
-          <h1 className="hero-name font-serif font-medium">
-            <AnimatedName text="Rahul" className="block text-ink" />
-            <AnimatedName text="Devnani" accent className="block italic" />
-          </h1>
-          <p className="mt-10 text-[0.65rem] font-medium tracking-[0.22em] text-brass uppercase">
-            About Me
-          </p>
-          <h2 className="mt-2 font-serif text-3xl md:text-4xl leading-tight">
-            Building a <span className="gradient-text italic">foundation</span> for medicine
-          </h2>
-          <div className="mt-6 max-w-lg space-y-4 text-base leading-7 text-ink/80">
-            <p>
-              I am a medical student at <strong>Gulf Medical University (GMU)</strong>, Ajman, UAE, currently in my <strong>first year of the MD program</strong> with a passion for clinical excellence and patient-centered care.
+      <section className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-16">
+        <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+          <div className="fade-up">
+            <h1 className="hero-name font-serif font-medium">
+              <AnimatedName text="Rahul" className="block text-ink" />
+              <AnimatedName text="Devnani" accent className="block italic" />
+            </h1>
+            <p className="mt-8 text-[0.65rem] font-medium tracking-[0.22em] text-brass uppercase">
+              About Me
             </p>
-            <p>
-              My journey has been shaped by early academic exposure, structured reflection, and a commitment to building competency across all dimensions of medical practice.
-            </p>
+            <h2 className="mt-2 font-serif text-2xl md:text-3xl leading-tight">
+              Building a <span className="gradient-text italic">foundation</span> for medicine
+            </h2>
+            <div className="mt-4 max-w-md space-y-3 text-sm leading-6 text-ink/80">
+              <p>
+                I am a medical student at <strong>Gulf Medical University (GMU)</strong>, Ajman, UAE, currently in my <strong>first year of the MD program</strong> with a passion for clinical excellence and patient-centered care.
+              </p>
+              <p>
+                My journey has been shaped by early academic exposure, structured reflection, and a commitment to building competency across all dimensions of medical practice.
+              </p>
+            </div>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link
+                to="/competencies"
+                search={{ id: "" }}
+                className="inline-flex h-11 items-center bg-ink px-6 text-[0.6rem] font-medium tracking-widest text-white uppercase"
+              >
+                View Competencies
+              </Link>
+              <Link
+                to="/about"
+                className="inline-flex h-11 items-center border border-ink/20 bg-white px-6 text-[0.6rem] font-medium tracking-widest text-ink uppercase hover:border-brass hover:text-brass transition-all"
+              >
+                About
+              </Link>
+            </div>
           </div>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              to="/competencies"
-              search={{ id: "" }}
-              className="inline-flex h-12 items-center bg-ink px-8 text-[0.65rem] font-medium tracking-widest text-white uppercase"
-            >
-              View Competencies
-            </Link>
-            <Link
-              to="/about"
-              className="inline-flex h-12 items-center border border-ink/20 bg-white px-8 text-[0.65rem] font-medium tracking-widest text-ink uppercase hover:border-brass hover:text-brass transition-all"
-            >
-              About
-            </Link>
-          </div>
-        </div>
-        <div className="relative mt-12 fade-up" style={{ animationDelay: "0.4s" }}>
-          <div className="rounded-2xl overflow-hidden shadow-xl">
-            <img
-              src="/rahul.jpeg"
-              alt="Rahul Devnani"
-              className="w-full"
-            />
-          </div>
-          <div className="floating-card absolute bottom-4 left-4 p-4 md:bottom-6 md:left-6">
-            <div className="flex items-start gap-3">
-              <span className="mt-1.5 size-2.5 shrink-0 rounded-full bg-gradient-to-r from-brass to-warm" />
-              <div>
-                <p className="text-sm font-medium text-ink">Year 1 · MD</p>
-                <p className="text-xs text-muted">Entered 2026</p>
-                <p className="text-xs text-brass">Gulf Medical University</p>
-                <p className="text-xs text-muted">Ajman, UAE</p>
+          <div className="relative fade-up" style={{ animationDelay: "0.3s" }}>
+            <div className="rounded-2xl overflow-hidden shadow-xl">
+              <img
+                src="/rahul.jpeg"
+                alt="Rahul Devnani"
+                className="w-full"
+              />
+            </div>
+            <div className="floating-card absolute bottom-4 left-4 p-4 md:bottom-6 md:left-6">
+              <div className="flex items-start gap-3">
+                <span className="mt-1.5 size-2.5 shrink-0 rounded-full bg-gradient-to-r from-brass to-warm" />
+                <div>
+                  <p className="text-sm font-medium text-ink">Year 1 · MD</p>
+                  <p className="text-xs text-muted">Entered 2026</p>
+                  <p className="text-xs text-brass">Gulf Medical University</p>
+                  <p className="text-xs text-muted">Ajman, UAE</p>
+                </div>
               </div>
             </div>
           </div>
