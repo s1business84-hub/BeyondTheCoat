@@ -19,13 +19,13 @@ export const Route = createFileRoute("/competencies")({
 
 const iconColors: Record<string, { bg: string; icon: string }> = {
   "medical-expert": { bg: "bg-gradient-to-br from-blue-500 to-blue-700", icon: "text-white" },
-  "communicator": { bg: "bg-gradient-to-br from-cyan-400 to-teal-600", icon: "text-white" },
+  "communicator": { bg: "bg-gradient-to-br from-cyan-400 to-blue-600", icon: "text-white" },
   "collaborator": { bg: "bg-gradient-to-br from-sky-400 to-cyan-600", icon: "text-white" },
-  "professionalism": { bg: "bg-gradient-to-br from-teal-500 to-cyan-700", icon: "text-white" },
+  "professionalism": { bg: "bg-gradient-to-br from-indigo-500 to-blue-700", icon: "text-white" },
   "patient-care": { bg: "bg-gradient-to-br from-blue-400 to-cyan-500", icon: "text-white" },
   "evidence-based": { bg: "bg-gradient-to-br from-cyan-500 to-blue-600", icon: "text-white" },
-  "social-accountability": { bg: "bg-gradient-to-br from-teal-400 to-blue-600", icon: "text-white" },
-  "health-systems": { bg: "bg-gradient-to-br from-sky-500 to-teal-600", icon: "text-white" },
+  "social-accountability": { bg: "bg-gradient-to-br from-sky-500 to-blue-700", icon: "text-white" },
+  "health-systems": { bg: "bg-gradient-to-br from-blue-500 to-cyan-600", icon: "text-white" },
   "lifelong-learner": { bg: "bg-gradient-to-br from-cyan-400 to-blue-600", icon: "text-white" },
 };
 
@@ -114,19 +114,19 @@ function CompetenciesPage() {
                     key={item.id}
                     to="/competencies"
                     search={{ id: item.id }}
-                    className="glass-card group block p-5"
+                    className="glass-card group block p-6"
                   >
                     <div className="flex items-start justify-between">
-                      <div className={`grid size-14 place-items-center rounded-2xl shadow-xl ${colors.bg} ${colors.icon}`}>
+                      <div className={`grid size-16 place-items-center rounded-2xl shadow-xl ${colors.bg} ${colors.icon}`}>
                         <CompetencyIcon id={item.id} />
                       </div>
                       {count > 0 && (
-                        <span className="rounded-full bg-gradient-to-r from-brass to-warm px-3 py-1 text-[0.55rem] font-bold tracking-wide text-white shadow-md">
+                        <span className="rounded-full bg-gradient-to-r from-brass to-warm px-3 py-1.5 text-[0.55rem] font-bold tracking-wide text-white shadow-lg">
                           {count} {count === 1 ? "ENTRY" : "ENTRIES"}
                         </span>
                       )}
                     </div>
-                    <h2 className="mt-4 font-serif text-xl leading-snug group-hover:text-brass transition-colors">{item.title}</h2>
+                    <h2 className="mt-5 font-serif text-xl leading-snug group-hover:text-brass transition-colors">{item.title}</h2>
                     <p className="mt-2 text-sm leading-6 text-muted line-clamp-3">{item.plain}</p>
                     <span className="mt-4 inline-flex items-center text-sm font-bold text-brass group-hover:gap-2 transition-all">
                       View Details <span className="ml-1">→</span>
