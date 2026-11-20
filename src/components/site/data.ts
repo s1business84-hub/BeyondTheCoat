@@ -181,7 +181,7 @@ export function answerJournal(raw: string): string {
     return "Evidence-Based: Engages with research through critical appraisal. Current evidence includes early student research activity. Full research projects are added only when they have a clear question, method, and supervisor.";
   }
   if (s.includes("social") || s.includes("accountability") || s.includes("community") || s.includes("hayat") || s.includes("diabetes")) {
-    return "Social Accountability: Recognises medicine’s responsibility to society. Evidence includes the MOHAP Hayat Program certificate (30 September 2026) and World Diabetes Day participation.";
+    return "Social Accountability: Recognises medicine’s responsibility to society. Evidence includes the MOHAP Hayat Program certificate and World Diabetes Day participation.";
   }
   if (s.includes("health system") || s.includes("hospital")) {
     return "Health Systems: Understands how a teaching hospital is organised. Clinical teaching takes place at Gulf Medical University.";
@@ -270,19 +270,19 @@ export const evidenceItems = {
   ],
   "social-accountability": [
     { 
-      title: "MOHAP Hayat Program", 
-      description: "National organ donation awareness programme, Ministry of Health and Prevention, UAE.", 
-      details: "Certificate of participation in the Hayat organ donation awareness programme, issued by the Ministry of Health and Prevention, United Arab Emirates.",
+      title: "HAYAT Programme – Certificate of Appreciation", 
+      description: "National organ donation awareness programme organised by the Ministry of Health and Prevention (MOHAP), UAE.", 
+      details: "Certificate of Appreciation for attending the HAYAT Programme, a healthcare initiative organised by MOHAP.",
       image: "/HAYAT PROGRAMME.jpeg", 
       type: "certificate",
       date: "30 September 2026",
       reflection: {
-        description: "On 30 September 2026, I participated in the MOHAP Hayat Program, a national organ donation awareness programme organised by the Ministry of Health and Prevention of the United Arab Emirates. The programme focused on raising awareness about organ donation and its importance in saving lives. As a first-year medical student, this was one of my first experiences participating in a community health initiative outside the classroom.",
-        feelings: "Before participating, I had a general understanding of organ donation but had not fully considered its impact on individuals and families. During the programme, I felt a sense of responsibility as a future healthcare professional to contribute to public health awareness. I also felt motivated to learn more about the ethical and practical aspects of organ donation.",
-        evaluation: "The programme was well-organised and provided clear information about organ donation. It helped me understand the importance of community engagement in healthcare. One challenge was communicating complex medical concepts in simple terms to the general public.",
-        analysis: "This experience highlighted the importance of social accountability in medicine. Healthcare professionals have a responsibility to contribute to public health beyond clinical settings. The programme also demonstrated how early exposure to community health initiatives can shape a medical student's understanding of their role in society.",
-        conclusion: "Participating in the Hayat Program was a valuable experience that broadened my understanding of medicine beyond the classroom. It reinforced the importance of community engagement and public health awareness as part of a healthcare professional's responsibilities.",
-        action: "Moving forward, I intend to participate in more community health initiatives and continue learning about public health issues. I also aim to develop my communication skills to effectively convey health information to diverse audiences."
+        description: "Attending the HAYAT Programme, organised by the Ministry of Health and Prevention (MOHAP), was an opportunity to broaden my exposure to healthcare initiatives beyond the traditional medical curriculum. As a medical student, I believe that understanding medicine involves more than acquiring scientific knowledge, and programmes organised by national healthcare authorities provide an opportunity to become familiar with the wider healthcare system. My attendance was recognised with a Certificate of Appreciation, marking a valuable addition to my university experiences.",
+        feelings: "I was interested in attending the programme because it offered an opportunity to learn outside the usual academic environment. Being a medical student at the beginning of my journey, I find it important to explore different healthcare initiatives and understand how they contribute to the medical community. I felt that attending a programme organised by MOHAP was particularly valuable because it exposed me to initiatives taking place within the UAE healthcare sector.",
+        evaluation: "One positive aspect of attending the HAYAT Programme was the opportunity to gain exposure to a healthcare initiative organised by a national health authority. It reminded me that medical education extends beyond textbooks, examinations and laboratory sessions. Programmes such as these can help students develop a broader perspective on healthcare and become more aware of the different responsibilities associated with the medical profession. Although my involvement was limited to attending the programme, I recognised the value of participating in such educational opportunities.",
+        analysis: "This experience reinforced my understanding that becoming a doctor involves continuous learning and developing awareness of different aspects of healthcare. Healthcare professionals have responsibilities that extend beyond treating individual patients, including understanding wider healthcare initiatives and their importance to society. I also realised that attending programmes organised by healthcare authorities can help medical students become more familiar with the healthcare environment in which they may eventually practise. Being exposed to such initiatives early in my medical education encouraged me to appreciate the importance of remaining informed and engaged with developments in the healthcare sector.",
+        conclusion: "Overall, attending the HAYAT Programme was a valuable addition to my experiences as a medical student. It gave me an opportunity to engage with an initiative organised by MOHAP and broaden my exposure beyond the academic curriculum. Receiving the Certificate of Appreciation was encouraging and motivated me to continue exploring opportunities that contribute to my personal and professional development.",
+        action: "Moving forward, I intend to remain open to attending more educational programmes, seminars and healthcare initiatives organised by universities and healthcare authorities. I hope to explore opportunities that broaden my understanding of medicine and expose me to different areas of healthcare. As I progress through medical school, I also aim to become more actively involved in relevant initiatives and develop a stronger understanding of the responsibilities associated with being a future healthcare professional."
       }
     },
     { 
