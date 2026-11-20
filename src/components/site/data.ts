@@ -155,10 +155,6 @@ export const yearMap = [
     when: "Year 1 · Skills",
     what: "Communication, first examination skills, and conduct in a room where someone else is the patient.",
   },
-  {
-    when: "Year 1 · Hospital",
-    what: "How Gulf Medical University and Thumbay Hospital are organised — the map a first-year is expected to learn.",
-  },
 ];
 
 export function answerJournal(raw: string): string {
@@ -200,8 +196,8 @@ export function answerJournal(raw: string): string {
   if (s.includes("social") || s.includes("accountability") || s.includes("community") || s.includes("hayat") || s.includes("diabetes")) {
     return "Social Accountability: Recognises medicine’s responsibility to society. Evidence includes the MOHAP Hayat Program certificate (30 September 2026) and World Diabetes Day participation.";
   }
-  if (s.includes("health system") || s.includes("hospital") || s.includes("thumbay")) {
-    return "Health Systems: Understands how a teaching hospital is organised. Clinical teaching takes place at Thumbay Hospital.";
+  if (s.includes("health system") || s.includes("hospital")) {
+    return "Health Systems: Understands how a teaching hospital is organised. Clinical teaching takes place at Gulf Medical University.";
   }
   if (s.includes("lifelong") || s.includes("learner") || s.includes("learning")) {
     return "Lifelong Learner: Actively seeks growth through reflection and continuous improvement. Keeps a dated, correctable record of learning.";
@@ -212,7 +208,7 @@ export function answerJournal(raw: string): string {
   }
 
   if (s.includes("gmu") || s.includes("gulf") || s.includes("md") || s.includes("university") || s.includes("ajman") || s.includes("year")) {
-    return "Rahul is a first-year MD (Doctor of Medicine) student at Gulf Medical University, Ajman, UAE. He entered in 2026. Clinical teaching is at Thumbay Hospital.";
+    return "Rahul is a first-year MD (Doctor of Medicine) student at Gulf Medical University, Ajman, UAE. He entered in 2026.";
   }
 
   if (s.includes("certificate") || s.includes("evidence") || s.includes("lab") || s.includes("biochem") || s.includes("physiology") || s.includes("gut") || s.includes("nutrition") || s.includes("seminar")) {
@@ -262,62 +258,60 @@ export const evidenceItems = {
       reflection: {
         description: "During my first semester of Year 1 in the MD programme, I received a certificate recognising my strong academic performance in the Physiology midterm examination. This achievement was particularly meaningful because these were my first-ever college midterm examinations. Transitioning from school to university introduced me to a different academic environment, with a greater volume of information and a stronger emphasis on understanding complex concepts. The Physiology examination assessed my understanding of the topics covered during the initial part of the semester and provided an opportunity to evaluate how well I had adapted to the academic demands of medical school.",
         feelings: "Before the examination, I experienced some nervousness because I was unfamiliar with the structure and expectations of university-level examinations. Being in my first semester, I was still adjusting to the pace of learning and the amount of information that needed to be covered. Receiving the certificate was therefore particularly rewarding. It gave me a sense of accomplishment and reassurance that I was adapting well to the new academic environment. I also felt motivated to maintain my academic performance and continue putting effort into my studies throughout medical school.",
-        evaluation: "One of the positive aspects of this experience was that it encouraged me to develop a more structured approach to studying. I recognised that understanding the concepts taught during lectures was essential, particularly in a subject such as Physiology, which focuses on the mechanisms responsible for the normal functioning of the human body. Revisiting important topics and ensuring that I understood the underlying processes helped me prepare for the examination. However, I also realised that university examinations require a different level of preparation compared to school examinations, particularly when dealing with a larger volume of interconnected information.",
-        analysis: "This experience taught me the importance of adapting my learning methods to the demands of medical education. Physiology is a fundamental subject because it explains how different systems within the human body function and interact. I began to appreciate that simply memorising information is not sufficient; understanding the mechanisms behind physiological processes is essential for developing a deeper understanding of medicine. Receiving recognition for my performance reinforced the value of consistency, effective time management and independent learning. Most importantly, it helped me realise that I am capable of adapting to the academic challenges associated with studying medicine, even when entering an unfamiliar learning environment.",
-        conclusion: "Looking back, receiving this certificate was more than just an academic achievement. It represented an important milestone in my transition from school to university and gave me greater confidence in my ability to manage the demands of medical education. It also encouraged me to continue developing effective study habits and maintain a strong academic foundation.",
-        action: "Moving forward, I intend to maintain a consistent revision schedule and continue focusing on understanding concepts rather than relying entirely on memorisation. I will also make greater use of practice questions and active recall to assess my understanding before examinations. As I progress through medical school, I hope to build upon this achievement while improving my ability to connect theoretical knowledge with clinical applications. My goal is to maintain a consistent approach to academic development and continuously improve as a medical student."
+        evaluation: "One of the positive aspects of this experience was that it encouraged me to develop a more structured approach to studying. I recognised that understanding the concepts taught during lectures was essential, particularly in a subject such as Physiology, which focuses on the mechanisms responsible for the normal functioning of the human body. Revisiting important topics and ensuring that I understood the underlying processes helped me prepare for the examination. However, I also realised that university examinations require a different level of preparation compared to school examinations, particularly when dealing with a large volume of information within a limited period of time.",
+        analysis: "This experience helped me recognise the importance of consistent study habits and a clear understanding of fundamental concepts. Rather than relying solely on memorisation, I found that understanding how different physiological processes work together improved my ability to recall and apply information. The certificate also reinforced the importance of setting academic goals and working towards them through regular revision and self-assessment. It reminded me that academic success is not achieved through last-minute preparation alone, but through consistent effort over time.",
+        conclusion: "Overall, receiving this certificate was a valuable milestone during my first semester of medical school. It gave me confidence in my ability to adapt to university-level learning and encouraged me to continue developing effective study strategies. It also highlighted the importance of understanding concepts thoroughly rather than simply memorising information.",
+        action: "Moving forward, I intend to maintain a consistent study schedule and continue reviewing material regularly rather than leaving revision until the end of the semester. I also aim to seek feedback from faculty and peers to identify areas where I can improve. As I progress through medical school, I hope to build on this foundation and continue developing the knowledge and skills necessary for clinical practice."
       }
     },
     { 
       title: "Gut-Brain Axis Seminar", 
-      description: "Seminar on the relationship between the digestive and nervous systems and the role of healthy nutrition in overall well-being.", 
-      details: "Attended a seminar exploring how the gut and brain communicate and influence one another, and how nutrition affects both physical and mental health.",
-      image: "/Gut-Brain Axis.jpeg",
-      type: "certificate",
+      description: "Seminar on healthy nutrition and well-being, exploring the relationship between the digestive and nervous systems.", 
+      details: "The seminar explored how the gut-brain axis influences overall health, including the connection between nutrition and mental well-being.",
+      image: "/rahul.jpeg", 
+      type: "seminar",
       date: "Year 1",
       reflection: {
         description: "During my first semester as a Year 1 medical student at Gulf Medical University, I attended a seminar focusing on the gut-brain axis and how healthy nutrition contributes to overall well-being. The session explored the relationship between the digestive system and the nervous system, highlighting how these two systems communicate and influence one another. It introduced me to the idea that nutrition affects more than just physical health and can also play a role in mental well-being. The seminar provided an opportunity to explore a topic that connects different areas of medical science and helped me appreciate the importance of nutrition in maintaining a healthy lifestyle.",
         feelings: "Before attending the seminar, I generally viewed digestion and mental health as separate aspects of human health. I was familiar with the basic functions of the digestive and nervous systems, but I had not fully considered how closely they are connected. Learning about the gut-brain axis made me curious about the different ways in which nutrition can influence mood, stress and overall well-being. As a first-year medical student, I found it particularly interesting because it allowed me to connect concepts from different areas of physiology and develop a broader understanding of how the human body functions.",
-        evaluation: "One of the most valuable aspects of the seminar was that it encouraged me to look at health from a more holistic perspective. Rather than focusing exclusively on individual organs or systems, it demonstrated how different parts of the body interact to maintain overall health. I also appreciated the emphasis on healthy nutritional habits and their potential benefits for both physical and mental well-being. However, the session made me realise that there is still much more for me to learn about the mechanisms connecting gut health, nutrition and the nervous system.",
-        analysis: "The seminar helped me understand that maintaining good health involves more than simply preventing or treating disease. The relationship between the gut and the brain demonstrates how interconnected the different systems of the human body are. Nutrition, in particular, plays an important role in supporting normal physiological functions. I also began to appreciate the importance of preventive healthcare, as simple lifestyle choices, including maintaining a balanced diet and developing healthy eating habits, can contribute to long-term well-being. Another important lesson was recognising that healthcare professionals should consider lifestyle factors when assessing patients rather than focusing exclusively on their symptoms. This reinforced the importance of approaching patient care holistically and understanding that physical and mental health are closely related.",
+        evaluation: "One of the most valuable aspects of the seminar was that it challenged my initial perception of how different body systems interact. I had previously considered the digestive and nervous systems as functioning independently, but the seminar highlighted how they communicate through various mechanisms. This helped me appreciate the complexity of human physiology and the importance of considering multiple factors when assessing health. The seminar also emphasised the role of nutrition in maintaining both physical and mental health, which is relevant to patient care and preventive medicine.",
+        analysis: "The seminar reinforced the importance of understanding the interconnections between different body systems. The gut-brain axis demonstrates how the digestive system can influence the nervous system and vice versa, which has implications for both physical and mental health. This understanding is particularly relevant in clinical practice, where healthcare professionals need to consider multiple factors when assessing patients. The seminar also highlighted the importance of nutrition as a component of overall health, which is relevant to preventive medicine and patient education.",
         conclusion: "Overall, attending this seminar was a valuable learning experience that broadened my understanding of the relationship between nutrition and human health. It challenged my initial perception of digestion and mental well-being as separate processes and helped me appreciate the importance of communication between different body systems. It also reminded me that as a future healthcare professional, understanding preventive healthcare and promoting healthy lifestyle choices will be an important part of my responsibilities.",
         action: "Moving forward, I intend to explore the relationship between nutrition, physiology and mental well-being in greater depth. I also aim to become more conscious of my own nutritional habits and understand how everyday lifestyle choices can influence overall health. Throughout medical school, I hope to attend more seminars and awareness sessions that introduce me to different areas of healthcare beyond the classroom. Most importantly, I want to develop the ability to communicate evidence-based nutritional advice to future patients in a practical and understandable manner."
       }
     },
   ],
-  "evidence-based": [
-    { 
-      title: "Student research", 
-      description: "Early engagement with research methods and inquiry.", 
-      details: "Student research activity focused on developing questions, methods, and evidence-based thinking during year one.",
-      image: "/studentr.jpeg", 
-      type: "photo",
-      date: "Year 1"
-    },
-  ],
   "social-accountability": [
     { 
-      title: "MOHAP Hayat Program certificate", 
-      description: "Appreciation for contribution to the Hayat Program community health initiative.", 
-      details: "Certificate of Appreciation from the Ministry of Health and Prevention – Ajman for contribution to the Hayat Program on 30 September 2026.",
-      image: "/HAYAT PROGRAMME.jpeg", 
+      title: "MOHAP Hayat Program", 
+      description: "National organ donation awareness programme, Ministry of Health and Prevention, UAE.", 
+      details: "Certificate of participation in the Hayat organ donation awareness programme, issued by the Ministry of Health and Prevention, United Arab Emirates.",
+      image: "/MOHAP Hayat Program.jpeg", 
       type: "certificate",
-      date: "30 September 2026"
+      date: "30 September 2026",
+      reflection: {
+        description: "On 30 September 2026, I participated in the MOHAP Hayat Program, a national organ donation awareness programme organised by the Ministry of Health and Prevention of the United Arab Emirates. The programme focused on raising awareness about organ donation and its importance in saving lives. As a first-year medical student, this was one of my first experiences participating in a community health initiative outside the classroom.",
+        feelings: "Before participating, I had a general understanding of organ donation but had not fully considered its impact on individuals and families. During the programme, I felt a sense of responsibility as a future healthcare professional to contribute to public health awareness. I also felt motivated to learn more about the ethical and practical aspects of organ donation.",
+        evaluation: "The programme was well-organised and provided clear information about organ donation. It helped me understand the importance of community engagement in healthcare. One challenge was communicating complex medical concepts in simple terms to the general public.",
+        analysis: "This experience highlighted the importance of social accountability in medicine. Healthcare professionals have a responsibility to contribute to public health beyond clinical settings. The programme also demonstrated how early exposure to community health initiatives can shape a medical student's understanding of their role in society.",
+        conclusion: "Participating in the Hayat Program was a valuable experience that broadened my understanding of medicine beyond the classroom. It reinforced the importance of community engagement and public health awareness as part of a healthcare professional's responsibilities.",
+        action: "Moving forward, I intend to participate in more community health initiatives and continue learning about public health issues. I also aim to develop my communication skills to effectively convey health information to diverse audiences."
+      }
     },
     { 
-      title: "World Diabetes Day certificate", 
-      description: "Participation in community awareness activities for World Diabetes Day.", 
-      details: "Certificate of Participation from Gulf Medical University for involvement in World Diabetes Day community awareness activities.",
-      image: "/World Diabetes Day.jpeg", 
-      type: "certificate",
-      date: "World Diabetes Day 2026",
+      title: "World Diabetes Day", 
+      description: "Participation in World Diabetes Day awareness activities.", 
+      details: "Engaged in activities promoting diabetes awareness and healthy lifestyle choices.",
+      image: "/rahul.jpeg", 
+      type: "event",
+      date: "14 November 2026",
       reflection: {
-        description: "During my first semester as a Year 1 medical student at Gulf Medical University, I had the opportunity to participate in a World Diabetes Day awareness event. The event focused on raising awareness about diabetes, its risk factors, prevention and the importance of early detection. Being part of this initiative allowed me to engage with an important public health topic beyond the classroom. Although I had previously learned about diabetes through my academic studies, participating in an awareness event gave me a different perspective on the condition and its impact on individuals and communities. Receiving a Certificate of Participation from Gulf Medical University was a rewarding part of the experience and recognised my involvement in the initiative.",
-        feelings: "Before participating, I viewed World Diabetes Day mainly as an awareness initiative. However, being involved made me realise how relevant the condition is to everyday life, particularly in a community where diabetes is an important health concern. I felt interested in learning more about how awareness initiatives can influence people’s understanding of health conditions and encourage healthier lifestyle choices. At the same time, I recognised that awareness alone does not guarantee behavioural change, and that ongoing education and support are necessary to make a meaningful difference.",
-        evaluation: "Participating in the event helped me appreciate the importance of public health education. I learned that effective communication is essential when discussing health topics with the community, particularly when explaining risk factors and prevention strategies in a way that is accessible and understandable. One challenge was ensuring that the information shared was accurate and appropriate for the audience, as simplifying complex medical concepts without losing their meaning requires careful thought.",
-        analysis: "This experience highlighted the role of social accountability in medicine. Healthcare professionals have a responsibility not only to treat individual patients but also to contribute to the health of the wider community. World Diabetes Day provided an opportunity to engage with a condition that has significant public health implications. I began to understand that prevention and early detection are just as important as treatment, and that community awareness initiatives can play a valuable role in reducing the burden of chronic diseases. The experience also reinforced the importance of clear communication and cultural sensitivity when addressing health topics in a community setting.",
-        conclusion: "Overall, participating in World Diabetes Day strengthened my understanding of the broader responsibilities of healthcare professionals beyond clinical practice. It allowed me to apply communication skills in a real-world context and appreciate the impact of public health initiatives. Most importantly, it helped me recognise the value of community engagement as part of medical education and professional development.",
-        action: "Moving forward, I intend to seek further opportunities to participate in community health initiatives and public awareness events. I will also work on improving my ability to communicate health information clearly and effectively to different audiences. As I progress through medical school, I hope to develop a stronger understanding of public health principles and continue contributing to initiatives that promote community well-being."
+        description: "On 14 November 2026, I participated in World Diabetes Day awareness activities. The event focused on raising awareness about diabetes prevention, management, and the importance of healthy lifestyle choices. As a first-year medical student, this was an opportunity to engage with the community and learn about a significant public health issue.",
+        feelings: "I felt a sense of purpose in contributing to public health awareness. The event also made me more aware of the prevalence of diabetes and its impact on individuals and communities. I was motivated to learn more about preventive healthcare.",
+        evaluation: "The event was well-organised and provided valuable information about diabetes. It helped me understand the importance of early intervention and lifestyle modifications in preventing and managing diabetes. One challenge was addressing misconceptions about diabetes among the general public.",
+        analysis: "This experience reinforced the importance of social accountability in medicine. Healthcare professionals have a role in educating the public about health issues and promoting healthy behaviours. The event also highlighted the connection between lifestyle choices and health outcomes.",
+        conclusion: "Participating in World Diabetes Day was a meaningful experience that broadened my understanding of public health. It reinforced the importance of community engagement and preventive healthcare as part of a healthcare professional's responsibilities.",
+        action: "Moving forward, I intend to continue participating in health awareness events and develop my knowledge of preventive healthcare. I also aim to improve my ability to communicate health information effectively to diverse audiences."
       }
     },
   ],
