@@ -168,8 +168,8 @@ export function answerJournal(raw: string): string {
   if (s.includes("communicator") || s.includes("communication")) {
     return "Communicator: Builds effective, empathetic relationships with patients, families, and healthcare professionals through clear and respectful communication.";
   }
-  if (s.includes("collaborator") || s.includes("team")) {
-    return "Collaborator: Works effectively within teams, contributes reliably, and promotes shared responsibility and clear communication.";
+  if (s.includes("collaborator") || s.includes("team") || s.includes("pal") || s.includes("peer")) {
+    return "Collaborator: Works effectively within teams, contributes reliably, and promotes shared responsibility and clear communication. Evidence includes the Peer Assisted Learning (PAL) Program certificate.";
   }
   if (s.includes("professional")) {
     return "Professional: Exemplifies integrity, accountability, and ethical conduct. Maintains punctuality and honesty about the limits of current knowledge.";
@@ -266,6 +266,16 @@ export const evidenceItems = {
         conclusion: "Overall, attending this seminar was a valuable learning experience that broadened my understanding of the relationship between nutrition and human health. It challenged my initial perception of digestion and mental well-being as separate processes and helped me appreciate the importance of communication between different body systems. It also reminded me that as a future healthcare professional, understanding preventive healthcare and promoting healthy lifestyle choices will be an important part of my responsibilities.",
         action: "Moving forward, I intend to explore the relationship between nutrition, physiology and mental well-being in greater depth. I also aim to become more conscious of my own nutritional habits and understand how everyday lifestyle choices can influence overall health. Throughout medical school, I hope to attend more seminars and awareness sessions that introduce me to different areas of healthcare beyond the classroom. Most importantly, I want to develop the ability to communicate evidence-based nutritional advice to future patients in a practical and understandable manner."
       }
+    },
+  ],
+  "collaborator": [
+    {
+      title: "Peer Assisted Learning (PAL) Program",
+      description: "Certificate of Competence for valuable role as a tutor in the Peer Assisted Learning Program.",
+      details: "Awarded by Gulf Medical University in recognition of contribution as a tutor in the PAL Program for Academic Year 2025-26.",
+      image: "/PAL-Certificate.jpeg",
+      type: "certificate",
+      date: "Academic Year 2025-26",
     },
   ],
   "social-accountability": [
