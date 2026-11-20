@@ -92,7 +92,7 @@ function Home() {
           <div className="relative fade-up" style={{ animationDelay: "0.3s" }}>
             <div className="rounded-2xl overflow-hidden shadow-xl border border-brass/10">
               <img
-                src="/rahul1.jpg"
+                src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQ8PFwkEHB4kFhcVFB4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAJbA4cDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAn/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
                 alt="Rahul Devnani"
                 className="w-full"
               />
@@ -132,7 +132,7 @@ function Home() {
         <div className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-16">
           <div className="space-y-4 max-w-xl">
             {yearMap.map((item) => (
-              <div key={item.when} className="glass-card p-5">
+              <div key={item.when} className="glass-card p-5">{
                 <p className="text-[0.6rem] font-medium tracking-widest text-brass uppercase">{item.when}</p>
                 <p className="mt-2 text-sm leading-6 text-ink">{item.what}</p>
               </div>
