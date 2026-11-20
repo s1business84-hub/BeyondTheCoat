@@ -37,7 +37,7 @@ function CompetencyMarquee() {
   const items = [...competencies, ...competencies];
   return (
     <div className="overflow-hidden border-y border-brass/20 bg-gradient-to-r from-brass/10 via-warm/5 to-brass/10 py-3">
-      <div className="marquee-track">
+      <div className="marquee-track">{
         {items.map((item, i) => (
           <span key={i} className="flex items-center gap-4 text-sm tracking-wide whitespace-nowrap text-brass font-medium">
             {item.title}
@@ -203,7 +203,7 @@ function Home() {
           </div>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {purposes.map((item) => (
-              <article key={item.index} className="glass-card p-5">
+              <article key={item.index} className="glass-card p-5">{
                 <div className="grid size-10 place-items-center rounded-xl bg-gradient-to-br from-brass to-warm text-white shadow-md">
                   <svg className="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -228,7 +228,7 @@ function Home() {
             A growing collection of research projects, publications, and scholarly contributions to medicine.
           </p>
           <div className="mx-auto mt-6 max-w-sm">
-            <div className="glass-card p-5 text-center">
+            <div className="glass-card p-5 text-center">{
               <div className="mx-auto grid size-10 place-items-center rounded-xl bg-gradient-to-br from-brass to-warm text-white shadow-md">
                 <svg className="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
