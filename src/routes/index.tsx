@@ -37,7 +37,7 @@ function CompetencyMarquee() {
   const items = [...competencies, ...competencies];
   return (
     <div className="overflow-hidden border-y border-brass/20 bg-gradient-to-r from-brass/10 via-warm/5 to-brass/10 py-3">
-      <div className="marquee-track">{
+      <div className="marquee-track">
         {items.map((item, i) => (
           <span key={i} className="flex items-center gap-4 text-sm tracking-wide whitespace-nowrap text-brass font-medium">
             {item.title}
@@ -92,7 +92,7 @@ function Home() {
           <div className="relative fade-up" style={{ animationDelay: "0.3s" }}>
             <div className="rounded-2xl overflow-hidden shadow-xl border border-brass/10">
               <img
-                src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQ8PFwkEHB4kFhcVFB4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAJbA4cDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAn/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
+                src="/Rahul1.JPG"
                 alt="Rahul Devnani"
                 className="w-full"
               />
@@ -132,7 +132,7 @@ function Home() {
         <div className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-16">
           <div className="space-y-4 max-w-xl">
             {yearMap.map((item) => (
-              <div key={item.when} className="glass-card p-5">{
+              <div key={item.when} className="glass-card p-5">
                 <p className="text-[0.6rem] font-medium tracking-widest text-brass uppercase">{item.when}</p>
                 <p className="mt-2 text-sm leading-6 text-ink">{item.what}</p>
               </div>
@@ -203,7 +203,7 @@ function Home() {
           </div>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {purposes.map((item) => (
-              <article key={item.index} className="glass-card p-5">{
+              <article key={item.index} className="glass-card p-5">
                 <div className="grid size-10 place-items-center rounded-xl bg-gradient-to-br from-brass to-warm text-white shadow-md">
                   <svg className="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -228,7 +228,7 @@ function Home() {
             A growing collection of research projects, publications, and scholarly contributions to medicine.
           </p>
           <div className="mx-auto mt-6 max-w-sm">
-            <div className="glass-card p-5 text-center">{
+            <div className="glass-card p-5 text-center">
               <div className="mx-auto grid size-10 place-items-center rounded-xl bg-gradient-to-br from-brass to-warm text-white shadow-md">
                 <svg className="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
