@@ -23,9 +23,9 @@ function ScrollProgress() {
   }, []);
 
   return (
-    <div className="pointer-events-none fixed inset-x-0 top-0 z-50 h-0.5" aria-hidden="true">
+    <div className="pointer-events-none fixed inset-x-0 top-0 z-50 h-1" aria-hidden="true">
       <div
-        className="h-full w-full origin-left moving-bar"
+        className="h-full w-full origin-left bg-gradient-to-r from-brass via-warm to-brass"
         style={{ transform: `scaleX(${scale})` }}
       />
     </div>
@@ -41,7 +41,7 @@ function Nav() {
   }, [pathname]);
 
   return (
-    <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-xl border-b border-line/30">
+    <header className="sticky top-0 z-40 bg-gradient-to-r from-white/95 via-white/90 to-white/95 backdrop-blur-xl border-b border-brass/10">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5 md:px-8">
         <Link to="/" className="leading-none">
           <span className="block font-serif text-lg font-medium tracking-wide text-ink">
@@ -60,7 +60,7 @@ function Nav() {
                 to={link.to}
                 className={
                   "text-[0.65rem] font-medium tracking-[0.15em] uppercase transition-colors " +
-                  (active ? "text-brass" : "text-ink/60 hover:text-ink")
+                  (active ? "text-brass" : "text-ink/60 hover:text-brass")
                 }
                 aria-current={active ? "page" : undefined}
               >
@@ -71,7 +71,7 @@ function Nav() {
         </nav>
         <button
           type="button"
-          className="grid size-10 place-items-center border border-line/50 text-ink md:hidden rounded-lg hover:border-brass hover:text-brass transition-colors"
+          className="grid size-10 place-items-center border border-brass/20 text-ink md:hidden rounded-lg hover:border-brass hover:text-brass hover:bg-brass/5 transition-all"
           aria-expanded={open}
           aria-controls="mobile-nav"
           onClick={() => setOpen((v) => !v)}
@@ -81,7 +81,7 @@ function Nav() {
         </button>
       </div>
       {open ? (
-        <nav id="mobile-nav" className="border-t border-line/30 bg-white/95 backdrop-blur-xl md:hidden" aria-label="Mobile">
+        <nav id="mobile-nav" className="border-t border-brass/10 bg-white/95 backdrop-blur-xl md:hidden" aria-label="Mobile">
           {links.map((link) => {
             const active = pathname === link.to;
             return (
@@ -89,8 +89,8 @@ function Nav() {
                 key={link.to}
                 to={link.to}
                 className={
-                  "flex h-12 items-center border-b border-line/20 px-5 text-sm tracking-wide transition-colors " +
-                  (active ? "bg-bone/50 text-brass" : "text-ink/70 hover:text-ink")
+                  "flex h-12 items-center border-b border-brass/5 px-5 text-sm tracking-wide transition-colors " +
+                  (active ? "bg-brass/5 text-brass" : "text-ink/70 hover:text-brass hover:bg-brass/5")
                 }
                 aria-current={active ? "page" : undefined}
               >
@@ -106,7 +106,7 @@ function Nav() {
 
 function Footer() {
   return (
-    <footer className="bg-ink text-bone">
+    <footer className="bg-gradient-to-br from-ink to-steel text-bone">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-4 md:px-8">
         <div className="md:col-span-2">
           <p className="font-serif text-2xl">Rahul Devnani</p>
@@ -186,9 +186,9 @@ function JournalDesk() {
         <section
           role="dialog"
           aria-labelledby={titleId}
-          className="flex w-[min(100vw-2rem,22rem)] flex-col border border-line bg-white rounded-xl shadow-xl"
+          className="flex w-[min(100vw-2rem,22rem)] flex-col border border-brass/20 bg-white rounded-xl shadow-xl"
         >
-          <header className="flex items-center justify-between border-b border-line px-4 py-3">
+          <header className="flex items-center justify-between border-b border-brass/10 px-4 py-3 bg-gradient-to-r from-brass/5 to-warm/5">
             <div>
               <p id={titleId} className="text-sm font-medium tracking-wide">
                 Journal desk
@@ -197,7 +197,7 @@ function JournalDesk() {
             </div>
             <button
               type="button"
-              className="grid size-10 place-items-center"
+              className="grid size-10 place-items-center hover:bg-brass/10 rounded-lg"
               onClick={() => setOpen(false)}
               aria-label="Close journal desk"
             >
@@ -213,19 +213,19 @@ function JournalDesk() {
                   (message.from === "you" ? "text-muted" : "text-ink")
                 }
               >
-                <span className="mr-2 text-[0.6rem] tracking-widest uppercase text-muted">
+                <span className="mr-2 text-[0.6rem] tracking-widest uppercase text-brass">
                   {message.from === "you" ? "You" : "Journal"}
                 </span>
                 {message.text}
               </p>
             ))}
           </div>
-          <div className="flex flex-wrap gap-2 border-t border-line px-4 py-3">
+          <div className="flex flex-wrap gap-2 border-t border-brass/10 px-4 py-3">
             {suggestions.map((item) => (
               <button
                 key={item}
                 type="button"
-                className="border border-line px-3 py-2 text-xs tracking-wide text-muted hover:text-ink rounded-md"
+                className="border border-brass/20 px-3 py-2 text-xs tracking-wide text-brass hover:bg-brass/10 rounded-md"
                 onClick={() => ask(item)}
               >
                 {item}
@@ -233,7 +233,7 @@ function JournalDesk() {
             ))}
           </div>
           <form
-            className="flex border-t border-line"
+            className="flex border-t border-brass/10"
             onSubmit={(event) => {
               event.preventDefault();
               ask(draft);
@@ -250,7 +250,7 @@ function JournalDesk() {
               placeholder="Ask the journal"
               className="min-w-0 flex-1 bg-transparent px-4 py-3 text-sm outline-none"
             />
-            <button type="submit" className="px-4 text-xs font-medium tracking-widest uppercase text-brass">
+            <button type="submit" className="px-4 text-xs font-medium tracking-widest uppercase text-brass hover:bg-brass/5">
               Send
             </button>
           </form>
@@ -258,7 +258,7 @@ function JournalDesk() {
       ) : null}
       <button
         type="button"
-        className="h-11 bg-ink px-5 text-[0.6rem] font-medium tracking-[0.2em] text-bone uppercase rounded-lg shadow-lg"
+        className="h-11 bg-gradient-to-r from-ink to-steel px-5 text-[0.6rem] font-medium tracking-[0.2em] text-bone uppercase rounded-lg shadow-lg hover:shadow-xl transition-shadow"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
       >
@@ -270,7 +270,7 @@ function JournalDesk() {
 
 export function SiteFrame({ children }: { children: ReactNode }) {
   return (
-    <div className="min-h-screen bg-bone">
+    <div className="min-h-screen">
       <a
         href="#content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:bg-bone focus:px-3 focus:py-2"
@@ -299,7 +299,7 @@ export function Kicker({ index, children }: { index: string; children: string })
 export function Monogram() {
   return (
     <div
-      className="grid size-14 place-items-center border border-brass font-serif text-lg text-ink rounded-xl"
+      className="grid size-14 place-items-center border border-brass font-serif text-lg text-brass rounded-xl bg-gradient-to-br from-brass/10 to-warm/5"
       aria-hidden="true"
     >
       RD
