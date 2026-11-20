@@ -5,10 +5,26 @@ import { competencies, purposes, standing, evidenceItems, ledger, yearMap } from
 
 export const Route = createFileRoute("/")({ component: Home });
 
+function AnimatedName({ text, accent = false, className }: { text: string; accent?: boolean; className?: string }) {
+  return (
+    <span className={className}>
+      {text.split("").map((char, i) => (
+        <span
+          key={i}
+          className={accent ? "name-letter-accent" : "name-letter"}
+          style={{ animationDelay: `${0.05 + i * 0.04}s` }}
+        >
+          {char === " " ? "\u00A0" : char}
+        </span>
+      ))}
+    </span>
+  );
+}
+
 function CompetencyMarquee() {
   const items = [...competencies, ...competencies];
   return (
-    <div className="overflow-hidden border-y border-line/30 bg-white/50 py-3">
+    <div className="overflow-hidden border-y border-line/30 bg-white/60 py-3">
       <div className="marquee-track">
         {items.map((item, i) => (
           <span key={i} className="flex items-center gap-4 text-sm tracking-wide whitespace-nowrap text-muted">
@@ -26,9 +42,9 @@ function Home() {
     <SiteFrame>
       <section className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
         <div className="fade-up">
-          <h1 className="font-serif text-6xl md:text-7xl lg:text-8xl leading-none tracking-tight">
-            <span className="block text-ink">Rahul</span>
-            <span className="block italic text-brass/40">Devnani</span>
+          <h1 className="hero-name font-serif font-medium">
+            <AnimatedName text="Rahul" className="block text-ink" />
+            <AnimatedName text="Devnani" accent className="block italic" />
           </h1>
           <p className="mt-10 text-[0.65rem] font-medium tracking-[0.22em] text-brass uppercase">
             About Me
@@ -60,8 +76,8 @@ function Home() {
             </Link>
           </div>
         </div>
-        <div className="relative mt-12 fade-up" style={{ animationDelay: "0.3s" }}>
-          <div className="rounded-2xl overflow-hidden shadow-lg">
+        <div className="relative mt-12 fade-up" style={{ animationDelay: "0.4s" }}>
+          <div className="rounded-2xl overflow-hidden shadow-xl">
             <img
               src="/rahul.jpeg"
               alt="Rahul Devnani"
@@ -70,7 +86,7 @@ function Home() {
           </div>
           <div className="floating-card absolute bottom-4 left-4 p-4 md:bottom-6 md:left-6">
             <div className="flex items-start gap-3">
-              <span className="mt-1.5 size-2.5 shrink-0 rounded-full bg-brass" />
+              <span className="mt-1.5 size-2.5 shrink-0 rounded-full bg-gradient-to-r from-brass to-warm" />
               <div>
                 <p className="text-sm font-medium text-ink">Year 1 · MD</p>
                 <p className="text-xs text-muted">Entered 2026</p>
@@ -127,7 +143,7 @@ function Home() {
             <h2 className="mt-2 font-serif text-3xl md:text-4xl">
               The 9 Core <span className="gradient-text">Competencies</span>
             </h2>
-            <div className="mx-auto mt-3 h-0.5 w-12 bg-brass rounded-full" />
+            <div className="mx-auto mt-3 h-0.5 w-12 bg-gradient-to-r from-brass to-warm rounded-full" />
           </div>
           <p className="mx-auto mt-4 max-w-lg text-center text-sm leading-6 text-muted">
             Click any competency to explore detailed reflections, evidence, and structured Gibbs Reflective Cycle documentation aligned with Gulf Medical University standards.
@@ -143,11 +159,11 @@ function Home() {
                   className="glass-card group block p-5"
                 >
                   <div className="flex items-start justify-between">
-                    <div className="grid size-10 place-items-center rounded-xl bg-brass/10 text-brass">
+                    <div className="grid size-12 place-items-center rounded-xl bg-gradient-to-br from-brass/20 to-warm/10 text-brass">
                       <CompetencyIcon id={item.id} />
                     </div>
                     {count > 0 && (
-                      <span className="rounded-full bg-brass/10 px-2 py-0.5 text-[0.5rem] font-medium tracking-wide text-brass">
+                      <span className="rounded-full bg-gradient-to-r from-brass to-warm px-2.5 py-1 text-[0.5rem] font-bold tracking-wide text-white shadow-md">
                         {count} {count === 1 ? "ENTRY" : "ENTRIES"}
                       </span>
                     )}
@@ -165,7 +181,7 @@ function Home() {
         <div className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-16">
           <div className="text-center">
             <h2 className="font-serif text-3xl md:text-4xl">Purpose of This Portfolio</h2>
-            <div className="mx-auto mt-3 h-0.5 w-12 bg-brass rounded-full" />
+            <div className="mx-auto mt-3 h-0.5 w-12 bg-gradient-to-r from-brass to-warm rounded-full" />
             <p className="mx-auto mt-4 max-w-lg text-sm leading-6 text-muted">
               A structured record of academic and clinical development reflecting progression across key medical competencies — aligned with the GMU e-portfolio framework.
             </p>
@@ -173,7 +189,7 @@ function Home() {
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {purposes.map((item) => (
               <article key={item.index} className="glass-card p-5">
-                <div className="grid size-10 place-items-center rounded-xl bg-brass/10 text-brass">
+                <div className="grid size-10 place-items-center rounded-xl bg-gradient-to-br from-brass/20 to-warm/10 text-brass">
                   <svg className="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                   </svg>
@@ -191,14 +207,14 @@ function Home() {
           <div className="text-center">
             <p className="text-[0.6rem] font-medium tracking-[0.2em] text-brass uppercase">Scholarly Work</p>
             <h2 className="mt-2 font-serif text-3xl md:text-4xl">Research & Publications</h2>
-            <div className="mx-auto mt-3 h-0.5 w-12 bg-brass rounded-full" />
+            <div className="mx-auto mt-3 h-0.5 w-12 bg-gradient-to-r from-brass to-warm rounded-full" />
           </div>
           <p className="mx-auto mt-4 max-w-md text-center text-sm leading-6 text-muted">
             A growing collection of research projects, publications, and scholarly contributions to medicine.
           </p>
           <div className="mx-auto mt-6 max-w-sm">
             <div className="glass-card p-5 text-center">
-              <div className="mx-auto grid size-10 place-items-center rounded-xl bg-brass/10 text-brass">
+              <div className="mx-auto grid size-10 place-items-center rounded-xl bg-gradient-to-br from-brass/20 to-warm/10 text-brass">
                 <svg className="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
