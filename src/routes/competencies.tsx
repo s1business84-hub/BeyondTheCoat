@@ -219,11 +219,9 @@ function CompetenciesPage() {
                       <div className={`grid size-16 place-items-center rounded-2xl shadow-xl ${colors.bg} ${colors.icon}`}>
                         <CompetencyIcon id={item.id} />
                       </div>
-                      {count > 0 && (
-                        <span className="rounded-full bg-gradient-to-r from-brass to-warm px-3 py-1.5 text-[0.55rem] font-bold tracking-wide text-white shadow-lg">
-                          {count} {count === 1 ? "ENTRY" : "ENTRIES"}
-                        </span>
-                      )}
+                      <span className="rounded-full bg-gradient-to-r from-brass to-warm px-3 py-1.5 text-[0.55rem] font-bold tracking-wide text-white shadow-lg">
+                        {count > 0 ? `${count} ${count === 1 ? "ENTRY" : "ENTRIES"}` : "NO ENTRIES"}
+                      </span>
                     </div>
                     <h2 className="mt-5 font-serif text-xl leading-snug group-hover:text-brass transition-colors">{item.title}</h2>
                     <p className="mt-2 text-sm leading-6 text-muted line-clamp-3">{item.plain}</p>
@@ -317,9 +315,9 @@ function CompetenciesPage() {
               {selected.plain}
             </p>
 
-            {evidences.length > 0 && (
-              <div className="mt-10">
-                <h2 className="font-serif text-2xl">Evidence</h2>
+            <div className="mt-10">
+              <h2 className="font-serif text-2xl">Evidence</h2>
+              {evidences.length > 0 ? (
                 <div className="mt-6 space-y-4">
                   {evidences.map((ev: any, i: number) => (
                     <Link
@@ -346,8 +344,10 @@ function CompetenciesPage() {
                     </Link>
                   ))}
                 </div>
-              </div>
-            )}
+              ) : (
+                <p className="mt-4 text-sm text-muted">No entries have been recorded for this competency yet.</p>
+              )}
+            </div>
           </>
         )}
       </div>
