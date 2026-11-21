@@ -27,7 +27,7 @@ export const competencies: Competency[] = [
   {
     id: "patient-care",
     index: "03",
-    title: "Patient Care Provider and Health Advocate",
+    title: "Patient Care Provider and HealthAdvocate",
     plain: "Places patients at the center of care, ensuring their safety, dignity, and well-being. Advocates for equitable access to healthcare and supports initiatives that enhance public health outcomes.",
     yearOne: "",
     evidence: "",
